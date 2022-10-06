@@ -65,7 +65,8 @@ AppAsset::register($this);
         $items = [
             ['label' => 'Работодателю', 'url' => ['/site/employer']],
             ['label' => 'Соискателю', 'url' => ['/site/candidate']],
-            
+            ['label' => 'Поиск', 'url' => ['/search/vacancy']],
+
             ['label' => 'Войти', 'url' => ['/site/login']]
         ];
         
@@ -93,7 +94,7 @@ AppAsset::register($this);
             $items = [
                  ['label' => 'Резюме', 'url' => ['/site/index'], 'items' => [
                      ['label' => 'Мои резюме', 'url' => ['/resume/list']],
-                     ['label' => 'Отклики и приглашения', 'url' => ['/site/about']]
+                     ['label' => 'Отклики и приглашения', 'url' => ['/response/candidate']]
 
                      
                 ]],

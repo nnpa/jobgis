@@ -75,7 +75,9 @@ class VacancyController extends Controller
     
     public function actionShow($id){
         $vacancy = Vacancy::find()->where(["id" =>$id])->one();
+        
         if(!is_null($vacancy)){
+            $this->view->title = "jobgis.ru вакансия " . $vacancy->name ." " . $vacancy->city;
             return $this->render("show",["vacancy" => $vacancy]);
         }
     }
@@ -89,8 +91,8 @@ class VacancyController extends Controller
             $vacancy->spec  = $_POST["spec"];
             $vacancy->specsub  = $_POST["specsub"];
             $vacancy->city  = $_POST["city"];
-            $vacancy->costfrom  = $_POST["costfrom"];
-            $vacancy->costto  = $_POST["costto"];
+            $vacancy->costfrom  = (int) $_POST["costfrom"];
+            $vacancy->costto  = (int) $_POST["costto"];
             $vacancy->cash  = $_POST["cash"];
             $vacancy->cashtype  = $_POST["cashtype"];
             $vacancy->address  = $_POST["address"];

@@ -69,7 +69,15 @@ class SearchController extends Controller
         
         $conn = mysqli_connect("localhost","root","g02091988","jobgis");
         
-        $user = Yii::$app->user->identity;
+        if(!Yii::$app->user->isGuest){
+            $user = Yii::$app->user->identity;
+            $city = $user->city;
+        }else{
+            $city = "";
+        }
+        
+        
+        
         $sql = "SELECT * FROM `vacancy` WHERE 1=1";
         $url = "http://jobgis.ru/search/vacancy?test=1";
         $sqlCount = "SELECT COUNT(*) FROM `vacancy` WHERE 1=1";
@@ -90,7 +98,7 @@ class SearchController extends Controller
             $sqlCount .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
             $url .= "&city=" . $city; 
         }else {
-            $city = $user->city;
+            $city = $city;
             $sql .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
             $sqlCount .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
             $url .= "&city=" . $city;
@@ -187,7 +195,12 @@ class SearchController extends Controller
         
         $conn = mysqli_connect("localhost","root","g02091988","jobgis");
         
-        $user = Yii::$app->user->identity;
+        if(!Yii::$app->user->isGuest){
+            $user = Yii::$app->user->identity;
+            $city = $user->city;
+        }else{
+            $city = "";
+        }
         $sql = "SELECT * FROM `resume` WHERE 1=1";
         $url = "http://jobgis.ru/search/resume?test=1";
         $sqlCount = "SELECT COUNT(*) FROM `resume` WHERE 1=1";
@@ -207,8 +220,7 @@ class SearchController extends Controller
             $sqlCount .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
             $url .= "&city=" . $city; 
         }else {
-            $city = $user->city;
-            $sql .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
+                $sql .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
             $sqlCount .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
             $url .= "&city=" . $city;
         }

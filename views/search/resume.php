@@ -95,8 +95,8 @@ font-size: 13px;  list-style-position: inside; padding: 5px; }
 
 <script type="text/javascript">
 $(document).ready(function(){
-$("ul").hide();
-$("ul li:odd").css("background-color", "#efefef");
+$("ul.spec").hide();
+$("ul.spec li:odd").css("background-color", "#efefef");
 $("h3 span").click(function(){
 $(this).parent().next().slideToggle();
 });
@@ -235,7 +235,7 @@ function selectCountry(val) {
             <div class="spec-div">
                 <div class="box">
                     <h3><span class="expand">Автомобильный бизнес</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Автомобильный бизнес',this)" type="radio" name="specr" value="Автомойщик"> Автомойщик</li>
                         <li><input onClick="addSpec('Автомобильный бизнес',this)" type="radio" name="specr" value="Автослесарь, автомеханик"> Автослесарь, автомеханик</li>
                         <li><input onClick="addSpec('Автомобильный бизнес',this)" type="radio" name="specr" value="Мастер-приемщик"> Мастер-приемщик</li>
@@ -244,7 +244,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Административный персонал</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Административный персонал',this)"  type="radio" name="specr" value="Администратор"> Администратор</li>
                         <li><input onClick="addSpec('Административный персонал',this)"  type="radio" name="specr" value="Делопроизводитель, архивариус"> Делопроизводитель, архивариус</li>
                         <li><input onClick="addSpec('Административный персонал',this)"  type="radio" name="specr" value="Курьер"> Курьер</li>
@@ -257,7 +257,7 @@ function selectCountry(val) {
                 </div>
                  <div class="box">
                     <h3><span class="expand">Безопасность</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Безопасность',this)"  type="radio" name="specr" value="Военнослужащий"> Военнослужащий</li>
                         <li><input onClick="addSpec('Безопасность',this)"  type="radio" name="specr" value="Охранник"> 	Охранник</li>
                         <li><input onClick="addSpec('Безопасность',this)"  type="radio" name="specr" value="Полицейский"> Полицейский</li>
@@ -268,7 +268,7 @@ function selectCountry(val) {
                 
                  <div class="box">
                     <h3><span class="expand">Высший менеджмент</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Высший менеджмент',this)"   type="radio" name="specr" value="Генеральный директор, исполнительный директор (CEO)"> Генеральный директор, исполнительный директор (CEO)</li>
                         <li><input onClick="addSpec('Высший менеджмент',this)"   type="radio" name="specr" value="Директор по информационным технологиям (CIO)"> Директор по информационным технологиям (CIO)</li>
                         <li><input onClick="addSpec('Высший менеджмент',this)"   type="radio" name="specr" value="Директор по маркетингу и PR (CMO)"> Директор по маркетингу и PR (CMO)</li>
@@ -281,7 +281,7 @@ function selectCountry(val) {
                 </div>
                  <div class="box">
                     <h3><span class="expand">Добыча сырья</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input  onClick="addSpec('Добыча сырья',this)"  type="radio" name="specr" value="Геодезист"> Геодезист</li>
                         <li><input onClick="addSpec('Добыча сырья',this)" type="radio" name="specr" value="Геолог"> Геолог</li>
                         <li><input onClick="addSpec('Добыча сырья',this)" type="radio" name="specr" value="Инженер-технолог"> Инженер-технолог</li>
@@ -291,7 +291,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Домашний, обслуживающий персонал</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Домашний, обслуживающий персонал',this)" type="radio" name="specr" value="Администратор"> Администратор</li>
                         <li><input onClick="addSpec('Домашний, обслуживающий персонал',this)" type="radio" name="specr" value="Водитель"> 	Водитель</li>
                         <li><input onClick="addSpec('Домашний, обслуживающий персонал',this)" type="radio" name="specr" value="Дворник"> 	Дворник</li>
@@ -303,14 +303,14 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Закупки</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input   onClick="addSpec('Закупки',this)"  type="radio" name="specr" value="Менеджер по закупкам"> Менеджер по закупкам</li>
                         <li><input onClick="addSpec('Закупки',this)"  type="radio" name="specr" value="Специалист по тендерам"> Специалист по тендерам</li>
                     </ul>
                 </div>
                 <div class="box">
                     <h3><span class="expand">Информационные технологии</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Информационные технологии',this)" type="radio" name="specr" value="Аналитик"> Аналитик</li>
                         <li><input onClick="addSpec('Информационные технологии',this)"  type="radio" name="specr" value="Арт-директор, креативный директор"> Арт-директор, креативный директор</li>
                         <li><input onClick="addSpec('Информационные технологии',this)"  type="radio" name="specr" value="Гейм-дизайнер"> Гейм-дизайнер</li>
@@ -333,7 +333,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Искусство, развлечения, масс-медиа</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Искусство, развлечения, масс-медиа',this)"  type="radio" name="specr" value="Арт-директор, креативный директор"> Арт-директор, креативный директор</li>
                         <li><input onClick="addSpec('Искусство, развлечения, масс-медиа',this)"  type="radio" name="specr" value="Артист, актер, аниматор"> Артист, актер, аниматор</li>
                         <li><input onClick="addSpec('Искусство, развлечения, масс-медиа',this)"  type="radio" name="specr" value="Видеооператор, видеомонтажер"> Видеооператор, видеомонтажер</li>
@@ -348,7 +348,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Маркетинг, реклама, PR</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Маркетинг, реклама, PR',this)"   type="radio" name="specr" value="Event-менеджер"> Event-менеджер/li>
                         <li><input onClick="addSpec('Маркетинг, реклама, PR',this)"  type="radio" name="specr" value="PR-менеджер"> PR-менеджер</li>
                         <li><input onClick="addSpec('Маркетинг, реклама, PR',this)"  type="radio" name="specr" value="SMM-менеджер, контент-менеджер"> SMM-менеджер, контент-менеджер</li>
@@ -365,7 +365,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Медицина, фармацевтика</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Медицина, фармацевтика',this)"   type="radio" name="specr" value="Администратор"> Администратор</li>
                         <li><input onClick="addSpec('Медицина, фармацевтика',this)"  type="radio" name="specr" value="Ассистент врача"> Ассистент врача</li>
                         <li><input onClick="addSpec('Медицина, фармацевтика',this)"  type="radio" name="specr" value="Ветеринарный врач"> Ветеринарный врач</li>
@@ -379,7 +379,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Наука, образование</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input  onClick="addSpec('Наука, образование',this)" type="radio" name="specr" value="Бизнес-тренер"> Бизнес-тренер</li>
                         <li><input  onClick="addSpec('Наука, образование',this)" type="radio" name="specr" value="Воспитатель, няня"> Воспитатель, няня</li>
                         <li><input  onClick="addSpec('Наука, образование',this)" type="radio" name="specr" value="Научный специалист, исследователь, лаборант"> Научный специалист, исследователь, лаборант</li>
@@ -390,7 +390,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Продажи, обслуживание клиентов</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input  onClick="addSpec('Продажи, обслуживание клиентов',this)" type="radio" name="specr" value="Агент по недвижимости">Агент по недвижимости</li>
                         <li><input onClick="addSpec('Продажи, обслуживание клиентов',this)" type="radio" name="specr" value="Аналитик">Аналитик</li>
                         <li><input onClick="addSpec('Продажи, обслуживание клиентов',this)" type="radio" name="specr" value="Кассир-операционист">Кассир-операционист</li>
@@ -412,7 +412,7 @@ function selectCountry(val) {
             
                 <div class="box">
                     <h3><span class="expand">Производство, сервисное обслуживание</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Производство, сервисное обслуживание',this)"  type="radio" name="specr" value="Инженер по качеству">Инженер по качеству</li>
                         <li><input onClick="addSpec('Производство, сервисное обслуживание',this)" type="radio" name="specr" value="Инженер по охране труда и технике безопасности">Инженер по охране труда и технике безопасности</li>
                         <li><input onClick="addSpec('Производство, сервисное обслуживание',this)" type="radio" name="specr" value="Инженер по эксплуатации">Инженер по эксплуатации</li>
@@ -435,7 +435,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Рабочий персонал</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Рабочий персонал',this)" type="radio" name="specr" value="Автослесарь, автомеханик">Автослесарь, автомеханик</li>
                         <li><input  onClick="addSpec('Рабочий персонал',this)"  type="radio" name="specr" value="Водитель">Водитель</li>
                         <li><input  onClick="addSpec('Рабочий персонал',this)" type="radio" name="specr" value="Грузчик">Грузчик</li>
@@ -457,7 +457,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Розничная торговля</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input  onClick="addSpec('Розничная торговля',this)" type="radio" name="specr" value="Администратор магазина, администратор торгового зала">Администратор магазина, администратор торгового зала</li>
                         <li><input onClick="addSpec('Розничная торговля',this)"  type="radio" name="specr" value="Директор магазина, директор сети магазинов">Директор магазина, директор сети магазинов</li>
                         <li><input onClick="addSpec('Розничная торговля',this)"  type="radio" name="specr" value="Мерчандайзер">Мерчандайзер</li>
@@ -470,7 +470,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Сельское хозяйство</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Сельское хозяйство',this)" type="radio" name="specr" value="Агроном">Агроном</li>
                         <li><input  onClick="addSpec('Сельское хозяйство',this)" type="radio" name="specr" value="Ветеринарный врач">	Ветеринарный врач</li>
                         <li><input  onClick="addSpec('Сельское хозяйство',this)" type="radio" name="specr" value="Зоотехник">	Зоотехник</li>
@@ -481,7 +481,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Спортивные клубы, фитнес, салоны красоты</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input  onClick="addSpec('Спортивные клубы, фитнес, салоны красоты',this)" type="radio" name="specr" value="Администратор">Администратор</li>
                         <li><input  onClick="addSpec('Спортивные клубы, фитнес, салоны красоты',this)" type="radio" name="specr" value="Косметолог">Косметолог</li>
                         <li><input  onClick="addSpec('Спортивные клубы, фитнес, салоны красоты',this)" type="radio" name="specr" value="Массажист">Массажист</li>
@@ -494,7 +494,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Стратегия, инвестиции, консалтинг</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input  onClick="addSpec('Стратегия, инвестиции, консалтинг',this)"  type="radio" name="specr" value="Аналитик">Аналитик</li>
                         <li><input onClick="addSpec('Стратегия, инвестиции, консалтинг',this)" type="radio" name="specr" value="Менеджер/консультант по стратегии">	Менеджер/консультант по стратегии</li>
                         <li><input onClick="addSpec('Стратегия, инвестиции, консалтинг',this)"type="radio" name="specr" value="Руководитель проектов">Руководитель проектов</li>
@@ -504,7 +504,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Страхование</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Страхование',this)" type="radio" name="specr" value="Андеррайтер">Андеррайтер</li>
                         <li><input onClick="addSpec('Страхование',this)" type="radio" name="specr" value="Оценщик">Оценщик</li>
                         <li><input onClick="addSpec('Страхование',this)" type="radio" name="specr" value="Страховой агент">Страховой агент</li>
@@ -512,7 +512,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Строительство, недвижимость</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Строительство, недвижимость',this)"  type="radio" name="specr" value="Агент по недвижимости">Агент по недвижимости</li>
                         <li><input onClick="addSpec('Строительство, недвижимость',this)" type="radio" name="specr" value="Архитектор">Архитектор</li>
                         <li><input onClick="addSpec('Строительство, недвижимость',this)" type="radio" name="specr" value="Геодезист">Геодезист</li>
@@ -534,7 +534,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Транспорт, логистика, перевозки</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Транспорт, логистика, перевозки',this)"  type="radio" name="specr" value="Водитель">Водитель</li>
                         <li><input  onClick="addSpec('Транспорт, логистика, перевозки',this)" type="radio" name="specr" value="Грузчик">Грузчик</li>
                         <li><input  onClick="addSpec('Транспорт, логистика, перевозки',this)" type="radio" name="specr" value="Диспетчер">	Диспетчер</li>
@@ -547,7 +547,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Туризм, гостиницы, рестораны</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input  onClick="addSpec('Туризм, гостиницы, рестораны',this)" type="radio" name="specr" value="Администратор">Администратор</li>
                         <li><input onClick="addSpec('Туризм, гостиницы, рестораны',this)" type="radio" name="specr" value="Менеджер по туризму">Менеджер по туризму</li>
                         <li><input onClick="addSpec('Туризм, гостиницы, рестораны',this)" type="radio" name="specr" value="Менеджер ресторана">Менеджер ресторана</li>
@@ -559,7 +559,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Управление персоналом, тренинги</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input type="radio" name="specr" value="Бизнес-тренер">Бизнес-тренер</li>
                         <li><input type="radio" name="specr" value="Директор по персоналу (HRD)">Директор по персоналу (HRD)</li>
                         <li><input type="radio" name="specr" value="Менеджер по персоналу">Менеджер по персоналу</li>
@@ -569,7 +569,7 @@ function selectCountry(val) {
                 </div>
                 <div class="box">
                     <h3><span class="expand">Финансы, бухгалтерия</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Финансы, бухгалтерия',this)" type="radio" name="specr" value="Аудитор">Аудитор</li>
                         <li><input onClick="addSpec('Финансы, бухгалтерия',this)" type="radio" name="specr" value="Бухгалтер">Бухгалтер</li>
                         <li><input onClick="addSpec('Финансы, бухгалтерия',this)" type="radio" name="specr" value="Казначей">Казначей</li>
@@ -583,14 +583,14 @@ function selectCountry(val) {
             
                 <div class="box">
                     <h3><span class="expand">Юристы</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Юристы',this)"  type="radio" name="specr" value="Юрисконсульт">Юрисконсульт</li>
                         <li><input onClick="addSpec('Юристы',this)" type="radio" name="specr" value="Юрист">Юрист</li>
                     </ul>
                 </div>
                 <div class="box">
                     <h3><span class="expand">Другое</span></h3>
-                    <ul>
+                    <ul class="spec">
                         <li><input onClick="addSpec('Другое',this)"  type="radio" name="specr" value="Другое">Другое</li>
                     </ul>
                 </div>

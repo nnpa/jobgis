@@ -1,7 +1,5 @@
 <style>
-body {
-    width: 610px;
-}
+
 
 #country-list {
     float: left;
@@ -10,6 +8,7 @@ body {
     padding: 0;
     width: 190px;
     position: absolute;
+    z-index: 1;
 }
 
 #country-list li {
@@ -55,20 +54,82 @@ function selectCountry(val) {
     </div>
 <?php endforeach;?>
 
-<form method="POST">
-    Фамилия <input type="text" name="surname"><br>
+<div>
 
-    Имя <input type="text" name="name"><br>
-    Отчество <input type="text" name="patronymic"><br>
+<div style="float:left;width:30%">&nbsp;</div>
+<div style="float:left;width:30%;border:1px solid black;padding: 10px;border-radius: 5px;">
+        <center> <h3>Регистрация</h3></center>
 
-    Компания <input type="text" name="company"><br>
-    Телефон <input id="phone" type="text" name="phone"><br>
-    Город 
-    <div class="frmSearch">
-        <input  id="search-box" value="<?php echo $city;?>" id="cityInput" type="text" name="city">
-    </div>
-    <div id="suggesstion-box"></div>
-    <br>
-    email <input type="text" name="email"><br>
-    <input type="submit" value="Заререгистрироваться">
-</form>
+    <form method="POST">
+        <div class="row">
+            <div class="col-3">
+                <b>Фамилия </b>
+            </div>
+            <div class="col-4">
+                <input class="input-text" type="text" name="surname">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <b>Имя</b>
+            </div>
+            <div class="col-4">
+                <input type="text" name="name">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <b>Отчество</b> 
+            </div>
+            <div class="col-4">
+
+                <input type="text" name="patronymic">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <b>Компания</b>
+            </div>
+            <div class="col-4">
+                <input type="text" name="company"><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <b>Телефон</b>
+            </div>
+            <div class="col-4">
+                <input id="phone" type="text" name="phone"><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <b>Город</b> 
+            </div>
+            <div class="col-4">
+                    <div class="frmSearch">
+                    <input  id="search-box" value="<?php echo $city;?>" id="cityInput" type="text" name="city">
+                    </div>
+                    <div id="suggesstion-box"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <b>Email</b> 
+            </div>
+            <div class="col-4">
+                <input type="text" name="email">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <center>
+                    <input class="btn btn-success" type="submit" value="Заререгистрироваться">
+                </center>
+            </div>
+        </div>
+    </form>
+</div>
+<div style="float:left;width:30%">&nbsp;</div>
+</div>

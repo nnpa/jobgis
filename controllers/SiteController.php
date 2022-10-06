@@ -350,13 +350,17 @@ class SiteController extends Controller
             
         }
         
-        return $this->render('registerecandidate',["errors" => $errors,"city" =>$city]);
+        return $this->render('registercandidate',["errors" => $errors,"city" =>$city]);
     }
     
     
     public function getPassword(){
         $password = substr(md5(time()),0,6);
         return $password;
+    }
+    
+    public function actionCandidate(){
+        return $this->render("candidate");
     }
     
     function checkPhoneNumber($phoneNumber){
@@ -441,5 +445,9 @@ class SiteController extends Controller
             return $result;
         }
         return;
+    }
+    
+    public function actionEmployer(){
+        return $this->render("employer");
     }
 }

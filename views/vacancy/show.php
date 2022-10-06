@@ -15,11 +15,15 @@
     });
  }
 </script>
+<div style="padding-left: 50px;">
 <h3><?php echo $vacancy->name;?></h3>
+<span class="vacancy_compensation">
 от <?php echo $vacancy->costfrom;?> до <?php echo $vacancy->costto;?> <?php echo $vacancy->cash;?> <?php echo $vacancy->cashtype;?> <br>
-<a target="_blank" href="/vacancy/company?id=<?php echo $vacancy->user->id;?>"><?php echo $vacancy->user->company;?></a><br>
+</span>
 Требуемый опыт работы: <?php echo $vacancy->exp;?><br>
 <?php echo $vacancy->employment;?><br>
+<?php echo $vacancy->user->company;?><br>
+
 <div>
     <?php echo $vacancy->description;?><br>
 
@@ -41,7 +45,7 @@
 
 <?php if(!Yii::$app->user->isGuest):?>
     <div id="contacts" >
-        <a href="#" onClick="getContacts('<?php echo $vacancy->id;?>')">Контакты</a>
+        <a class="btn btn-primary" href="#" onClick="getContacts('<?php echo $vacancy->id;?>')">Контакты</a>
     </div>
 <?php else:?>
     Зарегириструйтесь для просмотра контактов
@@ -78,11 +82,11 @@
         <?php if(empty($response)):?>
             <?php if(!is_null($resume)):?>
                 <div id="responce">
-                    <select id="resume_id">
+                    <select id="resume_id" class="form-select" style="width:250px">
                         <?php foreach($resume as $r):?>
                             <option value="<?php echo $r->id?>"><?php echo $r->vacancy?></option>
                         <?php endforeach;?>
-                    </select>
+                    </select><br>
                     <a hre="#" class="btn btn-success" onClick="response('<?php echo $vacancy->id;?>')">Откликнуться</a>
                 </div>
             <?php endif;?>
@@ -92,3 +96,4 @@
 <?php else:?>
 
 <?php endif; ?>
+</div>

@@ -36,6 +36,7 @@ use yii\widgets\LinkPager;
 <h3>Отклики</h3>
 
 <?php foreach($response as $r):?>
+    
     Ваш отклик на вакансию  <a target="_blank" href="/vacancy/show?id=<?php echo $r->vacancy->id;?>"><?php echo $r->vacancy->name;?></a> 
     <?php if($r->result == 0):?>
     Без ответа
