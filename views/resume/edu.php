@@ -1,8 +1,8 @@
 <script type="text/javascript">
     function addEdu(id){
          $.get( "/resume/addedu?id=" + id, function( data ) {
-             var edu = '<div id="edu-' + data +'"> <span style="color:blue;float:right" onClick="deleteEdu(' + "'" +data+"'" +')">x</span><br>'+
-             'Уровень ' +
+             var edu = '<div style="margin:10px;border:1px solid black;padding:10px;border-radius: 5px;width: 600px;" id="edu-' + data +'"> <span style="cursor:poineter;color:blue;float:right" onClick="deleteEdu(' + "'" +data+"'" +')">x</span><br>'+
+             '<b>Уровень</b> ' +
              '<select onChange="typeEduChange(this)" edu_id="'+ data + '" >' +
                 '<option value="Среднее специальное">Среднее специальное</option>' +     
                 '<option value="Неоконченное высшее">Неоконченное высшее</option>' +        
@@ -12,13 +12,13 @@
                 '<option value="Кандидат наук">Кандидат наук</option>' +        
                 '<option value="Доктор наук">Доктор наук</option>' +        
              '</select><br>'+
-             'Учебное заведение '+
+             '<b>Учебное заведение</b> '+
              '<input type="text" onblur="changeUniversity(this)"  edu_id="'+ data + '"><br>'+
-             'Факультет '+
+             '<b>Факультет</b> '+
              '<input type="text" onblur="changeFack(this)"  edu_id="'+ data + '"><br>'+
-             'Специализация ' +
+             '<b>Специализация</b>' +
              '<input type="text" onblur="changeSpec(this)"  edu_id="'+ data + '"><br>'+
-             'Год окончания ' +
+             '<b>Год окончания</b>' +
              '<input type="text" onblur="changeYear(this)"  edu_id="'+ data + '"></div>';
             $("#edu").append(edu);
         });
@@ -87,20 +87,20 @@
         
     ?>
     <?php foreach($resumeEdu as $edu):?>
-        <div id="edu-<?php echo $edu->id;?>"> <span style="color:blue;float:right" onClick="deleteEdu('<?php echo $edu->id;?>')">x</span>
-            Уровень 
+        <div style="margin:10px;border:1px solid black;padding:10px;border-radius: 5px;width: 600px;" id="edu-<?php echo $edu->id;?>"> <span style="cursor:pointer;color:blue;float:right" onClick="deleteEdu('<?php echo $edu->id;?>')">x</span>
+            <b>Уровень</b> 
             <select onChange="typeEduChange(this)" edu_id="<?php echo $edu->id;?>" >
                 <?php foreach($types as $type):?>
                     <option value="<?php echo $type;?>" <?php echo ($type == $edu->edu_type)?'selected':'';?>><?php echo $type;?></option>
                 <?php endforeach;?>
             </select><br>
-            Учебное заведение 
+            <b>Учебное заведение</b> 
             <input value="<?php echo $edu->univercity;?>" type="text" onblur="changeUniversity(this)"  edu_id="<?php echo $edu->id;?>"><br>
-            Факультет 
+            <b>Факультет</b> 
             <input value="<?php echo $edu->fack;?>" type="text" onblur="changeFack(this)"   edu_id="<?php echo $edu->id;?>"><br>
-            Специализация 
+            <b>Специализация</b> 
             <input value="<?php echo $edu->spec;?>" type="text" onblur="changeSpec(this)"   edu_id="<?php echo $edu->id;?>"><br>
-            Год окончания
+            <b>Год окончания</b>
             <input value="<?php echo $edu->year ;?>"  type="text" onblur="changeYear(this)"  edu_id="<?php echo $edu->id;?>"><br>
         </div>
     <?php endforeach;?>

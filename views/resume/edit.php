@@ -149,7 +149,7 @@ if($resume->exp != 0){
 <div><?php echo $resume->description;?></div>
 <h3>Опыт вождения</h3>
 
-<?php echo $resume->car;?>
+<?php echo $resume->car;?><br>
 <small><a href="/resume/editcar?id=<?php echo $resume->id?>">редактировать</a></small><br>
 <h3>Портфолио</h3>
 <small><a href="/resume/editportfolio?id=<?php echo $resume->id?>">редактировать</a></small><br>

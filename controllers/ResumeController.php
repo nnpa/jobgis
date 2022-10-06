@@ -287,6 +287,13 @@ class ResumeController extends Controller
        return "";
    }
    
+   public function actionEduadddelete($id){
+       $edu = ResumeAddedu::find()->where(["id" => $id])->one();
+       $edu->delete();
+       return "";
+   }
+   
+   
     public function actionEduchangespec($id,$val){
        $edu = ResumeEdu::find()->where(["id" => $id])->one();
        $edu->spec = $val;

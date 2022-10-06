@@ -50,10 +50,32 @@ function selectCountry(val) {
 
 <form method="POST">
 <input type="hidden" name="id" value="<?php echo $resume->id;?>">
-<b>Фамилия</b> <input type="text" name="surname" value="<?php echo $resume->surname;?>"><br>
-<b>Имя</b> <input type="text" name="name" value="<?php echo $resume->name;?>"><br>
-<b>Отчество</b> <input type="text" name="patronymic" value="<?php echo $resume->patronymic;?>"><br>
-Дата рождения 
+<div class="row">
+    <div class="col-1">
+       <b>Фамилия</b>
+    </div>
+    <div class="col-9">
+         <input type="text" name="surname" value="<?php echo $resume->surname;?>">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-1">
+        <b>Имя</b> 
+    </div>
+    <div class="col-9">
+        <input type="text" name="name" value="<?php echo $resume->name;?>"><br>
+    </div>
+</div>
+<div class="row">
+    <div class="col-1">
+        <b>Отчество</b> 
+    </div>
+    <div class="col-9">
+        <input type="text" name="patronymic" value="<?php echo $resume->patronymic;?>"><br>
+    </div>
+</div>
+<b>Дата рождения</b> 
 
 <?php 
 
@@ -92,13 +114,13 @@ function selectCountry(val) {
     
     
 ?>
-<input type="text" name="day" value="<?php echo $day;?>">
+<input type="text" style="width:40px" name="day" value="<?php echo $day;?>">
 <select name="month" >
     <?php foreach($monthArray as $key => $value):?>
         <option value="<?php echo $value;?>" <?php echo ($value==$month)?'selected':''?>><?php echo $value;?></option>
     <?php endforeach;?>
 </select>
-<input  type="text" name="year" value="<?php echo $year;?>"><br>
+<input  type="text" name="year" style="width:60px" value="<?php echo $year;?>"><br>
 <b>Пол: </b> <br>
 <input type="radio" value="мужской" name="gender" <?php echo ("мужской" == $resume->gender)?"checked":"";?> > мужской<br>
 <input type="radio" value="женский" name="gender" <?php echo ("женский" == $resume->gender)?"checked":"";?> > женский<br>

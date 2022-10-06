@@ -80,7 +80,7 @@
         function addExp(id){
             $.get( "/resume/expadd?id=" + id, function( data ) {
 
-                var exp = '<div id="exp-' + data +'"> <span style="color:blue;float:right" onClick="deleteExp(' + "'" +data+"'" +')">x</span><br>Начало работы <select onChange="monthStartChange(this)" resume_id="'+ data + '" name="strart_month">' +
+                var exp = '<div style="width:600px;border:1px solid black;border-radius:5px;padding:10px" id="exp-' + data +'"> <span style="cursor:pointer;color:blue;float:right" onClick="deleteExp(' + "'" +data+"'" +')">x</span><br> <b>Начало работы</b> <select onChange="monthStartChange(this)" resume_id="'+ data + '" name="strart_month">' +
                         '<option value="Январь">Январь</option>' +
                         '<option value="Февраль">Февраль</option>' +
                         '<option value="Март">Март</option>' +
@@ -96,7 +96,7 @@
                     '</select>' +
                     '<input onblur="yearStartChange(this)" type="text" resume_id="'+ data + '"  name="start_year"><br>' +
 
-                    'Окончание <select onChange="monthEndChange(this)" resume_id="'+ data + '" name="strart_month">'+
+                    '<b>Окончание</b> <select onChange="monthEndChange(this)" resume_id="'+ data + '" name="strart_month">'+
                         '<option value="Январь">Январь</option>' +
                         '<option value="Февраль">Февраль</option>' +
                         '<option value="Март">Март</option>' +
@@ -112,10 +112,10 @@
                    '</select>' +
                     '<input onblur="yearEndChange(this)" type="text" resume_id="'+ data + '"  name="start_year"><br>'+
 
-                    'Организация <input onblur="firmChange(this)" type="text" name="firm" resume_id="'+ data + '"><br>'+
-                    'Сайт  <input  onblur="siteChange(this)" type="text" name="site" resume_id="'+ data + '"><br>'+
-                    'Должность  <input onblur="vacancyChange(this)" type="text" name="vacancy" resume_id="'+ data + '"><br>'+
-                    'Обязанности  <textarea onblur="descriptionChange(this)" name="vacancy" resume_id="'+ data + '"></textarea></div>';
+                    '<b>Организация</b> <input onblur="firmChange(this)" type="text" name="firm" resume_id="'+ data + '"><br>'+
+                    '<b>Сайт</b>  <input  onblur="siteChange(this)" type="text" name="site" resume_id="'+ data + '"><br>'+
+                    '<b>Должность</b>  <input onblur="vacancyChange(this)" type="text" name="vacancy" resume_id="'+ data + '"><br>'+
+                    '<b>Обязанности</b>  <textarea onblur="descriptionChange(this)" name="vacancy" resume_id="'+ data + '"></textarea></div>';
 
 
                     $("#exp").append(exp );
@@ -145,7 +145,7 @@
     ?>
     <?php foreach($resumeExp as $exp):?>
 
-                    <div id="exp-<?php echo $exp->id;?>"> <span style="color:blue;float:right" onClick="deleteExp('<?php echo $exp->id;?>')">x</span><br>Начало работы <select onChange="monthStartChange(this)" resume_id="<?php echo $exp->id;?>" name="strart_month">
+    <div style="width:600px;border:1px solid black;border-radius:5px;padding:10px" id="exp-<?php echo $exp->id;?>"> <span style="cursor: pointer;color:blue;float:right" onClick="deleteExp('<?php echo $exp->id;?>')">x</span><br> <b>Начало работы</b> <select onChange="monthStartChange(this)" resume_id="<?php echo $exp->id;?>" name="strart_month">
                         <?php 
                             $date = explode("." ,$exp->start_date);
                             $month = $date[0];
@@ -160,7 +160,7 @@
                     </select>
                     <input onblur="yearStartChange(this)" type="text" resume_id="<?php echo $exp->id;?>" value="<?php echo $year;?>"  name="start_year"><br>
 
-                    Окончание <select onChange="monthEndChange(this)" resume_id="<?php echo $exp->id;?>" name="strart_month">
+                    <b>Окончание</b> <select onChange="monthEndChange(this)" resume_id="<?php echo $exp->id;?>" name="strart_month">
                         <?php 
                             $date = explode("." ,$exp->end_date);
                             $month = $date[0];
@@ -177,10 +177,10 @@
                    </select>
                     <input onblur="yearEndChange(this)" type="text" resume_id="<?php echo $exp->id;?>" value="<?php echo $year;?>" name="start_year"><br>
                     
-                    Организация <input  onblur="firmChange(this)" value="<?php echo $exp->firm;?>" type="text" name="firm" resume_id="<?php echo $exp->id;?>"><br>
-                    Сайт <input onblur="siteChange(this)" value="<?php echo $exp->site;?>" type="text" name="site" resume_id="<?php echo $exp->id;?>"><br>
-                    Должность <input onblur="vacancyChange(this)" value="<?php echo $exp->vacancy;?>" type="text" name="vacancy" resume_id="<?php echo $exp->id;?>"><br>
-                    Обязанности <textarea style="white-space: pre-wrap;" onblur="descriptionChange(this)" name="vacancy" resume_id="<?php echo $exp->id;?>"><?php echo preg_replace('/\<br(\s*)?\/?\>/i', "\n", $exp->description);?></textarea></div>
+                    <b>Организация</b> <input  onblur="firmChange(this)" value="<?php echo $exp->firm;?>" type="text" name="firm" resume_id="<?php echo $exp->id;?>"><br>
+                    <b>Сайт</b> <input onblur="siteChange(this)" value="<?php echo $exp->site;?>" type="text" name="site" resume_id="<?php echo $exp->id;?>"><br>
+                    <b>Должность</b> <input onblur="vacancyChange(this)" value="<?php echo $exp->vacancy;?>" type="text" name="vacancy" resume_id="<?php echo $exp->id;?>"><br>
+                    <b>Обязанности</b> <textarea style="white-space: pre-wrap;" onblur="descriptionChange(this)" name="vacancy" resume_id="<?php echo $exp->id;?>"><?php echo preg_replace('/\<br(\s*)?\/?\>/i', "\n", $exp->description);?></textarea></div>
     <?php endforeach;?>
 </div>
 <a href="/resume/edit?id=<?php echo $resume->id?>" class="btn btn-success">Сохранить</a>
