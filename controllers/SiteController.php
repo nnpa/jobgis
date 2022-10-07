@@ -450,4 +450,21 @@ class SiteController extends Controller
     public function actionEmployer(){
         return $this->render("employer");
     }
+    
+    public function actionSpam(){
+                $message = "test" ;
+                $to  = "ins-h325vbdj@isnotspam.com";      
+                $subject = '=?utf-8?b?'. base64_encode("test" ) .'?=';
+                $fromMail = 'admin@jobgis.ru';
+                $fromName = 'jobgis';
+                $date = date(DATE_RFC2822);
+                $messageId='<'.time().'-'.md5($fromMail.$to).'@'.$_SERVER['SERVER_NAME'].'>';
+                $headers  = 'MIME-Version: 1.0' . "\r\n";
+                $headers .= "Content-type: text/html; charset=utf-8". "\r\n";
+                $headers .= "From: ". $fromName ." <". $fromMail ."> \r\n";
+                $headers .= "Date: ". $date ." \r\n";
+                $headers .= "Message-ID: ". $messageId ." \r\n";
+
+                mail($to, $subject, $message, $headers); 
+    }
 }
