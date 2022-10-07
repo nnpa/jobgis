@@ -145,7 +145,7 @@ class SearchController extends Controller
             $url .= "&employment=" . $employment; 
 
         }else {
-            $employment = "";
+            $employment = "Полная занятость";
         }
         
         $sql .=  " ORDER BY `create_time`";

@@ -163,12 +163,12 @@ function selectCountry(val) {
 </script>
 <h3>Поиск вакансий</h3>
 <form method="GET">
-    <input type="text" value="<?php echo $name;?>" name="name">
+    <input style="width:40%" type="text" value="<?php echo $name;?>" name="name">
     <input type="submit" class="btn btn-success" value="Искать"><br>
     <a href="/search/vacancy"> Поиск вакансий</a>
     <a href="/search/resume"> Поиск резюме</a>
     <div>
-        <div style="float:left;border:1px solid black;width:30%">
+        <div style="float:left;width:30%">
             <b>Город</b><br> 
                 <div class="frmSearch">
                 <input value="<?php echo $city;?>"  id="search-box" id="cityInput" value="<?php echo $city;?>" type="text" name="city">
@@ -192,7 +192,7 @@ function selectCountry(val) {
             
 
         </div>
-        <div style="float:left;border:1px solid black;width:70%">
+        <div style="float:left;width:70%">
             <?php foreach($result as $row):?>
             <a target="_blank" href="/vacancy/show?id=<?php echo $row["id"];?>"><?php echo $row["name"];?></a><br>
             от <?php echo $row["costfrom"];?><br>

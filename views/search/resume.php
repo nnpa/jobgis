@@ -164,13 +164,13 @@ function selectCountry(val) {
 
 <h3>Поиск резюме</h3>
 <form method="GET">
-    <input type="name" value="<?php echo $name;?>" >
-    <input type="submit" value="Искать"><br>
+    <input style="width:40%" type="name" value="<?php echo $name;?>" >
+    <input type="submit" class="btn btn-success" value="Искать"><br>
     <a href="/search/vacancy"> Поиск вакансий</a>
     <a href="/search/resume"> Поиск резюме</a>
     
     <div>
-        <div style="border:1px solid black;width:30%;float:left">
+        <div style="width:30%;float:left">
             <b>Город</b> <br>
              <div class="frmSearch">
                 <input value="<?php echo $city;?>"  id="search-box" id="cityInput" value="<?php echo $city;?>" type="text" name="city">
@@ -203,7 +203,7 @@ function selectCountry(val) {
             <input type="radio" name="schedule" <?php echo ($schedule == "schedule_tour")?'checked':''?> value="schedule_tour">   Вахтовый метод<br>
             
         </div>
-        <div style="border:1px solid black;width:70%;float:left">
+        <div style="width:70%;float:left">
             <?php foreach($result as $row):?>
                 <a target="_blank" href="/resume/show?id=<?php echo $row["id"];?>"><?php echo $row["vacancy"];?></a><br>
                 <?php echo $row["cost"];?> <?php echo $row["cash_type"];?> 
