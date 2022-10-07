@@ -25,10 +25,10 @@ class VacancyController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['logout',"list","add"],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout',"list","add"],
                         'allow' => true,
                         'roles' => ['@'],
                     ],

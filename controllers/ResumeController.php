@@ -28,10 +28,10 @@ class ResumeController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout',"add","new"],
+                'only' => ['logout',"add","new","edit","list"],
                 'rules' => [
                     [
-                        'actions' => ['logout',"add","new"],
+                        'actions' => ['logout',"add","new","edit","list"],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
