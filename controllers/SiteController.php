@@ -452,11 +452,11 @@ class SiteController extends Controller
     }
     
     public function actionSpam(){
-                $message = "test" ;
+                $message = "<hrml>Проверочное сообщение</html>" ;
                 $to  = "test-59l2jyt0q@srv1.mail-tester.com";      
                 $subject = '=?utf-8?b?'. base64_encode("test" ) .'?=';
                 $fromMail = 'admin@jobgis.ru';
-                $fromName = 'jobgis';
+                $fromName = 'jobgis.ru';
                 $date = date(DATE_RFC2822);
                 $messageId='<'.time().'-'.md5($fromMail.$to).'@'.$_SERVER['SERVER_NAME'].'>';
                 $headers  = 'MIME-Version: 1.0' . "\r\n";
