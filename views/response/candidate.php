@@ -36,17 +36,18 @@ use yii\widgets\LinkPager;
 <h3>Отклики</h3>
 
 <?php foreach($response as $r):?>
-    
-    Ваш отклик на вакансию  <a target="_blank" href="/vacancy/show?id=<?php echo $r->vacancy->id;?>"><?php echo $r->vacancy->name;?></a> 
-    <?php if($r->result == 0):?>
-    Без ответа
+    <?php if(!is_null($r->vacancy)):?>
+        Ваш отклик на вакансию  <a target="_blank" href="/vacancy/show?id=<?php echo $r->vacancy->id;?>"><?php echo $r->vacancy->name;?></a> 
+        <?php if($r->result == 0):?>
+        Без ответа
 
-    <?php elseif($r->result == 1):?>
-        Вы приглашены
-    <?php else:?>
-        Отказано
+        <?php elseif($r->result == 1):?>
+            Вы приглашены
+        <?php else:?>
+            Отказано
+        <?php endif;?>
+        <br>
     <?php endif;?>
-    <br>
 <?php endforeach; ?>
 
 
