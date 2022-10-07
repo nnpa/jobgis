@@ -52,7 +52,7 @@ AppAsset::register($this);
     }
     
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => "Jobgis.ru",
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',

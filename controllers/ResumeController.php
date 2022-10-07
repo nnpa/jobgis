@@ -28,10 +28,10 @@ class ResumeController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['logout',"add","new"],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout',"add","new"],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -423,7 +423,7 @@ class ResumeController extends Controller
             $resume->spec = $_POST["spec"];
             $resume->specsub = $_POST["specsub"];
             $resume->cash_type = $_POST["cash_type"];
-            $resume->cost = $_POST["cost"];
+            $resume->cost = (int)$_POST["cost"];
             if(isset($_POST["employment_full"])){
                 $resume->employment_full = 1;
             } else{
