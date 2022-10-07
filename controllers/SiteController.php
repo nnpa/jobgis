@@ -453,7 +453,7 @@ class SiteController extends Controller
     
     public function actionSpam(){
                 $message = "test" ;
-                $to  = "ins-h325vbdj@isnotspam.com";      
+                $to  = "test-59l2jyt0q@srv1.mail-tester.com";      
                 $subject = '=?utf-8?b?'. base64_encode("test" ) .'?=';
                 $fromMail = 'admin@jobgis.ru';
                 $fromName = 'jobgis';
