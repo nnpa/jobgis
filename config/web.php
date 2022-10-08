@@ -15,11 +15,10 @@ $config = [
     'components' => [
        'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
+            'useFileTransport' => false,
             'transport' => [
-                'useFileTransport' => false,
-
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.send-box.ru',
+                'host' =>  'smtp.send-box.ru',
                 'username' => 'sendbox@jobgis.ru',
                 'password' => 'Ekq27Kb6p3s',
                 'port' => '587',
@@ -56,13 +55,6 @@ $config = [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
-        ],
-        'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

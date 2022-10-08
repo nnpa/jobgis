@@ -452,12 +452,15 @@ class SiteController extends Controller
     }
     
     public function actionSpam(){
+        //var_dump(Yii::$app->mailer);exit;
+
+        
         Yii::$app->mailer->compose()
         ->setFrom('sendbox@jobgis.ru')
         ->setTo('jetananas@yandex.ru')
-        ->setSubject('Тема сообщения')
-        ->setTextBody('Текст сообщения')
-        ->setHtmlBody('<b>текст сообщения в формате HTML</b>')
+        ->setSubject('sub')
+        ->setTextBody('text')
+        ->setHtmlBody('<b>1</b>')
         ->send();
         
     }
