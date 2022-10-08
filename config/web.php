@@ -16,6 +16,8 @@ $config = [
        'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'transport' => [
+                'useFileTransport' => false,
+
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.send-box.ru',
                 'username' => 'sendbox@jobgis.ru',
