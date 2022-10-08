@@ -13,6 +13,18 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+       'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.send-box.ru',
+                'username' => 'sendbox@jobgis.ru',
+                'password' => 'Ekq27Kb6p3s',
+                'port' => '587',
+                'encryption' => 'tls',
+            ],
+        ],
+
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],

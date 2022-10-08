@@ -452,19 +452,13 @@ class SiteController extends Controller
     }
     
     public function actionSpam(){
-                $message = "<hrml>Проверочное сообщение</html>" ;
-                $to  = "test-59l2jyt0q@srv1.mail-tester.com";      
-                $subject = '=?utf-8?b?'. base64_encode("test" ) .'?=';
-                $fromMail = 'admin@jobgis.ru';
-                $fromName = 'jobgis.ru';
-                $date = date(DATE_RFC2822);
-                $messageId='<'.time().'-'.md5($fromMail.$to).'@'.$_SERVER['SERVER_NAME'].'>';
-                $headers  = 'MIME-Version: 1.0' . "\r\n";
-                $headers .= "Content-type: text/html; charset=utf-8". "\r\n";
-                $headers .= "From: ". $fromName ." <". $fromMail ."> \r\n";
-                $headers .= "Date: ". $date ." \r\n";
-                $headers .= "Message-ID: ". $messageId ." \r\n";
-
-                mail($to, $subject, $message, $headers); 
+        Yii::$app->mailer->compose()
+        ->setFrom('sendbox@jobgis.ru')
+        ->setTo('jetananas@yandex.ru')
+        ->setSubject('Тема сообщения')
+        ->setTextBody('Текст сообщения')
+        ->setHtmlBody('<b>текст сообщения в формате HTML</b>')
+        ->send();
+        
     }
 }
