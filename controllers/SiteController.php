@@ -192,20 +192,13 @@ class SiteController extends Controller
         
                 Yii::$app->authManager->assign($role,$id);
                 
-                $message = "Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a>" ;
-                $to  = $user->email;      
-                $subject = '=?utf-8?b?'. base64_encode("Регистрация на сайте jobgis" ) .'?=';
-                $fromMail = 'admin@jobgis';
-                $fromName = 'jobgis';
-                $date = date(DATE_RFC2822);
-                $messageId='<'.time().'-'.md5($fromMail.$to).'@'.$_SERVER['SERVER_NAME'].'>';
-                $headers  = 'MIME-Version: 1.0' . "\r\n";
-                $headers .= "Content-type: text/html; charset=utf-8". "\r\n";
-                $headers .= "From: ". $fromName ." <". $fromMail ."> \r\n";
-                $headers .= "Date: ". $date ." \r\n";
-                $headers .= "Message-ID: ". $messageId ." \r\n";
-
-                mail($to, $subject, $message, $headers); 
+                 Yii::$app->mailer->compose()
+                ->setFrom('robot@jobgis.ru')
+                ->setTo($user->email)
+                ->setSubject('Регистрация на сайте jobgis.ru')
+                ->setTextBody("Ваш email: " . $user->email . "  Ваш пароль: " . $user->password)
+                ->setHtmlBody("Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a>")
+                ->send();
                 
                 return $this->render("message",["message"=>"На ваш email высла пароль"]);
             }
@@ -232,20 +225,14 @@ class SiteController extends Controller
                 $user->password = $this->getPassword();
                 $user->save(false);
                 
-                $message = "Ваш email: " . $_POST['email'] . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a>" ;
-                $to  = $user->email;      
-                $subject = '=?utf-8?b?'. base64_encode("Регистрация на сайте jobgis" ) .'?=';
-                $fromMail = 'admin@jobgis';
-                $fromName = 'jobgis';
-                $date = date(DATE_RFC2822);
-                $messageId='<'.time().'-'.md5($fromMail.$to).'@'.$_SERVER['SERVER_NAME'].'>';
-                $headers  = 'MIME-Version: 1.0' . "\r\n";
-                $headers .= "Content-type: text/html; charset=utf-8". "\r\n";
-                $headers .= "From: ". $fromName ." <". $fromMail ."> \r\n";
-                $headers .= "Date: ". $date ." \r\n";
-                $headers .= "Message-ID: ". $messageId ." \r\n";
-
-                mail($to, $subject, $message, $headers); 
+                Yii::$app->mailer->compose()
+                ->setFrom('robot@jobgis.ru')
+                ->setTo($user->email)
+                ->setSubject('Регистрация на сайте jobgis.ru')
+                ->setTextBody("Ваш email: " . $user->email . "  Ваш пароль: " . $user->password)
+                ->setHtmlBody("Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a>")
+                ->send();
+                                
                 
                 return $this->render("message",["message"=>"На ваш email высла пароль"]);
             }
@@ -330,20 +317,15 @@ class SiteController extends Controller
         
                 Yii::$app->authManager->assign($role,$id);
                 
-                $message = "Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a>" ;
-                $to  = $user->email;      
-                $subject = '=?utf-8?b?'. base64_encode("Регистрация на сайте jobgis" ) .'?=';
-                $fromMail = 'admin@jobgis';
-                $fromName = 'jobgis';
-                $date = date(DATE_RFC2822);
-                $messageId='<'.time().'-'.md5($fromMail.$to).'@'.$_SERVER['SERVER_NAME'].'>';
-                $headers  = 'MIME-Version: 1.0' . "\r\n";
-                $headers .= "Content-type: text/html; charset=utf-8". "\r\n";
-                $headers .= "From: ". $fromName ." <". $fromMail ."> \r\n";
-                $headers .= "Date: ". $date ." \r\n";
-                $headers .= "Message-ID: ". $messageId ." \r\n";
-
-                mail($to, $subject, $message, $headers); 
+                Yii::$app->mailer->compose()
+                ->setFrom('robot@jobgis.ru')
+                ->setTo($user->email)
+                ->setSubject('Регистрация на сайте jobgis.ru')
+                ->setTextBody("Ваш email: " . $user->email . "  Ваш пароль: " . $user->password)
+                ->setHtmlBody("Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a>")
+                ->send();
+                
+                
                 
                 return $this->render("message",["message"=>"На ваш email высла пароль"]);
             }
@@ -456,7 +438,7 @@ class SiteController extends Controller
 
         
         Yii::$app->mailer->compose()
-        ->setFrom('sendbox@jobgis.ru')
+        ->setFrom('robot@jobgis.ru')
         ->setTo('jetananas@yandex.ru')
         ->setSubject('sub')
         ->setTextBody('text')

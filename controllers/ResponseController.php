@@ -107,20 +107,14 @@ class ResponseController extends Controller{
         $response->create_date = time();
         $response->save();
         
-        $message = "Ваше резюме по вакансии {$response->vacancy->name} откликнулись"; 
-        $to  = $response->vacancy->email;      
-        $subject = '=?utf-8?b?'. base64_encode("Резюме заинтересовало работодателя" ) .'?=';
-        $fromMail = 'admin@jobgis';
-        $fromName = 'jobgis';
-        $date = date(DATE_RFC2822);
-        $messageId='<'.time().'-'.md5($fromMail.$to).'@'.$_SERVER['SERVER_NAME'].'>';
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= "Content-type: text/html; charset=utf-8". "\r\n";
-        $headers .= "From: ". $fromName ." <". $fromMail ."> \r\n";
-        $headers .= "Date: ". $date ." \r\n";
-        $headers .= "Message-ID: ". $messageId ." \r\n";
+        Yii::$app->mailer->compose()
+        ->setFrom('robot@jobgis.ru')
+        ->setTo($response->vacancy->email)
+        ->setSubject('На вашу вакансию на сайте jobgis.ru откликнулись')
+        ->setTextBody("На вашу вакансию {$response->vacancy->name} откликнулись")
+        ->setHtmlBody("На вашу вакансию {$response->vacancy->name} откликнулись")
+        ->send();
 
-        mail($to, $subject, $message, $headers); 
         
         return "";
 
@@ -135,23 +129,16 @@ class ResponseController extends Controller{
         $response->result = 1;
         $response->save();
         
-
-        
         $message = "Ваше резюме по вакансии {$response->vacancy->name} заинтересовало работодателя"; 
         $message .= " обратитесь в рабочее время по телефону {$response->vacancy->phone} {$response->vacancy->contactmane} " ;
-        $to  = $response->resume->user->email;      
-        $subject = '=?utf-8?b?'. base64_encode("Резюме заинтересовало работодателя" ) .'?=';
-        $fromMail = 'admin@jobgis';
-        $fromName = 'jobgis';
-        $date = date(DATE_RFC2822);
-        $messageId='<'.time().'-'.md5($fromMail.$to).'@'.$_SERVER['SERVER_NAME'].'>';
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= "Content-type: text/html; charset=utf-8". "\r\n";
-        $headers .= "From: ". $fromName ." <". $fromMail ."> \r\n";
-        $headers .= "Date: ". $date ." \r\n";
-        $headers .= "Message-ID: ". $messageId ." \r\n";
-
-        mail($to, $subject, $message, $headers); 
+        
+        Yii::$app->mailer->compose()
+        ->setFrom('robot@jobgis.ru')
+        ->setTo($response->resume->user->email)
+        ->setSubject('Резюме заинтересовало работодателя')
+        ->setTextBody($message)
+        ->setHtmlBody($message)
+        ->send();
 
         return $this->redirect($_SERVER['HTTP_REFERER']);
     }
@@ -165,22 +152,14 @@ class ResponseController extends Controller{
         $response->result = 2;
         $response->save();
         
-
-        
-        $message = "Ваше резюме по вакансии {$response->vacancy->name} не заинтересовало работодателя"; 
-        $to  = $response->resume->user->email;      
-        $subject = '=?utf-8?b?'. base64_encode("Резюме заинтересовало работодателя" ) .'?=';
-        $fromMail = 'admin@jobgis';
-        $fromName = 'jobgis';
-        $date = date(DATE_RFC2822);
-        $messageId='<'.time().'-'.md5($fromMail.$to).'@'.$_SERVER['SERVER_NAME'].'>';
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= "Content-type: text/html; charset=utf-8". "\r\n";
-        $headers .= "From: ". $fromName ." <". $fromMail ."> \r\n";
-        $headers .= "Date: ". $date ." \r\n";
-        $headers .= "Message-ID: ". $messageId ." \r\n";
-
-        mail($to, $subject, $message, $headers); 
+         $message = "Ваше резюме по вакансии {$response->vacancy->name} не заинтересовало работодателя"; 
+            Yii::$app->mailer->compose()
+        ->setFrom('robot@jobgis.ru')
+        ->setTo($response->resume->user->email)
+        ->setSubject('Резюме не заинтересовало работодателя')
+        ->setTextBody($message)
+        ->setHtmlBody($message)
+        ->send();
 
         return $this->redirect($_SERVER['HTTP_REFERER']);
     }
