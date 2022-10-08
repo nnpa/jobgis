@@ -264,7 +264,6 @@ class SiteController extends Controller
            isset($_POST["name"]) &&
            isset($_POST["surname"])  &&
            isset($_POST["phone"]) &&
-           isset($_POST["company"])  &&
            isset($_POST["city"])&&
            isset($_POST["email"])
         ){
@@ -313,7 +312,7 @@ class SiteController extends Controller
                 
                 $id = $user->id;
                 
-                $role = Yii::$app->authManager->getRole('employer');
+                $role = Yii::$app->authManager->getRole('candidate');
         
                 Yii::$app->authManager->assign($role,$id);
                 
@@ -324,7 +323,6 @@ class SiteController extends Controller
                 ->setTextBody("Ваш email: " . $user->email . "  Ваш пароль: " . $user->password)
                 ->setHtmlBody("Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a>")
                 ->send();
-                
                 
                 
                 return $this->render("message",["message"=>"На ваш email высла пароль"]);
