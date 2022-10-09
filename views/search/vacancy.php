@@ -21,7 +21,7 @@
 .popup {
 	position: fixed;
 	top: 20%;
-	left: 50%;
+	left: 20%;
 	padding: 20px;
 	width: 600px;
 	margin-left: -200px;	
@@ -168,7 +168,7 @@ function selectCountry(val) {
     <a href="/search/vacancy"> Поиск вакансий</a>
     <a href="/search/resume"> Поиск резюме</a>
     <div>
-        <div style="float:left;width:30%">
+        <div style="float:left;width:30%;min-width: 220px;">
             <b>Город</b><br> 
                 <div class="frmSearch">
                 <input value="<?php echo $city;?>"  id="search-box" id="cityInput" value="<?php echo $city;?>" type="text" name="city">

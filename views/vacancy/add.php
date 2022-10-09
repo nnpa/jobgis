@@ -21,7 +21,7 @@
 .popup {
 	position: fixed;
 	top: 20%;
-	left: 50%;
+	left: 20%;
 	padding: 20px;
 	width: 600px;
 	margin-left: -200px;	
