@@ -3,7 +3,7 @@
 namespace app\models;
 
 use Yii;
-
+use app\models\Firm;
 /**
  * This is the model class for table "Users".
  *
@@ -63,5 +63,11 @@ class Users extends \yii\db\ActiveRecord
             'auth_key' => 'Auth Key',
             'access_token' => 'Access Token',
         ];
+    }
+    
+    
+    public function getFirm()
+    {
+        return $this->hasOne(Firm::class, ['id' => 'firm_id']);
     }
 }

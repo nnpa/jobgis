@@ -166,8 +166,6 @@ function selectCountry(val) {
 <form method="GET">
     <input style="width:40%" type="name" value="<?php echo $name;?>" >
     <input type="submit" class="btn btn-success" value="Искать"><br>
-    <a href="/search/vacancy"> Поиск вакансий</a>
-    <a href="/search/resume"> Поиск резюме</a>
     
     <div>
         <div style="width:30%;float:left;min-width: 220px;">
@@ -206,7 +204,7 @@ function selectCountry(val) {
         <div style="width:70%;float:left">
             <?php foreach($result as $row):?>
                 <a target="_blank" href="/resume/show?id=<?php echo $row["id"];?>"><?php echo $row["vacancy"];?></a><br>
-                <?php echo $row["cost"];?> <?php echo $row["cash_type"];?> 
+                <?php echo $row["cost"];?> <?php echo $row["cash_type"];?> <br>
             <?php endforeach;?>
         </div>
     </div>

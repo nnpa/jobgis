@@ -5,6 +5,15 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+        ],
+        'manager' =>[
+            'class' => 'app\modules\manager\Module',
+
+        ]
+    ],
     'language' => "ru",
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],

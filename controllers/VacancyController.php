@@ -13,8 +13,10 @@ use app\models\NetCity;
 use app\models\Users;
 use app\models\Skills;
 use app\models\Vacancy;
+use app\models\Firm;
+use app\controllers\AppController;
 
-class VacancyController extends Controller
+class VacancyController extends AppController
 {
     public $enableCsrfValidation = false;
     /**
@@ -61,8 +63,13 @@ class VacancyController extends Controller
     
     public function actionList(){
         $user = Yii::$app->user->identity;
-
-        $vacancies = Vacancy::find()->where(["user_id" => $user->id])->all();
+        $users = Users::find()->where(["firm_id" => $user->firm_id ])->all();
+        $ids = [];
+        foreach($users as $user ){
+            $ids[] = $user->id;
+        }
+        
+        $vacancies = Vacancy::find()->where(["user_id" => $ids])->all();
         return $this->render("all",["vacancies" => $vacancies]);
     }
     
@@ -76,16 +83,23 @@ class VacancyController extends Controller
     public function actionShow($id){
         $vacancy = Vacancy::find()->where(["id" =>$id])->one();
         
+        
         if(!is_null($vacancy)){
+            $this->view->registerMetaTag(
+                ['name' => 'keywords', 'content' => "jobgis.ru вакансия " . $vacancy->name ." " . $vacancy->city]
+            );
+            $this->view->registerMetaTag(
+                ['name' => 'description', 'content' => "jobgis.ru вакансия " . $vacancy->name ." " . $vacancy->city]
+            );
+            
             $this->view->title = "jobgis.ru вакансия " . $vacancy->name ." " . $vacancy->city;
             return $this->render("show",["vacancy" => $vacancy]);
         }
     }
-    
-    public function actionAdd(){
+    public function actionEdit($id){
        $user = Yii::$app->user->identity;
+       $vacancy = Vacancy::find()->where(["id" =>$id])->one();
        if(isset($_POST) && !empty($_POST)){
-           $vacancy = new Vacancy();
             $vacancy->user_id = $user->id;
             $vacancy->name = $_POST["name"];
             $vacancy->spec  = $_POST["spec"];
@@ -108,7 +122,34 @@ class VacancyController extends Controller
             return $this->render("message",["message" => "Вы успешно создали вакансию"]);
        }
        
-       return $this->render("add",["user" => $user]);
+       return $this->render("add",["user" => $user,"vacancy" => $vacancy]); 
+    }
+    
+    public function actionAdd(){
+        
+            $user = Yii::$app->user->identity;
+            $vacancy = new Vacancy();
+            $vacancy->user_id = $user->id;
+            $vacancy->name = "Заполните вакансию";
+            $vacancy->spec  = "";
+            $vacancy->specsub  = "";
+            $vacancy->city  = "";
+            $vacancy->costfrom  = (int) 10000;
+            $vacancy->costto  = (int) 20000;
+            $vacancy->cash  = "";
+            $vacancy->cashtype  = "До вычета налогов";
+            $vacancy->address  = "";
+            $vacancy->exp  = "Нет опыта";
+            $vacancy->description  = "";
+            $vacancy->skills  = "";
+            $vacancy->employment  = "Полная занятость";
+            $vacancy->contactmane  = "";
+            $vacancy->email  = "";
+            $vacancy->phone  = "";
+            $vacancy->create_time  = time();
+            $vacancy->save(false);
+            
+            return $this->redirect("/vacancy/edit?id=" . $vacancy->id);
     }    
     
     public function actionSkills(){

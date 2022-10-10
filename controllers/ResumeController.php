@@ -28,10 +28,10 @@ class ResumeController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout',"add","new","edit","list"],
+                'only' => ['logout',"add","new","edit","list","show"],
                 'rules' => [
                     [
-                        'actions' => ['logout',"add","new","edit","list"],
+                        'actions' => ['logout',"add","new","edit","list","show"],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -230,11 +230,25 @@ class ResumeController extends Controller
    }
    
    public function actionShow($id){
+       
        $resume = Resume::find()->where(["id" => $id])->one();
        
        if(is_null($resume)){
            exit;
        }
+       
+        $role = "guest";
+        $roleArr = \Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
+        if(!empty($roleArr)){
+            $roleObj = array_shift($roleArr);
+            $role = $roleObj->name;
+        }
+           $user = Yii::$app->user->identity;
+
+       if($role != "employer" AND $resume->user_id != $user->id){
+           exit;
+       }
+       
        $resumeEdu = ResumeEdu::find()->where(["resume_id" => $id])->all();
        $resumeExp = ResumeExp::find()->where(["resume_id" => $id])->all();
        $resumePortfolio = ResumePortfolio::find()->where(["resume_id" => $id])->all();
@@ -593,7 +607,8 @@ class ResumeController extends Controller
        }
        
         if(isset($_POST) && !empty($_POST)){
-            $about = nl2br($_POST["about"]);
+            $about = strip_tags($_POST["avout"]);
+            $about = nl2br($about);
             $resume->description = $about ;
             $resume->save(false);
             $this->redirect("/resume/edit?id=" . $id);

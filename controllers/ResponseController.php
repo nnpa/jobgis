@@ -65,8 +65,13 @@ class ResponseController extends Controller{
     
     public function actionEmployer(){
         $user = Yii::$app->user->identity;
-
-        $vacancy = Vacancy::find()->where(["user_id" =>$user->id ])->all();
+        
+        $users = Users::find()->where(["firm_id" => $user->firm_id ])->all();
+        $ids = [];
+        foreach($users as $user ){
+            $ids[] = $user->id;
+        }
+        $vacancy = Vacancy::find()->where(["user_id" =>$ids ])->all();
         $ids = [];
         foreach($vacancy as $v){
             $ids[] = $v->id;
@@ -84,8 +89,11 @@ class ResponseController extends Controller{
     public function actionCandidate(){
         $user = Yii::$app->user->identity;
 
+        
+        
         $resume = Resume::find()->where(["user_id" =>$user->id ])->all();
         $ids = [];
+        
         foreach($resume as $r){
             $ids[] = $r->id;
         }

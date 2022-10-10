@@ -2,7 +2,20 @@
 <?php if($resume->photo != ""):?>
 <img width="80px" height="80px" src="/img/<?php echo $resume->photo;?>"><br>
 <?php endif?>
-<h3><?php echo $resume->surname . " " . $resume->name. " " . $resume->patronymic?></h3>
+<h3> 
+    <?php if(!Yii::$app->user->isGuest):?>
+        <?php if(Yii::$app->user->identity->firm->verify != 0):?>
+            <?php echo $resume->surname . " " . $resume->name. " " . $resume->patronymic?>
+            
+        <?php else:?>
+            ФИО видно только после верификации
+        <?php endif;?>
+    <?php else:?>
+        ФИО скрыто зарегистрируйтесь 
+    <?php endif;?>
+</h3>
+
+
 пол: <?php echo $resume->gender;?> <br>
 дата рождения:
 <?php
@@ -169,3 +182,15 @@ if($resume->exp != 0){
     <?php echo $edu->spec;?>
 
 <?php endforeach;?>
+<br>
+    Телефон: 
+    <?php if(!Yii::$app->user->isGuest):?>
+        <?php if(Yii::$app->user->identity->firm->verify != 0):?>
+            <?php echo $resume->user->phone;?>
+            
+        <?php else:?>
+           Телефон станет виден после верификации работодателя
+        <?php endif;?>
+    <?php else:?>
+           Телефон станет виден после регистрации
+    <?php endif;?>

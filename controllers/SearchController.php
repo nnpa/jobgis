@@ -315,4 +315,92 @@ class SearchController extends Controller
             "url" => $url
         ]);
     }
+    
+    public function actionCompany(){
+        if(isset($_GET["page"]) && !empty($_GET["page"])){
+            $page = $_GET["page"];
+        }else {
+            $page = 1;
+        }
+        
+        $perPage = 20;
+        
+        $conn = mysqli_connect("localhost","root","g02091988","jobgis");
+        
+        
+        $url = "/search/company?a=test";
+        $sql  = "SELECT * from `firm` where 1=1 ";
+        $sqlCount = "SELECT COUNT(*) FROM `firm` WHERE 1=1";
+
+        if(!Yii::$app->user->isGuest){
+            $user = Yii::$app->user->identity;
+            $city = $user->city;
+        }else{
+            
+            $city = $this->getCity();
+            if($city == ""){
+                $city = "Москва";
+            }
+        }
+        
+        if(isset($_GET["city"]) && !empty($_GET["city"])){
+            $city = $_GET["city"];
+            $sql .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
+            $sqlCount .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
+            $url .= "&city=" . $city; 
+        }
+        
+        $category = "";
+        if(isset($_GET["category"]) && !empty($_GET["category"])){
+            $category = $_GET["category"];
+            $sql .= " AND `category` = '". mysqli_real_escape_string($conn,$category)."'";
+            $sqlCount .= " AND `category` = '". mysqli_real_escape_string($conn,$category)."'";
+            $url .= "&category=" . $category; 
+        }
+        
+        if($page == 1){
+            $limit = " limit 0,".$perPage;
+        }else{
+            $limit = " limit " . ($page * $perPage). ",". $perPage;
+        }
+        
+        $sql .= $limit ;
+        
+        $connection = Yii::$app->getDb();
+        
+        $command = $connection->createCommand($sql);
+        $result = $command->queryAll();
+        
+        $command = $connection->createCommand($sqlCount);
+        $count = $command->queryAll();
+        $count = (int)$count[0]["COUNT(*)"];
+        
+        $pages = $count/$perPage;
+       
+        
+        return $this->render("company",[
+            "city" => $city,
+            "category" => $category,
+            "result" => $result,
+            'page' => $page,
+            'pages' => $pages,
+            "url" => $url
+        ]);
+    }
+    
+    public function getCity(){
+        $city = "";
+        $arr = geoip_record_by_name($_SERVER['REMOTE_ADDR']);
+        //$arr = geoip_record_by_name('83.174.241.173');
+        
+        if($arr != false){
+            $city = $arr['city'];
+        }
+        
+        $netCity = NetCity::find()->where(["name_en" => $city])->one();
+        if(!is_null($netCity)){
+            $city = $netCity->name_ru;
+        }
+        return $city;
+    }
 }

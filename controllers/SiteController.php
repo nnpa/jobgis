@@ -10,9 +10,12 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\NetCity;
+use app\models\Vacancy;
 use app\models\Users;
+use app\models\Firm;
+use app\controllers\AppController;
 
-class SiteController extends Controller
+class SiteController extends AppController
 {
     public $enableCsrfValidation = false;
     /**
@@ -23,10 +26,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['logout','workers','addworker'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout','workers','addworker'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -64,7 +67,15 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $this->view->registerMetaTag(
+            ['name' => 'keywords', 'content' => 'работа, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск']
+        );
+        $this->view->registerMetaTag(
+            ['name' => 'description', 'content' => 'jobgis.ru — сервис, который помогает найти работу и подобрать персонал ! Создавайте резюме и откликайтесь на вакансии. Набирайте сотрудников и публикуйте вакансии.']
+        );
+
+        $vacancys = Vacancy::find()->orderBy("create_time")->limit(10)->all();
+        return $this->render('index',["vacancys" => $vacancys]);
     }
 
     /**
@@ -101,33 +112,9 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
 
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
-    }
 
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
+
     
     public function actionRegisteremployer(){
         $city = $this->getCity();
@@ -171,11 +158,18 @@ class SiteController extends Controller
             }
             
             if(empty($errors)){
+                $firm = new Firm();
+                $firm->name =  $_POST["company"];
+                $firm->verify = 0 ;
+                $firm->manage_id = 0 ;
+                $firm->save(false);
+                
                 $user = new Users();
                 $user->name = $_POST["name"];
                 $user->surname = $_POST["surname"];
                 $user->phone = $_POST["phone"];
                 $user->company = $_POST["company"];
+                $user->firm_id = $firm->id;
                 $user->email = $_POST["email"];
                 $user->city = $_POST["city"];
                 $user->recover_code = "";
@@ -443,5 +437,125 @@ class SiteController extends Controller
         ->setHtmlBody('<b>1</b>')
         ->send();
         
+    }
+    
+    public function actionWorkers(){
+        $user = Yii::$app->user->identity;
+        $workers = Users::find()->where(["firm_id" => $user->firm_id])->all();
+        return $this->render("workers",["workers" => $workers]);
+    }
+    
+    public function actionAddworker(){
+        
+        $errors = [];
+        if(isset($_POST["email"]) && !empty($_POST["email"])){
+            $email = $_POST['email'];
+
+            if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                $errors[] = "Не верный формат email";
+            }
+            
+            $user = Users::find()->where(["email" => $_POST["email"]])->one();
+            if(!is_null($user)){
+                $errors[] = "Такой email уже зарегистрирован";
+            }
+            
+            if(empty($errors)){
+                $user = Yii::$app->user->identity;
+                $firm_id = $user->firm_id;
+                
+                $user = new Users();
+                $user->name = "";
+                $user->surname = "";
+                $user->phone = "";
+                $user->company = "";
+                $user->email = $email;
+                $user->city = "";
+                $user->recover_code = "";
+                $user->auth_key = "";
+                $user->access_token = "";
+                $user->password = $this->getPassword();
+                $user->create_time = time();
+                $user->patronymic = "";
+                $user->firm_id = $firm_id;
+                
+                
+                $user->save(false);
+                
+                $id = $user->id;
+                
+                $role = Yii::$app->authManager->getRole('employer');
+        
+                Yii::$app->authManager->assign($role,$id);
+                
+                 Yii::$app->mailer->compose()
+                ->setFrom('robot@jobgis.ru')
+                ->setTo($user->email)
+                ->setSubject('Регистрация на сайте jobgis.ru')
+                ->setTextBody("Ваш email: " . $user->email . "  Ваш пароль: " . $user->password)
+                ->setHtmlBody("Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a>")
+                ->send();
+                
+                return $this->render("message",["message"=>"На  email выслан пароль"]);
+            }
+        }
+        return $this->render('addworker',['errors' => $errors]);
+    }
+    
+    public function actionAddinfo(){
+        $user = Yii::$app->user->identity;
+        $user  = Users::find()->where(["id" => $user->id])->one();
+        
+        if(isset($_POST) && !empty($_POST)){
+            $user->name = $_POST["name"];
+            $user->surname = $_POST["surname"];
+            $user->patronymic = $_POST["patronymic"];
+            $user->phone = $_POST["phone"];
+            $user->save(false);
+            return $this->redirect("/");
+        }
+        return $this->render("addinfo",["user" => $user]);
+    }
+    
+    public function actionAddinn(){
+        if(isset($_POST["inn"]) && !empty($_POST["inn"])){
+            $user = Yii::$app->user->identity;
+            $firm = Firm::find()->where(["id" => $user->firm_id])->one();
+            $firm->inn = $_POST["inn"];
+            $firm->category = $_POST["category"];
+            $firm->city = $_POST["city"];
+
+            $firm->save(false);
+            return $this->redirect("/");
+        }
+        return $this->render("addinn");
+    }
+    
+    public function actionVerify(){
+        return $this->render("/site/verify");
+    }
+    
+    public function actionUseredit(){
+        $user = Yii::$app->user->identity;
+        
+        $role = "guest";
+        $roleArr = \Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
+        if(!empty($roleArr)){
+            $roleObj = array_shift($roleArr);
+            $role = $roleObj->name;
+        }
+        
+        if(isset($_POST) && !empty($_POST)){
+            $user = Users::find()->where(["id" => $user->id])->one();
+            
+            $user->name = $_POST["name"];
+            $user->surname = $_POST["surname"];
+            $user->patronymic = $_POST["patronymic"];
+            $user->phone = $_POST["phone"];
+            $user->city = $_POST["city"];
+            $user->save(false);
+            return $this->render("message",["message" => "Настройки сохранены"]);
+        }
+        return $this->render("useredit",["user" => $user,"role" => $role]);
     }
 }

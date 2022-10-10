@@ -165,8 +165,6 @@ function selectCountry(val) {
 <form method="GET">
     <input style="width:40%" type="text" value="<?php echo $name;?>" name="name">
     <input type="submit" class="btn btn-success" value="Искать"><br>
-    <a href="/search/vacancy"> Поиск вакансий</a>
-    <a href="/search/resume"> Поиск резюме</a>
     <div>
         <div style="float:left;width:30%;min-width: 220px;">
             <b>Город</b><br> 

@@ -65,8 +65,6 @@ AppAsset::register($this);
         $items = [
             ['label' => 'Работодателю', 'url' => ['/site/employer']],
             ['label' => 'Соискателю', 'url' => ['/site/candidate']],
-            ['label' => 'Поиск', 'url' => ['/search/vacancy']],
-
             ['label' => 'Войти', 'url' => ['/site/login']]
         ];
         
@@ -79,6 +77,9 @@ AppAsset::register($this);
                      
                 ]],
                 ['label' => 'Отклики', 'url' => ['/response/employer']],
+                ['label' => 'Настройки', 'url' => ['/site/useredit']],
+
+                ['label' => 'Сотрудники', 'url' => ['/site/workers']],
                 ['label' => 'Поиск', 'url' => ['/search/resume']],
 
                 '<li>'
@@ -98,6 +99,8 @@ AppAsset::register($this);
 
                      
                 ]],
+                ['label' => 'Настройки', 'url' => ['/site/useredit']],
+
                 ['label' => 'Поиск', 'url' => ['/search/vacancy']],
 
                 '<li>'
@@ -132,7 +135,7 @@ AppAsset::register($this);
 
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
-
+        <a href="/search/company">Каталог компаний</a>
     </div>
 </footer>
 

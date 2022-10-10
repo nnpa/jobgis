@@ -245,42 +245,46 @@ function deleteSkill(obj){
 <h3>Создание вакансии</h3>
 <form method="POST">
 <b>Название вакансии</b><br>
-<input type="name" name="name">
-<input type="hidden" id="spec" name="spec"><br>
-<input type="hidden" id="specsub" name="specsub"><br>
+<input type="name" name="name" value="<?php echo $vacancy->name;?>">
+<input type="hidden" id="spec" name="spec" value="<?php echo $vacancy->spec;?>"><br>
+<input type="hidden" id="specsub" name="specsub" value="<?php echo $vacancy->specsub;?>"><br>
 
-<span id="spectext"></span><br>
+<span id="spectext"><?php echo $vacancy->specsub;?></span><br>
 <a href="#" class="popup-open" id="speca">Укажите специализацию</a><br>
 
 <b>Город</b><br>
     <div class="frmSearch">
-        <input  id="search-box"  id="cityInput" type="text" name="city">
+        <input  id="search-box"  id="cityInput" type="text" value="<?php echo $vacancy->city;?>" name="city">
     </div>
     <div id="suggesstion-box"></div><br>
     
     <b>Предполагаемый уровень дохода в месяц или за объем работ</b><br>
-<input type="text" name="costfrom" placeholder="от"> <input type="text" name="costto" placeholder="до"> 
+<input type="text" name="costfrom" value="<?php echo $vacancy->costfrom;?>" placeholder="от"> 
+<input type="text" name="costto" value="<?php echo $vacancy->costto;?>" placeholder="до"> 
+<?php $cash = ["руб.","EUR","USD"];?>
 <select name="cash" style="width:100px;">
-    <option value="руб.">руб.</option>
-    <option value="EUR">EUR</option>
-    <option value="USD">USD</option>
+    <?php foreach($cash as $c):?>
+       <option value="<?php echo $c;?>" <?php echo ($c == $vacancy->cash)?'selected':''?>><?php echo $c;?></option>
+    <?php endforeach;?>
+
 </select><br>
-<input type="radio" name="cashtype" checked value="До вычета налогов">До вычета налогов<br>
-<input type="radio" name="cashtype" value="На руки">На руки<br>
+<input type="radio" name="cashtype" <?php echo ("До вычета налогов" == $vacancy->cashtype)?'checked':''?>  value="До вычета налогов">До вычета налогов<br>
+<input type="radio" name="cashtype"  <?php echo ("На руки" == $vacancy->cashtype)?'checked':''?> value="На руки">На руки<br>
 <b>Где будет работать сотрудник</b> <br>
 <input type="radio" name="addresstype" 	checked onClick="showHideAddress('hide')"> Не указывать адрес<br>
 <input type="radio" name="addresstype" onClick="showHideAddress('show')"> Указать адрес <br>
 <div id="address" style="display: none">
     <small>Город, улица, дом</small><br>
-    <input type="text"  class="popupmap-open" name="address" >
+    <input type="text"  value="<?php echo $vacancy->address;?>" name="address" >
 </div>
 <b>Опыт работы</b><br>
-<input type="radio" name="exp" checked value="Нет опыта">Нет опыта <br>
-<input type="radio" name="exp" value="От 1 года до 3 лет"> От 1 года до 3 лет<br>
-<input type="radio" name="exp" value="От 3 до 6 лет"> От 3 до 6 лет<br>
-<input type="radio" name="exp" value="Более 6 лет">Более 6 лет<br>
+<input type="radio" name="exp" <?php echo ("Нет опыта" == $vacancy->exp)?'checked':''?> value="Нет опыта">Нет опыта <br>
+<input type="radio" name="exp" <?php echo ("От 1 года до 3 лет" == $vacancy->exp)?'checked':''?> value="От 1 года до 3 лет"> От 1 года до 3 лет<br>
+<input type="radio" name="exp" <?php echo ("От 3 до 6 лет" == $vacancy->exp)?'checked':''?> value="От 3 до 6 лет"> От 3 до 6 лет<br>
+<input type="radio" name="exp" <?php echo ("Более 6 лет" == $vacancy->exp)?'checked':''?> value="Более 6 лет">Более 6 лет<br>
 <b>Расскажите про вакансию</b>
 <textarea name="description" style="width:500px;height:100px">
+<?php if($vacancy->description == ""):?>
 <b>Обязанности: </b><br>
 -<br>
 -<br>
@@ -293,14 +297,23 @@ function deleteSkill(obj){
 -<br>
 -<br>
 -<br>
-
+<?php else:?>
+<?php echo $vacancy->description;?>
+<?php endif;?>
 </textarea>
 
 Ключевые навыки<br>
 <div id="skills" style="float:left">
-
-</div> 
-<input type="hidden" name="skills" id="skills-input">
+    <?php $skillsArr = explode(",",$vacancy->skills);?>
+    
+    <?php foreach($skillsArr as $skill):?>
+        <?php if($skill != ""):?>
+        
+        <div onClick='deleteSkill(this)' style='margin:4px;border-radius:5px;background-color:edeff0;padding:4px;border:1px solid gray;min-width:10px;float:left;'><?php echo $skill;?> <span style='color:blue;cursor: pointer'>x</span></div>
+        <?php endif;?>
+    <?php endforeach;?>
+</div>  
+<input type="hidden" name="skills" id="skills-input" value="<?php echo $vacancy->skills;?>">
 <div>  &nbsp;</div>
 <br>
 
@@ -311,11 +324,11 @@ function deleteSkill(obj){
     <div>  &nbsp;</div>
 
     <b> Занятость</b><br>
-    <input type="radio" name="employment" checked value="Полная занятость">Полная занятость<br>
-    <input type="radio" name="employment" value="Частичная занятость">	Частичная занятость<br>
-    <input type="radio" name="employment" value="Проектная работа или разовое задание">Проектная работа или разовое задание<br>
-    <input type="radio" name="employment" value="Волонтерство">Волонтерство<br>
-    <input type="radio" name="employment" value="Стажировка">Стажировка<br>
+    <input type="radio" name="employment" <?php echo ("Полная занятость" == $vacancy->employment)?'checked':''?> value="Полная занятость">Полная занятость<br>
+    <input type="radio" name="employment" <?php echo ("Частичная занятость" == $vacancy->employment)?'checked':''?> value="Частичная занятость">	Частичная занятость<br>
+    <input type="radio" name="employment" <?php echo ("Проектная работа или разовое задание" == $vacancy->employment)?'checked':''?> value="Проектная работа или разовое задание">Проектная работа или разовое задание<br>
+    <input type="radio" name="employment" <?php echo ("Волонтерство" == $vacancy->employment)?'checked':''?> value="Волонтерство">Волонтерство<br>
+    <input type="radio" name="employment" <?php echo ("Стажировка" == $vacancy->employment)?'checked':''?> value="Стажировка">Стажировка<br>
 
     <h3>Контакты</h3>
     <b>Контактное лицо</b><br>
@@ -326,7 +339,7 @@ function deleteSkill(obj){
     <input type="text" name="phone" value="<?php echo $user->phone?>"><br>
     <div style="padding-top:10px">
     
-        <input type="submit" class="btn btn-success" value="Добавить">
+        <input type="submit" class="btn btn-success" value="Сохранить">
     </div>
 </form>
 
