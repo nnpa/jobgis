@@ -19,7 +19,7 @@ class AppController extends Controller{
                 "actionCity"
             ];
             
-            if($user->name == "" OR $user->surname == "" OR $user->phone == "" OR $user->city){
+            if(($user->name == "") OR ($user->surname == "") OR ($user->phone == "") OR ($user->city)){
                 var_dump($user->name == "" OR $user->surname == "" OR $user->phone == "" OR $user->city);exit;
                 echo $user->name . " " .$user->surname . " " . $user->phone . " " .$user->city;exit;
                 if(!in_array($action->actionMethod, $actions)){
@@ -28,7 +28,7 @@ class AppController extends Controller{
             }
             
             if($user->firm_id != 0){
-                if($user->firm->inn == 0 OR $user->firm->category == "" AND $user->firm->city == "" AND $action->actionMethod != "actionVerify"){
+                if($user->firm->inn == 0 OR $user->firm->category == "" OR $user->firm->city == ""){
                     if(!in_array($action->actionMethod, $actions)){
                         return $this->redirect("/site/addinn"); 
                     }
