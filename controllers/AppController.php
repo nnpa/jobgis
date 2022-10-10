@@ -13,13 +13,13 @@ class AppController extends Controller{
             $user = Users::find()->where(["id" => $user->id])->one();
             var_dump($action->actionMethod);exit;
             if($user->name == "" OR $user->surname == "" OR $user->phone == "" OR $user->city == ""){
-                if($action->actionMethod != "actionAddinfo" AND $action->actionMethod != "actionLogin"  AND $action->actionMethod != "actionLogin" AND $action->actionMethod != "actionAddinn"){
+                if($action->actionMethod != "actionAddinfo" AND $action->actionMethod != "actionLogin"  AND $action->actionMethod != "actionLogin" AND $action->actionMethod != "actionAddinn" AND $action->actionMethod != "actionVerify"){
                     return $this->redirect("/site/addinfo"); 
                 }
             }
             
             if($user->firm_id != 0){
-                if($user->firm->inn == 0 OR $user->firm->category == "" AND $user->firm->city == ""){
+                if($user->firm->inn == 0 OR $user->firm->category == "" AND $user->firm->city == "" AND $action->actionMethod != "actionVerify"){
                     if($action->actionMethod != "actionAddinn" AND $action->actionMethod != "city" AND $action->actionMethod != "actionLogin"){
                         return $this->redirect("/site/addinn"); 
                     }
