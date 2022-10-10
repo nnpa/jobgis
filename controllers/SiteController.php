@@ -297,7 +297,7 @@ class SiteController extends AppController
                 ->send();
                 
                 
-                return $this->render("message",["message"=>"На ваш email высла пароль"]);
+                return $this->render("message",["message"=>"На ваш email выслан пароль"]);
             }
             
         }
