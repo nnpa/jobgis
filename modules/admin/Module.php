@@ -19,11 +19,7 @@ class Module extends \yii\base\Module
     public function init()
     {
         $roleArr = \Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
-        if(!empty($roleArr)){
-            $roleObj = array_shift($roleArr);
-            $role = $roleObj->name;
-        }
-        if($role!= 'admin'){
+        if(!array_key_exists("admin", $roleArr)){
             exit;
         }
         $this->layout = 'admin';
