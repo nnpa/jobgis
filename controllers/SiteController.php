@@ -117,8 +117,9 @@ class SiteController extends AppController
 
     
     public function actionRegisteremployer(){
-        $city = $this->getCity();
-
+        $company = "";
+        $email = "";
+        
         $errors =  [];
         if(
            isset($_POST["company"])  &&
@@ -144,6 +145,9 @@ class SiteController extends AppController
 
             }
             
+            $company = $_POST["company"];
+            $email = $_POST["email"];
+
             if(empty($errors)){
                 $firm = new Firm();
                 $firm->name =  $_POST["company"];
@@ -186,7 +190,11 @@ class SiteController extends AppController
             
         }
         
-        return $this->render('registeremployer',["errors" => $errors,"city" =>$city]);
+        return $this->render('registeremployer',[
+            "errors" => $errors,
+            "company" => $company,
+            "email" => $email,
+        ]);
     }
     
     public function actionReset(){
@@ -239,33 +247,14 @@ class SiteController extends AppController
     }
     
     public function actionRegistercandidate(){
-        $city = $this->getCity();
         $errors =  [];
+        $email = "";
         if(
-           isset($_POST["name"]) &&
-           isset($_POST["surname"])  &&
-           isset($_POST["phone"]) &&
-           isset($_POST["city"])&&
            isset($_POST["email"])
         ){
-            if(strlen($_POST["name"]) < 3){
-                $errors[] = "Имя меньше 3 символов";
-            }
-            if(strlen($_POST["surname"]) < 3){
-                $errors[] = "Фамилия меньше 3 символов";
-            }
-            if(strlen($_POST["surname"]) < 3){
-                $errors[] = "Фамилия меньше 3 символов";
-            }
-            
-            
-            if($this->checkPhoneNumber($_POST["phone"]) == false) {
-                $errors[] = "Не верный формат телефона";
-            }
-            
+       
             if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
                 $errors[] = "Не верный формат email";
-
             }
             
             $user = Users::find()->where(["email" => $_POST["email"]])->one();
@@ -273,21 +262,22 @@ class SiteController extends AppController
                 $errors[] = "Такой email уже зарегистрирован";
 
             }
+            $email = $_POST["email"];
             
             if(empty($errors)){
                 $user = new Users();
-                $user->name = $_POST["name"];
-                $user->surname = $_POST["surname"];
-                $user->phone = $_POST["phone"];
+                $user->name = "";
+                $user->surname = "";
+                $user->phone = "";
                 $user->company = "";
                 $user->email = $_POST["email"];
-                $user->city = $_POST["city"];
+                $user->city = "";
                 $user->recover_code = "";
                 $user->auth_key = "";
                 $user->access_token = "";
                 $user->password = $this->getPassword();
                 $user->create_time = time();
-                $user->patronymic = $_POST['patronymic'];
+                $user->patronymic = "";
 
                 $user->save(false);
                 
@@ -311,7 +301,7 @@ class SiteController extends AppController
             
         }
         
-        return $this->render('registercandidate',["errors" => $errors,"city" =>$city]);
+        return $this->render('registercandidate',["errors" => $errors,"email" => $email]);
     }
     
     

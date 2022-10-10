@@ -58,7 +58,7 @@ function selectCountry(val) {
 
 <div style="float:left;width:30%">&nbsp;</div>
 <div style="float:left;width:30%;min-width: 350px;border:1px solid black;padding: 10px;border-radius: 5px;">
-        <center> <h3>Регистрация работодателя</h3></center>
+        <center> <h5>Регистрация работодателя</h5></center>
 
     <form method="POST">
         
@@ -68,19 +68,7 @@ function selectCountry(val) {
                 <b>Компания</b>
             </div>
             <div class="col-4">
-                <input type="text" name="company"><br>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-3">
-                <b>Город</b> 
-            </div>
-            <div class="col-4">
-                    <div class="frmSearch">
-                    <input  id="search-box" value="<?php echo $city;?>" id="cityInput" type="text" name="city">
-                    </div>
-                    <div id="suggesstion-box"></div>
+                <input type="text" value="<?php echo $company;?>" name="company"><br>
             </div>
         </div>
         <div class="row">
@@ -88,7 +76,7 @@ function selectCountry(val) {
                 <b>Email</b> 
             </div>
             <div class="col-4">
-                <input type="text" name="email">
+                <input type="text" value="<?php echo $email;?>" name="email">
             </div>
         </div>
         <div class="row">

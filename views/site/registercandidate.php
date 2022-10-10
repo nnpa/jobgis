@@ -56,59 +56,19 @@ function selectCountry(val) {
 <div>
     <div style="float:left;width:30%">&nbsp;</div>
     <div style="float:left;width:30%;min-width: 350px;border:1px solid black;padding: 10px;border-radius: 5px;">
-        <center> <h3>Регистрация соискателя</h3></center>
+        <center> <h5>Регистрация соискателя</h5></center>
         <form method="POST">
-        <div class="row">
-            <div class="col-3">
-                <b>Фамилия </b>
-            </div>
-            <div class="col-4">
-                <input class="input-text" type="text" name="surname">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-3">
-                <b>Имя</b>
-            </div>
-            <div class="col-4">
-                <input type="text" name="name">
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-3">
-                <b>Отчество</b> 
-            </div>
-            <div class="col-4">
-
-                <input type="text" name="patronymic">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-3">
-                <b>Телефон</b>
-            </div>
-            <div class="col-4">
-                <input id="phone" type="text" name="phone"><br>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-3">
-                <b>Город</b> 
-            </div>
-            <div class="col-4">
-                    <div class="frmSearch">
-                    <input  id="search-box" value="<?php echo $city;?>" id="cityInput" type="text" name="city">
-                    </div>
-                    <div id="suggesstion-box"></div>
-            </div>
-        </div>
+        
+        
+       
+        
+        
         <div class="row">
             <div class="col-3">
                 <b>Email</b> 
             </div>
             <div class="col-4">
-                <input type="text" name="email">
+                <input type="text" value="<?php echo $email;?>" name="email">
             </div>
         </div>
         <div class="row">
