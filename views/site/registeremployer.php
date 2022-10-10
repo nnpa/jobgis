@@ -58,7 +58,7 @@ function selectCountry(val) {
 
 <div style="float:left;width:30%">&nbsp;</div>
 <div style="float:left;width:30%;min-width: 350px;border:1px solid black;padding: 10px;border-radius: 5px;">
-        <center> <h3>Регистрация</h3></center>
+        <center> <h3>Регистрация работодателя</h3></center>
 
     <form method="POST">
         <div class="row">
