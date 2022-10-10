@@ -11,7 +11,7 @@ class AppController extends Controller{
         if(!Yii::$app->user->isGuest){
             $user = Yii::$app->user->identity;
             $user = Users::find()->where(["id" => $user->id])->one();
-            var_dunp($action->actionMethod);exit;
+            var_dump($action->actionMethod);exit;
             if($user->name == "" OR $user->surname == "" OR $user->phone == "" OR $user->city == ""){
                 if($action->actionMethod != "actionAddinfo" AND $action->actionMethod != "actionLogin"  AND $action->actionMethod != "actionLogin" AND $action->actionMethod != "actionAddinn"){
                     return $this->redirect("/site/addinfo"); 
