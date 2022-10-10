@@ -165,9 +165,9 @@ class SiteController extends AppController
                 $firm->save(false);
                 
                 $user = new Users();
-                $user->name = $_POST["name"];
+                $user->name = "";
                 $user->surname = "";
-                $user->phone = $_POST["phone"];
+                $user->phone = "";
                 $user->company = $_POST["company"];
                 $user->firm_id = $firm->id;
                 $user->email = $_POST["email"];

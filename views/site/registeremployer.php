@@ -62,15 +62,7 @@ function selectCountry(val) {
 
     <form method="POST">
         
-        <div class="row">
-            <div class="col-3">
-                <b>Имя</b>
-            </div>
-            <div class="col-4">
-                <input type="text" name="name">
 
-            </div>
-        </div>
         <div class="row">
             <div class="col-3">
                 <b>Компания</b>
@@ -79,14 +71,7 @@ function selectCountry(val) {
                 <input type="text" name="company"><br>
             </div>
         </div>
-        <div class="row">
-            <div class="col-3">
-                <b>Телефон</b>
-            </div>
-            <div class="col-4">
-                <input id="phone" type="text" name="phone"><br>
-            </div>
-        </div>
+        
         <div class="row">
             <div class="col-3">
                 <b>Город</b> 
