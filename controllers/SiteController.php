@@ -121,30 +121,17 @@ class SiteController extends AppController
 
         $errors =  [];
         if(
-           isset($_POST["name"]) &&
-           isset($_POST["surname"])  &&
-           isset($_POST["phone"]) &&
            isset($_POST["company"])  &&
-           isset($_POST["city"])&&
            isset($_POST["email"])
         ){
-            if(strlen($_POST["name"]) < 3){
-                $errors[] = "Имя меньше 3 символов";
-            }
-            if(strlen($_POST["surname"]) < 3){
-                $errors[] = "Фамилия меньше 3 символов";
-            }
-            if(strlen($_POST["surname"]) < 3){
-                $errors[] = "Фамилия меньше 3 символов";
-            }
+
+
+
             
             if(strlen($_POST["company"]) < 3){
                 $errors[] = "Компания меньше 3 символов";
             }
-            
-            if($this->checkPhoneNumber($_POST["phone"]) == false) {
-                $errors[] = "Не верный формат телефона";
-            }
+
             
             if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
                 $errors[] = "Не верный формат email";
