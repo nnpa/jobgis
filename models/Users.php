@@ -34,14 +34,7 @@ class Users extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public function rules()
-    {
-        return [
-            [['name', 'surname', 'company', 'phone', 'city', 'email', 'password', 'type', 'recover_code', 'create_time', 'auth_key', 'access_token'], 'required'],
-            [['type', 'create_time'], 'integer'],
-            [['name', 'surname', 'company', 'phone', 'city', 'email', 'password', 'recover_code', 'auth_key', 'access_token'], 'string', 'max' => 255],
-        ];
-    }
+    
 
     /**
      * {@inheritdoc}
