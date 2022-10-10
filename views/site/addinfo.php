@@ -55,7 +55,7 @@ function selectCountry(val) {
     Телефон <input type="text" name="phone" value="<?php echo $user->phone;?>"><br>
     Город 
    <div class="frmSearch">
-        <input  id="search-box"  id="cityInput" type="text" value="<?php echo $vacancy->city;?>" name="city">
+        <input  id="search-box"  id="cityInput" type="text" value="<?php echo $user->city;?>" name="city">
     </div>
     <div id="suggesstion-box"></div><br>
     <input type="submit" value="Сохранить" class="btn btn-success">
