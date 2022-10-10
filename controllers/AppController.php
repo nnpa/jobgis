@@ -16,7 +16,8 @@ class AppController extends Controller{
                 "actionLogin",
                 "actionLogin",
                 "actionAddinn",
-                "actionVerify"
+                "actionVerify",
+                "actionCity"
             ];
             
             if($user->name == "" OR $user->surname == "" OR $user->phone == "" OR $user->city == ""){
