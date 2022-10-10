@@ -54,13 +54,22 @@ class FirmSearch extends Firm
             // $query->where('0=1');
             return $dataProvider;
         }
-
-        // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'verify' => $this->verify,
-            'manage_id' => $manager_id,
-        ]);
+        
+        if($manager_id == null){
+            // grid filtering conditions
+            $query->andFilterWhere([
+                'id' => $this->id,
+                'verify' => $this->verify,
+            ]);
+ 
+        } else{
+            
+            $query->andFilterWhere([
+                'id' => $this->id,
+                'verify' => $this->verify,
+                'manage_id' => $manager_id,
+            ]);
+        }
 
         $query->andFilterWhere(['like', 'name', $this->name]);
 

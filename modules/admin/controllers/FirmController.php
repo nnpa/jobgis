@@ -41,7 +41,7 @@ class FirmController extends Controller
     public function actionIndex()
     {
         $searchModel = new FirmSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
+        $dataProvider = $searchModel->search($this->request->queryParams,null);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
