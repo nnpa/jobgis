@@ -166,7 +166,7 @@ class SiteController extends AppController
                 
                 $user = new Users();
                 $user->name = $_POST["name"];
-                $user->surname = $_POST["surname"];
+                $user->surname = "";
                 $user->phone = $_POST["phone"];
                 $user->company = $_POST["company"];
                 $user->firm_id = $firm->id;
@@ -177,7 +177,7 @@ class SiteController extends AppController
                 $user->access_token = "";
                 $user->password = $this->getPassword();
                 $user->create_time = time();
-                $user->patronymic = $_POST['patronymic'];
+                $user->patronymic = "";
                 $user->save(false);
                 
                 $id = $user->id;

@@ -61,14 +61,7 @@ function selectCountry(val) {
         <center> <h3>Регистрация работодателя</h3></center>
 
     <form method="POST">
-        <div class="row">
-            <div class="col-3">
-                <b>Фамилия </b>
-            </div>
-            <div class="col-4">
-                <input class="input-text" type="text" name="surname">
-            </div>
-        </div>
+        
         <div class="row">
             <div class="col-3">
                 <b>Имя</b>
@@ -76,15 +69,6 @@ function selectCountry(val) {
             <div class="col-4">
                 <input type="text" name="name">
 
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-3">
-                <b>Отчество</b> 
-            </div>
-            <div class="col-4">
-
-                <input type="text" name="patronymic">
             </div>
         </div>
         <div class="row">
