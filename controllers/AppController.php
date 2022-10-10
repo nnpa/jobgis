@@ -19,6 +19,7 @@ class AppController extends Controller{
             }
             
             if($user->firm_id != 0){
+                var_dump($action->actionMethod);exit;
                 if($user->firm->inn == 0 OR $user->firm->category == "" AND $user->firm->city == ""){
                     if($action->actionMethod != "actionAddinn" OR $action->actionMethod != "city" OR $action->actionMethod != "actionLogin"){
                         return $this->redirect("/site/addinn"); 
