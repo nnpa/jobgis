@@ -44,11 +44,12 @@ $managers = AuthAssignment::find()->where(["item_name" => "manager"])->all();
 ?>
 <h3>Назначить менеджера</h3>
 <form method="POST" action="/admin/firm/setmanager?id=<?php echo $model->id?>">
-    
+        <select name="manager">
+
 <?php foreach($managers as $manager):?>
-    <select name="manager">
         <option value="<?php echo $manager->user_id?>"><?php echo $manager->user->name . " " . $manager->user->surname;?></option>
-    </select>
 <?php endforeach; ?>
+            </select>
+
     <input type="submit" value="Назначить" class="btn btn-success">
 </form>
