@@ -67,6 +67,7 @@ class SiteController extends AppController
      */
     public function actionIndex()
     {
+        $this->view->title = "Jobgis.ru";
         $this->view->registerMetaTag(
             ['name' => 'keywords', 'content' => 'работа, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск']
         );
