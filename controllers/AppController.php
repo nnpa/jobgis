@@ -33,10 +33,11 @@ class AppController extends Controller{
                     }
                 }
             }
-            echo $user->firm_id . " " . $user->firm->verify;exit;
             if($user->firm_id != 0){
                 if($user->firm->verify == 0){
+                    var_dump(!in_array($action->actionMethod, $actions));exit;
                     if(!in_array($action->actionMethod, $actions)){
+                        
                         return $this->redirect("/site/verify"); 
                     }
                 }
