@@ -20,7 +20,7 @@ class AppController extends Controller{
                 "actionCity"
             ];
             
-            if($user->name == "" OR $user->surname == "" OR $user->phone == "" OR $user->city == ""){
+            if($user->name == "" OR $user->surname == "" OR $user->phone == "" OR $user->city){
                 if(!in_array($action->actionMethod, $actions)){
                     return $this->redirect("/site/addinfo"); 
                 }
