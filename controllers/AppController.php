@@ -33,7 +33,7 @@ class AppController extends Controller{
                     }
                 }
             }
-            
+            echo $user->firm_id . " " . $user->firm->verify;exit;
             if($user->firm_id != 0){
                 if($user->firm->verify == 0){
                     if(!in_array($action->actionMethod, $actions)){
