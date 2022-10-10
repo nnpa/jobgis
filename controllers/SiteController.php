@@ -186,7 +186,7 @@ class SiteController extends AppController
                 ->setHtmlBody("Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a>")
                 ->send();
                 
-                return $this->render("message",["message"=>"На ваш email высла пароль"]);
+                return $this->render("message",["message"=>"На ваш email выслан пароль"]);
             }
             
         }
@@ -224,7 +224,7 @@ class SiteController extends AppController
                 ->send();
                                 
                 
-                return $this->render("message",["message"=>"На ваш email высла пароль"]);
+                return $this->render("message",["message"=>"На ваш email выслан пароль"]);
             }
         }
         return $this->render('reset',["errors" => $errors]);
