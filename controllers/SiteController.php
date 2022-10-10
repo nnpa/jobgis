@@ -153,6 +153,7 @@ class SiteController extends AppController
                 $firm->name =  $_POST["company"];
                 $firm->verify = 0 ;
                 $firm->manage_id = 0 ;
+                $firm->city = "";
                 $firm->save(false);
                 
                 $user = new Users();
