@@ -16,8 +16,7 @@ use app\models\ResumeExp;
 use app\models\ResumePortfolio;
 use app\models\ResumeEdu;
 use app\models\ResumeAddedu;
-
-class ResumeController extends Controller
+class ResumeController extends AppController
 {
     public $enableCsrfValidation = false;
     /**

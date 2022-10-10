@@ -14,7 +14,6 @@ class AppController extends Controller{
             $actions = [
                 "actionAddinfo",
                 "actionLogin",
-                "actionLogin",
                 "actionAddinn",
                 "actionVerify",
                 "actionCity"
@@ -35,7 +34,6 @@ class AppController extends Controller{
             }
             if($user->firm_id != 0){
                 if($user->firm->verify == 0){
-                    var_dump(!in_array($action->actionMethod, $actions));exit;
                     if(!in_array($action->actionMethod, $actions)){
                         
                         return $this->redirect("/site/verify"); 
