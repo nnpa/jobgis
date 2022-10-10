@@ -11,7 +11,6 @@ class AppController extends Controller{
         if(!Yii::$app->user->isGuest){
             $user = Yii::$app->user->identity;
             $user = Users::find()->where(["id" => $user->id])->one();
-            var_dump($action->actionMethod);exit;
             if($user->name == "" OR $user->surname == "" OR $user->phone == "" OR $user->city == ""){
                 if($action->actionMethod != "actionAddinfo" AND $action->actionMethod != "actionLogin"  AND $action->actionMethod != "actionLogin" AND $action->actionMethod != "actionAddinn" AND $action->actionMethod != "actionVerify"){
                     return $this->redirect("/site/addinfo"); 
@@ -27,7 +26,7 @@ class AppController extends Controller{
             }
             if($user->firm_id != 0){
                 if($user->firm->verify == 0){
-                    if($action->actionMethod != "actionVerify"){
+                    if($action->actionMethod != "actionAddinfo" AND $action->actionMethod != "actionLogin"  AND $action->actionMethod != "actionLogin" AND $action->actionMethod != "actionAddinn" AND $action->actionMethod != "actionVerify"){
                         return $this->redirect("/site/verify"); 
                     }
                 }
