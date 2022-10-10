@@ -1,2 +1,2 @@
-<h3>Разместите вакансию на jobgis.ru</h3>
-<a href="/site/registeremployer">Разместить вакансию</a>
+<h3>Создать вакансию на jobgis.ru</h3>
+<a class="btn btn-success" href="/site/registeremployer">Создать вакансию</a>
