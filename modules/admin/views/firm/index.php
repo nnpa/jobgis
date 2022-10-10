@@ -14,10 +14,10 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="firm-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1>Фирмы</h1>
 
     <p>
-        <?= Html::a('Create Firm', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать фирму', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

@@ -162,7 +162,7 @@ class SiteController extends AppController
                 $user->company = $_POST["company"];
                 $user->firm_id = $firm->id;
                 $user->email = $_POST["email"];
-                $user->city = $_POST["city"];
+                $user->city = "";
                 $user->recover_code = "";
                 $user->auth_key = "";
                 $user->access_token = "";
