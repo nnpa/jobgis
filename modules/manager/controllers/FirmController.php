@@ -169,6 +169,7 @@ class FirmController extends Controller
                 $firm->verify = 0 ;
                 $firm->manage_id = 0 ;
                 $firm->inn = 0;
+                $firm->city = "";
                 $firm->save(false);
                 
                 
