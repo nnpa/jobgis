@@ -441,13 +441,14 @@ class SiteController extends AppController
             
             if(empty($errors)){
                 $user = Yii::$app->user->identity;
+                $company = $user->company;
                 $firm_id = $user->firm_id;
                 
                 $user = new Users();
                 $user->name = "";
                 $user->surname = "";
                 $user->phone = "";
-                $user->company = "";
+                $user->company = $company;
                 $user->email = $email;
                 $user->city = "";
                 $user->recover_code = "";
