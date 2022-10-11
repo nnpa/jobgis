@@ -65,7 +65,7 @@ function selectCountry(val) {
 
         <div class="row">
             <div class="col-3">
-                <b>Компания</b>
+                <b>Компания*</b>
             </div>
             <div class="col-4">
                 <input type="text" value="<?php echo $company;?>" name="company"><br>
@@ -73,7 +73,7 @@ function selectCountry(val) {
         </div>
         <div class="row">
             <div class="col-3">
-                <b>Email</b> 
+                <b>Email*</b> 
             </div>
             <div class="col-4">
                 <input type="text" value="<?php echo $email;?>" name="email">
@@ -87,6 +87,7 @@ function selectCountry(val) {
             </div>
         </div>
     </form>
+        Поля помеченные * обязательны к заполнению
 </div>
 <div style="float:left;width:30%">&nbsp;</div>
 </div>

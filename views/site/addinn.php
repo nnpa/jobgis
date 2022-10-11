@@ -85,19 +85,20 @@ function selectCountry(val) {
 
 <h3>Заполните ИНН компании</h3>
 <form method="POST">
-    <b>инн</b> <input type="text" name="inn" ><br>
-    <b>индустрия</b> 
+    <b>ИНН *</b> <input type="text" name="inn" ><br>
+    <b>Индустрия *</b> 
     <select name="category">
         <?php foreach($category as $c):?>
         <option value="<?php echo $c;?>"><?php echo $c;?></option>
         <?php endforeach;?>
     </select><br>
-    <b>Город</b>
+    <b>Город *</b>
 <div class="frmSearch">
                     <input  id="search-box" id="cityInput" type="text" name="city">
                     </div>
                     <div id="suggesstion-box"></div>
     <input class=" btn btn-success" type="submit" value="Сохранить">
-    
+        Поля помеченные * обязательны к заполнению
+
 </form>
 
