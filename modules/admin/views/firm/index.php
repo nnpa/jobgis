@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'verify',
             'manage_id',
             'inn',
+            'city',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, $model, $key, $index, $column) {
