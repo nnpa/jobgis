@@ -47,8 +47,16 @@ AppAsset::register($this);
     $role = "guest";
     $roleArr = \Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
     if(!empty($roleArr)){
-        $roleObj = array_shift($roleArr);
-        $role = $roleObj->name;
+        
+        foreach($roleArr as $roleObj){
+            if($roleObj->name == "employer"){
+                $role = "employer";
+            }
+            if($roleObj->name == "candidate"){
+                $role = "candidate";
+            }
+        }
+        
     }
     
     NavBar::begin([
