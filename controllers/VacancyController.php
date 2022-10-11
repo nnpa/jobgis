@@ -70,9 +70,14 @@ class VacancyController extends AppController
         foreach($users as $user ){
             $ids[] = $user->id;
         }
-        $vacancies = Vacancy::find()->where(["user_id" => $ids])->all();
         
-
+        $vacancies = Vacancy::find()->where(["user_id" => $user->id]);
+        
+        foreach($ids as $id){
+            $vacancies = $vacancies->andWhere(["user_id" => $id]);
+        }
+        $vacancies->all();
+        
         return $this->render("all",["vacancies" => $vacancies]);
     }
     
