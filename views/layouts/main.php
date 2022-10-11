@@ -55,8 +55,11 @@ AppAsset::register($this);
             if($roleObj->name == "candidate"){
                 $role = "candidate";
             }
+            if($roleObj->name == "admin"){
+                $this->context->redirect("/admin/");
+            }
         }
-        
+
     }
     
     NavBar::begin([
