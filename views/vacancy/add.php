@@ -157,7 +157,7 @@ function addSpec(spec,obj){
 
 <script type="text/javascript">
 $(document).ready(function() {
-        $("#phone").mask("+9 (999) 999-99-99");
+        $("#phone").mask("+7 (999) 999-99-99");
 
 	$("#search-box").keyup(function() {
 		$.ajax({
@@ -347,7 +347,7 @@ function deleteSkill(obj){
     <b>Email</b><br>
     <input type="text" name="email"  value="<?php echo $vacancy->email?>"><br>
     <b>Телефон</b><br>
-    <input type="text" name="phone" value="<?php echo $vacancy->phone?>"><br>
+    <input type="text" id="phone" name="phone" value="<?php echo $vacancy->phone?>"><br>
     <div style="padding-top:10px">
     
         <input type="submit" class="btn btn-success" value="Сохранить">

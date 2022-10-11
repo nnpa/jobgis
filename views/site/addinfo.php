@@ -26,7 +26,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-        $("#phone").mask("+9 (999) 999-99-99");
+        $("#phone").mask("+7 (999) 999-99-99");
 
 	$("#search-box").keyup(function() {
 		$.ajax({
@@ -52,7 +52,7 @@ function selectCountry(val) {
     Имя* <input type="text" name="name" value="<?php echo $user->name;?>"><br>
     Фамилия* <input type="text" name="surname" value="<?php echo $user->surname;?>"><br>
     Отчество* <input type="text" name="patronymic" value="<?php echo $user->patronymic;?>"><br>
-    Телефон* <input type="text" name="phone" value="<?php echo $user->phone;?>"><br>
+    Телефон* <input type="text" id="phone" name="phone" value="<?php echo $user->phone;?>"><br>
     Город *
    <div class="frmSearch">
         <input  id="search-box"  id="cityInput" type="text" value="<?php echo $user->city;?>" name="city">

@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use yii\web\Controller;
+use Yii;
 
 /**
  * Default controller for the `admin` module
@@ -16,5 +17,12 @@ class DefaultController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+    
+        public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->goHome();
     }
 }
