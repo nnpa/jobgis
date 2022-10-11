@@ -137,9 +137,24 @@ class UsersController extends Controller
     }
     
     public function actionAddmanager($id){
-          $role = Yii::$app->authManager->getRole('manager');
+            $role = "";
+            $roleArr = \Yii::$app->authManager->getRolesByUser($id);
+            if(!empty($roleArr)){
+
+                foreach($roleArr as $roleObj){
+                    if($roleObj->name == "manager"){
+                        $role = "manager";
+                    }
+                }
+
+            }
+            
+          if($role != "manager"){
+            $role = Yii::$app->authManager->getRole('manager');
         
-          Yii::$app->authManager->assign($role,$id);
+            Yii::$app->authManager->assign($role,$id);
+          }
+
           $this->redirect("/admin/users/index");
     }
 }
