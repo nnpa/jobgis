@@ -1,11 +1,4 @@
 <script>
-    $(document).ready(function() {
-
-window.onbeforeunload = function (event) {return confirm("Вы создали и редактируете вакансию, уйти?");}
-});
-</scritp>
-
-<script>
 $(document).ready(function() {
 $('#formid').on('keyup keypress', function(e) {
   var keyCode = e.keyCode || e.which;

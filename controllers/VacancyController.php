@@ -130,29 +130,39 @@ class VacancyController extends AppController
     
     public function actionAdd(){
         
-            $user = Yii::$app->user->identity;
-            $vacancy = new Vacancy();
+       $user = Yii::$app->user->identity;
+       $vacancy = new Vacancy();
+       $vacancy->name = "Заполните должность";
+       $vacancy->cashtype = "До вычета налогов";
+       $vacancy->exp = "Нет опыта";
+       $vacancy->employment = "Полная занятость";
+       
+       
+       if(isset($_POST) && !empty($_POST)){
             $vacancy->user_id = $user->id;
-            $vacancy->name = "Заполните вакансию";
-            $vacancy->spec  = "";
-            $vacancy->specsub  = "";
-            $vacancy->city  = "";
-            $vacancy->costfrom  = (int) 10000;
-            $vacancy->costto  = (int) 20000;
-            $vacancy->cash  = "";
-            $vacancy->cashtype  = "До вычета налогов";
-            $vacancy->address  = "";
-            $vacancy->exp  = "Нет опыта";
-            $vacancy->description  = "";
-            $vacancy->skills  = "";
-            $vacancy->employment  = "Полная занятость";
-            $vacancy->contactmane  = "";
-            $vacancy->email  = "";
-            $vacancy->phone  = "";
+            $vacancy->name = $_POST["name"];
+            $vacancy->spec  = $_POST["spec"];
+            $vacancy->specsub  = $_POST["specsub"];
+            $vacancy->city  = $_POST["city"];
+            $vacancy->costfrom  = (int) $_POST["costfrom"];
+            $vacancy->costto  = (int) $_POST["costto"];
+            $vacancy->cash  = $_POST["cash"];
+            $vacancy->cashtype  = $_POST["cashtype"];
+            $vacancy->address  = $_POST["address"];
+            $vacancy->exp  = $_POST["exp"];
+            $vacancy->description  = $_POST["description"];
+            $vacancy->skills  = $_POST["skills"];
+            $vacancy->employment  = $_POST["employment"];
+            $vacancy->contactmane  = $_POST["contactmane"];
+            $vacancy->email  = $_POST["email"];
+            $vacancy->phone  = $_POST["phone"];
             $vacancy->create_time  = time();
             $vacancy->save(false);
+            return $this->render("message",["message" => "Вы успешно отредактировали вакансию"]);
+       }
             
-            return $this->redirect("/vacancy/edit?id=" . $vacancy->id);
+        return $this->render("add",["user" => $user,"vacancy" => $vacancy]); 
+
     }    
     
     public function actionSkills(){
