@@ -31,7 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'verify',
-            'manage_id',
+            [
+                'label' => 'Manager',
+                'value' => function ($model) {
+                     return $model->managerName();
+                }
+            ],            
             'inn',
             'city',
             [

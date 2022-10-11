@@ -53,4 +53,12 @@ class Firm extends \yii\db\ActiveRecord
       public function getManager(){
         return $this->hasOne(Users::class, ['id' => 'manage_id']);
     }
+    
+    public function managerName(){
+        if(is_object($this->manager)){
+            return $this->manager->name . " " .$this->manager->surname;
+        }else {
+            return "";
+        }
+    }
 }
