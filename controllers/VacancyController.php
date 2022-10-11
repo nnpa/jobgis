@@ -118,6 +118,7 @@ class VacancyController extends AppController
             $vacancy->email  = $_POST["email"];
             $vacancy->phone  = $_POST["phone"];
             $vacancy->create_time  = time();
+            $vacancy->save(false);
             return $this->render("message",["message" => "Вы успешно отредактировали вакансию"]);
        }
        
