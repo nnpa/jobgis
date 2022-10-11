@@ -5,6 +5,6 @@ return [
     'senderEmail' => 'noreply@example.com',
     'senderName' => 'Example.com mailer',
     'name' => 'jobgis',
-    'url' => 'example.com'
+    'url' => 'jobgis.ru'
 
 ];
