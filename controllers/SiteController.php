@@ -502,7 +502,7 @@ class SiteController extends AppController
         if(isset($_POST["inn"]) && !empty($_POST["inn"])){
             $user = Yii::$app->user->identity;
             $firm = Firm::find()->where(["id" => $user->firm_id])->one();
-            $firm->inn = (int)$_POST["inn"];
+            $firm->inn = (int)mb_substr($_POST["inn"],0,10);
             $firm->category = $_POST["category"];
             $firm->city = $_POST["city"];
 

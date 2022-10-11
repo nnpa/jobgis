@@ -22,8 +22,9 @@
 </span>
 Требуемый опыт работы: <?php echo $vacancy->exp;?><br>
 <?php echo $vacancy->employment;?><br>
-<?php echo $vacancy->user->company;?><br>
-
+<?php if(is_object($vacancy->user)):?>
+    <?php echo $vacancy->user->company;?><br>
+<?php endif;?>
 <div>
     <?php echo $vacancy->description;?><br>
 
