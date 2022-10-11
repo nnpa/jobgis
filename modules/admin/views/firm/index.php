@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'inn',
             'city',
             [
+                'contentOptions' => ['style' => 'width:100px;'],
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model["id"]]);
