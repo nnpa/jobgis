@@ -81,7 +81,8 @@
     
     
         <?php if(empty($response)):?>
-            <?php if(!is_null($resume) && $vacancy->user->firm_id == 0):?>
+            <?php if(!is_null($resume) && is_object($vacancy->user)):?>
+                <?php if($vacancy->user->firm_id == 0):?>
                 <div id="responce">
                     <select id="resume_id" class="form-select" style="width:250px">
                         <?php foreach($resume as $r):?>
@@ -90,6 +91,7 @@
                     </select><br>
                     <a hre="#" class="btn btn-success" onClick="response('<?php echo $vacancy->id;?>')">Откликнуться</a>
                 </div>
+                <?php endif;?>
             <?php endif;?>
     <?php else:?>
         Вы уже откликнулись
