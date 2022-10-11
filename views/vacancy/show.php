@@ -81,7 +81,7 @@
     
     
         <?php if(empty($response)):?>
-            <?php if(!is_null($resume)):?>
+            <?php if(!is_null($resume) && $vacancy->user->firm_id == 0):?>
                 <div id="responce">
                     <select id="resume_id" class="form-select" style="width:250px">
                         <?php foreach($resume as $r):?>
