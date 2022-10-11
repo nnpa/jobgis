@@ -1,3 +1,14 @@
+<script>
+$(document).ready(function() {
+$('#formid').on('keyup keypress', function(e) {
+  var keyCode = e.keyCode || e.which;
+  if (keyCode === 13) { 
+    e.preventDefault();
+    return false;
+  }
+});
+});
+</script>
 <style>
 .popup-fade {
 	display: none;
@@ -243,7 +254,7 @@ function deleteSkill(obj){
 </script>
 
 <h3>Создание вакансии</h3>
-<form method="POST">
+<form method="POST" id="formid">
 <b>Название вакансии</b><br>
 <input type="name" name="name" value="<?php echo $vacancy->name;?>">
 <input type="hidden" id="spec" name="spec" value="<?php echo $vacancy->spec;?>"><br>
@@ -332,11 +343,11 @@ function deleteSkill(obj){
 
     <h3>Контакты</h3>
     <b>Контактное лицо</b><br>
-    <input type="text" name="contactmane" value="<?php echo $user->name ." " .$user->surname;?>"><br>
+    <input type="text" name="contactmane" value="<?php echo $vacancy->contactmane ." " .$user->surname;?>"><br>
     <b>Email</b><br>
-    <input type="text" name="email"  value="<?php echo $user->email?>"><br>
+    <input type="text" name="email"  value="<?php echo $vacancy->email?>"><br>
     <b>Телефон</b><br>
-    <input type="text" name="phone" value="<?php echo $user->phone?>"><br>
+    <input type="text" name="phone" value="<?php echo $vacancy->phone?>"><br>
     <div style="padding-top:10px">
     
         <input type="submit" class="btn btn-success" value="Сохранить">

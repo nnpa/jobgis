@@ -41,18 +41,6 @@ class Vacancy extends \yii\db\ActiveRecord
         return 'vacancy';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function rules()
-    {
-        return [
-            [['id', 'user_id', 'name', 'spec', 'specsub', 'city', 'costfrom', 'costto', 'cash', 'cashtype', 'address', 'exp', 'description', 'skills', 'employment', 'contactmane', 'email', 'phone', 'create_time'], 'required'],
-            [['id', 'user_id', 'costfrom', 'costto', 'create_time'], 'integer'],
-            [['description', 'skills'], 'string'],
-            [['name', 'spec', 'specsub', 'city', 'cash', 'cashtype', 'address', 'exp', 'employment', 'contactmane', 'email', 'phone'], 'string', 'max' => 255],
-        ];
-    }
 
     /**
      * {@inheritdoc}
