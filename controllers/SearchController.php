@@ -207,8 +207,8 @@ class SearchController extends Controller
         
         if(isset($_GET["name"]) && !empty($_GET['name'])){
             $name = $_GET["name"];
-            $sql .= " AND `vacancy` = '". mysqli_real_escape_string($conn,$name)."'";
-            $sqlCount .= " AND `vacancy` = '". mysqli_real_escape_string($conn,$name)."'";
+            $sql .= " AND `vacancy` = '". mysqli_real_escape_string($conn,$name)."' AND `vacancy` != 'Заполните должность'";
+            $sqlCount .= " AND `vacancy` = '". mysqli_real_escape_string($conn,$name)."' AND `vacancy` != 'Заполните должность'";
             $url .= "&name=" . $name; 
         }else {
             $name = "";
