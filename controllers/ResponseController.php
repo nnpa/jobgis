@@ -120,7 +120,7 @@ class ResponseController extends Controller{
         ->setTo($response->vacancy->email)
         ->setSubject('На вашу вакансию на сайте jobgis.ru откликнулись')
         ->setTextBody("На вашу вакансию {$response->vacancy->name} откликнулись")
-        ->setHtmlBody("На вашу вакансию {$response->vacancy->name} откликнулись")
+        ->setHtmlBody("<html>На вашу вакансию {$response->vacancy->name} откликнулись</html>")
         ->send();
 
         
@@ -145,7 +145,7 @@ class ResponseController extends Controller{
         ->setTo($response->resume->user->email)
         ->setSubject('Резюме заинтересовало работодателя')
         ->setTextBody($message)
-        ->setHtmlBody($message)
+        ->setHtmlBody("<html>" . $message. "</html>")
         ->send();
 
         return $this->redirect($_SERVER['HTTP_REFERER']);
@@ -166,7 +166,7 @@ class ResponseController extends Controller{
         ->setTo($response->resume->user->email)
         ->setSubject('Резюме не заинтересовало работодателя')
         ->setTextBody($message)
-        ->setHtmlBody($message)
+        ->setHtmlBody("<html>" . $message . "</html>")
         ->send();
 
         return $this->redirect($_SERVER['HTTP_REFERER']);

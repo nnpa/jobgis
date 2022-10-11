@@ -184,7 +184,7 @@ class SiteController extends AppController
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Ваш email: " . $user->email . "  Ваш пароль: " . $user->password)
-                ->setHtmlBody("Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a>")
+                ->setHtmlBody("<html>Поздравляем вы удачно зарегистрировались на сайте jobgis.ru<br>Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
                 ->send();
                 
                 return $this->render("message",["message"=>"На ваш email выслан пароль"]);
@@ -221,7 +221,7 @@ class SiteController extends AppController
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Ваш email: " . $user->email . "  Ваш пароль: " . $user->password)
-                ->setHtmlBody("Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a>")
+                ->setHtmlBody("<html>Поздравляем вы удачно зарегистрировались на сайте jobgis.ru<br>Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
                 ->send();
                                 
                 
@@ -294,7 +294,7 @@ class SiteController extends AppController
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Ваш email: " . $user->email . "  Ваш пароль: " . $user->password)
-                ->setHtmlBody("Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a>")
+                ->setHtmlBody("<html>Поздравляем вы удачно зарегистрировались на сайте jobgis.ru<br>Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
                 ->send();
                 
                 
@@ -406,14 +406,14 @@ class SiteController extends AppController
     
     public function actionSpam(){
         //var_dump(Yii::$app->mailer);exit;
-
+        
         
         Yii::$app->mailer->compose()
         ->setFrom('robot@jobgis.ru')
         ->setTo('test-01epr2qhb@srv1.mail-tester.com')
-        ->setSubject('sub')
-        ->setTextBody('text')
-        ->setHtmlBody('<b>1</b>')
+        ->setSubject('Регистрация на сайте jobgis.ru')
+        ->setTextBody('Поздравляем вы удачно зарегистрировались на сайте jobgis.ru')
+        ->setHtmlBody('<html><b>Поздравляем вы удачно зарегистрировались на сайте jobgis.ru</b></html>')
         ->send();
         
     }
@@ -472,7 +472,7 @@ class SiteController extends AppController
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Ваш email: " . $user->email . "  Ваш пароль: " . $user->password)
-                ->setHtmlBody("Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a>")
+                ->setHtmlBody("<html>Поздравляем вы удачно зарегистрировались на сайте jobgis.ru<br>Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
                 ->send();
                 
                 return $this->render("message",["message"=>"На  email выслан пароль"]);
