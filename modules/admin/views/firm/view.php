@@ -47,7 +47,9 @@ $managers = AuthAssignment::find()->where(["item_name" => "manager"])->all();
         <select name="manager">
 
 <?php foreach($managers as $manager):?>
+        <?php if(is_object($manager->user)):?>
         <option value="<?php echo $manager->user_id?>"><?php echo $manager->user->name . " " . $manager->user->surname;?></option>
+        <?php endif;?
 <?php endforeach; ?>
             </select>
 
