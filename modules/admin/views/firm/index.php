@@ -31,8 +31,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'verify',
+          
             'inn',
             'city',
+            [
+                'label' => 'Manager',
+                'value' => function ($model) {
+                     return $model->managerName();
+                }
+            ],  
             [
                 'contentOptions' => ['style' => 'width:100px;'],
                 'class' => ActionColumn::className(),
