@@ -1,6 +1,7 @@
 <?php
 
 namespace app\modules\manager\controllers;
+use Yii;
 
 use yii\web\Controller;
 
@@ -17,4 +18,12 @@ class DefaultController extends Controller
     {
         return $this->render('index');
     }
+    
+    public function actionLogout(){
+        Yii::$app->user->logout();
+
+        return $this->goHome();
+    }
+    
+    
 }
