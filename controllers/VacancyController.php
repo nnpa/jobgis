@@ -63,22 +63,13 @@ class VacancyController extends AppController
     
     public function actionList(){
         $user = Yii::$app->user->identity;
-        
-        
         $users = Users::find()->where(["firm_id" => $user->firm_id ])->all();
         $ids = [];
         foreach($users as $user ){
             $ids[] = $user->id;
         }
         
-        $vacancies = Vacancy::find()->where(["user_id" => $user->id]);
-        
-        foreach($ids as $id){
-            $vacancies = $vacancies->andWhere(["user_id" => $id]);
-            echo "user_id " . $id . "<br>";
-        }
-        exit;
-        $vacancies = $vacancies->all();
+        $vacancies = Vacancy::find()->where(["user_id" => $ids])->all();
         return $this->render("all",["vacancies" => $vacancies]);
     }
     
