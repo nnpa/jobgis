@@ -76,7 +76,9 @@ class VacancyController extends AppController
     public function actionDelete($id){
         $user = Yii::$app->user->identity;
         $vacancies = Vacancy::find()->where(["id" => $id])->one();
-        $vacancies->delete();
+        if(!is_null($vacancies)){
+            $vacancies->delete();
+        }
         return $this->redirect("/vacancy/list");
     }
     
