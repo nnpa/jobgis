@@ -410,7 +410,7 @@ class SiteController extends AppController
         
         Yii::$app->mailer->compose()
         ->setFrom('robot@jobgis.ru')
-        ->setTo('jetananas@yandex.ru')
+        ->setTo('test-01epr2qhb@srv1.mail-tester.com')
         ->setSubject('sub')
         ->setTextBody('text')
         ->setHtmlBody('<b>1</b>')
