@@ -58,6 +58,9 @@ AppAsset::register($this);
             if($roleObj->name == "admin"){
                 $this->context->redirect("/admin/");
             }
+            if($roleObj->name == "manager"){
+                $this->context->redirect("/manager/");
+            }
         }
 
     }

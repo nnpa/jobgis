@@ -59,6 +59,7 @@ AppAsset::register($this);
         $items = [
             ['label' => 'Фирмы', 'url' => ['/manager/firm/index']],
             ['label' => 'Пригласить', 'url' => ['/manager/firm/add']],
+            ['label' => 'Резюме', 'url' => ['/manager/resumeadmin/index']],
 
         ];
         
