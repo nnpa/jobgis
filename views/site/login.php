@@ -36,7 +36,9 @@ use yii\bootstrap4\Html;
             </div>
         </div>
     <?php ActiveForm::end(); ?>
-        <a href="/site/reset">Забыли пароль?</a>
+        <a href="/site/reset">Забыли пароль?</a><br>
 
+        <a href="/site/registeremployer">Регистрация работодателя</a><br>
+        <a href="/site/registercandidate">Регистрация соискателя</a>
 
 </div>
