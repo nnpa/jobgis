@@ -76,8 +76,8 @@ class VacancyController extends AppController
         foreach($ids as $id){
             $vacancies = $vacancies->andWhere(["user_id" => $id]);
         }
-        $vacancies->all();
         
+        $vacancies = $vacancies->all();
         return $this->render("all",["vacancies" => $vacancies]);
     }
     
