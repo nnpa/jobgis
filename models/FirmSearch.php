@@ -18,7 +18,8 @@ class FirmSearch extends Firm
     {
         return [
             [['id', 'verify', 'manage_id'], 'integer'],
-            [['name'], 'safe'],
+            [['name','inn','city'], 'safe'],
+            
         ];
     }
 
@@ -68,10 +69,12 @@ class FirmSearch extends Firm
                 'id' => $this->id,
                 'verify' => $this->verify,
                 'manage_id' => $manager_id,
+                'city' => $this->city
             ]);
         }
 
         $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'inn', $this->inn]);
 
         return $dataProvider;
     }

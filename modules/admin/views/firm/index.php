@@ -26,17 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            ['class' => 'yii\grid\Column'],
 
             'id',
             'name',
             'verify',
-            [
-                'label' => 'Manager',
-                'value' => function ($model) {
-                     return $model->managerName();
-                }
-            ],            
             'inn',
             'city',
             [

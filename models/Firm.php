@@ -42,6 +42,8 @@ class Firm extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'verify' => 'Verify',
+            'inn' => 'ИНН',
+            "city" => "Город"
         ];
     }
     
