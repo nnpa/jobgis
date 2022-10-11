@@ -98,6 +98,7 @@ class VacancyController extends AppController
             return $this->render("show",["vacancy" => $vacancy]);
         }
     }
+    
     public function actionEdit($id){
        $user = Yii::$app->user->identity;
        $vacancy = Vacancy::find()->where(["id" =>$id])->one();
