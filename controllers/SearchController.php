@@ -201,14 +201,14 @@ class SearchController extends Controller
         }else{
             $city = "";
         }
-        $sql = "SELECT * FROM `resume` WHERE 1=1";
+        $sql = "SELECT * FROM `resume` WHERE 1=1  AND `vacancy` != 'Заполните должность'";
         $url = "http://jobgis.ru/search/resume?test=1";
         $sqlCount = "SELECT COUNT(*) FROM `resume` WHERE 1=1";
         
         if(isset($_GET["name"]) && !empty($_GET['name'])){
             $name = $_GET["name"];
-            $sql .= " AND `vacancy` = '". mysqli_real_escape_string($conn,$name)."' AND `vacancy` != 'Заполните должность'";
-            $sqlCount .= " AND `vacancy` = '". mysqli_real_escape_string($conn,$name)."' AND `vacancy` != 'Заполните должность'";
+            $sql .= " AND `vacancy` = '". mysqli_real_escape_string($conn,$name)."'";
+            $sqlCount .= " AND `vacancy` = '". mysqli_real_escape_string($conn,$name)."'";
             $url .= "&name=" . $name; 
         }else {
             $name = "";
