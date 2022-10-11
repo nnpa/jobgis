@@ -144,6 +144,20 @@ AppAsset::register($this);
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
         <a href="/search/company">Каталог компаний</a>
+        <?php if(Yii::$app->user->isGuest):?>
+            Контактный телефон: 8-917-462-66-90
+        <?php else:?>
+            <?php if(Yii::$app->user->identity->firm->id == 0):?>
+                 Контактный телефон: 8-917-462-66-90
+            <?php else:?>
+                <?php if(Yii::$app->user->identity->firm->manage_id == 0):?>
+                    Контактный телефон: 8-917-462-66-90
+                <?php else:?>
+                    <?php echo "Ваш менеджер: " . Yii::$app->user->identity->firm->manager->name . " " . Yii::$app->user->identity->firm->manager->phone;?>
+                <?php endif;?>
+
+            <?php endif;?>
+        <?php endif;?>
     </div>
 </footer>
 

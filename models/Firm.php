@@ -49,4 +49,8 @@ class Firm extends \yii\db\ActiveRecord
         $user = Users::find()->where(["firm_id" => $this->id])->one();
         return $user->phone;
     }
+    
+      public function getManager(){
+        return $this->hasOne(Users::class, ['id' => 'manage_id']);
+    }
 }
