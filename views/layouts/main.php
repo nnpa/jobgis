@@ -77,7 +77,7 @@ AppAsset::register($this);
     
     if($role == "guest"){
         $items = [
-            ['label' => 'Создать вакансию', 'url' => ['/site/registeremployer']],
+            ['label' => 'Разместить вакансию', 'url' => ['/site/registeremployer']],
             ['label' => 'Создать резюме', 'url' => ['/site/registercandidate']],
             ['label' => 'Войти', 'url' => ['/site/login']]
         ];
