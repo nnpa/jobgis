@@ -606,12 +606,11 @@ class ResumeController extends AppController
        }
        
         if(isset($_POST) && !empty($_POST)){
-            $about = strip_tags($_POST["avout"]);
+            $about = strip_tags($_POST["about"]);
             $about = nl2br($about);
             $resume->description = $about ;
             $resume->save(false);
             $this->redirect("/resume/edit?id=" . $id);
-
         }
 
        return $this->render("about",["resume"=>$resume]);
