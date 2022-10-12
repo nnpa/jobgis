@@ -3,7 +3,7 @@
 <?php if($resume->photo != ""):?>
 <img width="80px" height="80px" src="/img/<?php echo $resume->photo;?>"><br>
 <?php endif?>
-<small><a href="/resume/photo?id=<?php echo $resume->id;?>">Згрузить фото</a></small>
+<small><a href="/resume/photo?id=<?php echo $resume->id;?>">Загрузить фото</a></small>
 <h3><?php echo $resume->surname . " " . $resume->name. " " . $resume->patronymic?></h3>
 пол: <?php echo $resume->gender;?> <br>
 дата рождения:

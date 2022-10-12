@@ -60,7 +60,7 @@ AppAsset::register($this);
             ['label' => 'Фирмы', 'url' => ['/manager/firm/index']],
             ['label' => 'Пригласить', 'url' => ['/manager/firm/add']],
             ['label' => 'Резюме', 'url' => ['/manager/resumeadmin/index']],
-            ['label' => 'Выход', 'url' => ['/admin/default/logout']],
+            ['label' => 'Выход', 'url' => ['/manager/default/logout']],
 
         ];
         
