@@ -97,14 +97,13 @@ class Resume extends \yii\db\ActiveRecord
             'apdate_time' => 'Apdate Time',
         ];
     }
-    
+        public function getUser()
+    {
+        return $this->hasOne(Users::class, ['id' => 'user_id']);
+       }
     public function beforeDelete(){
         
-       $dirPath="/var/www/basic/web/img/";
 
-       if($this->photo != ""){
-           unlink($dirPath.$resume->photo); 
-       }
        $resumeEdu = ResumeEdu::find()->where(["resume_id" => $this->id])->all();
        $resumeExp = ResumeExp::find()->where(["resume_id" => $this->id])->all();
        $resumePortfolio = ResumePortfolio::find()->where(["resume_id" => $this->id])->all();

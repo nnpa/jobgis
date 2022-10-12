@@ -55,10 +55,10 @@ AppAsset::register($this);
             if($roleObj->name == "candidate"){
                 $role = "candidate";
             }
-            if($roleObj->name == "admin"){
+            if($roleObj->name == "admin" AND $this->context->action->id != "show"){
                 $this->context->redirect("/admin/");
             }
-            if($roleObj->name == "manager"){
+            if($roleObj->name == "manager" AND $this->context->action->id != "show"){
                 $this->context->redirect("/manager/");
             }
         }
