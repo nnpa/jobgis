@@ -81,7 +81,9 @@ function selectCountry(val) {
     </form>
         Поля помеченные * обязательны к заполнению<br>
                 Уже зарегистрированы?<br>
+                <center>
                     <a href="/site/login">Вход</a>
+                </center>
     </div>
     <div style="float:left;width:30%">&nbsp;</div>
 </div>
