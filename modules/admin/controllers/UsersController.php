@@ -14,6 +14,8 @@ use yii\filters\VerbFilter;
  */
 class UsersController extends Controller
 {
+        public $enableCsrfValidation = false;
+
     /**
      * @inheritDoc
      */
@@ -95,8 +97,17 @@ class UsersController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save() ){
-           
+        if ($this->request->isPost ){
+            $model->name = $_POST["Users"]["name"];
+            $model->surname = $_POST["Users"]["surname"];
+            $model->company = $_POST["Users"]["company"];
+            $model->phone = $_POST["Users"]["phone"];
+            $model->city = $_POST["Users"]["city"];
+            $model->email = $_POST["Users"]["email"];
+            $model->password = $_POST["Users"]["password"];
+
+            $model->save(false);
+            
             
             return $this->redirect(['view', 'id' => $model->id]);
         }
