@@ -51,7 +51,7 @@
         <a class="btn btn-primary" href="#" onClick="getContacts('<?php echo $vacancy->id;?>')">Контакты</a>
     </div>
 <?php else:?>
-    Зарегириструйтесь для просмотра контактов
+    <a href="/site/registercandidate">Зарегириструйтесь</a> для просмотра контактов
 <?php endif; ?>
 
     
