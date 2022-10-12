@@ -11,9 +11,9 @@ use yii\widgets\ActiveForm;
 <div class="resume-form">
 
     <?php $form = ActiveForm::begin(); ?>
+    <?= $form->field($model, 'verify')->textInput(['maxlength' => true]) ?>
 
-       <?= $form->field($model, 'verify')->textInput(['maxlength' => true]) ?>
-
+    
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

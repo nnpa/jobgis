@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\manager\controllers;
+namespace app\modules\admin\controllers;
 
 use app\models\Resume;
 use app\models\ResumeSearch;

@@ -57,15 +57,6 @@ class Resume extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public function rules()
-    {
-        return [
-            [['photo', 'surname', 'name', 'patronymic', 'birth_date', 'gender', 'city', 'relocation', 'business_trips', 'vacancy', 'spec', 'specsub', 'cost', 'cash_type', 'employment_full', 'employment_partial', 'employment_project', 'employment_volunteering', 'employment_internship', 'schedule_full', 'schedule_removable', 'schedule_flexible', 'schedule_tomote', 'schedule_tour', 'skills', 'description', 'language', 'language_add', 'car', 'apdate_time'], 'required'],
-            [['cost', 'employment_full', 'employment_partial', 'employment_project', 'employment_volunteering', 'employment_internship', 'schedule_full', 'schedule_removable', 'schedule_flexible', 'schedule_tomote', 'schedule_tour', 'apdate_time'], 'integer'],
-            [['description'], 'string'],
-            [['photo', 'surname', 'name', 'patronymic', 'birth_date', 'gender', 'city', 'relocation', 'business_trips', 'vacancy', 'spec', 'specsub', 'cash_type', 'skills', 'language', 'language_add', 'car'], 'string', 'max' => 255],
-        ];
-    }
 
     /**
      * {@inheritdoc}
