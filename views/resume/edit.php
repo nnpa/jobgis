@@ -102,9 +102,9 @@ if($resume->exp != 0){
     if($years > 0){
         $years = $years;
         if(in_array($years, $sklon)){
-            echo $sklon[$years];
+            $years .= " " . $sklon[$years];
         }else{
-            echo " года ";
+            $years .= " года ";
         }
     }else{
         $years = "";
