@@ -82,7 +82,7 @@ function selectCountry(val) {
         <div class="row">
             <div class="col-12">
                 <center>
-                    <input class="btn btn-success" type="submit" value="Заререгистрироваться">
+                    <input class="btn btn-success" type="submit" value="Зарегистрироваться">
                 </center>
             </div>
         </div>

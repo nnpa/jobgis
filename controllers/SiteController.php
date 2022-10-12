@@ -186,8 +186,15 @@ class SiteController extends AppController
                 ->setTextBody("Поздравляем вы удачно зарегистрировались на сайте jobgis.ru. Ваш email: " . $user->email . "  Ваш пароль: " . $user->password)
                 ->setHtmlBody("<html>Поздравляем вы удачно зарегистрировались на сайте jobgis.ru<br>Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
                 ->send();
+                 
+                 
+                $model = new LoginForm();
+                $model->username = $user->email;
+                $model->password = $user->password;
+                $model->login();
+                return $this->goBack();
                 
-                return $this->render("message",["message"=>"На ваш email выслан пароль"]);
+                //return $this->render("message",["message"=>"На ваш email выслан пароль"]);
             }
             
         }
@@ -297,8 +304,13 @@ class SiteController extends AppController
                 ->setHtmlBody("<html>Поздравляем вы удачно зарегистрировались на сайте jobgis.ru<br>Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
                 ->send();
                 
+                $model = new LoginForm();
+                $model->username = $user->email;
+                $model->password = $user->password;
+                $model->login();
+                return $this->goBack();
                 
-                return $this->render("message",["message"=>"На ваш email выслан пароль"]);
+                //return $this->render("message",["message"=>"На ваш email выслан пароль"]);
             }
             
         }
