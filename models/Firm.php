@@ -63,4 +63,12 @@ class Firm extends \yii\db\ActiveRecord
             return "";
         }
     }
+    
+    public function beforeDelete(){
+        $users = Users::find()->where(["firm_id" => $this->id])->all();
+        foreach($users as $user){
+            $user->delete();
+        }
+        return parent::beforeDelete();
+    }
 }

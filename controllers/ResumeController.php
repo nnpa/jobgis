@@ -130,40 +130,13 @@ class ResumeController extends AppController
    }
    
    public function actionDelete($id){
-        $user = Yii::$app->user->identity;
+       $user = Yii::$app->user->identity;
 
        $resume = Resume::find()->where(["user_id" => $user->id, "id" => $id])->one();
        if(is_null($resume)){
          exit;
        }
        
-       $dirPath="/var/www/basic/web/img/";
-
-       if($resume->photo != ""){
-           unlink($dirPath.$resume->photo); 
-       }
-       $resumeEdu = ResumeEdu::find()->where(["resume_id" => $id])->all();
-       $resumeExp = ResumeExp::find()->where(["resume_id" => $id])->all();
-       $resumePortfolio = ResumePortfolio::find()->where(["resume_id" => $id])->all();
-       $resumeAddEdu = ResumeAddedu::find()->where(["resume_id" => $id])->all();
-       
-       foreach($resumeEdu as $edu){
-           $edu->delete();
-       }
-       
-       foreach($resumeExp as $exp){
-           $exp->delete();
-       }
-       
-       foreach($resumePortfolio as $portfolio){
-           unlink($dirPath.$portfolio->photo); 
-
-           $portfolio->delete();
-       }
-       
-       foreach($resumeAddEdu as $edu){
-           $edu->delete();
-       }
        $resume->delete();
        return $this->redirect("/resume/list");
    }

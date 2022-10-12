@@ -4,6 +4,10 @@ namespace app\models;
 
 use Yii;
 use app\models\Users;
+use app\models\ResumeEdu;
+use app\models\ResumeExp;
+use app\models\ResumeAddedu;
+use app\models\ResumePortfolio;
 
 /**
  * This is the model class for table "resume".
@@ -103,9 +107,35 @@ class Resume extends \yii\db\ActiveRecord
         ];
     }
     
-    
-    public function getUser()
-    {
-        return $this->hasOne(Users::class, ['id' => 'user_id']);
+    public function beforeDelete(){
+        
+       $dirPath="/var/www/basic/web/img/";
+
+       if($this->photo != ""){
+           unlink($dirPath.$resume->photo); 
+       }
+       $resumeEdu = ResumeEdu::find()->where(["resume_id" => $this->id])->all();
+       $resumeExp = ResumeExp::find()->where(["resume_id" => $this->id])->all();
+       $resumePortfolio = ResumePortfolio::find()->where(["resume_id" => $this->id])->all();
+       $resumeAddEdu = ResumeAddedu::find()->where(["resume_id" => $this->id])->all();
+       
+       foreach($resumeEdu as $edu){
+           $edu->delete();
+       }
+       
+       foreach($resumeExp as $exp){
+           $exp->delete();
+       }
+       
+       foreach($resumePortfolio as $portfolio){
+           unlink($dirPath.$portfolio->photo); 
+
+           $portfolio->delete();
+       }
+       
+       foreach($resumeAddEdu as $edu){
+           $edu->delete();
+       }
+        return parent::beforeDelete();
     }
 }

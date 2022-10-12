@@ -4,6 +4,10 @@ namespace app\models;
 
 use Yii;
 use app\models\Firm;
+use app\models\Vacancy;
+use app\models\Resume;
+
+
 /**
  * This is the model class for table "Users".
  *
@@ -62,5 +66,19 @@ class Users extends \yii\db\ActiveRecord
     public function getFirm()
     {
         return $this->hasOne(Firm::class, ['id' => 'firm_id']);
+    }
+    
+    public function beforeDelete(){
+        $vacancies = Vacancy::find()->where(["user_id" => $this->id])->all();
+        
+        foreach($vacancies as $vacancy){
+            $vacancy->delete();
+        }
+        
+        $resumes = Resume::find()->where(["user_id" => $this->id])->all();
+        foreach($resumes as $resume){
+            $resume->delete();
+        }
+        return parent::beforeDelete();
     }
 }
