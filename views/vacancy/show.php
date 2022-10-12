@@ -20,12 +20,13 @@
 <span class="vacancy_compensation">
 от <?php echo $vacancy->costfrom;?> до <?php echo $vacancy->costto;?> <?php echo $vacancy->cash;?> <?php echo $vacancy->cashtype;?> <br>
 </span>
-<?php echo $vacancy->city;?><br>
 Требуемый опыт работы: <?php echo $vacancy->exp;?><br>
 <?php echo $vacancy->employment;?><br>
 <?php if(is_object($vacancy->user)):?>
     <?php echo $vacancy->user->company;?><br>
 <?php endif;?>
+<?php echo $vacancy->city;?><br>
+
 <div>
     <?php echo $vacancy->description;?><br>
 
