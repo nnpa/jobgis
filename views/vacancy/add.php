@@ -259,7 +259,7 @@ function deleteSkill(obj){
     </div>
     <div id="suggesstion-box"></div><br>
     
-    <b>Предполагаемый уровень дохода в месяц или за объем работ</b><br>
+    <b>Предполагаемый уровень дохода в месяц</b><br>
 <input type="text" name="costfrom" style="width:100px;" value="<?php echo $vacancy->costfrom;?>" placeholder="от"> 
 <input type="text" name="costto"  style="width:100px;" value="<?php echo $vacancy->costto;?>" placeholder="до"> 
 <?php $cash = ["руб.","EUR","USD"];?>
