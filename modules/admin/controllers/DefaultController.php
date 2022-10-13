@@ -27,7 +27,7 @@ class DefaultController extends Controller
         return $this->goHome();
     }
     
-    public function actionManagers(){
+    public function actionManager(){
         $managers = AuthAssignment::find()->where(["item_name" => "manager"])->all();
         
         return $this->render('managers',["managers" => $managers]);
