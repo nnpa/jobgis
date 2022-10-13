@@ -251,7 +251,7 @@ function deleteSkill(obj){
 <input type="hidden" id="specsub" name="specsub" value="<?php echo $vacancy->specsub;?>"><br>
 
 <span id="spectext"><?php echo $vacancy->specsub;?></span><br>
-<a href="#" class="popup-open" id="speca">Укажите специализацию</a><br>
+<a href="#" class="popup-open" id="speca">Укажите специализацию</a><br><br>
 
 <b>Город</b><br>
     <div class="frmSearch">
@@ -270,19 +270,20 @@ function deleteSkill(obj){
 
 </select><br>
 <input type="radio" name="cashtype" <?php echo ("До вычета налогов" == $vacancy->cashtype)?'checked':''?>  value="До вычета налогов">До вычета налогов<br>
-<input type="radio" name="cashtype"  <?php echo ("На руки" == $vacancy->cashtype)?'checked':''?> value="На руки">На руки<br>
+<input type="radio" name="cashtype"  <?php echo ("На руки" == $vacancy->cashtype)?'checked':''?> value="На руки">На руки<br><br>
+
 <b>Где будет работать сотрудник</b> <br>
 <input type="radio" name="addresstype" 	checked onClick="showHideAddress('hide')"> Не указывать адрес<br>
 <input type="radio" name="addresstype" onClick="showHideAddress('show')"> Указать адрес <br>
 <div id="address" style="display: none">
     <small>Город, улица, дом</small><br>
     <input type="text"  value="<?php echo $vacancy->address;?>" name="address" >
-</div>
+</div><br>
 <b>Опыт работы</b><br>
 <input type="radio" name="exp" <?php echo ("Нет опыта" == $vacancy->exp)?'checked':''?> value="Нет опыта">Нет опыта <br>
 <input type="radio" name="exp" <?php echo ("От 1 года до 3 лет" == $vacancy->exp)?'checked':''?> value="От 1 года до 3 лет"> От 1 года до 3 лет<br>
 <input type="radio" name="exp" <?php echo ("От 3 до 6 лет" == $vacancy->exp)?'checked':''?> value="От 3 до 6 лет"> От 3 до 6 лет<br>
-<input type="radio" name="exp" <?php echo ("Более 6 лет" == $vacancy->exp)?'checked':''?> value="Более 6 лет">Более 6 лет<br>
+<input type="radio" name="exp" <?php echo ("Более 6 лет" == $vacancy->exp)?'checked':''?> value="Более 6 лет">Более 6 лет<br><br>
 <b>Расскажите про вакансию</b>
 <textarea name="description" style="width:500px;height:100px">
 <?php if($vacancy->description == ""):?>
@@ -305,9 +306,6 @@ function deleteSkill(obj){
  
 <input type="hidden" name="skills" id="skills-input" value="<?php echo $vacancy->skills;?>">
 <div>  &nbsp;</div>
-<br>
-
-
 
     <b> Занятость</b><br>
     <input type="radio" name="employment" <?php echo ("Полная занятость" == $vacancy->employment)?'checked':''?> value="Полная занятость">Полная занятость<br>
