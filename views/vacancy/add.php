@@ -243,10 +243,10 @@ function deleteSkill(obj){
 }
 </script>
 
-<h3>Создание вакансии</h3>
+<h5>Создание вакансии</h5>
 <form method="POST" id="formid">
 <b>Название вакансии</b><br>
-<input type="name" name="name" value="<?php echo $vacancy->name;?>">
+<input type="name" name="name" style="width:40%" value="<?php echo $vacancy->name;?>">
 <input type="hidden" id="spec" name="spec" value="<?php echo $vacancy->spec;?>"><br>
 <input type="hidden" id="specsub" name="specsub" value="<?php echo $vacancy->specsub;?>"><br>
 
@@ -269,8 +269,8 @@ function deleteSkill(obj){
     <?php endforeach;?>
 
 </select><br>
-<input type="radio" name="cashtype" <?php echo ("До вычета налогов" == $vacancy->cashtype)?'checked':''?>  value="До вычета налогов">До вычета налогов<br>
-<input type="radio" name="cashtype"  <?php echo ("На руки" == $vacancy->cashtype)?'checked':''?> value="На руки">На руки<br><br>
+<input type="radio" name="cashtype" <?php echo ("До вычета налогов" == $vacancy->cashtype)?'checked':''?>  value="До вычета налогов"> До вычета налогов<br>
+<input type="radio" name="cashtype"  <?php echo ("На руки" == $vacancy->cashtype)?'checked':''?> value="На руки"> На руки<br><br>
 
 <b>Где будет работать сотрудник</b> <br>
 <input type="radio" name="addresstype" 	checked onClick="showHideAddress('hide')"> Не указывать адрес<br>
@@ -280,10 +280,10 @@ function deleteSkill(obj){
     <input type="text"  value="<?php echo $vacancy->address;?>" name="address" >
 </div><br>
 <b>Опыт работы</b><br>
-<input type="radio" name="exp" <?php echo ("Нет опыта" == $vacancy->exp)?'checked':''?> value="Нет опыта">Нет опыта <br>
+<input type="radio" name="exp" <?php echo ("Нет опыта" == $vacancy->exp)?'checked':''?> value="Нет опыта"> Нет опыта <br>
 <input type="radio" name="exp" <?php echo ("От 1 года до 3 лет" == $vacancy->exp)?'checked':''?> value="От 1 года до 3 лет"> От 1 года до 3 лет<br>
 <input type="radio" name="exp" <?php echo ("От 3 до 6 лет" == $vacancy->exp)?'checked':''?> value="От 3 до 6 лет"> От 3 до 6 лет<br>
-<input type="radio" name="exp" <?php echo ("Более 6 лет" == $vacancy->exp)?'checked':''?> value="Более 6 лет">Более 6 лет<br><br>
+<input type="radio" name="exp" <?php echo ("Более 6 лет" == $vacancy->exp)?'checked':''?> value="Более 6 лет"> Более 6 лет<br><br>
 <b>Расскажите про вакансию</b>
 <textarea name="description" style="width:500px;height:100px">
 <?php if($vacancy->description == ""):?>
@@ -308,13 +308,13 @@ function deleteSkill(obj){
 <div>  &nbsp;</div>
 
     <b> Занятость</b><br>
-    <input type="radio" name="employment" <?php echo ("Полная занятость" == $vacancy->employment)?'checked':''?> value="Полная занятость">Полная занятость<br>
-    <input type="radio" name="employment" <?php echo ("Частичная занятость" == $vacancy->employment)?'checked':''?> value="Частичная занятость">	Частичная занятость<br>
-    <input type="radio" name="employment" <?php echo ("Проектная работа или разовое задание" == $vacancy->employment)?'checked':''?> value="Проектная работа или разовое задание">Проектная работа или разовое задание<br>
-    <input type="radio" name="employment" <?php echo ("Волонтерство" == $vacancy->employment)?'checked':''?> value="Волонтерство">Волонтерство<br>
-    <input type="radio" name="employment" <?php echo ("Стажировка" == $vacancy->employment)?'checked':''?> value="Стажировка">Стажировка<br>
+    <input type="radio" name="employment" <?php echo ("Полная занятость" == $vacancy->employment)?'checked':''?> value="Полная занятость"> Полная занятость<br>
+    <input type="radio" name="employment" <?php echo ("Частичная занятость" == $vacancy->employment)?'checked':''?> value="Частичная занятость"> Частичная занятость<br>
+    <input type="radio" name="employment" <?php echo ("Проектная работа или разовое задание" == $vacancy->employment)?'checked':''?> value="Проектная работа или разовое задание"> Проектная работа или разовое задание<br>
+    <input type="radio" name="employment" <?php echo ("Волонтерство" == $vacancy->employment)?'checked':''?> value="Волонтерство"> Волонтерство<br>
+    <input type="radio" name="employment" <?php echo ("Стажировка" == $vacancy->employment)?'checked':''?> value="Стажировка"> Стажировка<br>
 
-    <h3>Контакты</h3>
+    <h5>Контакты</h5>
     <b>Контактное лицо</b><br>
     <input type="text" name="contactmane" value="<?php echo $vacancy->contactmane ." " .$user->surname;?>"><br>
     <b>Email</b><br>
