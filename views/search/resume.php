@@ -162,7 +162,7 @@ function selectCountry(val) {
 }
 </script>
 
-<h3>Поиск резюме</h3>
+<h5>Поиск резюме</h5>
 <form method="GET">
     <input style="width:40%" type="name" value="<?php echo $name;?>" >
     <input type="submit" class="btn btn-success" value="Искать"><br>
@@ -173,26 +173,27 @@ function selectCountry(val) {
              <div class="frmSearch">
                 <input value="<?php echo $city;?>"  id="search-box" id="cityInput" value="<?php echo $city;?>" type="text" name="city">
                 </div>
-                <div id="suggesstion-box"></div>
+                <div id="suggesstion-box"></div><br>
             
             <b>Переезд</b><br>
             <input <?php echo ($relocation == "Невозможен")?'checked':''?> type="radio" name="relocation" value="Невозможен"> Невозможен<br>
             <input <?php echo ($relocation == "Возможен")?'checked':''?> type="radio" name="relocation" value="Возможен"> Возможен<br>
             <input <?php echo ($relocation == "Желателен")?'checked':''?> type="radio" name="relocation" value="Желателен"> Желателен<br>
-            
+            <br>
             <b>Специализация</b><br> <input  class="popup-open" id="spec"  class="popup-open" id="spec" type="text" name="spec" value="<?php echo $spec;?>"><br>
-            
+            <br>
             <b>Уровень дохода</b><br>
             <input type="text" placeholder="от" name="costfrom" value="<?php echo $costfrom;?>">
             <input type="text" placeholder="до" name="costto" value="<?php echo $costto;?>">
             <br>
-
+            <br>
             <b>Тип занятости</b><br>
             <input type="radio" <?php echo ($employment == "employment_full")?'checked':''?>  name="employment" value="employment_full"> Полная занятость<br>
             <input type="radio" <?php echo ($employment == "employment_partial")?'checked':''?> name="employment" value="employment_partial"> Частичная занятость<br>
             <input type="radio" <?php echo ($employment == "employment_project")?'checked':''?> name="employment" value="employment_project"> Проектная работа<br>
             <input type="radio" <?php echo ($employment == "employment_volunteering")?'checked':''?> name="employment" value="employment_volunteering"> Волонтерство<br>
             <input type="radio" <?php echo ($employment == "employment_internship")?'checked':''?> name="employment" value="employment_internship"> Стажировка<br>
+            <br>
             <b>График работы</b><br>
             <input type="radio" name="schedule" <?php echo ($schedule == "schedule_full")?'checked':''?> value="schedule_full"> Полный день<br>
             <input type="radio" name="schedule" <?php echo ($schedule == "schedule_removable")?'checked':''?> value="schedule_removable"> Сменный график<br>
