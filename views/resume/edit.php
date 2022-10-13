@@ -4,7 +4,7 @@
 <img width="80px" height="80px" src="/img/<?php echo $resume->photo;?>"><br>
 <?php endif?>
 <small><a href="/resume/photo?id=<?php echo $resume->id;?>">Загрузить фото</a></small>
-<h3><?php echo $resume->surname . " " . $resume->name. " " . $resume->patronymic?></h3>
+<h5><?php echo $resume->surname . " " . $resume->name. " " . $resume->patronymic?></h5>
 пол: <?php echo $resume->gender;?> <br>
 дата рождения:
 <?php
@@ -16,7 +16,7 @@
 ?>
 <br>
 <small><a href="/resume/editpersonal?id=<?php echo $resume->id?>">редактировать</a></small>
-<h3><?php echo $resume->vacancy;?></h3>
+<h5><?php echo $resume->vacancy;?></h5>
 <?php echo $resume->cost;?> <?php echo $resume->cash_type;?><br>
 Специализация: <?php echo $resume->specsub;?> <br>
 Занятость: 
@@ -121,7 +121,7 @@ if($resume->exp != 0){
 }
 
 ?>
-<h3>Опыт работы <?php echo $years;?> <?php echo $months;?></h3>
+<h5>Опыт работы <?php echo $years;?> <?php echo $months;?></h5>
 <small><a href="/resume/editexp?id=<?php echo $resume->id?>">редактировать</a></small><br>
     
     <?php
@@ -192,14 +192,14 @@ if($resume->exp != 0){
 
 <?php endforeach;?>
 
-<h3>Обо мне</h3>
+<h5>Обо мне</h5>
 <small><a href="/resume/editabout?id=<?php echo $resume->id?>">редактировать</a></small><br>
 <div><?php echo $resume->description;?></div>
-<h3>Опыт вождения</h3>
+<h5>Опыт вождения</h5>
 
 <?php echo $resume->car;?><br>
 <small><a href="/resume/editcar?id=<?php echo $resume->id?>">редактировать</a></small><br>
-<h3>Портфолио</h3>
+<h5>Портфолио</h5>
 <small><a href="/resume/editportfolio?id=<?php echo $resume->id?>">редактировать</a></small><br>
 <div>
 <?php foreach($resumePortfolio as $portfolio):?>
@@ -211,7 +211,7 @@ if($resume->exp != 0){
 </div>
 <hr><br><br><br><br><br>
 <div>
-    <h3>Высшее образование</h3>
+    <h5>Высшее образование</h5>
     <small><a href="/resume/editedu?id=<?php echo $resume->id?>">редактировать</a></small><br>
 </div>
 
@@ -220,7 +220,7 @@ if($resume->exp != 0){
     <?php echo $edu->fack;?>
 
 <?php endforeach;?>
-    <h3>Повышение квалификации, курсы</h3>
+    <h5>Повышение квалификации, курсы</h5>
     <small><a href="/resume/editaddedu?id=<?php echo $resume->id?>">редактировать</a></small><br>
 
 <?php foreach($resumeAddEdu as $edu):?>
