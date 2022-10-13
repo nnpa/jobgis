@@ -29,7 +29,7 @@ class DefaultController extends Controller
     
     public function actionManagers(){
         $managers = AuthAssignment::find()->where(["item_name" => "manager"])->all();
-
+        
         return $this->render('managers',["managers" => $managers]);
     }
 }
