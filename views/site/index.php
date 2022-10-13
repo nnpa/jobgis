@@ -1,6 +1,7 @@
 <h3>Добро пожаловать на jobgis</h3>
 
-<h5>Последние вакансии<h5>
-<?php foreach($vacancys as $vacancy):?>
-    <a target="_blank" href="/vacancy/show?id=<?php echo $vacancy->id?>"><?php echo $vacancy->name;?></a><br>
-<?php endforeach; ?>
+<h5>Поиск вакансий</h5>
+<form action="/search/vacancy">
+    <input type="text" name="name" style="width:40%">
+    <input type="submit" value="Искать">
+</form>

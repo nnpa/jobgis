@@ -46,8 +46,7 @@ AppAsset::register($this);
     
     $role = "guest";
     $roleArr = \Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
-    
-    
+    echo var_dump($roleArr);
     if(!empty($roleArr)){
         
         foreach($roleArr as $roleObj){
@@ -66,18 +65,20 @@ AppAsset::register($this);
         }
 
     }
+
     
     NavBar::begin([
-        'brandLabel' => "Jobgis",
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandLabel' => ($role == "employer")?'Поиск':"Jobgis",
+        'brandUrl' => ($role == "employer")?'/serach/vacancy':Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
         ],
     ]);
-    
+
     $items = [];
-    
+
     if($role == "guest"){
+        
         $items = [
             ['label' => 'Разместить вакансию', 'url' => ['/site/registeremployer']],
             ['label' => 'Создать резюме', 'url' => ['/site/registercandidate']],
@@ -96,8 +97,6 @@ AppAsset::register($this);
                 ['label' => 'Настройки', 'url' => ['/site/useredit']],
 
                 ['label' => 'Сотрудники', 'url' => ['/site/workers']],
-                ['label' => 'Поиск', 'url' => ['/search/resume']],
-
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
                 . Html::submitButton(

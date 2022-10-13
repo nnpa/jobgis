@@ -6,6 +6,7 @@ use yii\web\Controller;
 use Yii;
 use app\models\AuthAssignment;
 use app\models\Firm;
+use app\models\Vacancy;
 
 /**
  * Default controller for the `admin` module
@@ -20,7 +21,9 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->limit(10)->all();
+
+        return $this->render('index',["vacancys" => $vacancys]);
     }
     
         public function actionLogout()

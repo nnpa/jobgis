@@ -78,9 +78,9 @@ class SearchController extends Controller
         
         
         
-        $sql = "SELECT * FROM `vacancy` WHERE 1=1";
+        $sql = "SELECT * FROM `vacancy` WHERE 1=1 AND name != 'Заполните должность'";
         $url = "http://jobgis.ru/search/vacancy?test=1";
-        $sqlCount = "SELECT COUNT(*) FROM `vacancy` WHERE 1=1";
+        $sqlCount = "SELECT COUNT(*) FROM `vacancy` WHERE 1=1 AND name != 'Заполните должность'";
         
         if(isset($_GET["name"]) && !empty($_GET['name'])){
             $name = $_GET["name"];
