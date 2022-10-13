@@ -191,7 +191,20 @@ if($resume->exp != 0){
 <?php echo $str=str_replace('\r\n','<br>',$exp->description);?><br>
 
 <?php endforeach;?>
-
+<h3>Ключевые навыки</h3>
+<small><a href="/resume/editskills?id=<?php echo $resume->id?>">редактировать</a></small><br>
+<div>
+    <?php 
+        $skillsArr = explode(",",$resume->skills);
+    ?>
+    <?php foreach($skillsArr as $skill):?>
+        <?php if($skill != ""):?>
+            <div  style='margin:4px;border-radius:5px;background-color:edeff0;padding:4px;border:1px solid gray;min-width:10px;float:left;'>
+                <?php echo $skill?>
+            </div>
+        <?php endif;?>
+    <?php endforeach;?>
+</div>
 <h3>Обо мне</h3>
 <small><a href="/resume/editabout?id=<?php echo $resume->id?>">редактировать</a></small><br>
 <div><?php echo $resume->description;?></div>
