@@ -212,7 +212,7 @@ class ResumeController extends AppController
         $role = "guest";
         $roleArr = \Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
         
-        foreach($role as $r){
+        foreach($roleArr as $r){
             if($r->name == "employer"){
                 $role = "employer";
             }
