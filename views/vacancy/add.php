@@ -314,7 +314,7 @@ function deleteSkill(obj){
     <input type="radio" name="employment" <?php echo ("Волонтерство" == $vacancy->employment)?'checked':''?> value="Волонтерство"> Волонтерство<br>
     <input type="radio" name="employment" <?php echo ("Стажировка" == $vacancy->employment)?'checked':''?> value="Стажировка"> Стажировка<br>
 
-    <h5>Контакты</h5>
+    <h5>Контакты</h5><br>
     <b>Контактное лицо</b><br>
     <input type="text" name="contactmane" value="<?php echo $vacancy->contactmane ." " .$user->surname;?>"><br>
     <b>Email</b><br>
