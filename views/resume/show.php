@@ -2,7 +2,7 @@
 <?php if($resume->photo != ""):?>
 <img width="80px" height="80px" src="/img/<?php echo $resume->photo;?>"><br>
 <?php endif?>
-<h3> 
+<h4> 
     <?php if(!Yii::$app->user->isGuest):?>
         <?php if(Yii::$app->user->identity->firm->verify != 0):?>
             <?php echo $resume->surname . " " . $resume->name. " " . $resume->patronymic?>
@@ -13,7 +13,7 @@
     <?php else:?>
         ФИО скрыто зарегистрируйтесь 
     <?php endif;?>
-</h3>
+</h4>
 
 
 пол: <?php echo $resume->gender;?> <br>
@@ -26,7 +26,7 @@
     }
 ?>
 <br>
-<h3><?php echo $resume->vacancy;?></h3>
+<h4><?php echo $resume->vacancy;?></h4>
 <?php echo $resume->cost;?> <?php echo $resume->cash_type;?><br>
 Специализация: <?php echo $resume->specsub;?> <br>
 Занятость: 
@@ -75,7 +75,7 @@ if($resume->exp != 0){
 }
 
 ?>
-<h3>Опыт работы <?php echo $years;?> <?php echo $months;?></h3>
+<h4>Опыт работы <?php echo $years;?> <?php echo $months;?></h4>
     
     <?php
         $monthArr = [
@@ -138,7 +138,7 @@ if($resume->exp != 0){
 <?php echo $str=str_replace('\r\n','<br>',$exp->description);?><br>
 
 <?php endforeach;?>
-<h3>Ключевые навыки</h3>
+<h4>Ключевые навыки</h4>
 <div>
     <?php 
         $skillsArr = explode(",",$resume->skills);
@@ -151,12 +151,12 @@ if($resume->exp != 0){
         <?php endif;?>
     <?php endforeach;?>
 </div>
-<h3>Обо мне</h3>
+<h4>Обо мне</h4>
 <div><?php echo $resume->description;?></div>
-<h3>Опыт вождения</h3>
+<h4>Опыт вождения</h4>
 
 <?php echo $resume->car;?>
-<h3>Портфолио</h3>
+<h4>Портфолио</h4>
 <div>
 <?php foreach($resumePortfolio as $portfolio):?>
     <img style="float:left" src="/img/<?php echo $portfolio->photo;?>" >
@@ -167,7 +167,7 @@ if($resume->exp != 0){
 </div>
 <hr><br><br><br><br><br>
 <div>
-    <h3>Высшее образование</h3>
+    <h4>Высшее образование</h4>
 </div>
 
 <?php foreach($resumeEdu as $edu):?>
@@ -175,7 +175,7 @@ if($resume->exp != 0){
     <?php echo $edu->fack;?>
 
 <?php endforeach;?>
-    <h3>Повышение квалификации, курсы</h3>
+    <h4>Повышение квалификации, курсы</h4>
 
 <?php foreach($resumeAddEdu as $edu):?>
     <b><?php echo $edu->university;?></b> <?php echo $edu->year;?><br>

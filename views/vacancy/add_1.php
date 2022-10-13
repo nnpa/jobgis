@@ -302,12 +302,27 @@ function deleteSkill(obj){
 <?php echo $vacancy->description;?>
 <?php endif;?>
 </textarea>
- 
+
+Ключевые навыки<br>
+<div id="skills" style="float:left">
+    <?php $skillsArr = explode(",",$vacancy->skills);?>
+    
+    <?php foreach($skillsArr as $skill):?>
+        <?php if($skill != ""):?>
+        
+        <div onClick='deleteSkill(this)' style='margin:4px;border-radius:5px;background-color:edeff0;padding:4px;border:1px solid gray;min-width:10px;float:left;'><?php echo $skill;?> <span style='color:blue;cursor: pointer'>x</span></div>
+        <?php endif;?>
+    <?php endforeach;?>
+</div>  
 <input type="hidden" name="skills" id="skills-input" value="<?php echo $vacancy->skills;?>">
 <div>  &nbsp;</div>
 <br>
 
-
+    <div class="frmSearch" style="float:left">
+        <input  id="search-box-skills"  type="text">
+    </div>
+    <div id="suggesstion-box-skills"></div><br>
+    <div>  &nbsp;</div>
 
     <b> Занятость</b><br>
     <input type="radio" name="employment" <?php echo ("Полная занятость" == $vacancy->employment)?'checked':''?> value="Полная занятость">Полная занятость<br>
