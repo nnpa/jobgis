@@ -42,7 +42,11 @@ class FirmController extends Controller
     {
         $searchModel = new FirmSearch();
         $dataProvider = $searchModel->search($this->request->queryParams,null);
-
+        $dataProvider->sort = [
+            'defaultOrder' => [
+                'id' => SORT_DESC,
+            ]
+        ];
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

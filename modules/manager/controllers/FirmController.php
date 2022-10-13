@@ -47,7 +47,11 @@ class FirmController extends Controller
         $user = Yii::$app->user->identity;
 
         $dataProvider = $searchModel->search($this->request->queryParams,$user->id);
-        
+        $dataProvider->sort = [
+            'defaultOrder' => [
+                'id' => SORT_DESC,
+            ]
+        ];
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
