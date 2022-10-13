@@ -46,6 +46,8 @@ AppAsset::register($this);
     
     $role = "guest";
     $roleArr = \Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
+    
+    
     if(!empty($roleArr)){
         
         foreach($roleArr as $roleObj){

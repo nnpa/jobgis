@@ -217,7 +217,7 @@ class ResumeController extends AppController
         }
            $user = Yii::$app->user->identity;
 
-       if($role != "employer" AND $resume->user_id != $user->id){
+       if($role != "employer" AND $role != "manager" AND $role != "admin"  AND $resume->user_id != $user->id){
            exit;
        }
        
