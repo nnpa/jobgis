@@ -103,6 +103,7 @@ class Resume extends \yii\db\ActiveRecord
        }
     public function beforeDelete(){
         
+       $dirPath="/var/www/basic/web/img/";
 
        $resumeEdu = ResumeEdu::find()->where(["resume_id" => $this->id])->all();
        $resumeExp = ResumeExp::find()->where(["resume_id" => $this->id])->all();
