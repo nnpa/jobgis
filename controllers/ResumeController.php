@@ -211,11 +211,22 @@ class ResumeController extends AppController
        
         $role = "guest";
         $roleArr = \Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
-        if(!empty($roleArr)){
-            $roleObj = array_shift($roleArr);
-            $role = $roleObj->name;
+        
+        foreach($role as $r){
+            if($r->name == "employer"){
+                $role = "employer";
+            }
+            if($r->name == "candidate"){
+                $role = "candidate";
+            }
+            if($r->name == "admin"){
+                $role = "admin";
+            }
+            if($r->name == "manager"){
+                $role = "manager";
+            }
         }
-           $user = Yii::$app->user->identity;
+        $user = Yii::$app->user->identity;
 
        if($role != "employer" AND $role != "manager" AND $role != "admin"  AND $resume->user_id != $user->id){
            exit;
