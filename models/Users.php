@@ -47,18 +47,20 @@ class Users extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'surname' => 'Surname',
-            'company' => 'Company',
-            'phone' => 'Phone',
-            'city' => 'City',
+            'name' => 'Имя',
+            'surname' => 'Фамилия',
+            'company' => 'Компания',
+            'phone' => 'Телефон',
+            'city' => 'Город',
             'email' => 'Email',
-            'password' => 'Password',
-            'type' => 'Type',
-            'recover_code' => 'Recover Code',
-            'create_time' => 'Create Time',
-            'auth_key' => 'Auth Key',
-            'access_token' => 'Access Token',
+            'password' => 'Пароль',
+            'recover_code' => 'Код восстановления',
+            'create_time' => 'Время создания',
+            'auth_key' => 'Ключ входа',
+            'access_token' => 'Токен доступа',
+            'patronymic' => 'Отчество',
+            'firm_id' => 'Идентификатор фирмы',
+
         ];
     }
     
