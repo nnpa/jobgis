@@ -4,6 +4,7 @@ namespace app\modules\admin\controllers;
 
 use yii\web\Controller;
 use Yii;
+use app\models\AuthAssignment;
 
 /**
  * Default controller for the `admin` module
@@ -24,5 +25,11 @@ class DefaultController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+    
+    public function actionManagers(){
+        $managers = AuthAssignment::find()->where(["item_name" => "manager"])->all();
+
+        return $this->render('managers',["managers" => $managers]);
     }
 }
