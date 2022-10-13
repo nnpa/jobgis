@@ -26,7 +26,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-        $("#phone").mask("+9 (999) 999-99-99");
+        $("#phone").mask("+9 (999) 999 99 99");
 
 	$("#search-box").keyup(function() {
 		$.ajax({

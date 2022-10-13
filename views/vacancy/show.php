@@ -18,7 +18,11 @@
 <div style="padding-left: 50px;">
 <h3><?php echo $vacancy->name;?></h3>
 <span class="vacancy_compensation">
-от <?php echo $vacancy->costfrom;?> до <?php echo $vacancy->costto;?> <?php echo $vacancy->cash;?> <?php echo $vacancy->cashtype;?> <br>
+от <?php echo $vacancy->costfrom;?> 
+   <?php if($vacancy->costto):?>
+        до <?php echo $vacancy->costto;?>
+   <?php endif;?>
+ <?php echo $vacancy->cash;?> <?php echo $vacancy->cashtype;?> <br>
 </span>
 Требуемый опыт работы: <?php echo $vacancy->exp;?><br>
 <?php echo $vacancy->employment;?><br>
@@ -31,20 +35,7 @@
     <?php echo $vacancy->description;?><br>
 
 </div>
-<h5>Ключевые навыки</h5>
-<div>
-    <?php 
-        $skillsArr = explode(",",$vacancy->skills);
-    ?>
-    <?php foreach($skillsArr as $skill):?>
-        <?php if($skill != ""):?>
-            <div style='margin:4px;border-radius:5px;background-color:edeff0;padding:4px;border:1px solid gray;min-width:10px;float:left;'>
-                <?php echo $skill?>
-            </div>
-        <?php endif;?>
-    <?php endforeach;?>
-</div><br>
-<div>  &nbsp;</div>
+
 
 <?php if(!Yii::$app->user->isGuest):?>
     <div id="contacts" >
