@@ -187,6 +187,7 @@ class SiteController extends AppController
                 ->setHtmlBody("<html>Поздравляем вы удачно зарегистрировались на сайте jobgis.ru<br>Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
                 ->send();
                  
+                 $this->adminNotify();
                  
                 $model = new LoginForm();
                 $model->username = $user->email;
@@ -204,6 +205,16 @@ class SiteController extends AppController
             "company" => $company,
             "email" => $email,
         ]);
+    }
+    
+    public function adminNotify(){
+        Yii::$app->mailer->compose()
+        ->setFrom('robot@jobgis.ru')
+        ->setTo("admin@jobgis.ru")
+        ->setSubject('Новая регистрация на сайте jobgis.ru')
+        ->setTextBody("Новая регистрация на сайте jobgis.ru")
+        ->setHtmlBody("<html>Новая регистрация на сайте jobgis.ru</html>")
+        ->send();
     }
     
     public function actionReset(){
@@ -304,6 +315,7 @@ class SiteController extends AppController
                 ->setHtmlBody("<html>Поздравляем вы удачно зарегистрировались на сайте jobgis.ru<br>Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
                 ->send();
                 
+                $this->adminNotify();
                 $model = new LoginForm();
                 $model->username = $user->email;
                 $model->password = $user->password;
