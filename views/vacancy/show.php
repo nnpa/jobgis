@@ -73,23 +73,23 @@
 
 
         $response = Response::find()->where(["resume_id" => $resumes, "vacancy_id" => $vacancy->id])->all();
-        
+        var_dump(!is_null($resume) && is_object($vacancy->user));exit;
     ?>
     
     
-        <?php if(empty($response)):?>
-            <?php if(!is_null($resume) && is_object($vacancy->user)):?>
-                <?php if($vacancy->user->firm_id == 0):?>
-                <div id="responce">
-                    <select id="resume_id" class="form-select" style="width:250px">
-                        <?php foreach($resume as $r):?>
-                            <option value="<?php echo $r->id?>"><?php echo $r->vacancy?></option>
-                        <?php endforeach;?>
-                    </select><br>
-                    <a hre="#" class="btn btn-success" onClick="response('<?php echo $vacancy->id;?>')">Откликнуться</a>
-                </div>
-                <?php endif;?>
+    <?php if(empty($response)):?>
+        <?php if(!is_null($resume) && is_object($vacancy->user)):?>
+            <?php if($vacancy->user->firm_id == 0):?>
+            <div id="responce">
+                <select id="resume_id" class="form-select" style="width:250px">
+                    <?php foreach($resume as $r):?>
+                        <option value="<?php echo $r->id?>"><?php echo $r->vacancy?></option>
+                    <?php endforeach;?>
+                </select><br>
+                <a hre="#" class="btn btn-success" onClick="response('<?php echo $vacancy->id;?>')">Откликнуться</a>
+            </div>
             <?php endif;?>
+        <?php endif;?>
     <?php else:?>
         Вы уже откликнулись
     <?php endif;?>
