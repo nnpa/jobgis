@@ -175,14 +175,14 @@ function selectCountry(val) {
             <b>Доход от</b><br> <input type="text" name="cost" value="<?php echo $cost;?>"><br>
                             
             <b>Специализация</b><br> <input  class="popup-open" id="spec" type="text" name="spec" value="<?php echo $spec;?>"><br>
-            
+            <br>
             <b>Опыт работы </b><br>
             <input type="radio" name="exp" value="no" <?php echo ($exp == "no")?'checked':''?>> Не имеет значения <br>
             <input type="radio" name="exp" value="Нет опыта" <?php echo ($exp == "Нет опыта")?'checked':''?>> Нет опыта<br>
             <input type="radio" name="exp" value="От 1 года до 3 лет" <?php echo ($exp == "От 1 года до 3 лет")?'checked':''?>> От 1 года до 3 лет <br>
             <input type="radio" name="exp" value="От 3 до 6 лет" <?php echo ($exp == "От 3 до 6 лет")?'checked':''?>> От 3 до 6 лет <br>
             <input type="radio" name="exp" value="Более 6 лет" <?php echo ($exp == "Более 6 лет")?'checked':''?>> Более 6 лет  <br>
-            
+            <br>
             <b>Тип занятости</b><br>
             <input type="radio" name="employment" <?php echo ($employment == "Полная занятость")?'checked':''?> value="Полная занятость" >Полная занятость<br>
             <input type="radio" name="employment" <?php echo ($employment == "Частичная занятость")?'checked':''?>  value="Частичная занятость">Частичная занятость<br>

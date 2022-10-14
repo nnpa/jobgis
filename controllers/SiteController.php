@@ -73,7 +73,8 @@ class SiteController extends AppController
             ['name' => 'description', 'content' => 'jobgis.ru — сервис, который помогает найти работу и подобрать персонал ! Создавайте резюме и откликайтесь на вакансии. Набирайте сотрудников и публикуйте вакансии.']
         );
 
-        return $this->render('index');
+        $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->limit(10)->all();
+        return $this->render('index',["vacancys" => $vacancys]);
     }
 
     /**
