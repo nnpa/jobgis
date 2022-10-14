@@ -77,7 +77,7 @@
     ?>
     
     
-    <?php if(empty($response)):?>
+    <?php if(!is_null($resume) && is_object($vacancy->user)):?>
         <?php if(!is_null($resume) && is_object($vacancy->user)):?>
             <?php if($vacancy->user->firm_id == 0):?>
             <div id="responce">
