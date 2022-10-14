@@ -19,15 +19,16 @@
 <h3><?php echo $vacancy->name;?></h3>
 <span class="vacancy_compensation">
     <?php if((bool)$vacancy->costfrom):?>
-
         от <?php echo $vacancy->costfrom;?> 
    <?php endif;?>
 
    <?php if((bool)$vacancy->costto):?>
         до <?php echo $vacancy->costto;?>
    <?php endif;?>
-        
- <?php echo $vacancy->cash;?> <?php echo $vacancy->cashtype;?> <br>
+ 
+ <?php if(!(bool)$vacancy->costto AND !(bool)$vacancy->costfrom):?>
+    <?php echo $vacancy->cash;?> <?php echo $vacancy->cashtype;?> <br>
+ <?php endif;?>
 </span>
 Требуемый опыт работы: <?php echo $vacancy->exp;?><br>
 <?php echo $vacancy->employment;?><br>
