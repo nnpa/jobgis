@@ -18,12 +18,12 @@
 <div style="padding-left: 50px;">
 <h3><?php echo $vacancy->name;?></h3>
 <span class="vacancy_compensation">
-    <?php if($vacancy->costto != ""):?>
+    <?php if(!empty($vacancy->costto)):?>
 
         от <?php echo $vacancy->costfrom;?> 
    <?php endif;?>
 
-   <?php if($vacancy->costto != 0):?>
+   <?php if(!empty($vacancy->costto)):?>
         до <?php echo $vacancy->costto;?>
    <?php endif;?>
         
