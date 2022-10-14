@@ -27,6 +27,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
+        $("#inn").mask("9999999999");
 
 	$("#search-box").keyup(function() {
 		$.ajax({
@@ -85,7 +86,7 @@ function selectCountry(val) {
 
 <h3>Заполните ИНН компании</h3>
 <form method="POST">
-    <b>ИНН *</b> <input type="text" name="inn" ><br>
+    <b>ИНН *</b> <input id="inn" type="text" name="inn" ><br>
     <b>Индустрия *</b> 
     <select name="category">
         <?php foreach($category as $c):?>
