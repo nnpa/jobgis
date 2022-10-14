@@ -18,6 +18,7 @@
 <div style="padding-left: 50px;">
 <h3><?php echo $vacancy->name;?></h3>
 <span class="vacancy_compensation">
+    <?php var_dump((bool) 13);?>
     <?php if((bool)$vacancy->costto):?>
 
         от <?php echo $vacancy->costfrom;?> 
