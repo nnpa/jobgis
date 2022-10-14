@@ -68,7 +68,7 @@ AppAsset::register($this);
     
     NavBar::begin([
         'brandLabel' => ($role == "employer")?'Поиск':"Jobgis",
-        'brandUrl' => ($role == "employer")?'/serach/vacancy':Yii::$app->homeUrl,
+        'brandUrl' => ($role == "employer")?'/search/vacancy':Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
         ],
