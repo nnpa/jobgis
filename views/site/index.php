@@ -17,16 +17,16 @@
     ?>
     
 <?php if($role == "candidate"):?>
-<h5>Поиск резюме</h5>
-<form action="/search/resume">
+<h5>Поиск вакансий</h5>
+<form action="/search/vacancy">
     <input type="text" name="name" style="width:40%">
     <input type="submit" class="btn btn-success" value="Искать">
 </form>
 <?php endif;?>
 
 <?php if($role == "employer"):?>
-<h5>Поиск вакансий</h5>
-<form action="/search/vacancy">
+<h5>Поиск резюме</h5>
+<form action="/search/resume">
     <input type="text" name="name" style="width:40%">
     <input type="submit" class="btn btn-success" value="Искать">
 </form>
