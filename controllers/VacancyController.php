@@ -75,7 +75,14 @@ class VacancyController extends AppController
     
     public function actionDelete($id){
         $user = Yii::$app->user->identity;
-        $vacancies = Vacancy::find()->where(["id" => $id])->one();
+        
+        $users = Users::find()->where(["firm_id" => $user->firm_id ])->all();
+        $ids = [];
+        foreach($users as $user ){
+            $ids[] = $user->id;
+        }
+        
+        $vacancies = Vacancy::find()->where(["id" => $id,"user_id" =>$ids])->one();
         if(!is_null($vacancies)){
             $vacancies->delete();
         }
