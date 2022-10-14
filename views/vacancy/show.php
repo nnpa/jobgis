@@ -73,13 +73,13 @@
 
 
         $response = Response::find()->where(["resume_id" => $resumes, "vacancy_id" => $vacancy->id])->all();
+        var_dump(empty($response));exit;
     ?>
     
     
     <?php if(empty($response)):?>
         <?php if(!is_null($resume) && is_object($vacancy->user)):?>
             <?php if($vacancy->user->firm_id == 0):?>
-            <?php echo "1";exit;?>
             <div id="responce">
                 <select id="resume_id" class="form-select" style="width:250px">
                     <?php foreach($resume as $r):?>
