@@ -18,7 +18,7 @@
 <div style="padding-left: 50px;">
 <h3><?php echo $vacancy->name;?></h3>
 <span class="vacancy_compensation">
-    <?php var_dump($vacancy->costto != 0);exit;?>
+    <?php var_dump($vacancy->costto);exit;?>
     <?php if($vacancy->costto != 0):?>
 
         от <?php echo $vacancy->costfrom;?> 
