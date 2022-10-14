@@ -73,11 +73,11 @@
 
 
         $response = Response::find()->where(["resume_id" => $resumes, "vacancy_id" => $vacancy->id])->all();
-        var_dump(empty($response));exit;
+        var_dump($vacancy->user->firm_id == 0);exit;
     ?>
     
     
-    <?php if(!is_null($resume) && is_object($vacancy->user)):?>
+    <?php if(empty($response)):?>
         <?php if(!is_null($resume) && is_object($vacancy->user)):?>
             <?php if($vacancy->user->firm_id == 0):?>
             <div id="responce">
