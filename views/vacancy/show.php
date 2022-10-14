@@ -26,7 +26,7 @@
         до <?php echo $vacancy->costto;?>
    <?php endif;?>
  
- <?php if(!(bool)$vacancy->costto AND !(bool)$vacancy->costfrom):?>
+ <?php if((bool)$vacancy->costto AND (bool)$vacancy->costfrom):?>
     <?php echo $vacancy->cash;?> <?php echo $vacancy->cashtype;?> <br>
  <?php endif;?>
 </span>
