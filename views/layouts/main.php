@@ -87,11 +87,7 @@ AppAsset::register($this);
     }else{
         if($role=="employer"){
             $items = [
-                 ['label' => 'Вакансии', 'url' => ['/site/index'], 'items' => [
-                     ['label' => 'Разместить вакансию', 'url' => ['/vacancy/add']],
-                     ['label' => 'Мои вакансии', 'url' => ['/vacancy/list']]
-                     
-                ]],
+                ['label' => 'Мои вакансии', 'url' => ['/vacancy/list']],
                 ['label' => 'Отклики', 'url' => ['/response/employer']],
                 ['label' => 'Настройки', 'url' => ['/site/useredit']],
 

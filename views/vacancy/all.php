@@ -1,5 +1,5 @@
 <h3>Мои вакансии</h3>
-
+<a href="/vacancy/add" class="btn btn-success">Разместить вакансию</a>
 <?php foreach($vacancies as $vacancy):?>
 <div>
     <div style="width: 30%;float:left">
