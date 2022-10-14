@@ -78,7 +78,7 @@ class ResponseController extends Controller{
         }
         
         
-        $query = Response::find()->where(["vacancy_id" => $ids]);
+        $query = Response::find()->where(["vacancy_id" => $ids])->orderBy(["id" => SORT_DESC]);
         $pages = new Pagination(['totalCount' => $query->count(),'pageSize' => 5]);
         $response = $query->offset($pages->offset)
             ->limit($pages->limit)
@@ -99,7 +99,7 @@ class ResponseController extends Controller{
         }
         
         
-        $query = Response::find()->where(["resume_id" => $ids]);
+        $query = Response::find()->where(["resume_id" => $ids])->orderBy(["id" => SORT_DESC]);
         $pages = new Pagination(['totalCount' => $query->count(),'pageSize' => 5]);
         $response = $query->offset($pages->offset)
             ->limit($pages->limit)
