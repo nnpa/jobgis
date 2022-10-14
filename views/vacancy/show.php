@@ -73,7 +73,7 @@
 
 
         $response = Response::find()->where(["resume_id" => $resumes, "vacancy_id" => $vacancy->id])->all();
-        var_dump(!is_null($resume) && is_object($vacancy->user));exit;
+        var_dump($response);exit;
     ?>
     
     
