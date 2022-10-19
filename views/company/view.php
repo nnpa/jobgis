@@ -1,6 +1,8 @@
 <h5><?php echo $firm->name;?></h5>
 
-Отасль : <?php echo $firm->category;?><br>
+Отрасль : <?php echo $firm->category;?><br>
+Город : <?php echo $firm->city;?><br>
+
 Сайт: <?php $firm->site;?>
 <h5>О компании</h5>
 <?php echo $firm->about;?>
