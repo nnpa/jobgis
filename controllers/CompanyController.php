@@ -13,6 +13,7 @@ use app\models\NetCity;
 use app\models\Users;
 use app\models\Firm;
 use app\models\Vacancy;
+use app\models\Reviews;
 
 use app\controllers\AppController;
 
@@ -77,9 +78,23 @@ class CompanyController extends AppController
         
         $vacancys = Vacancy::find()->where(["user_id" => $ids])->all();
         
+        if(isset($_POST) && !empty($_POST)){
+            $user = Yii::$app->user->identity;
+
+            $re = new Reviews();
+            $re->user_id = $user->id;
+            $re->firm_id = $id;
+            $re->description = $_POST["description"];
+            $re->save(false);
+        }
+        
+        $re = Reviews::find()->where(["firm_id" => $id])->all();
+        
+
         return $this->render("view",[
             "firm" => $firm,
-            "vacancys" => $vacancys
+            "vacancys" => $vacancys,
+            "re" => $re
         ]);
     }
 }

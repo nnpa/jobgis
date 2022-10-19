@@ -12,3 +12,18 @@
     <a target="_blank" href="/vacancy/show?id=<?php echo $vacancy->id?>"><?php echo $vacancy->name;?></a><br>
 <?php endforeach; ?>
 
+<?php if(!Yii::$app->user->isGuest):?>
+    <form method="POST">
+        <b>Оставить отзыв</b><br>
+        <textarea name="description" style="width:250px;height: 60px"></textarea><br>
+        <input type="submit" class="btn btn-success" value="Сохранить">
+    </form>
+<?php endif; ?>
+
+<h5>Отзывы</h5>
+
+<?php foreach($re as $r):?>
+    <?php echo $r->description;?>
+<hr>
+<?php endforeach; ?>
+
