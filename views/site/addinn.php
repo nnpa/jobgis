@@ -27,7 +27,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-        $("#inn").mask("9999999999");
+        $("#inn").mask("999999999999");
 
 	$("#search-box").keyup(function() {
 		$.ajax({
