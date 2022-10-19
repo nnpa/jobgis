@@ -16,7 +16,9 @@ class AppController extends Controller{
                 "actionLogin",
                 "actionAddinn",
                 "actionVerify",
-                "actionCity"
+                "actionCity",
+                "actionCompany"
+
             ];
             
             if(($user->name == "") OR ($user->surname == "") OR ($user->phone == "") OR ($user->city == "")){
@@ -40,6 +42,15 @@ class AppController extends Controller{
                     }
                 }
             }
+            if($user->firm_id != 0){
+                 if(is_null($user->firm->about)){
+                    if(!in_array($action->actionMethod, $actions)){
+
+                        return $this->redirect("/site/company"); 
+                    }
+                 }
+            }
+
         }
         
         

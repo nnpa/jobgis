@@ -560,4 +560,16 @@ class SiteController extends AppController
         }
         return $this->render("useredit",["user" => $user,"role" => $role]);
     }
+    
+    public function actionCompany(){
+        if(isset($_POST)&& !empty($_POST)){
+            $user = Yii::$app->user->identity;
+            $firm = Firm::find()->where(["id" => $user->firm_id])->one();
+            $firm->site = $_POST['site'];
+            $firm->about = $_POST['about'];
+            $firm->save();
+            return $this->redirect("/");
+        }
+        return $this->render("company");
+    }
 }
