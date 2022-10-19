@@ -1,4 +1,6 @@
 <h5><?php echo $firm->name;?></h5>
+
+Отасль : <?php echo $firm->category;?><br>
 Сайт: <?php $firm->site;?>
 <h5>О компании</h5>
 <?php echo $firm->about;?>
