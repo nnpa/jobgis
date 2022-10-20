@@ -69,6 +69,9 @@ function selectCountry(val) {
 <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 <p>Для публикации вашей компании в каталоге заполните следующие поля</p>
 <form method="POST"  enctype="multipart/form-data">
+    <?php echo $firm->name?><br>
+    <b>ИНН</b> <?php echo $firm->inn?><br>
+    <b>Отрасль</b>  <?php echo $firm->category?><br>
     <b>Логотип</b><br>
     <?php if($firm->logo != ""):?>
         <img width="80px" height="80px" src="/img/<?php echo $firm->logo;?>"><br>
