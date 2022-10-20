@@ -48,7 +48,7 @@ function selectCountry(val) {
 	$("#suggesstion-box").hide();
 }
 </script>
-<h3>Настройки</h3>
+<h5>Настройки</h5>
 <form method="POST">
     <b>Имя</b> <input type="text" name="name" value="<?php echo $user->name;?>"><br>
      <b>Фамилия</b> <input type="text" name="surname" value="<?php echo $user->surname;?>"><br>
@@ -61,3 +61,25 @@ function selectCountry(val) {
                     <div id="suggesstion-box"></div>
     <input type="submit" value="Сохранить" class="btn btn-success">
 </form>
+
+<?php if($firm->id != 0):?>
+<h5>Информация о компании</h5>
+
+<script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+<p>Для публикации вашей компании в каталоге заполните следующие поля</p>
+<form method="POST"  enctype="multipart/form-data">
+    <b>Логотип</b><br>
+    <?php if($firm->logo != ""):?>
+        <img width="80px" height="80px" src="/img/<?php echo $firm->logo;?>"><br>
+    <?php endif?>
+    <small>Загрузите изображение в формате jpg</small> <br>
+    <input type="file" name="image" accept=".jpg,.jpeg"><br>
+
+    <b>Сайт</b><br>
+    <input type="text" name="site" value="<?php echo $firm->site;?>" style="width: 200px"><br>
+    <b>О компании</b><br>
+    <textarea name="about"  style="width:400px;height: 150px"><?php echo $firm->about;?></textarea><br>
+    <input type="submit" class="btn btn-success" value="Сохранить">
+</form>
+<?php endif;?>

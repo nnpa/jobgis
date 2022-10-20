@@ -1,5 +1,7 @@
 <h5><?php echo $firm->name;?></h5>
-
+<?php if($firm->logo != ""):?>
+    <img width="80px" height="80px" src="/img/<?php echo $firm->logo;?>"><br>
+<?php endif?>
 Отрасль : <?php echo $firm->category;?><br>
 Город : <?php echo $firm->city;?><br>
 

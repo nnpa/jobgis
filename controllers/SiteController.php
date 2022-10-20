@@ -540,6 +540,9 @@ class SiteController extends AppController
     public function actionUseredit(){
         $user = Yii::$app->user->identity;
         
+        
+        $firm = Firm::find()->where(["id" => $user->firm_id])->one();  
+
         $role = "guest";
         $roleArr = \Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
         if(!empty($roleArr)){
@@ -547,7 +550,7 @@ class SiteController extends AppController
             $role = $roleObj->name;
         }
         
-        if(isset($_POST) && !empty($_POST)){
+        if(isset($_POST["name"]) && !empty($_POST["name"])){
             $user = Users::find()->where(["id" => $user->id])->one();
             
             $user->name = $_POST["name"];
@@ -558,13 +561,82 @@ class SiteController extends AppController
             $user->save(false);
             return $this->render("message",["message" => "Настройки сохранены"]);
         }
-        return $this->render("useredit",["user" => $user,"role" => $role]);
+        
+        if(isset($_POST["about"])&& !empty($_POST["about"])){
+
+            $firm->site = $_POST['site'];
+            $firm->about = $_POST['about'];
+            $firm->save(false);
+        }
+        
+        $firm = Firm::find()->where(["id" => $user->firm_id])->one();  
+        
+        if(isset($_FILES['image']['tmp_name']) && !empty($_FILES['image']['tmp_name'])){
+            $dirPath="/var/www/basic/web/img/";
+            
+            if($firm->logo != ""){
+                if(file_exists($dirPath.$firm->logo)){
+                    unlink($dirPath.$firm->logo); 
+
+                }
+            }
+           
+           
+           //print_r($_FILES);exit;
+            $uploadedFile=$_FILES['image']['tmp_name']; 
+            $sourceProperties=getimagesize($uploadedFile);
+            $newFileName=time();
+            
+            $ext=pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+            
+            $imageSrc= imagecreatefromjpeg($uploadedFile); 
+ 
+            $tmp= $this->imageResize($imageSrc,$sourceProperties[0],$sourceProperties[1]);
+            imagejpeg($tmp,$dirPath.$newFileName."_thump.".$ext);
+            
+            $firm->logo = $newFileName."_thump.".$ext;
+            $firm->save(false);
+            //move_uploaded_file($uploadedFile, $dirPath.$newFileName.".".$ext);
+
+            
+       }
+       
+        return $this->render("useredit",["user" => $user,"role" => $role,"firm" => $firm]);
     }
     
     public function actionCompany(){
+        $user = Yii::$app->user->identity;
+        $firm = Firm::find()->where(["id" => $user->firm_id])->one();  
+        
+        if(isset($_FILES) && !empty($_FILES)){
+            $dirPath="/var/www/basic/web/img/";
+            
+            if($firm->logo != ""){
+                unlink($dirPath.$firm->logo); 
+            }
+           
+           
+           //print_r($_FILES);exit;
+            $uploadedFile=$_FILES['image']['tmp_name']; 
+            $sourceProperties=getimagesize($uploadedFile);
+            $newFileName=time();
+            
+            $ext=pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+            
+            $imageSrc= imagecreatefromjpeg($uploadedFile); 
+ 
+            $tmp= $this->imageResize($imageSrc,$sourceProperties[0],$sourceProperties[1]);
+            imagejpeg($tmp,$dirPath.$newFileName."_thump.".$ext);
+            
+            $firm->logo = $newFileName."_thump.".$ext;
+            $firm->save(false);
+            //move_uploaded_file($uploadedFile, $dirPath.$newFileName.".".$ext);
+
+            
+       }
+        
         if(isset($_POST)&& !empty($_POST)){
-            $user = Yii::$app->user->identity;
-            $firm = Firm::find()->where(["id" => $user->firm_id])->one();
+
             $firm->site = $_POST['site'];
             $firm->about = $_POST['about'];
             $firm->save();
@@ -572,4 +644,16 @@ class SiteController extends AppController
         }
         return $this->render("company");
     }
+    
+       function imageResize($imageSrc,$imageWidth,$imageHeight) {
+
+       $newImageWidth=200;
+       $newImageHeight=200;
+
+       $newImageLayer=imagecreatetruecolor($newImageWidth,$newImageHeight);
+       imagecopyresampled($newImageLayer,$imageSrc,0,0,0,0,$newImageWidth,$newImageHeight,$imageWidth,$imageHeight);
+
+       return $newImageLayer;
+    }
+    
 }
