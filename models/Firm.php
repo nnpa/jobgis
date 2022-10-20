@@ -29,6 +29,7 @@ class Firm extends \yii\db\ActiveRecord
         return [
             [['name'], 'required'],
             [['verify'], 'integer'],
+            [['inn','name','verify'],'safe'],
             [['name'], 'string', 'max' => 255],
         ];
     }
