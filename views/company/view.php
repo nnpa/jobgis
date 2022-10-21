@@ -7,6 +7,8 @@
 <?php 
 $site = str_replace("http://", "", $firm->site);
 $site = str_replace("https://", "", $firm->site);
+$site = str_replace("https://www.", "", $firm->site);
+$site = str_replace("http://www.", "", $firm->site);
 
 ?>
 Сайт: <a href="<?php echo $firm->site;?>"><?php echo $site;?></a>

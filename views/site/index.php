@@ -50,8 +50,9 @@
         </small><br>
 </div>
 <?php endforeach; ?>
-
+<br><br>
 <h5>Информационные партнеры</h5>
+
 <?php foreach($partners as $partner):?> 
 
     <?php if($partner->firm->logo != ""):?>
