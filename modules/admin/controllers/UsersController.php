@@ -109,6 +109,7 @@ class UsersController extends Controller
             $model->city = $_POST["Users"]["city"];
             $model->email = $_POST["Users"]["email"];
             $model->password = $_POST["Users"]["password"];
+            $model->firm_id = $_POST["Users"]["firm_id"];
 
             $model->save(false);
             
