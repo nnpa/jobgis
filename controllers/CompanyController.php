@@ -69,6 +69,14 @@ class CompanyController extends AppController
             exit;
         }
         
+        $this->view->title = $firm->name;
+        $this->view->registerMetaTag(
+            ['name' => 'keywords', 'content' => $firm->name]
+        );
+        $this->view->registerMetaTag(
+            ['name' => 'description', 'content' => $firm->name]
+        );
+        
         $users = Users::find()->where(["firm_id" => $id])->all();
         $ids = [];
         
