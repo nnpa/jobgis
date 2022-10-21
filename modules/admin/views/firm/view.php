@@ -59,3 +59,4 @@ $managers = AuthAssignment::find()->where(["item_name" => "manager"])->all();
 
     <input type="submit" value="Назначить" class="btn btn-success">
 </form>
+<a href="/admin/partner/setpartner?id=<?php echo $model->id;?>">Сделать партнером<a/>

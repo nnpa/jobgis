@@ -51,3 +51,10 @@
 </div>
 <?php endforeach; ?>
 
+<h5>Информационные партнеры</h5>
+<?php foreach($partners as $partner):?> 
+
+    <?php if($partner->firm->logo != ""):?>
+        <a targer="_blank" href="/company/view?id=<?php echo $partner->firm->id;?>"><img width="80px" height="80px" src="/img/<?php echo $partner->firm->logo?>"></a>
+    <?php endif;?>
+<?php endforeach;?>

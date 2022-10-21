@@ -64,6 +64,7 @@ AppAsset::register($this);
             ['label' => 'Резюме', 'url' => ['/admin/resumeadmin/index']],
             ['label' => 'Менеджеры', 'url' => ['/admin/default/manager']],
             ['label' => 'Онлайн', 'url' => ['/admin/users/on']],
+            ['label' => 'Партнеры', 'url' => ['/admin/partner/index']],
 
             ['label' => 'Выход', 'url' => ['/admin/default/logout']],
         ];

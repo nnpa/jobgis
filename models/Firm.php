@@ -72,4 +72,16 @@ class Firm extends \yii\db\ActiveRecord
         }
         return parent::beforeDelete();
     }
+    
+    public function beforeSave($insert) {
+        if($this->id != null){
+            $users = Users::find()->where(["firm_id" => $this->id])->all();
+            foreach ($users as $user){
+                $user->company = $this->name;
+                $user->save(false);
+            }
+        }
+        
+        return parent::beforeSave($insert);
+    }
 }
