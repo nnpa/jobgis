@@ -205,8 +205,8 @@ class FirmController extends Controller
                 ->setFrom('robot@jobgis.ru')
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
-                ->setTextBody("Поздравляем вы удачно зарегистрировались на сайте jobgis.ru. Ваш email: " . $user->email . "  Ваш пароль: " . $user->password)
-                ->setHtmlBody("<html>Поздравляем вы удачно зарегистрировались на сайте jobgis.ru. <br>Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
+                ->setTextBody("Добрый день! Проект JOBGIS предлагает вам совершенно бесплатно воспользоваться нашим сервисом поиска соискателей и размещать свои вакансии. по всем вопросам работы сервиса вы можете обратиться к нам по телефону: +79174626690 Ваш email: " . $user->email . "  Ваш пароль: " . $user->password)
+                ->setHtmlBody("<html><br>Добрый день!<br> Проект JOBGIS предлагает вам совершенно бесплатно воспользоваться нашим сервисом поиска соискателей и размещать свои вакансии. <br> по всем вопросам работы сервиса вы можете обратиться к нам по телефону: +79174626690 <br> Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
                 ->send();
                 
                 return $this->render("message",["message"=>"На  email выслан пароль"]);

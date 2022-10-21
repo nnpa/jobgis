@@ -150,13 +150,13 @@ AppAsset::register($this);
 
         <a href="/search/company">Каталог компаний</a>
         <?php if(Yii::$app->user->isGuest):?>
-            Контактный телефон: 8-917-462-66-90
+            Техподдержка: +79174626690
         <?php else:?>
             <?php if(Yii::$app->user->identity->firm->id == 0):?>
-                 Контактный телефон: 8-917-462-66-90
+                 Техподдержка: +79174626690
             <?php else:?>
                 <?php if(Yii::$app->user->identity->firm->manage_id == 0):?>
-                    Контактный телефон: 8-917-462-66-90
+                    Техподдержка: +79174626690
                 <?php else:?>
                     <?php if(is_object(Yii::$app->user->identity->firm->manager)):?>
                         <?php echo "Ваш менеджер: " . Yii::$app->user->identity->firm->manager->name . " " . Yii::$app->user->identity->firm->manager->phone;?>
