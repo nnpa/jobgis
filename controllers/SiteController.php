@@ -659,4 +659,44 @@ class SiteController extends AppController
        return $newImageLayer;
     }
     
+    public function actionRss(){
+       $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->limit(20)->all();
+       $items = "";
+       
+       foreach($vacancys as $vacancy){
+           $items .= "<item>";
+           $items .= "<title>{$vacancy->name}</title>";
+           $items .= "<link>https://jobgis.ru/vacancy/show?id={$vacancy->name}</link>";
+           $items .= "<description>";
+            $items .= "$vacancy->name ";
+
+           if((bool)$vacancy->costfrom):
+                 $items .= "от echo {$vacancy->costfrom}";
+           endif;
+           
+           if((bool)$vacancy->costto):
+                $items .= "до  {$vacancy->costto}";
+            endif;
+            
+            $items .= " " . $vacancy->user->firm->name;
+            $items .= " " . $vacancy->city;
+
+           $items .= "</description>";
+
+       }
+        
+       $text = '<?xml version="1.0" encoding="windows-1251" ?> 
+                <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+                    <channel>
+                       <title>Jobgis</title> 
+                       <link>https://jobgis.ru/</link> 
+                       <description>Сервис для работодателей и соискателей</description> 
+                       <language>ru</language>
+                        <ttl>600</ttl> 
+                        ' .$items. '
+                    </channel>
+                </rss>';
+       return $text;
+    }
+    
 }
