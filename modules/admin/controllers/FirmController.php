@@ -4,9 +4,12 @@ namespace app\modules\admin\controllers;
 
 use app\models\Firm;
 use app\models\FirmSearch;
+use app\models\Users;
+
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use Yii;
 
 /**
  * FirmController implements the CRUD actions for Firm model.
@@ -208,5 +211,10 @@ class FirmController extends Controller
             }
         }
         return $this->render("add");
+    }
+        
+    public function getPassword(){
+        $password = substr(md5(time()),0,6);
+        return $password;
     }
 }
