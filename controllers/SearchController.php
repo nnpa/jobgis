@@ -11,8 +11,9 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\NetCity;
 use app\models\Users;
+use app\controllers\AppController;
 
-class SearchController extends Controller
+class SearchController extends AppController
 {
     public $enableCsrfValidation = false;
     /**

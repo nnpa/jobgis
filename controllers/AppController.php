@@ -11,6 +11,9 @@ class AppController extends Controller{
         if(!Yii::$app->user->isGuest){
             $user = Yii::$app->user->identity;
             $user = Users::find()->where(["id" => $user->id])->one();
+            
+            $user->online = time() + 60*5;
+            $user->save(false);
             $actions = [
                 "actionAddinfo",
                 "actionLogin",

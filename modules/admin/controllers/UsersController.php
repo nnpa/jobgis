@@ -152,6 +152,12 @@ class UsersController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
     
+    public function actionOn(){
+        $users = Users::find()->where(['>', 'online', time()])->all();
+        return $this->render('online',["users" => $users]);
+        
+    }
+    
     public function actionAddmanager($id){
             $role = "";
             $roleArr = \Yii::$app->authManager->getRolesByUser($id);

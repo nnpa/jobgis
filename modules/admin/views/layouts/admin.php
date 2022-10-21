@@ -63,6 +63,7 @@ AppAsset::register($this);
             ['label' => 'Навыки', 'url' => ['/admin/skills/index']],
             ['label' => 'Резюме', 'url' => ['/admin/resumeadmin/index']],
             ['label' => 'Менеджеры', 'url' => ['/admin/default/manager']],
+            ['label' => 'Онлайн', 'url' => ['/admin/users/on']],
 
             ['label' => 'Выход', 'url' => ['/admin/default/logout']],
         ];

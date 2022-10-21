@@ -179,7 +179,7 @@ class FirmController extends Controller
                 $user->name = "";
                 $user->surname = "";
                 $user->phone = "";
-                $user->company = "";
+                $user->company = $_POST["company"];
                 $user->email = $email;
                 $user->city = "";
                 $user->recover_code = "";

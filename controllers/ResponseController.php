@@ -12,6 +12,7 @@ use app\models\Users;
 use app\models\Response;
 use app\models\Resume;
 use app\models\Vacancy;
+use app\controllers\AppController;
 
 use yii\data\Pagination;
 /**
@@ -19,7 +20,7 @@ use yii\data\Pagination;
  *
  * @author ivan
  */
-class ResponseController extends Controller{
+class ResponseController extends AppController{
     public $enableCsrfValidation = false;
     /**
      * {@inheritdoc}
