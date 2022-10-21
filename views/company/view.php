@@ -4,8 +4,12 @@
 <?php endif?>
 Отрасль : <?php echo $firm->category;?><br>
 Город : <?php echo $firm->city;?><br>
+<?php 
+$site = str_replace("http://", "", $firm->site);
+$site = str_replace("https://", "", $firm->site);
 
-Сайт: <a href="<?php echo $firm->site;?>"><?php echo $firm->site;?></a>
+?>
+Сайт: <a href="<?php echo $firm->site;?>"><?php echo $site;?></a>
 <h5>О компании</h5>
 <?php echo $firm->about;?>
 <h5>Вакансии компании</h5>
