@@ -36,6 +36,7 @@
 
 <h5>Последние вакансии<h5>
 <?php foreach($vacancys as $vacancy):?>
+<div style="padding-top:10px">
     <a target="_blank" href="/vacancy/show?id=<?php echo $vacancy->id?>"><?php echo $vacancy->name;?></a><br>
     <?php if((bool)$vacancy->costfrom):?>
         от <?php echo $vacancy->costfrom;?> 
@@ -47,6 +48,6 @@
         <small>
             <span style="color:#959799"><?php echo $vacancy->user->firm->name;?>,<?php echo $vacancy->city;?></span>
         </small><br>
-    
+</div>
 <?php endforeach; ?>
 
