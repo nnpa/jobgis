@@ -11,6 +11,9 @@ $this->params['breadcrumbs'][] = ['label' => 'Firms', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
+<p>
+    Если удалить фирму удаляться все ее пользователи и их вакансии и резюме
+</p>
 <div class="firm-view">
 
     <h1><?= Html::encode($this->title) ?></h1>

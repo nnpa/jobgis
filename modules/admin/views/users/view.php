@@ -11,6 +11,9 @@ $this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
+<p>
+    Если удалить пользователя то удалятся резюме и вакансии, но останется фирма
+</p>
 <div class="users-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
