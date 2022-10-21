@@ -145,6 +145,7 @@ AppAsset::register($this);
 
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
+        <a href="https://t.me/jobgis/"><img src="/img/t.jpg" ></a>
         <a href="/search/company">Каталог компаний</a>
         <?php if(Yii::$app->user->isGuest):?>
             Контактный телефон: 8-917-462-66-90
