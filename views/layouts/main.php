@@ -145,7 +145,7 @@ AppAsset::register($this);
 
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
-        <a href="https://t.me/jobgis/"><img src="/img/t.jpg" ></a>
+        <a href="https://t.me/jobgis/"><img src="/img/t.png" ></a>
         <a target="_blank" href="https://vk.com/jobgis"><img src="/img/vk.png" ></a>
 
         <a href="/search/company">Каталог компаний</a>
