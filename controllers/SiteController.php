@@ -76,7 +76,7 @@ class SiteController extends AppController
 
         
         $partners = Partners::find()->all();
-        $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->limit(10)->all();
+        $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->limit(20)->all();
         return $this->render('index',["vacancys" => $vacancys,"partners"=>$partners]);
     }
 

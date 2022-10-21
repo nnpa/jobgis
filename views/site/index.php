@@ -36,7 +36,7 @@
 
 <h5>Последние вакансии<h5>
 <?php foreach($vacancys as $vacancy):?>
-<div style="padding-top:10px">
+<div style="padding-top:10px;width:50%;float:left">
     <a target="_blank" href="/vacancy/show?id=<?php echo $vacancy->id?>"><?php echo $vacancy->name;?></a><br>
     <?php if((bool)$vacancy->costfrom):?>
         от <?php echo $vacancy->costfrom;?> 
