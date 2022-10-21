@@ -46,7 +46,7 @@
    <?php endif;?><br>
         <small>
             <span style="color:#959799"><?php echo $vacancy->user->firm->name;?>,<?php echo $vacancy->city;?></span>
-        </small>
+        </small><br>
     
 <?php endforeach; ?>
 
