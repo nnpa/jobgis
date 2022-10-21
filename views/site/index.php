@@ -50,7 +50,9 @@
         </small><br>
 </div>
 <?php endforeach; ?>
-<br><br>
+        <div>&nbsp;</div>
+                <div>&nbsp;</div>
+
 <h5>Информационные партнеры</h5>
 
 <?php foreach($partners as $partner):?> 
