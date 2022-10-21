@@ -682,6 +682,7 @@ class SiteController extends AppController
             $items .= " " . $vacancy->city;
 
            $items .= "</description>";
+           $items .= "</item>";
 
        }
         
