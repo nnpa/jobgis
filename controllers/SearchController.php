@@ -329,8 +329,8 @@ class SearchController extends Controller
         
         
         $url = "/search/company?a=test";
-        $sql  = "SELECT * from `firm` where 1=1 ";
-        $sqlCount = "SELECT COUNT(*) FROM `firm` WHERE 1=1";
+        $sql  = "SELECT * from `firm` where 1=1 AND verify = 1 ";
+        $sqlCount = "SELECT COUNT(*) FROM `firm` WHERE 1=1 AND verify = 1";
 
         if(!Yii::$app->user->isGuest){
             $user = Yii::$app->user->identity;
