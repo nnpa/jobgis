@@ -37,5 +37,16 @@
 <h5>Последние вакансии<h5>
 <?php foreach($vacancys as $vacancy):?>
     <a target="_blank" href="/vacancy/show?id=<?php echo $vacancy->id?>"><?php echo $vacancy->name;?></a><br>
+    <?php if((bool)$vacancy->costfrom):?>
+        от <?php echo $vacancy->costfrom;?> 
+   <?php endif;?>
+
+   <?php if((bool)$vacancy->costto):?>
+        до <?php echo $vacancy->costto;?>
+   <?php endif;?><br>
+        <small>
+            <span style="color:#959799"><?php echo $vacancy->user->firm->name;?>,<?php echo $vacancy->city;?></span>
+        </small>
+    
 <?php endforeach; ?>
 
