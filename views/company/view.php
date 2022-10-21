@@ -6,9 +6,9 @@
 Город : <?php echo $firm->city;?><br>
 <?php 
 $site = str_replace("http://", "", $firm->site);
-$site = str_replace("https://", "", $firm->site);
-$site = str_replace("https://www.", "", $firm->site);
-$site = str_replace("http://www.", "", $firm->site);
+$site = str_replace("https://", "", $site);
+$site = str_replace("www.", "", $site);
+
 
 ?>
 Сайт: <a href="<?php echo $firm->site;?>"><?php echo $site;?></a>
