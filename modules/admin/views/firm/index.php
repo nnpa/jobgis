@@ -12,6 +12,9 @@ use yii\grid\GridView;
 $this->title = 'Firms';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<p>
+    Если удалить фирму удаляться все ее пользователи и их вакансии и резюме
+</p>
 <div class="firm-index">
 
     <h1>Фирмы</h1>

@@ -12,6 +12,9 @@ use yii\grid\GridView;
 $this->title = 'Users';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<p>
+    Если удалить пользователя то удалятся резюме и вакансии, но останется фирма
+</p>
 <div class="users-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
