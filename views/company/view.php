@@ -5,7 +5,7 @@
 Отрасль : <?php echo $firm->category;?><br>
 Город : <?php echo $firm->city;?><br>
 
-Сайт: <?php $firm->site;?>
+Сайт: <?php echo $firm->site;?>
 <h5>О компании</h5>
 <?php echo $firm->about;?>
 <h5>Вакансии компании</h5>
