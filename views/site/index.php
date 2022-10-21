@@ -46,7 +46,7 @@
         до <?php echo $vacancy->costto;?>
    <?php endif;?><br>
         <small>
-            <span style="color:#959799"><?php echo $vacancy->user->firm->name;?>,<?php echo $vacancy->city;?></span>
+            <span style="color:#959799"><?php echo $vacancy->user->firm->name;?>, <?php echo $vacancy->city;?></span>
         </small><br>
 </div>
 <?php endforeach; ?>
