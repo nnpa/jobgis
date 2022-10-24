@@ -192,21 +192,22 @@ function selectCountry(val) {
         </div>
         <div style="float:left;width:70%">
             <?php foreach($result as $row):?>
-            <div style="padding:10px;">
+                <div style="padding:10px;">
 
-                <a target="_blank" href="/vacancy/show?id=<?php echo $row["id"];?>"><?php echo $row["name"];?></a>
-                <?php if($row["logo"] != ""):?>
-                <a href="/company/view?id=<?php echo $row["firm_id"];?>">
-                    <img src="/img/<?php echo $row["logo"];?>" width="40px" height="40px">
-                </a>
-                <?php endif;?>
-                <br>
-                <small><span style="color:#959799;"><?php echo $row["firm_name"]?>, <?php echo $row["city"];?> </span></small><br>
+                    <a target="_blank" href="/vacancy/show?id=<?php echo $row["id"];?>"><?php echo $row["name"];?></a>
+                    <?php if($row["logo"] != ""):?>
+                    <a href="/company/view?id=<?php echo $row["firm_id"];?>">
+                        <img src="/img/<?php echo $row["logo"];?>" width="40px" height="40px">
+                    </a>
+                    <?php endif;?>
+                    <br>
+                    <small><span style="color:#959799;"><?php echo $row["firm_name"]?>, <?php echo $row["city"];?> </span></small><br>
 
-                от <?php echo $row["costfrom"];?><br>
-                    <?php echo mb_substr(strip_tags($row["description"]),0,500,"UTF-8");?><br>
-                <?php endforeach;?>
-            </div>
+                    от <?php echo $row["costfrom"];?><br>
+                        <?php echo mb_substr(strip_tags($row["description"]),0,500,"UTF-8");?><br>
+                </div>
+
+            <?php endforeach;?>
         </div>
     </div>
     <div style="float:left">
