@@ -82,12 +82,16 @@
         <?php if(!is_null($resume) && is_object($vacancy->user)):?>
             <?php if(Yii::$app->user->identity->firm_id == 0):?>
             <div id="responce">
+                <?php if(!empty($resume))?>
                 <select id="resume_id" class="form-select" style="width:250px">
                     <?php foreach($resume as $r):?>
                         <option value="<?php echo $r->id?>"><?php echo $r->vacancy?></option>
                     <?php endforeach;?>
                 </select><br>
                 <a hre="#" class="btn btn-success" onClick="response('<?php echo $vacancy->id;?>')">Откликнуться</a>
+                <?php else:?>
+                    Что бы откликнуться создайте резюме
+                <?php endif;?
             </div>
             <?php endif;?>
         <?php endif;?>
