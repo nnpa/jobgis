@@ -611,7 +611,7 @@ class SiteController extends AppController
         $user = Yii::$app->user->identity;
         $firm = Firm::find()->where(["id" => $user->firm_id])->one();  
         
-        if(isset($_FILES) && !empty($_FILES)){
+        if(isset($_FILES['image']['tmp_name']) && !empty($_FILES['image']['tmp_name'])){
             $dirPath="/var/www/basic/web/img/";
             
             if($firm->logo != ""){
