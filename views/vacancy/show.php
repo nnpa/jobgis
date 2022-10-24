@@ -91,7 +91,7 @@
                 <a hre="#" class="btn btn-success" onClick="response('<?php echo $vacancy->id;?>')">Откликнуться</a>
                 <?php else:?>
                     Что бы откликнуться создайте резюме
-                <?php endif;?
+                <?php endif;?>
             </div>
             <?php endif;?>
         <?php endif;?>
