@@ -79,13 +79,16 @@ class SearchController extends AppController
         
         
         
-        $sql = "SELECT * FROM `vacancy` WHERE 1=1 AND name != 'Заполните должность'";
+        $sql = "SELECT vacancy.*,firm.name as firm_name,firm.logo,firm.id as firm_id FROM `vacancy` "
+                . " INNER JOIN Users ON vacancy.user_id = Users.id"
+                . " INNER JOIN firm ON Users.firm_id = firm.id"
+                . " WHERE 1=1 AND vacancy.name != 'Заполните должность'";
         $url = "http://jobgis.ru/search/vacancy?test=1";
         $sqlCount = "SELECT COUNT(*) FROM `vacancy` WHERE 1=1 AND name != 'Заполните должность'";
         
         if(isset($_GET["name"]) && !empty($_GET['name'])){
             $name = $_GET["name"];
-            $sql .= " AND `name` = '". mysqli_real_escape_string($conn,$name)."'";
+            $sql .= " AND vacancy.`name` = '". mysqli_real_escape_string($conn,$name)."'";
             $sqlCount .= " AND `name` = '". mysqli_real_escape_string($conn,$name)."'";
             $url .= "&name=" . $name; 
         }else {
@@ -95,12 +98,12 @@ class SearchController extends AppController
         
         if(isset($_GET["city"]) && !empty($_GET['city'])){
             $city = $_GET['city'];
-            $sql .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
+            $sql .= " AND vacancy.`city` = '". mysqli_real_escape_string($conn,$city)."'";
             $sqlCount .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
             $url .= "&city=" . $city; 
         }else {
             $city = $city;
-            $sql .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
+            $sql .= " AND vacancy.`city` = '". mysqli_real_escape_string($conn,$city)."'";
             $sqlCount .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
             $url .= "&city=" . $city;
         }
