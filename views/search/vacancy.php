@@ -184,9 +184,9 @@ function selectCountry(val) {
             <input type="radio" name="exp" value="Более 6 лет" <?php echo ($exp == "Более 6 лет")?'checked':''?>> Более 6 лет  <br>
             <br>
             <b>Тип занятости</b><br>
-            <input type="radio" name="employment" <?php echo ($employment == "Полная занятость")?'checked':''?> value="Полная занятость" >Полная занятость<br>
-            <input type="radio" name="employment" <?php echo ($employment == "Частичная занятость")?'checked':''?>  value="Частичная занятость">Частичная занятость<br>
-            <input type="radio" name="employment" <?php echo ($employment == "Стажировка")?'checked':''?> value="Стажировка">Стажировка<br>
+            <input type="radio" name="employment" <?php echo ($employment == "Полная занятость")?'checked':''?> value="Полная занятость" > Полная занятость<br>
+            <input type="radio" name="employment" <?php echo ($employment == "Частичная занятость")?'checked':''?>  value="Частичная занятость"> Частичная занятость<br>
+            <input type="radio" name="employment" <?php echo ($employment == "Стажировка")?'checked':''?> value="Стажировка"> Стажировка<br>
             
 
         </div>
