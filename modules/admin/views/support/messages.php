@@ -12,6 +12,9 @@
         </small>
         <hr>
         <?php echo $message->message;?>
+        <?php if($message->screen != ''):?>
+            <img src="/img/<?php echo $message->screen;?>">
+        <?php endif;?>
         <?php 
             $message->view = 1;
             $message->save(false);

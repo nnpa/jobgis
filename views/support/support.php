@@ -11,12 +11,18 @@
             <?php endif;?>
         </small>
         <hr>
-        <?php echo $message->message;?>
+        <?php echo $message->message;?><br>
+        <?php if($message->screen != ''):?>
+            <img src="/img/<?php echo $message->screen;?>">
+        <?php endif;?>
     </div>
 </div>
 <?php endforeach;?>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     <b>Введите сообщение</b><br>
     <textarea name="message" style="width:450px;height:100px"></textarea><br>
+    <b>Прикрепить файл</b>
+    <input type="file" name="image" accept=".jpg,.jpeg"><br>
+    <br>
     <input type="submit" value="Отправить" class="btn btn-success">
 </form>
