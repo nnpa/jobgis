@@ -166,6 +166,9 @@ AppAsset::register($this);
 
             <?php endif;?>
         <?php endif;?>
+        <?php if(!Yii::$app->user->isGuest):?>           
+            <a href="/support/support">Тех поддержка</a>
+        <?php endif;?>
     </div>
 </footer>
 
