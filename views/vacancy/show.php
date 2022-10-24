@@ -82,7 +82,7 @@
         <?php if(!is_null($resume) && is_object($vacancy->user)):?>
             <?php if(Yii::$app->user->identity->firm_id == 0):?>
             <div id="responce">
-                <?php if(!empty($resume))?>
+                <?php if(!empty($resume)):?>
                 <select id="resume_id" class="form-select" style="width:250px">
                     <?php foreach($resume as $r):?>
                         <option value="<?php echo $r->id?>"><?php echo $r->vacancy?></option>
