@@ -202,7 +202,7 @@ function selectCountry(val) {
             <small><span style="color:#959799;"><?php echo $row["firm_name"]?>, <?php echo $row["city"];?> </span></small><br>
 
             от <?php echo $row["costfrom"];?><br>
-                <?php echo substr(strip_tags($row["description"]),0,500);?><br>
+                <?php echo mb_substr(strip_tags($row["description"]),0,500,"UTF-8");?><br>
             <?php endforeach;?>
         </div>
     </div>
