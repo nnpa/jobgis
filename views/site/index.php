@@ -51,8 +51,8 @@
 </div>
 <?php endforeach; ?>
         <div>&nbsp;</div>
-                <div>&nbsp;</div>
-
+        <div>&nbsp;</div>
+<br>
 <h5>Информационные партнеры</h5>
 
 <?php foreach($partners as $partner):?> 
