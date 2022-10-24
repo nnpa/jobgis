@@ -203,8 +203,15 @@ function selectCountry(val) {
                     <br>
                     <small><span style="color:#959799;"><?php echo $row["firm_name"]?>, <?php echo $row["city"];?> </span></small><br>
 
-                    от <?php echo $row["costfrom"];?><br>
-                        <?php echo mb_substr(strip_tags($row["description"]),0,500,"UTF-8");?><br>
+
+                    <?php if((bool)$row["costfrom"]):?>
+                        от <?php echo $row["costfrom"];?> 
+                   <?php endif;?>
+
+                   <?php if((bool)$row["costto"]):?>
+                        до <?php echo $row["costto"];?>
+                   <?php endif;?> <br>   
+                    <?php echo mb_substr(strip_tags($row["description"]),0,500,"UTF-8");?><br>
                 </div>
 
             <?php endforeach;?>
