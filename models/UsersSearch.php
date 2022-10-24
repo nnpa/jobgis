@@ -38,10 +38,12 @@ class UsersSearch extends Users
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params,$firm_ids)
     {
+        
+        
         $query = Users::find();
-
+        
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -75,6 +77,10 @@ class UsersSearch extends Users
             ->andFilterWhere(['like', 'access_token', $this->access_token])
             ->andFilterWhere(['like', 'patronymic', $this->patronymic]);
 
+        if($firm_ids != false){
+            $query->andFilterWhere(['firm_id' => $firm_ids]);
+
+        }
         return $dataProvider;
     }
 }

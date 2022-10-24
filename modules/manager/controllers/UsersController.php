@@ -5,6 +5,8 @@ use Yii;
 
 use app\models\Users;
 use app\models\UsersSearch;
+use app\models\Firm;
+
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -41,8 +43,19 @@ class UsersController extends Controller
      */
     public function actionIndex()
     {
+        $manager  = Yii::$app->user->identity;
+        $id  = $manager->id;
+        
+        $firms = Firm::find()->where(["manage_id" => $id])->all();
+        
+        $ids= [];
+        foreach($firms as $firm){
+            $ids[] = $firm->id;
+        }
+        
         $searchModel = new UsersSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
+        $dataProvider = $searchModel->search($this->request->queryParams,$ids);
+        
         $dataProvider->sort = [
             'defaultOrder' => [
                 'id' => SORT_DESC,

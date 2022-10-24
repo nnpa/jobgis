@@ -42,7 +42,7 @@ class UsersController extends Controller
     public function actionIndex()
     {
         $searchModel = new UsersSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
+        $dataProvider = $searchModel->search($this->request->queryParams,false);
         $dataProvider->sort = [
             'defaultOrder' => [
                 'id' => SORT_DESC,
