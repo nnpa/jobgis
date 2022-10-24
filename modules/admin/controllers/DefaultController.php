@@ -7,6 +7,7 @@ use Yii;
 use app\models\AuthAssignment;
 use app\models\Firm;
 use app\models\Vacancy;
+use app\models\Users;
 
 /**
  * Default controller for the `admin` module
@@ -59,5 +60,63 @@ class DefaultController extends Controller
         return $this->render("deletemanager",["manager"=>$manager]);
     }
     
-
+public function actionAdd(){
+        
+        $errors = [];
+        if(isset($_POST["email"]) && !empty($_POST["email"])){
+            $email = $_POST['email'];
+            
+            if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                $errors[] = "Не верный формат email";
+            }
+            
+            $user = Users::find()->where(["email" => $_POST["email"]])->one();
+            if(!is_null($user)){
+                $errors[] = "Такой email уже зарегистрирован";
+            }
+            
+            if(empty($errors)){
+                
+                
+                $user = new Users();
+                $user->name = "";
+                $user->surname = "";
+                $user->phone = "";
+                $user->company = "JOBGIS";
+                $user->email = $email;
+                $user->city = "";
+                $user->recover_code = "";
+                $user->auth_key = "";
+                $user->access_token = "";
+                $user->password = $this->getPassword();
+                $user->create_time = time();
+                $user->patronymic = "";
+                $user->firm_id = 29;
+                
+                
+                $user->save(false);
+                
+                $id = $user->id;
+                
+                $role = Yii::$app->authManager->getRole('manager');
+        
+                Yii::$app->authManager->assign($role,$id);
+                
+                 Yii::$app->mailer->compose()
+                ->setFrom('robot@jobgis.ru')
+                ->setTo($user->email)
+                ->setSubject('Регистрация на сайте jobgis.ru')
+                ->setTextBody("Добрый день! Проект JOBGIS предлагает вам совершенно бесплатно воспользоваться нашим сервисом поиска соискателей и размещать свои вакансии. по всем вопросам работы сервиса вы можете обратиться к нам по телефону: +79174626690 Ваш email: " . $user->email . "  Ваш пароль: " . $user->password)
+                ->setHtmlBody("<html><br>Добрый день!<br> Проект JOBGIS предлагает вам совершенно бесплатно воспользоваться нашим сервисом поиска соискателей и размещать свои вакансии. <br> по всем вопросам работы сервиса вы можете обратиться к нам по телефону: +79174626690 <br> Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
+                ->send();
+                
+                return $this->render("message",["message"=>"На  email выслан пароль"]);
+            }
+        }
+        return $this->render("add");
+    }
+    public function getPassword(){
+        $password = substr(md5(time()),0,6);
+        return $password;
+    }
 }

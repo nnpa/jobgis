@@ -1,3 +1,4 @@
+<a class="btn btn-success" href="/admin/default/add">Пригласить менеджера</a>
 <style>
     td {
         border:1px solid black;

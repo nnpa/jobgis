@@ -150,7 +150,7 @@ class FirmController extends Controller
         }
     }
     
-        public function actionAdd(){
+    public function actionAdd(){
         
         $errors = [];
         if(isset($_POST["email"]) && !empty($_POST["email"])){
