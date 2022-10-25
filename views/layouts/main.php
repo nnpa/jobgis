@@ -44,6 +44,7 @@ AppAsset::register($this);
 <header>
     <?php
     
+    $actions = ["show","addinfo"];
     $role = "guest";
     $roleArr = \Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
     if(!empty($roleArr)){
@@ -55,11 +56,11 @@ AppAsset::register($this);
             if($roleObj->name == "candidate"){
                 $role = "candidate";
             }
-            if($roleObj->name == "admin" AND $this->context->action->id != "show"){
+            if($roleObj->name == "admin" AND !in_array($this->context->action->id,$actions)){
                var_dump($this->context->action->id);exit;
                 $this->context->redirect("/admin/");
             }
-            if($roleObj->name == "manager" AND $this->context->action->id != "show"){
+            if($roleObj->name == "manager" AND !in_array($this->context->action->id,$actions)){
                 $this->context->redirect("/manager/");
             }
         }
