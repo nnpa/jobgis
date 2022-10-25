@@ -107,8 +107,20 @@ class SupportController extends Controller
     
     function imageResize($imageSrc,$imageWidth,$imageHeight) {
 
-       $newImageWidth=700;
-       $newImageHeight=700;
+        $newImageHeight=700;
+       if($newImageHeight >= $imageHeight){
+           $newImageHeight = $imageHeight;
+           $newImageWidth=$imageWidth;
+           
+       }else{
+            $newImageHeight=700;
+            $percent = $imageHeight / 100;
+            $resizePercent = $newImageHeight/$percent;
+            
+            $widthPerncet = $imageWidth/100;
+            $newImageWidth = $resizePercent * $widthPerncet;
+            
+       }
 
        $newImageLayer=imagecreatetruecolor($newImageWidth,$newImageHeight);
        imagecopyresampled($newImageLayer,$imageSrc,0,0,0,0,$newImageWidth,$newImageHeight,$imageWidth,$imageHeight);

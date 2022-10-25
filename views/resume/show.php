@@ -156,16 +156,19 @@ if($resume->exp != 0){
 <h5>Опыт вождения</h5>
 
 <?php echo $resume->car;?>
-<h5>Портфолио</h5>
-<div>
-<?php foreach($resumePortfolio as $portfolio):?>
-    <img style="float:left" src="/img/<?php echo $portfolio->photo;?>" >
-<?php endforeach; ?><br>
-</div>
-<div>
-    &nbsp;
-</div>
-<hr><br><br><br><br><br>
+
+<?php if(!empty($resumePortfolio)):?>
+    <h5>Портфолио</h5>
+    <div>
+    <?php foreach($resumePortfolio as $portfolio):?>
+        <img style="float:left" src="/img/<?php echo $portfolio->photo;?>" >
+    <?php endforeach; ?><br>
+    </div>
+    <div>
+        &nbsp;
+    </div>
+    <hr><br><br><br><br><br>
+<?php endif;?>
 <div>
     <h5>Высшее образование</h5>
 </div>

@@ -396,9 +396,25 @@ class ResumeController extends AppController
    }
    
    function imageResize($imageSrc,$imageWidth,$imageHeight) {
+        $newImageHeight=80;
+       if($newImageHeight >= $imageHeight){
+           $newImageHeight = $imageHeight;
+           $newImageWidth=$imageWidth;
+           
+       }else{
+            $newImageHeight=80;
+            $percent = $imageHeight / 100;
+            $resizePercent = $newImageHeight/$percent;
+            
+            $widthPerncet = $imageWidth/100;
+            $newImageWidth = $resizePercent * $widthPerncet;
+            
+       }
+       
 
-       $newImageWidth=200;
-       $newImageHeight=200;
+       /**
+        * 
+        */
 
        $newImageLayer=imagecreatetruecolor($newImageWidth,$newImageHeight);
        imagecopyresampled($newImageLayer,$imageSrc,0,0,0,0,$newImageWidth,$newImageHeight,$imageWidth,$imageHeight);

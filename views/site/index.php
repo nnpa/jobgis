@@ -57,7 +57,9 @@
     <h5>Последние резюме</h5>
     <?php foreach($resumes as $resume):?>
             <div style="padding-top:10px;width:50%;float:left">
-                <a target="_blank" href="/resume/show?id=<?php echo $resume->id?>"><?php echo $resume->name;?></a><br>
+                <a target="_blank" href="/resume/show?id=<?php echo $resume->id?>"><?php echo $resume->vacancy;?></a><br>
+                <?php echo $resume->cost?> <?php echo $resume->cash_type?>  <br>
+                <span style="color:#959799"><?php echo $resume->user->city?></span>
 
             </div>
    

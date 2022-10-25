@@ -1,7 +1,7 @@
 <a href="/resume/delete?id=<?php echo $resume->id;?>" onClick="confirm('Удалить?')">Удалить резюме</a>
 <br>
 <?php if($resume->photo != ""):?>
-<img width="80px" height="80px" src="/img/<?php echo $resume->photo;?>"><br>
+<img src="/img/<?php echo $resume->photo;?>"><br>
 <?php endif?>
 <small><a href="/resume/photo?id=<?php echo $resume->id;?>">Загрузить фото</a></small>
 <h5><?php echo $resume->surname . " " . $resume->name. " " . $resume->patronymic?></h5>
