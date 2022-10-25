@@ -13,6 +13,7 @@ use app\models\Users;
 use app\models\Firm;
 use app\controllers\AppController;
 use app\models\Partners;
+use app\models\Resume;
 
 class SiteController extends AppController
 {
@@ -77,7 +78,9 @@ class SiteController extends AppController
         
         $partners = Partners::find()->all();
         $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->limit(20)->all();
-        return $this->render('index',["vacancys" => $vacancys,"partners"=>$partners]);
+        $resumes = Resume::find()->where('name != :name', ['name'=>"Заполните должность"])->andWhere(["verify" => 1])->orderBy(["id" => SORT_DESC])->limit(20)->all();
+
+        return $this->render('index',["resumes" => $resumes,"vacancys" => $vacancys,"partners"=>$partners]);
     }
 
     /**
