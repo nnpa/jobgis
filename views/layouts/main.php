@@ -57,7 +57,6 @@ AppAsset::register($this);
                 $role = "candidate";
             }
             if($roleObj->name == "admin" AND !in_array($this->context->action->id,$actions)){
-               var_dump($this->context->action->id);exit;
                 $this->context->redirect("/admin/");
             }
             if($roleObj->name == "manager" AND !in_array($this->context->action->id,$actions)){
