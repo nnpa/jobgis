@@ -705,8 +705,10 @@ class SiteController extends AppController
        }
         
        $text = '<?xml version="1.0"  encoding="UTF-8" ?> 
-                <rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+                <rss xmlns:g="http://base.google.com/ns/1.0" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
                     <channel>
+                    <atom:link href="https://jobgis.ru/site/rss" rel="self" type="application/rss+xml" />
+
                        <title>Jobgis</title> 
                        <link>https://jobgis.ru/</link> 
                        <description>Сервис для работодателей и соискателей</description> 
