@@ -690,7 +690,7 @@ class SiteController extends AppController
             $items .= "$vacancy->name ";
 
            if((bool)$vacancy->costfrom):
-                 $items .= "от echo {$vacancy->costfrom}";
+                 $items .= "от {$vacancy->costfrom}";
            endif;
            
            if((bool)$vacancy->costto):
