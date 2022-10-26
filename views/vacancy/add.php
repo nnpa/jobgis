@@ -316,7 +316,7 @@ function deleteSkill(obj){
     <br>
     <h5>Контакты</h5>
     <b>Контактное лицо</b><br>
-    <input type="text" name="contactmane" value="<?php echo $vacancy->contactmane ." " .$vacancy->surname;?>"><br>
+    <input type="text" name="contactmane" value="<?php echo $vacancy->contactmane ?>"><br>
     <b>Email</b><br>
     <input type="text" name="email"  value="<?php echo $vacancy->email?>"><br>
     <b>Телефон</b><br>
