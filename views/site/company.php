@@ -5,7 +5,7 @@
     <b>Логотип</b><br>
     <small>Загрузите изображение в формате jpg</small> <br>
 
-    <input type="file" name="image" accept=".jpg,.jpeg"><br>
+    <input type="file" name="image" accept=".jpg"><br>
 
     <b>Сайт</b><br>
     <input type="text" name="site" style="width: 200px"><br>
