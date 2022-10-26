@@ -79,7 +79,8 @@
 <?php foreach($partners as $partner):?> 
 
     <?php if($partner->firm->logo != ""):?>
-        <a targer="_blank" href="/company/view?id=<?php echo $partner->firm->id;?>"><img width="80px" height="80px" src="/img/<?php echo $partner->firm->logo?>"></a>
+        <a targer="_blank" href="/company/view?id=<?php echo $partner->firm->id;?>">
+            <img  height="80px" src="/img/<?php echo $partner->firm->logo?>"></a>
     <?php endif;?>
 <?php endforeach;?>
 </div>
