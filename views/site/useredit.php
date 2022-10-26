@@ -48,6 +48,11 @@ function selectCountry(val) {
 	$("#suggesstion-box").hide();
 }
 </script>
+<?php foreach($errors as $error):?>
+    <div class="alert alert-danger" role="alert">
+        <?php echo $error;?>
+    </div>
+<?php endforeach;?>
 <h5>Настройки</h5>
 <form method="POST">
     <b>Имя</b> <input type="text" name="name" value="<?php echo $user->name;?>"><br>
@@ -67,6 +72,8 @@ function selectCountry(val) {
 
 <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
 <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
+
 <form method="POST"  enctype="multipart/form-data">
     <b>Наименование</b> <br><?php echo $firm->name?><br>
     <b>ИНН</b><br> <?php echo $firm->inn?><br>

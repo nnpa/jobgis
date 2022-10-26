@@ -545,7 +545,7 @@ class SiteController extends AppController
     
     public function actionUseredit(){
         $user = Yii::$app->user->identity;
-        
+        $errors = [];
         
         $firm = Firm::find()->where(["id" => $user->firm_id])->one();  
 
@@ -578,64 +578,80 @@ class SiteController extends AppController
         $firm = Firm::find()->where(["id" => $user->firm_id])->one();  
         
         if(isset($_FILES['image']['tmp_name']) && !empty($_FILES['image']['tmp_name'])){
-            $dirPath="/var/www/basic/web/img/";
+            $path = $_FILES['image']['name'];
+            $ext = pathinfo($path, PATHINFO_EXTENSION);
+            if($ext == "jpg" OR $ext == "jpeg"){
             
-            if($firm->logo != ""){
-                if(file_exists($dirPath.$firm->logo)){
-                    unlink($dirPath.$firm->logo); 
+                $dirPath="/var/www/basic/web/img/";
 
+                if($firm->logo != ""){
+                    if(file_exists($dirPath.$firm->logo)){
+                        unlink($dirPath.$firm->logo); 
+
+                    }
                 }
+
+
+               //print_r($_FILES);exit;
+                $uploadedFile=$_FILES['image']['tmp_name']; 
+                $sourceProperties=getimagesize($uploadedFile);
+                $newFileName=time();
+
+                $ext=pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+
+                $imageSrc= imagecreatefromjpeg($uploadedFile); 
+
+                $tmp= $this->imageResize($imageSrc,$sourceProperties[0],$sourceProperties[1]);
+                imagejpeg($tmp,$dirPath.$newFileName."_thump.".$ext);
+
+                $firm->logo = $newFileName."_thump.".$ext;
+                $firm->save(false);
+            }else{
+                $errors[] = "Загрузите изображение в формате jpg";
             }
-           
-           
-           //print_r($_FILES);exit;
-            $uploadedFile=$_FILES['image']['tmp_name']; 
-            $sourceProperties=getimagesize($uploadedFile);
-            $newFileName=time();
-            
-            $ext=pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-            
-            $imageSrc= imagecreatefromjpeg($uploadedFile); 
- 
-            $tmp= $this->imageResize($imageSrc,$sourceProperties[0],$sourceProperties[1]);
-            imagejpeg($tmp,$dirPath.$newFileName."_thump.".$ext);
-            
-            $firm->logo = $newFileName."_thump.".$ext;
-            $firm->save(false);
             //move_uploaded_file($uploadedFile, $dirPath.$newFileName.".".$ext);
 
             
        }
        
-        return $this->render("useredit",["user" => $user,"role" => $role,"firm" => $firm]);
+        return $this->render("useredit",["errors" => $errors,"user" => $user,"role" => $role,"firm" => $firm]);
     }
     
     public function actionCompany(){
         $user = Yii::$app->user->identity;
         $firm = Firm::find()->where(["id" => $user->firm_id])->one();  
-        
+        $errors = [];
         if(isset($_FILES['image']['tmp_name']) && !empty($_FILES['image']['tmp_name'])){
-            $dirPath="/var/www/basic/web/img/";
+            $path = $_FILES['image']['name'];
+            $ext = pathinfo($path, PATHINFO_EXTENSION);
             
-            if($firm->logo != ""){
-                unlink($dirPath.$firm->logo); 
+            if($ext == "jpg" OR $ext == "jpeg"){
+                $dirPath="/var/www/basic/web/img/";
+            
+                if($firm->logo != ""){
+                    unlink($dirPath.$firm->logo); 
+                }
+
+
+               //print_r($_FILES);exit;
+                $uploadedFile=$_FILES['image']['tmp_name']; 
+                $sourceProperties=getimagesize($uploadedFile);
+                $newFileName=time();
+
+                $ext=pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+
+                $imageSrc= imagecreatefromjpeg($uploadedFile); 
+
+                $tmp= $this->imageResize($imageSrc,$sourceProperties[0],$sourceProperties[1]);
+                imagejpeg($tmp,$dirPath.$newFileName."_thump.".$ext);
+
+                $firm->logo = $newFileName."_thump.".$ext;
+                $firm->save(false);
+            }else{
+                $errors[]= "Загрузите картинку в формате jpg";
             }
-           
-           
-           //print_r($_FILES);exit;
-            $uploadedFile=$_FILES['image']['tmp_name']; 
-            $sourceProperties=getimagesize($uploadedFile);
-            $newFileName=time();
             
-            $ext=pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
             
-            $imageSrc= imagecreatefromjpeg($uploadedFile); 
- 
-            $tmp= $this->imageResize($imageSrc,$sourceProperties[0],$sourceProperties[1]);
-            imagejpeg($tmp,$dirPath.$newFileName."_thump.".$ext);
-            
-            $firm->logo = $newFileName."_thump.".$ext;
-            $firm->save(false);
             //move_uploaded_file($uploadedFile, $dirPath.$newFileName.".".$ext);
 
             
@@ -648,7 +664,7 @@ class SiteController extends AppController
             $firm->save();
             return $this->redirect("/");
         }
-        return $this->render("company");
+        return $this->render("company",["errors" => $errors]);
     }
     
        function imageResize($imageSrc,$imageWidth,$imageHeight) {
