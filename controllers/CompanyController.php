@@ -69,6 +69,10 @@ class CompanyController extends AppController
             exit;
         }
         
+        if($firm->id == 29){
+            exit;
+        }
+        
         $this->view->title = $firm->name;
         $this->view->registerMetaTag(
             ['name' => 'keywords', 'content' => $firm->name]
