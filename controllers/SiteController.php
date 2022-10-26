@@ -597,15 +597,21 @@ class SiteController extends AppController
                 $sourceProperties=getimagesize($uploadedFile);
                 $newFileName=time();
 
-                $ext=pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+                if($sourceProperties[0] == $sourceProperties[1]){
 
-                $imageSrc= imagecreatefromjpeg($uploadedFile); 
+                    $ext=pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 
-                $tmp= $this->imageResize($imageSrc,$sourceProperties[0],$sourceProperties[1]);
-                imagejpeg($tmp,$dirPath.$newFileName."_thump.".$ext);
+                    $imageSrc= imagecreatefromjpeg($uploadedFile); 
 
-                $firm->logo = $newFileName."_thump.".$ext;
-                $firm->save(false);
+                    $tmp= $this->imageResize($imageSrc,$sourceProperties[0],$sourceProperties[1]);
+                    imagejpeg($tmp,$dirPath.$newFileName."_thump.".$ext);
+
+                    $firm->logo = $newFileName."_thump.".$ext;
+                    $firm->save(false);
+                } else {
+                    $errors[] = "Загрузите квадратное изображение";
+
+                }
             }else{
                 $errors[] = "Загрузите изображение в формате jpg";
             }
@@ -637,18 +643,24 @@ class SiteController extends AppController
                 $uploadedFile=$_FILES['image']['tmp_name']; 
                 $sourceProperties=getimagesize($uploadedFile);
                 $newFileName=time();
-
-                $ext=pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-
-                $imageSrc= imagecreatefromjpeg($uploadedFile); 
-
-                $tmp= $this->imageResize($imageSrc,$sourceProperties[0],$sourceProperties[1]);
-                imagejpeg($tmp,$dirPath.$newFileName."_thump.".$ext);
                 
-                $firm->logo = $newFileName."_thump.".$ext;
-                
-                
-                $firm->save(false);
+                if($sourceProperties[0] == $sourceProperties[1]){
+
+                    $ext=pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+
+                    $imageSrc= imagecreatefromjpeg($uploadedFile); 
+
+                    $tmp= $this->imageResize($imageSrc,$sourceProperties[0],$sourceProperties[1]);
+                    imagejpeg($tmp,$dirPath.$newFileName."_thump.".$ext);
+
+                    $firm->logo = $newFileName."_thump.".$ext;
+
+
+                    $firm->save(false);
+                }else{
+                    $errors[]= "Загрузите квадратное изображение";
+
+                }
             }else{
                 $errors[]= "Загрузите картинку в формате jpg";
             }

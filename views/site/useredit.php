@@ -82,7 +82,7 @@ function selectCountry(val) {
     <?php if($firm->logo != ""):?>
         <img  src="/img/<?php echo $firm->logo;?>"><br>
     <?php endif?>
-    <small>Загрузите квадратное изображение в формате jpg</small> <br>
+    <small>Загрузите <b>квадратное</b> изображение в формате jpg</small> <br>
     <input type="file" name="image" accept=".jpg,.jpeg"><br>
 
     <b>Сайт</b><br>

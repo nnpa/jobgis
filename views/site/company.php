@@ -9,7 +9,7 @@
 
 <form method="POST"  enctype="multipart/form-data">
     <b>Логотип</b><br>
-    <small>Загрузите изображение в формате jpg</small> <br>
+    <small>Загрузите <b>квадратное</b> изображение в формате jpg</small> <br>
 
     <input type="file" name="image" accept=".jpg,.jpeg"><br>
 
