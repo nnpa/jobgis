@@ -197,7 +197,7 @@ function selectCountry(val) {
                     <a target="_blank" href="/vacancy/show?id=<?php echo $row["id"];?>"><?php echo $row["name"];?></a>
                     <?php if($row["logo"] != ""):?>
                     <a href="/company/view?id=<?php echo $row["firm_id"];?>">
-                        <img src="/img/<?php echo $row["logo"];?>" width="40px" height="40px">
+                        <img src="/img/<?php echo $row["logo"];?>" height="100px">
                     </a>
                     <?php endif;?>
                     <br>

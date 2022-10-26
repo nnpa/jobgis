@@ -73,7 +73,7 @@ function selectCountry(val) {
     <b>Отрасль</b><br>  <?php echo $firm->category?><br>
     <b>Логотип</b><br>
     <?php if($firm->logo != ""):?>
-        <img width="80px" height="80px" src="/img/<?php echo $firm->logo;?>"><br>
+        <img  src="/img/<?php echo $firm->logo;?>"><br>
     <?php endif?>
     <small>Загрузите изображение в формате jpg</small> <br>
     <input type="file" name="image" accept=".jpg,.jpeg"><br>
