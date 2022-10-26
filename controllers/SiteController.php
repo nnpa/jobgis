@@ -677,7 +677,6 @@ class SiteController extends AppController
     public function actionRss(){
        $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->limit(20)->all();
        $items = "";
-        \Yii::$app->response->format = "atom+xml";
 
        foreach($vacancys as $vacancy){
            $items .= "<item>";
