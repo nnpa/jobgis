@@ -697,18 +697,18 @@ class SiteController extends AppController
             $items .= " " . $vacancy->city;
 
            $items .= "</description>";
+           $items .= "<pubDate>" . date('r', $vacancy->create_time). "</pubDate>";
+
            $items .= "</item>";
 
        }
         
-       $text = '<?xml version="1.0" encoding="windows-1251" ?> 
-                <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+       $text = '<?xml version="1.0"  encoding="UTF-8"" ?> 
+                <rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
                     <channel>
                        <title>Jobgis</title> 
                        <link>https://jobgis.ru/</link> 
                        <description>Сервис для работодателей и соискателей</description> 
-                       <language>ru</language>
-                        <ttl>600</ttl> 
                         ' .$items. '
                     </channel>
                 </rss>';
