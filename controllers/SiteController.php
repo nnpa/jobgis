@@ -680,7 +680,7 @@ class SiteController extends AppController
 
         $response = Yii::$app->response;
         $response->format = Response::FORMAT_RAW;
-    $response->getHeaders()->set('Content-Type', 'application/atom+xml; charset=utf-8');
+    $response->getHeaders()->set('Content-Type', 'application/xml; charset=utf-8');
 
        foreach($vacancys as $vacancy){
            $items .= "<item>";
