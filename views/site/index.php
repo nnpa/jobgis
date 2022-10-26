@@ -73,7 +73,7 @@
 
         <div>&nbsp;</div>
 <br>
-<div style="position:absolute;bottom:0;">
+<div style="position:absolute;bottom:20px;">
 <h5>Информационные партнеры</h5>
 
 <?php foreach($partners as $partner):?> 
