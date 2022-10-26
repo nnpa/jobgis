@@ -700,6 +700,10 @@ class SiteController extends AppController
             $items .= " " . $vacancy->user->firm->name;
             $items .= " " . $vacancy->city;
 
+            $items .= "Требуемый опыт работы: " . $vacancy->employment;
+            $items .= " " . $vacancy->user->firm->name;
+            $items .= " " . strip_tags($vacancy->description);
+
            $items .= "</description>";
            $items .= "<pubDate>" . date('r', $vacancy->create_time). "</pubDate>";
            $items .= "<guid>https://jobgis.ru/vacancy/show?id={$vacancy->id}</guid>";
