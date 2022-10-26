@@ -681,7 +681,7 @@ class SiteController extends AppController
        foreach($vacancys as $vacancy){
            $items .= "<item>";
            $items .= "<title>{$vacancy->name}</title>";
-           $items .= "<link>https://jobgis.ru/vacancy/show?id={$vacancy->name}</link>";
+           $items .= "<link>https://jobgis.ru/vacancy/show?id={$vacancy->id}</link>";
            $items .= "<description>";
             $items .= "$vacancy->name ";
 
