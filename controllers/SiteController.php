@@ -678,6 +678,10 @@ class SiteController extends AppController
        $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->limit(20)->all();
        $items = "";
 
+        $response = Yii::$app->response;
+        $response->format = Response::FORMAT_RAW;
+    $response->getHeaders()->set('Content-Type', 'application/atom+xml; charset=utf-8');
+
        foreach($vacancys as $vacancy){
            $items .= "<item>";
            $items .= "<title>{$vacancy->name}</title>";
