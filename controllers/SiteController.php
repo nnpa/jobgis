@@ -690,11 +690,11 @@ class SiteController extends AppController
             $items .= "$vacancy->name ";
 
            if((bool)$vacancy->costfrom):
-                 $items .= "от {$vacancy->costfrom}";
+                 $items .= " от {$vacancy->costfrom}";
            endif;
            
            if((bool)$vacancy->costto):
-                $items .= "до  {$vacancy->costto}";
+                $items .= " до  {$vacancy->costto}";
             endif;
             
             $items .= " " . $vacancy->user->firm->name;
