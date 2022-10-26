@@ -644,8 +644,10 @@ class SiteController extends AppController
 
                 $tmp= $this->imageResize($imageSrc,$sourceProperties[0],$sourceProperties[1]);
                 imagejpeg($tmp,$dirPath.$newFileName."_thump.".$ext);
-
+                
                 $firm->logo = $newFileName."_thump.".$ext;
+                
+                
                 $firm->save(false);
             }else{
                 $errors[]= "Загрузите картинку в формате jpg";

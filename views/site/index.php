@@ -80,7 +80,7 @@
 
     <?php if($partner->firm->logo != ""):?>
         <a targer="_blank" href="/company/view?id=<?php echo $partner->firm->id;?>">
-            <img  height="80px" src="/img/<?php echo $partner->firm->logo?>"></a>
+            <img  height="120px" src="/img/<?php echo $partner->firm->logo?>"></a>
     <?php endif;?>
 <?php endforeach;?>
 </div>
