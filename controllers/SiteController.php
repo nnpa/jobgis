@@ -14,6 +14,7 @@ use app\models\Firm;
 use app\controllers\AppController;
 use app\models\Partners;
 use app\models\Resume;
+use app\models\News;
 
 class SiteController extends AppController
 {
@@ -75,12 +76,14 @@ class SiteController extends AppController
             ['name' => 'description', 'content' => 'jobgis.ru — сервис, который помогает найти работу и подобрать персонал ! Создавайте резюме и откликайтесь на вакансии. Набирайте сотрудников и публикуйте вакансии.']
         );
 
+        $news = News::find()->orderBy(["create_time" => SORT_DESC])->limit(10)->all();
+
         
         $partners = Partners::find()->all();
         $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->limit(20)->all();
         $resumes = Resume::find()->where('name != :name', ['name'=>"Заполните должность"])->andWhere(["verify" => 1])->orderBy(["id" => SORT_DESC])->limit(20)->all();
 
-        return $this->render('index',["resumes" => $resumes,"vacancys" => $vacancys,"partners"=>$partners]);
+        return $this->render('index',["resumes" => $resumes,"vacancys" => $vacancys,"partners"=>$partners,"news"=>$news]);
     }
 
     /**

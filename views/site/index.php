@@ -74,6 +74,16 @@
         <div>&nbsp;</div>
 <br>
 <div style="flex: 0 1 auto;">
+
+<?php if(!empty($news)):?>
+<h5>Новости</h5>
+    <?php foreach($news as $new):?>
+        <div style="padding-top:10px;width:50%;float:left">
+            <a href="/news/view?id=<?php echo $new->id;?>" target="_blank"><?php echo $new->title;?></a>
+        </div>
+    <?php endforeach;?>
+    <a href="/news/all">Все новости</a>
+<?php endif;?>
 <h5>Информационные партнеры</h5>
 
 <?php foreach($partners as $partner):?> 
@@ -83,4 +93,5 @@
             <img  height="120px" src="/img/<?php echo $partner->firm->logo?>"></a>
     <?php endif;?>
 <?php endforeach;?>
+
 </div>

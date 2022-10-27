@@ -66,6 +66,7 @@ AppAsset::register($this);
             ['label' => 'Онлайн', 'url' => ['/admin/users/on']],
             ['label' => 'Партнеры', 'url' => ['/admin/partner/index']],
             ['label' => 'Тех поддержка', 'url' => ['/admin/support/index']],
+            ['label' => 'Новости', 'url' => ['/admin/news/index']],
 
             ['label' => 'Выход', 'url' => ['/admin/default/logout']],
         ];
