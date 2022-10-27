@@ -22,7 +22,7 @@ document.getElementById('vk_share_button').innerHTML = VK.Share.button({
       url: '<?php echo 'https://jobgis.ru/vacancy/show?id=' . $vacancy->id; ?>',
       title: '<?php echo $vacancy->name;?>',
       noparse: true
-    });
+    }, {type: 'custom', text: '<img src="http://vk.com/images/vk32.png" />'});
 
 });
 
