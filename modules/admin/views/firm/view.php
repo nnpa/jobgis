@@ -36,7 +36,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'verify',
             'manage_id',
-            'inn'
+            'inn',
+            'site',
+            'description'
         ],
     ]) ?>
 
