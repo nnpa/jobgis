@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'manage_id',
             'inn',
             'site',
-            'about:hrml'
+            'about:html'
         ],
     ]) ?>
 
