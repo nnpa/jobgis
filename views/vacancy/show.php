@@ -18,7 +18,7 @@
 
 <div>
     <div style="width:50px;float:left">
-        <a href="https://vk.com/share.php?url=<?php echo 'https://jobgis.ru/vacancy/show?id=' . $vacancy->id; ?>" target="_blank"><img src="/img/vk.png"></a>
+        <a onclick="Share.vkontakte('<?php echo 'https://jobgis.ru/vacancy/show?id=' . $vacancy->id; ?>','jobgis.ru','','<?php echo $vacancy->name;?>')" target="_blank"><img src="/img/vk.png"></a>
         
     </div>
     <div style="float:left;padding-left: 50px">

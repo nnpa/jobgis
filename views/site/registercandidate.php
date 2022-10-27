@@ -72,6 +72,14 @@ function selectCountry(val) {
             </div>
         </div>
         <div class="row">
+            <div class="col-3">
+                <b>Подписка</b> 
+            </div>
+            <div class="col-4">
+                <input type="checkbox" checked name="subscribe">
+            </div>
+        </div>
+        <div class="row">
             <div class="col-12">
                 <center>
                     <input class="btn btn-success" type="submit" value="Зарегистрироваться">
