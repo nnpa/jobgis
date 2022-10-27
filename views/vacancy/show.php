@@ -15,90 +15,97 @@
     });
  }
 </script>
-<div style="padding-left: 50px;">
-<h3><?php echo $vacancy->name;?></h3>
-<span class="vacancy_compensation">
-    <?php if((bool)$vacancy->costfrom):?>
-        от <?php echo $vacancy->costfrom;?> 
-   <?php endif;?>
-
-   <?php if((bool)$vacancy->costto):?>
-        до <?php echo $vacancy->costto;?>
-   <?php endif;?>
- 
- <?php if($vacancy->costto != 0 OR $vacancy->costfrom != 0):?>
-    <?php echo $vacancy->cash;?> <?php echo $vacancy->cashtype;?> <br>
- <?php endif;?>
-</span>
-Требуемый опыт работы: <?php echo $vacancy->exp;?><br>
-<?php echo $vacancy->employment;?><br>
-<?php if(is_object($vacancy->user)):?>
-    <?php echo $vacancy->user->company;?><br>
-<?php endif;?>
-<?php echo $vacancy->city;?><br>
 
 <div>
-    <?php echo $vacancy->description;?><br>
-
-</div>
-
-
-<?php if(!Yii::$app->user->isGuest):?>
-    <div id="contacts" >
-        <a class="btn btn-primary" href="#" onClick="getContacts('<?php echo $vacancy->id;?>')">Контакты</a>
-    </div>
-<?php else:?>
-    <a href="/site/registercandidate">Зарегириструйтесь</a> для просмотра контактов
-<?php endif; ?>
-
-    
-<script type="text/javascript">
-    function response(id){
-        resume_id = $("#resume_id").val();
-        $.get( "/response/response?resume_id=" + resume_id + "&vacancy_id=" +id, function( data ) {
-            $("#responce").html("Вы откликнулись");
-        });
+    <div style="width:50px;float:left">
+        <a href="https://vk.com/share.php?url=<?php echo 'https://jobgis.ru/vacancy/show?id=' . $vacancy->id; ?>" target="_blank"><img src="/img/vk.png"></a>
         
-    }
-</script>
+    </div>
+    <div style="float:left;padding-left: 50px">
+        <h3><?php echo $vacancy->name;?></h3>
+        <span class="vacancy_compensation">
+            <?php if((bool)$vacancy->costfrom):?>
+                от <?php echo $vacancy->costfrom;?> 
+           <?php endif;?>
 
-<?php if(!Yii::$app->user->isGuest):?>
-    <?php
-        $resume = Resume::find()->where(["user_id" => Yii::$app->user->id])->all();
-    ?>
+           <?php if((bool)$vacancy->costto):?>
+                до <?php echo $vacancy->costto;?>
+           <?php endif;?>
 
-    <?php
-        $resumes =[];
-        foreach($resume as $r){
-            $resumes[] = $r->id;
-        }
-
-
-        $response = Response::find()->where(["resume_id" => $resumes, "vacancy_id" => $vacancy->id])->all();
-    ?>
-    
-    
-    <?php if(empty($response)):?>
-        <?php if(!is_null($resume) && is_object($vacancy->user)):?>
-            <?php if(Yii::$app->user->identity->firm_id == 0):?>
-            <div id="responce">
-                <?php if(!empty($resume)):?>
-                <select id="resume_id" class="form-select" style="width:250px">
-                    <?php foreach($resume as $r):?>
-                        <option value="<?php echo $r->id?>"><?php echo $r->vacancy?></option>
-                    <?php endforeach;?>
-                </select><br>
-                <a hre="#" class="btn btn-success" onClick="response('<?php echo $vacancy->id;?>')">Откликнуться</a>
-                <?php else:?>
-                    Что бы откликнуться создайте резюме
-                <?php endif;?>
-            </div>
-            <?php endif;?>
+         <?php if($vacancy->costto != 0 OR $vacancy->costfrom != 0):?>
+            <?php echo $vacancy->cash;?> <?php echo $vacancy->cashtype;?> <br>
+         <?php endif;?>
+        </span>
+        Требуемый опыт работы: <?php echo $vacancy->exp;?><br>
+        <?php echo $vacancy->employment;?><br>
+        <?php if(is_object($vacancy->user)):?>
+            <?php echo $vacancy->user->company;?><br>
         <?php endif;?>
-    <?php else:?>
-        Вы уже откликнулись
-    <?php endif;?>
-<?php else:?>
+        <?php echo $vacancy->city;?><br>
 
-<?php endif; ?>
+        <div>
+            <?php echo $vacancy->description;?><br>
+
+        </div>
+
+
+        <?php if(!Yii::$app->user->isGuest):?>
+            <div id="contacts" >
+                <a class="btn btn-primary" href="#" onClick="getContacts('<?php echo $vacancy->id;?>')">Контакты</a>
+            </div>
+        <?php else:?>
+            <a href="/site/registercandidate">Зарегириструйтесь</a> для просмотра контактов
+        <?php endif; ?>
+
+
+        <script type="text/javascript">
+            function response(id){
+                resume_id = $("#resume_id").val();
+                $.get( "/response/response?resume_id=" + resume_id + "&vacancy_id=" +id, function( data ) {
+                    $("#responce").html("Вы откликнулись");
+                });
+
+            }
+        </script>
+
+        <?php if(!Yii::$app->user->isGuest):?>
+            <?php
+                $resume = Resume::find()->where(["user_id" => Yii::$app->user->id])->all();
+            ?>
+
+            <?php
+                $resumes =[];
+                foreach($resume as $r){
+                    $resumes[] = $r->id;
+                }
+
+
+                $response = Response::find()->where(["resume_id" => $resumes, "vacancy_id" => $vacancy->id])->all();
+            ?>
+
+
+            <?php if(empty($response)):?>
+                <?php if(!is_null($resume) && is_object($vacancy->user)):?>
+                    <?php if(Yii::$app->user->identity->firm_id == 0):?>
+                    <div id="responce">
+                        <?php if(!empty($resume)):?>
+                        <select id="resume_id" class="form-select" style="width:250px">
+                            <?php foreach($resume as $r):?>
+                                <option value="<?php echo $r->id?>"><?php echo $r->vacancy?></option>
+                            <?php endforeach;?>
+                        </select><br>
+                        <a hre="#" class="btn btn-success" onClick="response('<?php echo $vacancy->id;?>')">Откликнуться</a>
+                        <?php else:?>
+                            Что бы откликнуться создайте резюме
+                        <?php endif;?>
+                    </div>
+                    <?php endif;?>
+                <?php endif;?>
+            <?php else:?>
+                Вы уже откликнулись
+            <?php endif;?>
+        <?php else:?>
+
+        <?php endif; ?>
+    </div>
 </div>
