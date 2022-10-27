@@ -15,10 +15,16 @@
     });
  }
 </script>
+<script>
+    $( document ).ready(function() {
 
+document.getElementById('vk_share_button').innerHTML = VK.Share.button('<?php echo 'https://jobgis.ru/vacancy/show?id=' . $vacancy->id; ?>', {type: 'link'});
+});
+
+</script>
 <div>
     <div style="width:50px;float:left">
-        <a onclick="Share.vkontakte('<?php echo 'https://jobgis.ru/vacancy/show?id=' . $vacancy->id; ?>','jobgis.ru','','<?php echo $vacancy->name;?>')" target="_blank"><img src="/img/vk.png"></a>
+        <span id="vk_share_button"> </span>
         
     </div>
     <div style="float:left;padding-left: 50px">
