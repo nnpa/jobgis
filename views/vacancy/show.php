@@ -18,7 +18,12 @@
 <script>
     $( document ).ready(function() {
 
-document.getElementById('vk_share_button').innerHTML = VK.Share.button('<?php echo 'https://jobgis.ru/vacancy/show?id=' . $vacancy->id; ?>', {type: 'link'});
+document.getElementById('vk_share_button').innerHTML = VK.Share.button({
+      url: '<?php echo 'https://jobgis.ru/vacancy/show?id=' . $vacancy->id; ?>',
+      title: '<?php echo $vacancy->name;?>',
+      noparse: true
+    });
+
 });
 
 </script>
