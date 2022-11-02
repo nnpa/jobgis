@@ -107,12 +107,9 @@ AppAsset::register($this);
             ]; 
         }else{
             $items = [
-                 ['label' => 'Резюме', 'url' => ['/site/index'], 'items' => [
-                     ['label' => 'Мои резюме', 'url' => ['/resume/list']],
-                     ['label' => 'Отклики и приглашения', 'url' => ['/response/candidate']]
+                ['label' => 'Мои резюме', 'url' => ['/resume/list']],
+                ['label' => 'Отклики и приглашения', 'url' => ['/response/candidate']],
 
-                     
-                ]],
                 ['label' => 'Настройки', 'url' => ['/site/useredit']],
 
                 ['label' => 'Поиск', 'url' => ['/search/vacancy']],
