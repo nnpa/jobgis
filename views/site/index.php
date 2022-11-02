@@ -84,7 +84,7 @@
     <?php endforeach;?><br><br>
     <a href="/news/all">Все новости</a>
 <?php endif;?>
-<h5>Информационные партнеры</h5>
+<h5 style="padding-top: 10px;">Информационные партнеры</h5>
 
 <?php foreach($partners as $partner):?> 
 
