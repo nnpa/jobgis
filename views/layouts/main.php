@@ -69,8 +69,8 @@ AppAsset::register($this);
 
     
     NavBar::begin([
-        'brandLabel' => ($role == "employer")?'Поиск':"Jobgis",
-        'brandUrl' => ($role == "employer")?'/search/resume':Yii::$app->homeUrl,
+        'brandLabel' => "Jobgis",
+        'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
         ],
@@ -89,6 +89,8 @@ AppAsset::register($this);
     }else{
         if($role=="employer"){
             $items = [
+                ['label' => 'Поиск', 'url' => ['/search/resume']],
+
                 ['label' => 'Мои вакансии', 'url' => ['/vacancy/list']],
                 ['label' => 'Отклики', 'url' => ['/response/employer']],
                 ['label' => 'Настройки', 'url' => ['/site/useredit']],
