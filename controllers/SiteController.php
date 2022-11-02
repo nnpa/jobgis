@@ -176,7 +176,8 @@ class SiteController extends AppController
                 $user->password = $this->getPassword();
                 $user->create_time = time();
                 $user->patronymic = "";
-                
+                $user->type = 2;
+
                 if(isset($_POST["subscribe"])){
                     $user->subscribe = 1;
                 }else{
@@ -310,6 +311,7 @@ class SiteController extends AppController
                 $user->password = $this->getPassword();
                 $user->create_time = time();
                 $user->patronymic = "";
+                $user->type = 1;
 
                 
                 if(isset($_POST["subscribe"])){

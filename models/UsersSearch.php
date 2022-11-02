@@ -79,12 +79,13 @@ class UsersSearch extends Users
         
         if($empl){
             $query->andFilterWhere([
-                "!=","company",""
+                "type" => 2
+
             ]);
 
         }else{
             $query->andFilterWhere([
-                "company" => ""
+                "type" => 1
             ]);
         }
         
