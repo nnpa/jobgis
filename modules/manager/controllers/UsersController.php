@@ -87,7 +87,7 @@ class UsersController extends Controller
                 'id' => SORT_DESC,
             ]
         ];
-        return $this->render('index', [
+        return $this->render('index_1', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
