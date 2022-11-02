@@ -41,7 +41,7 @@ class UsersController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionEm()
     {
         $manager  = Yii::$app->user->identity;
         $id  = $manager->id;
@@ -54,7 +54,33 @@ class UsersController extends Controller
         }
         
         $searchModel = new UsersSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams,$ids);
+        $dataProvider = $searchModel->search($this->request->queryParams,$ids,true);
+        
+        $dataProvider->sort = [
+            'defaultOrder' => [
+                'id' => SORT_DESC,
+            ]
+        ];
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    
+    public function actionCan()
+    {
+        $manager  = Yii::$app->user->identity;
+        $id  = $manager->id;
+        
+        $firms = Firm::find()->where(["manage_id" => $id])->all();
+        
+        $ids= [];
+        foreach($firms as $firm){
+            $ids[] = $firm->id;
+        }
+        
+        $searchModel = new UsersSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams,$ids,false);
         
         $dataProvider->sort = [
             'defaultOrder' => [
