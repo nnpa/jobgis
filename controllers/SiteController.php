@@ -758,7 +758,22 @@ class SiteController extends AppController
            $items .= "</item>";
 
        }
-        
+       
+        $news = News::find()->orderBy(["create_time" => SORT_DESC])->limit(10)->all();
+        foreach($news as $new){
+            $items .= "<item>";
+           $items .= "<title>{$new->title}</title>";
+           $items .= "<link>https://jobgis.ru/news/view?id={$new->id}</link>";
+           $items .= "<description>";
+           $items .= " " . str_replace("&nbsp;","",strip_tags($new->description));
+
+           $items .= "</description>";
+           $items .= "<pubDate>" . date('r', $new->create_time). "</pubDate>";
+           $items .= "<guid>https://jobgis.ru/news/view?id={$vacancy->id}</guid>";
+           
+           $items .= "</item>";
+        }
+       
        $text = '<?xml version="1.0"  encoding="UTF-8" ?> 
                 <rss xmlns:g="http://base.google.com/ns/1.0" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
                     <channel>
