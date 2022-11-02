@@ -15,6 +15,7 @@
     <?php endif;?>
 </h5>
 
+Город: <?php echo $resume->city;?><br>
 
 пол: <?php echo $resume->gender;?> <br>
 дата рождения:
@@ -26,6 +27,18 @@
     }
 ?>
 <br>
+    Телефон: 
+    <?php if(!Yii::$app->user->isGuest):?>
+        <?php if(Yii::$app->user->identity->firm->verify != 0):?>
+            <?php echo $resume->user->phone;?>
+            
+        <?php else:?>
+           Телефон станет виден после верификации работодателя
+        <?php endif;?>
+    <?php else:?>
+           Телефон станет виден после регистрации
+    <?php endif;?>
+    <br>
 <h5><?php echo $resume->vacancy;?></h5>
 <?php echo $resume->cost;?> <?php echo $resume->cash_type;?><br>
 Специализация: <?php echo $resume->specsub;?> <br>
@@ -186,14 +199,4 @@ if($resume->exp != 0){
 
 <?php endforeach;?>
 <br>
-    Телефон: 
-    <?php if(!Yii::$app->user->isGuest):?>
-        <?php if(Yii::$app->user->identity->firm->verify != 0):?>
-            <?php echo $resume->user->phone;?>
-            
-        <?php else:?>
-           Телефон станет виден после верификации работодателя
-        <?php endif;?>
-    <?php else:?>
-           Телефон станет виден после регистрации
-    <?php endif;?>
+
