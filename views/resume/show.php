@@ -38,7 +38,20 @@
     <?php else:?>
            Телефон станет виден после регистрации
     <?php endif;?>
+           
     <br>
+    Email: 
+        <?php if(!Yii::$app->user->isGuest):?>
+        <?php if(Yii::$app->user->identity->firm->verify != 0):?>
+            <?php echo $resume->user->email;?>
+            
+        <?php else:?>
+           Email станет виден после верификации работодателя
+        <?php endif;?>
+    <?php else:?>
+           Email станет виден после регистрации
+    <?php endif;?>
+           <br>
 <h5><?php echo $resume->vacancy;?></h5>
 <?php echo $resume->cost;?> <?php echo $resume->cash_type;?><br>
 Специализация: <?php echo $resume->specsub;?> <br>
