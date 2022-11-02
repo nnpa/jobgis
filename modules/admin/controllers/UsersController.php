@@ -39,10 +39,10 @@ class UsersController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionEm()
     {
         $searchModel = new UsersSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams,false);
+        $dataProvider = $searchModel->search($this->request->queryParams,false,true);
         $dataProvider->sort = [
             'defaultOrder' => [
                 'id' => SORT_DESC,
@@ -54,6 +54,21 @@ class UsersController extends Controller
         ]);
     }
 
+        public function actionCan()
+    {
+        $searchModel = new UsersSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams,false,false);
+        $dataProvider->sort = [
+            'defaultOrder' => [
+                'id' => SORT_DESC,
+            ]
+        ];
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    
     /**
      * Displays a single Users model.
      * @param int $id ID

@@ -761,7 +761,7 @@ class SiteController extends AppController
        
         $news = News::find()->orderBy(["create_time" => SORT_DESC])->limit(10)->all();
         foreach($news as $new){
-            $items .= "<item>";
+           $items .= "<item>";
            $items .= "<title>{$new->title}</title>";
            $items .= "<link>https://jobgis.ru/news/view?id={$new->id}</link>";
            $items .= "<description>";

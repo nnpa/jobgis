@@ -38,7 +38,7 @@ class UsersSearch extends Users
      *
      * @return ActiveDataProvider
      */
-    public function search($params,$firm_ids)
+    public function search($params,$firm_ids,$empl)
     {
         
         
@@ -76,7 +76,18 @@ class UsersSearch extends Users
             ->andFilterWhere(['like', 'auth_key', $this->auth_key])
             ->andFilterWhere(['like', 'access_token', $this->access_token])
             ->andFilterWhere(['like', 'patronymic', $this->patronymic]);
+        
+        if($empl){
+            $query->andFilterWhere([
+                "!=","company",""
+            ]);
 
+        }else{
+            $query->andFilterWhere([
+                "company" => ""
+            ]);
+        }
+        
         if($firm_ids != false){
             $query->andFilterWhere(['firm_id' => $firm_ids]);
 

@@ -57,7 +57,9 @@ AppAsset::register($this);
     $items = [];
 
         $items = [
-            ['label' => 'Пользователи', 'url' => ['/admin/users/index']],
+            ['label' => 'Работодатель', 'url' => ['/admin/users/em']],
+            ['label' => 'Соискатель', 'url' => ['/admin/users/can']],
+
             ['label' => 'Фирмы', 'url' => ['/admin/firm/index']],
             ['label' => 'Пригласить', 'url' => ['/admin/firm/add']],
             ['label' => 'Навыки', 'url' => ['/admin/skills/index']],
