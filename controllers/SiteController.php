@@ -769,7 +769,7 @@ class SiteController extends AppController
 
            $items .= "</description>";
            $items .= "<pubDate>" . date('r', $new->create_time). "</pubDate>";
-           $items .= "<guid>https://jobgis.ru/news/view?id={$vacancy->id}</guid>";
+           $items .= "<guid>https://jobgis.ru/news/view?id={$new->id}</guid>";
            
            $items .= "</item>";
         }
