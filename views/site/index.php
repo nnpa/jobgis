@@ -81,7 +81,7 @@
         <div style="padding-top:10px;width:50%;float:left">
             <a href="/news/view?id=<?php echo $new->id;?>" target="_blank"><?php echo $new->title;?></a>
         </div>
-    <?php endforeach;?><br>
+    <?php endforeach;?><br><br>
     <a href="/news/all">Все новости</a>
 <?php endif;?>
 <h5>Информационные партнеры</h5>
