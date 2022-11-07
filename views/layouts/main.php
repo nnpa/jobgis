@@ -191,6 +191,14 @@ AppAsset::register($this);
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/89670875" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
+<script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
+
+<!-- Put this div tag to the place, where the Community messages block will be -->
+<div id="vk_community_messages"></div>
+<script type="text/javascript">
+  VK.Widgets.CommunityMessages("vk_community_messages", 127607773, {tooltipButtonText: "Есть вопрос?", expanded: 1});
+</script>
+
 </footer>
 
 <?php $this->endBody() ?>
