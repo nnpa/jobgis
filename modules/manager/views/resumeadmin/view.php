@@ -6,9 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Resume */
 
-$this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Resumes', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <?php if($resume->photo != ""):?>
