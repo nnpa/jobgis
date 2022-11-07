@@ -41,7 +41,7 @@ class ResumeadminController extends Controller
         $searchModel = new ResumeSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
         $dataProvider->sort->defaultOrder = [
-                'id' => SORT_DESC,
+                'id' => SORT_ASC,
         ];
         return $this->render('index', [
             'searchModel' => $searchModel,
