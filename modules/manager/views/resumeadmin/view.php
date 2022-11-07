@@ -9,6 +9,18 @@ use yii\widgets\DetailView;
 $this->params['breadcrumbs'][] = ['label' => 'Resumes', 'url' => ['index']];
 \yii\web\YiiAsset::register($this);
 ?>
+    <p>
+        <a href="/resume/show?id=<?php echo $resume->id?>" target="_blank">Резюме на сайте </a>
+
+        <?= Html::a('Обновить', ['update', 'id' => $resume->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $resume->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p>
 <?php if($resume->photo != ""):?>
 <img width="80px" height="80px" src="/img/<?php echo $resume->photo;?>"><br>
 <?php endif?>
