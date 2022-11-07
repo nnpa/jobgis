@@ -205,8 +205,6 @@ function selectCountry(val) {
         <div style="width:70%;float:left">
             <?php foreach($result as $row):?>
                 <a target="_blank" href="/resume/show?id=<?php echo $row["id"];?>"><?php echo $row["vacancy"];?></a>
-                Верификация: <?php echo $row["verify"];?>
-                <a href="/manager/resumeadmin/update?id=<?php echo $row["id"];?>">Обновить</a>
                 <br>
                 
                 <?php echo $row["cost"];?> <?php echo $row["cash_type"];?> <br>
