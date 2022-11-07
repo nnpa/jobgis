@@ -44,9 +44,8 @@ class UsersController extends Controller
         $searchModel = new UsersSearch();
         $dataProvider = $searchModel->search($this->request->queryParams,false,true);
         $dataProvider->sort = [
-            'defaultOrder' => [
-                'id' => SORT_ASC,
-            ]
+                'id' => SORT_DESC,
+            
         ];
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -59,9 +58,8 @@ class UsersController extends Controller
         $searchModel = new UsersSearch();
         $dataProvider = $searchModel->search($this->request->queryParams,false,false);
         $dataProvider->sort = [
-            'defaultOrder' => [
-                'id' => SORT_ASC,
-            ]
+                'id' => SORT_DESC,
+            
         ];
         return $this->render('index_1', [
             'searchModel' => $searchModel,
