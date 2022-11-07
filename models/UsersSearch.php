@@ -42,7 +42,7 @@ class UsersSearch extends Users
     {
         
         
-        $query = Users::find()->orderBy(["id" => SORT_ASC]);
+        $query = Users::find();
         
         // add conditions that should always apply here
 
