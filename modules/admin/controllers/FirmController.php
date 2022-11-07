@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use Yii;
+use app\models\Users;
 
 /**
  * FirmController implements the CRUD actions for Firm model.
@@ -146,6 +147,17 @@ class FirmController extends Controller
            $firm = Firm::find()->where(["id" => $id])->one();
            $firm->manage_id = $_POST["manager"];
            $firm->save(false);
+           
+           $users = Users::find()->where(["id" => $id])->one();
+           
+                Yii::$app->mailer->compose()
+                ->setFrom('robot@jobgis.ru')
+                ->setTo($user->email)
+                ->setSubject('jobgis.ru за вами закреплена фирма ' .$firm->name)
+                ->setTextBody('jobgis.ru за вами закреплена фирма ' .$firm->name)
+                ->setHtmlBody("<html>".'jobgis.ru за вами закреплена фирма ' .$firm->name ."</html>")
+                ->send();
+           
            return $this->redirect("/admin/firm/index");
         }
     }
