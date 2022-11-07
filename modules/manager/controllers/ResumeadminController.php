@@ -59,9 +59,19 @@ class ResumeadminController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+    $resume = Resume::find()->where(["id" => $id])->one();
+
+       $resumeEdu = ResumeEdu::find()->where(["resume_id" => $id])->all();
+       $resumeExp = ResumeExp::find()->where(["resume_id" => $id])->all();
+       $resumePortfolio = ResumePortfolio::find()->where(["resume_id" => $id])->all();
+       $resumeAddEdu = ResumeAddedu::find()->where(["resume_id" => $id])->all();
+       return $this->render("show",[
+           "resume" => $resume,
+           "resumeExp" =>$resumeExp,
+           "resumePortfolio" => $resumePortfolio,
+           "resumeEdu" => $resumeEdu,
+           "resumeAddEdu" => $resumeAddEdu
+       ]);
     }
 
     /**
