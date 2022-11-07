@@ -90,6 +90,7 @@ class UsersSearch extends Users
         }
         
         if($firm_ids != false){
+            var_dump($firm_ids);exit;
             $query->andFilterWhere(['firm_id' => $firm_ids]);
 
         }
