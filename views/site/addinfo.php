@@ -47,6 +47,11 @@ function selectCountry(val) {
 	$("#suggesstion-box").hide();
 }
 </script>
+<?php foreach($errors as $error):?>
+    <div class="alert alert-danger" role="alert">
+        <?php echo $error;?>
+    </div>
+<?php endforeach;?>
 <h3>Заполните данные</h3>
 <form method="POST">
     Имя* <input type="text" name="name" value="<?php echo $user->name;?>"><br>

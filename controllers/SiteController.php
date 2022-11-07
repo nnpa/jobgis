@@ -530,18 +530,27 @@ class SiteController extends AppController
     public function actionAddinfo(){
         $user = Yii::$app->user->identity;
         $user  = Users::find()->where(["id" => $user->id])->one();
+        $errors = [];
         
         if(isset($_POST) && !empty($_POST)){
-            $user->name = $_POST["name"];
-            $user->surname = $_POST["surname"];
-            $user->patronymic = $_POST["patronymic"];
-            $user->phone = $_POST["phone"];
-            $user->city = $_POST["city"];
+            if(strlen($_POST["phone"]) < 18){
+               $errors[] = "Не верный формат нормера";
+            }
+            
+            if(empty($errors)){
+                $user->name = $_POST["name"];
+                $user->surname = $_POST["surname"];
+                $user->patronymic = $_POST["patronymic"];
+                $user->phone = $_POST["phone"];
+                $user->city = $_POST["city"];
 
-            $user->save(false);
-            return $this->redirect("/");
+                $user->save(false);
+                return $this->redirect("/");
+            }
+
         }
-        return $this->render("addinfo",["user" => $user]);
+        
+        return $this->render("addinfo",["errors" => $errors,"user" => $user]);
     }
     
     public function actionAddinn(){
