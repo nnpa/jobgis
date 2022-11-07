@@ -49,7 +49,7 @@ class ResumeadminController extends Controller
         }
         
         $perPage = 20;
-        
+        $city ="";
         $conn = mysqli_connect("localhost","root","g02091988","jobgis");
         
         $sql = "SELECT * FROM `resume` WHERE 1=1  AND `vacancy` != 'Заполните должность' AND `verify` = 1";
