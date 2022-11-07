@@ -10,7 +10,6 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use Yii;
-use app\models\Users;
 
 /**
  * FirmController implements the CRUD actions for Firm model.
