@@ -47,6 +47,7 @@ class UsersController extends Controller
             'defaultOrder' => [
                 'id' => SORT_DESC,
                 'params' => \Yii::$app->getRequest()->post(),
+                'attributes' => []
 
             ]
         ];
@@ -64,6 +65,7 @@ class UsersController extends Controller
             'defaultOrder' => [
                 'id' => SORT_DESC,
                 'params' => \Yii::$app->getRequest()->post(),
+                'attributes' => []
 
             ]
         ];
