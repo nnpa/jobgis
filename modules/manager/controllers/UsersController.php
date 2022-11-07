@@ -48,7 +48,7 @@ class UsersController extends Controller
         
         $firms = Firm::find()->where(["manage_id" => $id])->all();
         
-        $ids= [];
+        $ids= [1];
         foreach($firms as $firm){
             $ids[] = $firm->id;
         }
