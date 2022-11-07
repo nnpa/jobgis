@@ -52,12 +52,6 @@ class ResumeadminController extends Controller
         
         $conn = mysqli_connect("localhost","root","g02091988","jobgis");
         
-        if(!Yii::$app->user->isGuest){
-            $user = Yii::$app->user->identity;
-            $city = $user->city;
-        }else{
-            $city = "";
-        }
         $sql = "SELECT * FROM `resume` WHERE 1=1  AND `vacancy` != 'Заполните должность' AND `verify` = 1";
         $url = "/admin/resumeadmin/index?test=1";
         $sqlCount = "SELECT COUNT(*) FROM `resume` WHERE 1=1 != 'Заполните должность' AND `verify` = 1";
