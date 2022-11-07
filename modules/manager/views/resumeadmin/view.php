@@ -10,7 +10,6 @@ $this->params['breadcrumbs'][] = ['label' => 'Resumes', 'url' => ['index']];
 \yii\web\YiiAsset::register($this);
 ?>
     <p>
-        <a href="/resume/show?id=<?php echo $resume->id?>" target="_blank">Резюме на сайте </a>
 
         <?= Html::a('Обновить', ['update', 'id' => $resume->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Удалить', ['delete', 'id' => $resume->id], [
