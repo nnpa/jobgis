@@ -93,6 +93,7 @@ class UsersSearch extends Users
             $query->andFilterWhere(['firm_id' => $firm_ids]);
 
         }
+        
         return $dataProvider;
     }
 }
