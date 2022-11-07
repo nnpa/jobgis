@@ -147,7 +147,7 @@ class FirmController extends Controller
            $firm->manage_id = $_POST["manager"];
            $firm->save(false);
            
-           $users = Users::find()->where(["id" => $id])->one();
+           $user = Users::find()->where(["id" => $id])->one();
            
                 Yii::$app->mailer->compose()
                 ->setFrom('robot@jobgis.ru')
