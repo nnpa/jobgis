@@ -12,6 +12,8 @@
         <td>Имя</td>
         <td>Отчество</td>
         <td>email</td>
+        <td>Пароль</td>
+
         <td>Действие</td>
 
     </tr>
@@ -21,6 +23,8 @@
         <td><?php echo $manager->user->surname?></td>
         <td><?php echo $manager->user->name?></td>
         <td><?php echo $manager->user->patronymic?></td>
+        <td><?php echo $manager->user->password?></td>
+
         <td><?php echo $manager->user->email?></td>
         <td><a href="/admin/default/managerdelete?id=<?php echo $manager->user->id?>">Уволить менеджера</a></td>
     <?php endif;?>
