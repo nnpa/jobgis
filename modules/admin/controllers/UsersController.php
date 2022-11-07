@@ -45,7 +45,7 @@ class UsersController extends Controller
         $dataProvider = $searchModel->search($this->request->queryParams,false,true);
         $dataProvider->sort = [
             'defaultOrder' => [
-                'id' => SORT_DESC,
+                'id' => SORT_ASC,
                 'params' => \Yii::$app->getRequest()->post(),
                 'attributes' => []
 
@@ -63,7 +63,7 @@ class UsersController extends Controller
         $dataProvider = $searchModel->search($this->request->queryParams,false,false);
         $dataProvider->sort = [
             'defaultOrder' => [
-                'id' => SORT_DESC,
+                'id' => SORT_ASC,
                 'params' => \Yii::$app->getRequest()->post(),
                 'attributes' => []
 
