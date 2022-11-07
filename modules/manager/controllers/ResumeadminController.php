@@ -7,7 +7,7 @@ use app\models\ResumeSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use Yii;
 use app\models\ResumeExp;
 use app\models\ResumePortfolio;
 use app\models\ResumeEdu;
