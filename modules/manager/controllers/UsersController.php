@@ -206,7 +206,7 @@ class UsersController extends Controller
         
         $users = Users::find()->where(['>', 'online', time()])->all();
         foreach ($users as $user){
-            if(in_array($user->fimr_id,$ids)){
+            if(in_array($user->firm_id,$ids)){
                 $userArr[] = $user;
             }
         }
