@@ -6,6 +6,7 @@ use Yii;
 use app\models\Users;
 use app\models\UsersSearch;
 use app\models\Firm;
+use app\models\Recruiter;
 
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -72,15 +73,19 @@ class UsersController extends Controller
         $manager  = Yii::$app->user->identity;
         $id  = $manager->id;
         
-        $firms = Firm::find()->where(["manage_id" => $id])->all();
+        $cities = [];
+        $names = [];
         
-        $ids= [];
-        foreach($firms as $firm){
-            $ids[] = $firm->id;
+        $rectruiters = Recruiter::find()->where(["user_id" => $id])->all();
+        
+        foreach($rectruiters as $recruiter){
+            $names[] = $recruiter->name;
+            $cities[] = $recruiter->city;
         }
         
+        
         $searchModel = new UsersSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams,$ids,false);
+        $dataProvider = $searchModel->recruiter($this->request->queryParams,$names,$cities);
         
         $dataProvider->sort = [
             'defaultOrder' => [

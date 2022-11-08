@@ -143,7 +143,7 @@ public function actionAdd(){
     }
     
     public function actionRecruiter($id){
-        if(isset($_POST)){
+        if(isset($_POST) && !empty($_POST)){
             $recruiter = new Recruiter();
             $recruiter->user_id= $id;
 
