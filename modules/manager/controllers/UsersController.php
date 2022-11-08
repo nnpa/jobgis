@@ -192,8 +192,26 @@ class UsersController extends Controller
     }
     
     public function actionOn(){
+        $manager  = Yii::$app->user->identity;
+        $id  = $manager->id;
+        
+        $firms = Firm::find()->where(["manage_id" => $id])->all();
+        
+        $ids= [];
+        foreach($firms as $firm){
+            $ids[] = $firm->id;
+        }
+        
+        $userArr = [];
+        
         $users = Users::find()->where(['>', 'online', time()])->all();
-        return $this->render('online',["users" => $users]);
+        foreach ($users as $user){
+            if(in_array($user->fimr_id,$ids)){
+                $userArr[] = $user;
+            }
+        }
+        
+        return $this->render('online',["users" => $userArr]);
         
     }
     
@@ -218,4 +236,6 @@ class UsersController extends Controller
 
           $this->redirect("/admin/users/index");
     }
+    
+
 }
