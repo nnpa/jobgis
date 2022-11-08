@@ -54,7 +54,11 @@
         <td><?php echo $recruiter->user->email?></td>
         <td><?php echo $recruiter->user->password?></td>
 
-        <td><a href="/admin/default/recruiterdelete?id=<?php echo $recruiter->user->id?>">Уволить менеджера</a></td>
+        <td>
+            <a href="/admin/default/recruiter?id=<?php echo $recruiter->user->id?>">Просмотр</a>
+            <a href="/admin/default/recruiterdelete?id=<?php echo $recruiter->user->id?>">Уволить менеджера</a>
+
+        </td>
     <?php endif;?>
     </tr>
 <?php endforeach; ?>

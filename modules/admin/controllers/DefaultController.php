@@ -8,6 +8,7 @@ use app\models\AuthAssignment;
 use app\models\Firm;
 use app\models\Vacancy;
 use app\models\Users;
+use app\models\Recruiter;
 
 /**
  * Default controller for the `admin` module
@@ -139,5 +140,24 @@ public function actionAdd(){
     public function getPassword(){
         $password = substr(md5(time()),0,6);
         return $password;
+    }
+    
+    public function actionRecruiter($id){
+        if(isset($_POST)){
+            $recruiter = new Recruiter();
+            $recruiter->user_id= $id;
+
+            $recruiter->name= $_POST["name"];
+            $recruiter->city= $_POST["city"];
+            $recruiter->save(false);
+        }
+        
+        $firms = Firm::find()->where(["manage_id" => $id])->all();
+        $user = Users::find()->where(["id" => $id])->one();
+        
+        $recruiters = Recruiter::find()->where(["user_id" =>$id])->all();
+        
+
+        return $this->render("recruiter",["firms" => $firms,"user" => $user,"recruiters" => $recruiters]);
     }
 }
