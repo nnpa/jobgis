@@ -60,6 +60,8 @@ AppAsset::register($this);
             ['label' => 'Пользователи', 'url' => ['#'], 'items' => [
                 ['label' => 'Работодатель', 'url' => ['/admin/users/em']],
                 ['label' => 'Соискатель', 'url' => ['/admin/users/can']],
+                ['label' => 'Менеджеры', 'url' => ['/admin/default/manager']],
+
             ]],
   
 
@@ -67,7 +69,6 @@ AppAsset::register($this);
             ['label' => 'Пригласить', 'url' => ['/admin/firm/add']],
             ['label' => 'Навыки', 'url' => ['/admin/skills/index']],
             ['label' => 'Резюме', 'url' => ['/admin/resumeadmin/index']],
-            ['label' => 'Менеджеры', 'url' => ['/admin/default/manager']],
             ['label' => 'Онлайн', 'url' => ['/admin/users/on']],
             ['label' => 'Партнеры', 'url' => ['/admin/partner/index']],
             ['label' => 'Тех поддержка', 'url' => ['/admin/support/index']],
