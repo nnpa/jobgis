@@ -255,8 +255,8 @@ class SiteController extends AppController
                 $user->name = "";
                 $user->surname = "";
                 $user->phone = "";
-                $user->company = "Рекрутеры";
-                $user->firm_id = $firm->id;
+                $user->company = "Менеджеры";
+                $user->firm_id = 100;
                 $user->email = $_POST["email"];
                 $user->city = "";
                 $user->recover_code = "";
@@ -284,7 +284,7 @@ class SiteController extends AppController
                 ->setHtmlBody("<html>Поздравляем вы удачно зарегистрировались на сайте jobgis.ru<br>Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
                 ->send();
                  
-                $this->adminNotify("Рекрутер",$user->email . " " . $firm->name);
+                $this->adminNotify("Рекрутер",$user->email);
                 
                 $model = new LoginForm();
                 $model->username = $user->email;
