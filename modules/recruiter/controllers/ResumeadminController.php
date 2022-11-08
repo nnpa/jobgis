@@ -71,11 +71,17 @@ class ResumeadminController extends Controller
         $perPage = 20;
         $conn = mysqli_connect("localhost","root","g02091988","jobgis");
 
-        $sql = "SELECT * FROM `resume` WHERE 1=1  AND `vacancy` != 'Заполните должность' AND `verify` = 1 AND vacancy IN (" .$names. ") AND city IN (".$cities.")";
+        $sql = "SELECT * FROM `resume` WHERE 1=1  AND `vacancy` != 'Заполните должность' AND `verify` = 1 ";
+        
+
+        
         $url = "/admin/resumeadmin/index?test=1";
-        $sqlCount = "SELECT COUNT(*) FROM `resume` WHERE 1=1 != 'Заполните должность' AND `verify` = 1 AND vacancy IN (" .$names. ") AND city IN (".$cities.")";
+        $sqlCount = "SELECT COUNT(*) FROM `resume` WHERE 1=1 != 'Заполните должность' AND `verify` = 1";
         
-        
+        if($names != ""){
+           $sql .= " AND vacancy IN (" .$names. ") AND city IN (".$cities.")";
+           $sqlCount .= " AND vacancy IN (" .$names. ") AND city IN (".$cities.")";
+        }
         
         
         if(isset($_GET["name"]) && !empty($_GET['name'])){
