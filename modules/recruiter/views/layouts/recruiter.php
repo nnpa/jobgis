@@ -59,6 +59,7 @@ AppAsset::register($this);
         $items = [
             ['label' => 'Работодатель', 'url' => ['/recruiter/users/em']],
             ['label' => 'Резюме', 'url' => ['/recruiter/resumeadmin/index']],
+            ['label' => 'Онлайн', 'url' => ['/recruiter/users/on']],
 
             ['label' => 'Фирмы', 'url' => ['/recruiter/firm/index']],
             ['label' => 'Пригласить', 'url' => ['/recruiter/firm/add']],
