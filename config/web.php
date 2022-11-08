@@ -83,6 +83,8 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'hr' => 'index/hr',
+
             ],
         ],
         
