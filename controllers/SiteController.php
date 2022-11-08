@@ -220,6 +220,89 @@ class SiteController extends AppController
         ]);
     }
     
+    public function actionHr(){
+        $company = "";
+        $email = "";
+        
+        $errors =  [];
+        if(
+           isset($_POST["email"])
+        ){
+
+
+
+            
+
+
+            
+            if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                $errors[] = "Не верный формат email";
+
+            }
+            
+            $user = Users::find()->where(["email" => $_POST["email"]])->one();
+            if(!is_null($user)){
+                $errors[] = "Такой email уже зарегистрирован";
+
+            }
+            
+            $email = $_POST["email"];
+
+            if(empty($errors)){
+
+                
+                $user = new Users();
+                $user->name = "";
+                $user->surname = "";
+                $user->phone = "";
+                $user->company = "Рекрутеры";
+                $user->firm_id = $firm->id;
+                $user->email = $_POST["email"];
+                $user->city = "";
+                $user->recover_code = "";
+                $user->auth_key = "";
+                $user->access_token = "";
+                $user->password = $this->getPassword();
+                $user->create_time = time();
+                $user->patronymic = "";
+                $user->type = 2;
+
+                
+                $user->save(false);
+                
+                $id = $user->id;
+                
+                $role = Yii::$app->authManager->getRole('recruiter');
+        
+                Yii::$app->authManager->assign($role,$id);
+                
+                 Yii::$app->mailer->compose()
+                ->setFrom('robot@jobgis.ru')
+                ->setTo($user->email)
+                ->setSubject('Регистрация на сайте jobgis.ru')
+                ->setTextBody("Поздравляем вы удачно зарегистрировались на сайте jobgis.ru. Ваш email: " . $user->email . "  Ваш пароль: " . $user->password)
+                ->setHtmlBody("<html>Поздравляем вы удачно зарегистрировались на сайте jobgis.ru<br>Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
+                ->send();
+                 
+                $this->adminNotify("Рекрутер",$user->email . " " . $firm->name);
+                
+                $model = new LoginForm();
+                $model->username = $user->email;
+                $model->password = $user->password;
+                $model->login();
+                return $this->goBack();
+                
+                //return $this->render("message",["message"=>"На ваш email выслан пароль"]);
+            }
+            
+        }
+        
+        return $this->render('registerrecruiter',[
+            "errors" => $errors,
+            "email" => $email,
+        ]);
+    }
+    
     public function adminNotify($type,$text){
         Yii::$app->mailer->compose()
         ->setFrom('robot@jobgis.ru')
