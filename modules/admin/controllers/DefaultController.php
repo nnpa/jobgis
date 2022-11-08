@@ -36,12 +36,33 @@ class DefaultController extends Controller
     
     public function actionManager(){
         $managers = AuthAssignment::find()->where(["item_name" => "manager"])->all();
-        
-        return $this->render('managers',["managers" => $managers]);
+        $recruiters = AuthAssignment::find()->where(["item_name" => "recruiter"])->all();
+
+        return $this->render('managers',["recruiters"=> $recruiters,"managers" => $managers]);
     }
     
     public function actionManagerdelete($id){
         $manager = AuthAssignment::find()->where(["user_id" => $id,"item_name" =>"manager"])->one();
+
+        if(isset($_POST["manager"])){
+            $firms = Firm::find()->where(["manage_id" => $id])->all();
+            foreach($firms as $firm){
+                $firm->manage_id = $_POST["manager"];
+                $firm->save(false);
+            }
+            
+            $manager->delete();
+            return $this->redirect("/admin/default/manager");
+
+        }
+
+        $manager = AuthAssignment::find()->where(["user_id" => $id,"item_name" =>"manager"])->one();
+
+        return $this->render("deletemanager",["manager"=>$manager]);
+    }
+    
+    public function actionRecruiterdelete($id){
+        $manager = AuthAssignment::find()->where(["user_id" => $id,"item_name" =>"recruiter"])->one();
 
         if(isset($_POST["manager"])){
             $firms = Firm::find()->where(["manage_id" => $id])->all();

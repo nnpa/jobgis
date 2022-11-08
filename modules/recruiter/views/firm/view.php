@@ -4,17 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Users */
+/* @var $model app\models\Firm */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Firms', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<p>
-    Если удалить пользователя то удалятся резюме и вакансии, но останется фирма
-</p>
-<div class="users-view">
+<div class="firm-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -34,21 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'surname',
-            'company',
-            'phone',
-            'city',
-            'email:email',
-            'password',
-            'recover_code',
-            'create_time:datetime',
-            'auth_key',
-            'access_token',
-            'patronymic',
-            'firm_id',
+            'verify',
+            'manage_id',
+            'inn'
         ],
     ]) ?>
 
 </div>
-<a href="/admin/users/addmanager?id=<?php echo $model->id;?>">Сделать менеджером</a><br>
-<a href="/admin/users/addrecruiter?id=<?php echo $model->id;?>">Сделать рекрутером</a>
+Телефон: <?php echo $model->getPhone();?>

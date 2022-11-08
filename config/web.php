@@ -12,7 +12,10 @@ $config = [
         'manager' =>[
             'class' => 'app\modules\manager\Module',
 
-        ]
+        ],
+        'recruiter' => [
+            'class' => 'app\modules\recruiter\Module',
+        ],
     ],
     'language' => "ru",
     'basePath' => dirname(__DIR__),

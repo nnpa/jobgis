@@ -63,6 +63,9 @@ AppAsset::register($this);
             if($roleObj->name == "manager" AND !in_array($this->context->action->id,$actions)){
                 $this->context->redirect("/manager/");
             }
+            if($roleObj->name == "recruiter" AND !in_array($this->context->action->id,$actions)){
+                $this->context->redirect("/recruiter/");
+            }
         }
 
     }

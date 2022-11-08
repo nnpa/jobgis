@@ -1,10 +1,12 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace app\modules\recruiter\controllers;
 use Yii;
 
 use app\models\Users;
 use app\models\UsersSearch;
+use app\models\Firm;
+
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -41,30 +43,56 @@ class UsersController extends Controller
      */
     public function actionEm()
     {
+        $manager  = Yii::$app->user->identity;
+        $id  = $manager->id;
+        
+        $firms = Firm::find()->where(["manage_id" => $id])->all();
+        
+        $ids= [1];
+        foreach($firms as $firm){
+            $ids[] = $firm->id;
+        }
+        
         $searchModel = new UsersSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams,false,true);
-        $dataProvider->sort->defaultOrder = [
+        $dataProvider = $searchModel->search($this->request->queryParams,$ids,true);
+        $dataProvider->sort = [
+            'defaultOrder' => [
                 'id' => SORT_DESC,
+            ]
         ];
+        
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
-
-        public function actionCan()
+    
+    public function actionCan()
     {
+        $manager  = Yii::$app->user->identity;
+        $id  = $manager->id;
+        
+        $firms = Firm::find()->where(["manage_id" => $id])->all();
+        
+        $ids= [];
+        foreach($firms as $firm){
+            $ids[] = $firm->id;
+        }
+        
         $searchModel = new UsersSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams,false,false);
-        $dataProvider->sort->defaultOrder = [
+        $dataProvider = $searchModel->search($this->request->queryParams,$ids,false);
+        
+        $dataProvider->sort = [
+            'defaultOrder' => [
                 'id' => SORT_DESC,
+            ]
         ];
         return $this->render('index_1', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
-    
+
     /**
      * Displays a single Users model.
      * @param int $id ID
@@ -142,7 +170,7 @@ class UsersController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        //$this->findModel($id)->delete();
         
         return $this->redirect(['index']);
     }
@@ -164,8 +192,26 @@ class UsersController extends Controller
     }
     
     public function actionOn(){
+        $manager  = Yii::$app->user->identity;
+        $id  = $manager->id;
+        
+        $firms = Firm::find()->where(["manage_id" => $id])->all();
+        
+        $ids= [];
+        foreach($firms as $firm){
+            $ids[] = $firm->id;
+        }
+        
+        $userArr = [];
+        
         $users = Users::find()->where(['>', 'online', time()])->all();
-        return $this->render('online',["users" => $users]);
+        foreach ($users as $user){
+            if(in_array($user->firm_id,$ids)){
+                $userArr[] = $user;
+            }
+        }
+        
+        return $this->render('online',["users" => $userArr]);
         
     }
     
@@ -191,25 +237,5 @@ class UsersController extends Controller
           $this->redirect("/admin/users/index");
     }
     
-    public function actionAddrecruiter($id){
-            $role = "";
-            $roleArr = \Yii::$app->authManager->getRolesByUser($id);
-            if(!empty($roleArr)){
 
-                foreach($roleArr as $roleObj){
-                    if($roleObj->name == "recruiter"){
-                        $role = "recruiter";
-                    }
-                }
-
-            }
-            
-          if($role != "recruiter"){
-            $role = Yii::$app->authManager->getRole('recruiter');
-        
-            Yii::$app->authManager->assign($role,$id);
-          }
-
-          $this->redirect("/admin/users/index");
-    }
 }

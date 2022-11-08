@@ -50,5 +50,4 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
-<a href="/admin/users/addmanager?id=<?php echo $model->id;?>">Сделать менеджером</a><br>
-<a href="/admin/users/addrecruiter?id=<?php echo $model->id;?>">Сделать рекрутером</a>
+<a href="/admin/users/addmanager?id=<?php echo $model->id;?>">Сделать менеджером</a>
