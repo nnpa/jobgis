@@ -47,8 +47,8 @@ class ResumeadminController extends Controller
         $manager  = Yii::$app->user->identity;
         $id  = $manager->id;
         
-        $cities = [];
-        $names = [];
+        $cities = [1];
+        $names = [1];
         
         $rectruiters = Recruiter::find()->where(["user_id" => $id])->all();
         
