@@ -73,17 +73,17 @@ class ResumeadminController extends Controller
 
         $sql = "SELECT * FROM `resume` WHERE 1=1  AND `vacancy` != 'Заполните должность' AND `verify` = 1 ";
         
-
+        
         
         $url = "/admin/resumeadmin/index?test=1";
         $sqlCount = "SELECT COUNT(*) FROM `resume` WHERE 1=1 != 'Заполните должность' AND `verify` = 1";
         
         if($names != ""){
-           $sql .= " AND vacancy IN (" .$names. ") AND city IN (".$cities.")";
-           $sqlCount .= " AND vacancy IN (" .$names. ") AND city IN (".$cities.")";
+           $sql .= " AND specsub IN (" .$names. ") AND city IN (".$cities.")";
+           $sqlCount .= " AND specsub IN (" .$names. ") AND city IN (".$cities.")";
         }
         
-        
+        echo $sql;
         if(isset($_GET["name"]) && !empty($_GET['name'])){
             $name = $_GET["name"];
             $sql .= " AND `vacancy` = '". mysqli_real_escape_string($conn,$name)."'";
