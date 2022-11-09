@@ -26,6 +26,11 @@ document.getElementById('vk_share_button').innerHTML = VK.Share.button({
 
 });
 
+function changeSort(obj,id){
+    $.get( "/vacancy/changesort?id=" + id +"&sort=" + obj.value, function( data ) {
+            
+    });
+}
 </script>
 <?php
     $roleArr = \Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
