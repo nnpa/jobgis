@@ -107,7 +107,7 @@ class DefaultController extends Controller
             $employment = "Полная занятость";
         }
         
-        $sql .=  " ORDER BY `rsort`,`create_time` DESC";
+        $sql .=  " ORDER BY `rsort` DESC";
         
         if($page == 1){
             $limit = " limit 0,".$perPage;
