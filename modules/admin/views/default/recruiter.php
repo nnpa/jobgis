@@ -195,6 +195,7 @@ function selectCountry(val) {
     <tr>
         <td>Вакансия</td>
         <td>Город</td>
+        <td>Действие</td>
     </tr>
     <?php foreach($recruiters as $recruiter):?>
     <tr>
@@ -203,6 +204,9 @@ function selectCountry(val) {
         </td>
         <td>
             <?php echo $recruiter->city;?>
+        </td>
+        <td>
+            <a href="/admin/default/rd?id=<?php echo $recruiter->id;?>&recruiter=<?php echo $user->id;?>">Удалить</a>
         </td>
     </tr>
     <?php endforeach;?>
