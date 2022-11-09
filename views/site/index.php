@@ -51,6 +51,8 @@
     </div>
     <?php endforeach; ?>
             <div>&nbsp;</div>
+            <div>&nbsp;</div>
+
     <h5>Последние вакансии<h5>
     <?php foreach($vacancys as $vacancy):?>
     <div style="padding-top:10px;width:50%;float:left">
