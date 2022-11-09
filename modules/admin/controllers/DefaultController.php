@@ -287,6 +287,7 @@ public function actionAdd(){
         $vacancy = Vacancy::find()->where(["id" => $id])->one();
         $vacancy->rsort = $vacancy->rsort +1;
         $vacancy->save(false);
+        echo $vacancy->rsort ;exit;
         return $this->redirect("/admin/default/index");
     }
 }
