@@ -200,7 +200,7 @@ class FirmController extends Controller
                 $user->create_time = time();
                 $user->patronymic = "";
                 $user->firm_id = $firm->id;
-                
+                $user->type = 2;
                 
                 $user->save(false);
                 
