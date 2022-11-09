@@ -194,4 +194,10 @@ class VacancyController extends AppController
         }
         return "";
     }
+    
+    public function actionChangesort($id,$sort){
+        $vacancy = Vacancy::find()->where(["id" => $id])->one();
+        $vacancy->rsort = $sort;
+        $vacancy->save(false);
+    }
 }

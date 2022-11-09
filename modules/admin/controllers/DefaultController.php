@@ -161,9 +161,7 @@ public function actionAdd(){
         return $this->render("recruiter",["firms" => $firms,"user" => $user,"recruiters" => $recruiters]);
     }
     
-    public function actionTest(){
-        echo '123';
-    }
+
     
     public function actionRd($id,$recruiter){
         $spec = Recruiter::find()->where(["id" => $id])->one();

@@ -27,6 +27,17 @@ document.getElementById('vk_share_button').innerHTML = VK.Share.button({
 });
 
 </script>
+<?php
+    $roleArr = \Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
+    if(!empty($roleArr)){
+        
+        foreach($roleArr as $roleObj){
+            if($roleObj->name == "admin"){
+                echo "Сортировка <input type='text' value='".$vacancy->rsort."' onblur='changeSort(this,".$vacancy->id.")' id='rsort'>";
+            }
+        }
+    }
+?>
 <div>
     <div style="width:50px;float:left">
         <span id="vk_share_button"> </span>
