@@ -282,4 +282,11 @@ public function actionAdd(){
         $spec->delete();
         return $this->redirect("/admin/default/recruiter?id=" . $recruiter);
     }
+    
+    public function actionUpvacancy($id){
+        $vacancy = Vacancy::find()->where(["id" => $id])->one();
+        $vacancy->rsort = $vacancy->rsort +1;
+        $vacancy->save(false);
+        return $this->redirect("/admin/default/index");
+    }
 }
