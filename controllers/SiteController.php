@@ -81,9 +81,13 @@ class SiteController extends AppController
         
         $partners = Partners::find()->all();
         $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->limit(20)->all();
+        
+        $tops = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["rsort" => SORT_DESC])->limit(5)->all();
+
+        
         $resumes = Resume::find()->where('name != :name', ['name'=>"Заполните должность"])->andWhere(["verify" => 1])->orderBy(["id" => SORT_DESC])->limit(20)->all();
 
-        return $this->render('index',["resumes" => $resumes,"vacancys" => $vacancys,"partners"=>$partners,"news"=>$news]);
+        return $this->render('index',["tops" => $tops,"resumes" => $resumes,"vacancys" => $vacancys,"partners"=>$partners,"news"=>$news]);
     }
 
     /**
