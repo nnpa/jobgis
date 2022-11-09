@@ -152,7 +152,7 @@ class SearchController extends AppController
             $employment = "Полная занятость";
         }
         
-        $sql .=  " ORDER BY `create_time`";
+        $sql .=  " ORDER BY `rsort,``create_time`";
         
         if($page == 1){
             $limit = " limit 0,".$perPage;
