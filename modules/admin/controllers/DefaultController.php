@@ -23,9 +23,123 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->limit(10)->all();
 
-        return $this->render('index',["vacancys" => $vacancys]);
+        if(isset($_GET["page"]) && !empty($_GET["page"])){
+            $page = $_GET["page"];
+        }else {
+            $page = 1;
+        }
+        
+        $perPage = 20;
+        
+        $conn = mysqli_connect("localhost","root","g02091988","jobgis");
+        
+
+        
+        
+        $sql = "SELECT vacancy.*,firm.name as firm_name,firm.logo,firm.id as firm_id FROM `vacancy` "
+                . " INNER JOIN Users ON vacancy.user_id = Users.id"
+                . " INNER JOIN firm ON Users.firm_id = firm.id"
+                . " WHERE 1=1 AND vacancy.name != 'Заполните должность'";
+        $url = "http://jobgis.ru/search/vacancy?test=1";
+        $sqlCount = "SELECT COUNT(*) FROM `vacancy` WHERE 1=1 AND name != 'Заполните должность'";
+        
+        if(isset($_GET["name"]) && !empty($_GET['name'])){
+            $name = $_GET["name"];
+            $sql .= " AND vacancy.`name` = '". mysqli_real_escape_string($conn,$name)."'";
+            $sqlCount .= " AND `name` = '". mysqli_real_escape_string($conn,$name)."'";
+            $url .= "&name=" . $name; 
+        }else {
+            $name = "";
+        }
+        
+        
+        if(isset($_GET["city"]) && !empty($_GET['city'])){
+            $city = $_GET['city'];
+            $sql .= " AND vacancy.`city` = '". mysqli_real_escape_string($conn,$city)."'";
+            $sqlCount .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
+            $url .= "&city=" . $city; 
+        }else {
+            $city = "";
+        }
+        
+        if(isset($_GET["cost"]) && !empty($_GET['cost'])){
+            $cost = (int)$_GET["cost"];
+            $sql .= " AND `costfrom` > ". mysqli_real_escape_string($conn,$cost);
+            $sqlCount .= " AND `costfrom` > ". mysqli_real_escape_string($conn,$cost);
+            $url .= "&cost=" . $cost; 
+        }else {
+            $cost = "";
+        }
+        
+        if(isset($_GET["spec"]) && !empty($_GET['spec'])){
+            $spec = $_GET["spec"];
+            $sql  .= " AND `spec` = '". mysqli_real_escape_string($conn,$spec)."'";
+            $sqlCount .= " AND `spec` = '". mysqli_real_escape_string($conn,$spec)."'";
+            $url .= "&spec=" . $spec; 
+        }else {
+            $spec = "";
+        }
+        
+        if(isset($_GET["exp"]) && !empty($_GET['exp'])){
+            $exp = $_GET["exp"];
+
+            if($exp != "no"){
+                $sql .= " AND `exp` = '". mysqli_real_escape_string($conn,$exp)."'";
+                $sqlCount .= " AND `exp` = '". mysqli_real_escape_string($conn,$exp)."'";
+                $url .= "&exp=" . $exp; 
+            }
+
+
+        }else {
+            $exp = "no";
+        }
+        
+        if(isset($_GET["employment"]) && !empty($_GET['employment'])){
+            $employment = $_GET["employment"];
+            
+            $sql .= " AND `employment` = '". mysqli_real_escape_string($conn,$employment)."'";
+            $sqlCount .=  " AND `employment` = '". mysqli_real_escape_string($conn,$employment)."'";
+            
+            $url .= "&employment=" . $employment; 
+
+        }else {
+            $employment = "Полная занятость";
+        }
+        
+        $sql .=  " ORDER BY `rsort`,`create_time`";
+        
+        if($page == 1){
+            $limit = " limit 0,".$perPage;
+        }else{
+            $limit = " limit " . ($page * $perPage). ",". $perPage;
+        }
+        
+        $sql .= $limit ;
+        
+        $connection = Yii::$app->getDb();
+        
+        $command = $connection->createCommand($sql);
+        $result = $command->queryAll();
+        
+        $command = $connection->createCommand($sqlCount);
+        $count = $command->queryAll();
+        $count = (int)$count[0]["COUNT(*)"];
+        
+        $pages = $count/$perPage;
+        
+        return $this->render("vacancy",[
+            "city" => $city,
+            "spec" => $spec,
+            "exp" => $exp,
+            "cost" => $cost,
+            "employment" => $employment,
+            "name" => $name,
+            "result" => $result,
+            'page' => $page,
+            'pages' => $pages,
+            "url" => $url
+        ]);
     }
     
         public function actionLogout()
