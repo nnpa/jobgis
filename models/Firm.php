@@ -81,6 +81,7 @@ class Firm extends \yii\db\ActiveRecord
                 $user->save(false);
             }
         }
+        $this->create_time = time();
         
         return parent::beforeSave($insert);
     }
