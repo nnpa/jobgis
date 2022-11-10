@@ -96,6 +96,8 @@
 <div style="flex: 0 1 auto;">
 
 <?php if(!empty($news)):?>
+    <hr>
+
 <h5>Новости</h5>
     <?php foreach($news as $new):?>
         <div style="padding-top:10px;width:50%;float:left">
@@ -104,6 +106,8 @@
     <?php endforeach;?><br><br>
     <a href="/news/all">Все новости</a>
 <?php endif;?>
+<hr>
+
 <h5 style="padding-top: 10px;">Информационные партнеры</h5>
 
 <?php foreach($partners as $partner):?> 
