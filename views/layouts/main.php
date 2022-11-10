@@ -155,7 +155,7 @@ AppAsset::register($this);
         <a href="https://t.me/jobgis/"><img src="/img/t.png" ></a>
         <a target="_blank" href="https://vk.com/jobgis"><img src="/img/vk.png" ></a>
         <a target="_blank" href="https://dzen.ru/jobgis/"><img width="30px" height="30px" src="/img/d.jpg" ></a>
-        <a target="_blank" href="https://yarus.ru/user/jobgis"><img width="50px" height="50px" src="/img/ya.jpg" ></a>
+        <a target="_blank" href="https://yarus.ru/user/jobgis"><img width="50px" height="50px" src="/img/ya.jpeg" ></a>
 
         <a href="/search/company">Каталог компаний</a>
         <?php if(Yii::$app->user->isGuest):?>
