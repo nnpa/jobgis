@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'language',
             //'language_add',
             //'car',
-            //'update_time:datetime',
+            'update_time:datetime',
             //'user_id',
             //'exp',
             //'verify',

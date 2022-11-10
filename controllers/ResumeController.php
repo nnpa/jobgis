@@ -103,8 +103,9 @@ class ResumeController extends AppController
        $resume->car = "";
        $resume->update_time = 0;
        $resume->user_id = $user->id;
-        $resume->exp = 0;
-
+       $resume->exp = 0;
+       $resume->update_time = time();
+       
        $resume->save(false);
        $this->redirect("/resume/edit?id=" . $resume->id);
    }
