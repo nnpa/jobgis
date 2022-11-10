@@ -81,7 +81,7 @@ function changeSort(obj,id){
                 <a class="btn btn-primary" href="#" onClick="getContacts('<?php echo $vacancy->id;?>')">Контакты</a>
             </div>
         <?php else:?>
-            <a href="/site/registercandidate">Зарегириструйтесь</a> для просмотра контактов
+            <a href="/site/registercandidate">Зарегистрируйтесь</a> для просмотра контактов
         <?php endif; ?>
 
 
