@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'email:email',
             //'password',
             //'recover_code',
-            //'create_time:datetime',
+            'create_time:datetime',
             //'auth_key',
             //'access_token',
             //'patronymic',
