@@ -50,7 +50,7 @@ use yii\widgets\LinkPager;
   <?php if(!is_null($r->resume)):?>
     <tr>
         <td>
-           <?php echo $r->vacancy->name;?></b> 
+            <a href="/vacancy/show?id=<?php echo $r->vacancy->id;?>" target="_blank"><?php echo $r->vacancy->name;?></a> 
         </td>
         <td>
             <a target="_blank" href="/resume/show?id=<?php echo $r->resume->id;?>"><?php echo $r->resume->vacancy;?></a>
