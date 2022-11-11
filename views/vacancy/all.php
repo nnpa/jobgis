@@ -5,7 +5,7 @@
     <?php foreach($vacancies as $vacancy):?>
         <tr>
             <td style="width:30%">
-                <a href="/vacancy/edit?id=<?php echo $vacancy->id;?>"><?php echo $vacancy->name;?></a>
+                <a href="/vacancy/edit?id=<?php echo $vacancy->id;?>"><?php echo $vacancy->name;?> <?php echo $vacancy->city;?> <?php echo $vacancy->costfrom;?></a>
             </td>
             <td style="width:30%">
                  Добавлена <?php echo date("d.m.Y",$vacancy->create_time);?>
