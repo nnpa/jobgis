@@ -41,14 +41,19 @@ use yii\widgets\LinkPager;
 
 <table>
     <tr>
-        <td><b>Отклик</b></td>
+        <td><b>Ваканисия</b></td>
+        <td><b>Резюме</b></td>
+
         <td><b>Действие</b></td>
     </tr>
 <?php foreach($response as $r):?>
   <?php if(!is_null($r->resume)):?>
     <tr>
         <td>
-            На <b><?php echo $r->vacancy->name;?></b> откликнулся <a target="_blank" href="/resume/show?id=<?php echo $r->resume->id;?>"><?php echo $r->resume->vacancy;?></a>
+           <?php echo $r->vacancy->name;?></b> 
+        </td>
+        <td>
+            <a target="_blank" href="/resume/show?id=<?php echo $r->resume->id;?>"><?php echo $r->resume->vacancy;?></a>
         </td>
         <td>
             <?php if($r->result == 0):?>
