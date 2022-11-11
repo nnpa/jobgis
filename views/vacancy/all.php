@@ -51,6 +51,7 @@
                 <?php echo $vacancy->user->name;?>
             </td>
             <td>
+                <?php echo $user->id . " " . $vacancy->user_id;?>
                 <?php if($user->id == $vacancy->user_id):?>
                     <a href="/vacancy/delete?id=<?php echo $vacancy->id;?>">Удалить</a>
                 <?php endif;?>
