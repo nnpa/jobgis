@@ -74,6 +74,8 @@ class FirmSearch extends Firm
         }
 
         $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'city', $this->city]);
+
         $query->andFilterWhere(['like', 'inn', $this->inn]);
 
         return $dataProvider;
