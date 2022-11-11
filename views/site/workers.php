@@ -13,5 +13,6 @@
     </tr>
     
 <?php endforeach; ?>
-    
+    </table>
+
    <a href="/site/addworker" class="btn btn-success">Пригласить сотрудника</a>
