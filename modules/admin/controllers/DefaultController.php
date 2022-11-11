@@ -289,4 +289,8 @@ public function actionAdd(){
         $vacancy->save(false);
         return $this->redirect("/admin/default/index");
     }
+    
+    public function actionNotify(){
+        return $this->render("notify");
+    }
 }

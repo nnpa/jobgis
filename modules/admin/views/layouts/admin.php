@@ -73,6 +73,7 @@ AppAsset::register($this);
             ['label' => 'Партнеры', 'url' => ['/admin/partner/index']],
             ['label' => 'Тех поддержка', 'url' => ['/admin/support/index']],
             ['label' => 'Новости', 'url' => ['/admin/news/index']],
+            ['label' => 'Подписки', 'url' => ['/admin/default/notify']],
 
             ['label' => 'Выход', 'url' => ['/admin/default/logout']],
         ];
