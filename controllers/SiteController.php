@@ -590,7 +590,8 @@ class SiteController extends AppController
                 $user->create_time = time();
                 $user->patronymic = "";
                 $user->firm_id = $firm_id;
-                
+                $user->type = 2;
+
                 
                 $user->save(false);
                 
