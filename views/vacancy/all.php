@@ -51,10 +51,14 @@
                 <?php echo $vacancy->user->name;?>
             </td>
             <td>
-                <a href="/vacancy/delete?id=<?php echo $vacancy->id;?>">Удалить</a>
+                <?php if($user->id == $vacancy->user->id):?>
+                    <a href="/vacancy/delete?id=<?php echo $vacancy->id;?>">Удалить</a>
+                <?php endif;?>
             </td>
             <td>
-                 <a href="/vacancy/edit?id=<?php echo $vacancy->id;?>">Редактировать </a>
+                <?php if($user->id == $vacancy->user->id):?>
+                    <a href="/vacancy/edit?id=<?php echo $vacancy->id;?>">Редактировать </a>
+                <?php endif;?>    
             </td>
         </tr>
     <?php endforeach; ?>

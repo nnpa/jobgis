@@ -70,7 +70,7 @@ class VacancyController extends AppController
         }
         
         $vacancies = Vacancy::find()->where(["user_id" => $ids])->all();
-        return $this->render("all",["vacancies" => $vacancies]);
+        return $this->render("all",["vacancies" => $vacancies,"user"=>$user]);
     }
     
     public function actionDelete($id){
