@@ -48,18 +48,18 @@ use yii\widgets\LinkPager;
   <?php if(!is_null($r->resume)):?>
     <tr>
         <td>
-        На <b><?php echo $r->vacancy->name;?></b> откликнулся <a target="_blank" href="/resume/show?id=<?php echo $r->resume->id;?>"><?php echo $r->resume->vacancy;?></a>
+            На <b><?php echo $r->vacancy->name;?></b> откликнулся <a target="_blank" href="/resume/show?id=<?php echo $r->resume->id;?>"><?php echo $r->resume->vacancy;?></a>
         </td>
         <td>
-        <?php if($r->result == 0):?>
-        <a href="/response/accept?id=<?php echo $r->id;?>">пригласить</a>
-        <a href="/response/refuse?id=<?php echo $r->id;?>">отказать</a>
+            <?php if($r->result == 0):?>
+            <a href="/response/accept?id=<?php echo $r->id;?>">пригласить</a>
+            <a href="/response/refuse?id=<?php echo $r->id;?>">отказать</a>
 
-        <?php elseif($r->result == 1):?>
-            Приглашен
-        <?php else:?>
-            Отказано
-        <?php endif;?>
+            <?php elseif($r->result == 1):?>
+                Приглашен
+            <?php else:?>
+                Отказано
+            <?php endif;?>
         </td>
     </tr>
   <?php endif;?>
