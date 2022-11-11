@@ -7,11 +7,29 @@
 <h3>Мои вакансии</h3>
 <a href="/vacancy/add" class="btn btn-success">Разместить вакансию</a>
 <table>
-
+<tr>
+            <td>
+                <b>Наименование</b>
+            </td>
+            
+            <td>
+               <b>Город</b>
+            </td>
+            <td>
+                 <b>Зарплата</b>
+            </td>
+            <td>
+                 <b>Дата</b>
+            </td>
+            <td>
+               <b>Действия</b>
+            </td>
+        </tr>
+    
     <?php foreach($vacancies as $vacancy):?>
         <tr>
             <td>
-                <a href="/vacancy/edit?id=<?php echo $vacancy->id;?>"><?php echo $vacancy->name;?> <?php echo $vacancy->city;?> <?php echo $vacancy->costfrom;?></a>
+                <a href="/vacancy/edit?id=<?php echo $vacancy->id;?>"><?php echo $vacancy->name;?> </a>
             </td>
             
             <td>
