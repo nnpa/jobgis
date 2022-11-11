@@ -9,7 +9,7 @@
 <table>
 <tr>
             <td>
-                <b>Наименование</b>
+                <b>Должность</b>
             </td>
             
             <td>
@@ -22,14 +22,14 @@
                  <b>Дата</b>
             </td>
             <td>
-               <b>Действия</b>
+               <b>Удалить</b>
             </td>
         </tr>
     
     <?php foreach($vacancies as $vacancy):?>
         <tr>
             <td>
-                <a href="/vacancy/edit?id=<?php echo $vacancy->id;?>"><?php echo $vacancy->name;?> </a>
+                <?php echo $vacancy->name;?> 
             </td>
             
             <td>
@@ -43,6 +43,9 @@
             </td>
             <td>
                 <a href="/vacancy/delete?id=<?php echo $vacancy->id;?>">Удалить</a>
+            </td>
+            <td>
+                 <a href="/vacancy/edit?id=<?php echo $vacancy->id;?>">Редактировать </a>
             </td>
         </tr>
     <?php endforeach; ?>
