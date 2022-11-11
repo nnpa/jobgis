@@ -62,15 +62,15 @@ class VacancyController extends AppController
     }
     
     public function actionList(){
-        $user = Yii::$app->user->identity;
-        $users = Users::find()->where(["firm_id" => $user->firm_id ])->all();
+        $userid = Yii::$app->user->identity;
+        $users = Users::find()->where(["firm_id" => $userid->firm_id ])->all();
         $ids = [];
         foreach($users as $user ){
             $ids[] = $user->id;
         }
         
         $vacancies = Vacancy::find()->where(["user_id" => $ids])->all();
-        return $this->render("all",["vacancies" => $vacancies,"user"=>$user]);
+        return $this->render("all",["vacancies" => $vacancies,"user"=>$userid]);
     }
     
     public function actionDelete($id){
