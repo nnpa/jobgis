@@ -237,7 +237,7 @@ class FirmController extends Controller
         $user = Users::find()->where(["firm_id" =>$id])->one();
                 Yii::$app->mailer->compose()
         ->setFrom('robot@jobgis.ru')
-        ->setTo("admin@jobgis.ru")
+        ->setTo($user->email)
         ->setSubject('Ваша фирма прошла верификацию на сайте jobgis.ru')
         ->setTextBody("Ваша фирма прошла верификацию на сайте jobgis.ru")
         ->setHtmlBody("<html>Ваша фирма прошла верификацию на сайте jobgis.ru</html>")
