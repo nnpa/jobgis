@@ -35,7 +35,7 @@
     <?php foreach($vacancies as $vacancy):?>
         <tr>
             <td>
-                <?php echo $vacancy->name;?> 
+                <a href="/vacancy/show?id=<?php echo $vacancy->id;?>" target="_blank" ><?php echo $vacancy->name;?></a> 
             </td>
             
             <td>
