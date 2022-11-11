@@ -59,27 +59,49 @@
 <?php 
 
 if($resume->employment_full){
-    echo "Полная занятость";
+    echo "Полная занятость ";
 }
 
 if($resume->employment_partial){
-    echo "Частичная занятость";
+    echo "Частичная занятость ";
 }
 
 if($resume->employment_project){
-    echo "Проектная работа";
+    echo "Проектная работа ";
 }
 
 if($resume->employment_volunteering){
-    echo "Волонтерство";
+    echo "Волонтерство ";
 }
 
 if($resume->employment_internship){
-    echo "Стажировка";
+    echo "Стажировка ";
 }
 ?>
 <br>
+График работы:
 
+<?php
+if($resume->schedule_full){
+  echo " Полный день ";
+}
+if($resume->schedule_removable){
+  echo " Сменный график ";
+}
+
+if($resume->schedule_flexible){
+  echo " Гибкий график ";
+}
+
+if($resume->schedule_tomote){
+  echo "  Удаленная работа ";
+}
+
+if($resume->schedule_tour){
+  echo " Вахтовый метод ";
+}
+?>
+<br>
 <?php 
 if($resume->exp != 0){
     $years = floor($resume->exp / 12);
