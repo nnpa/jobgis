@@ -89,6 +89,8 @@ class SiteController extends AppController
 
         return $this->render('index',["tops" => $tops,"resumes" => $resumes,"vacancys" => $vacancys,"partners"=>$partners,"news"=>$news]);
     }
+    
+
 
     /**
      * Login action.

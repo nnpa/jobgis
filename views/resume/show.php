@@ -234,4 +234,34 @@ if($resume->exp != 0){
 
 <?php endforeach;?>
 <br>
+<script>
+    function response(){
+        id = <?php echo $resume->id;?>;
+        vacancy_id = $("#select_response").val();
+        user_id = <?php echo $resume->user_id;?>;
+        $.get( "/response/resume?id=" + id + "&vacancy=" + vacancy_id + "&userId=" + user_id, function( data ) {
+            $("#div_responce").html("Приглашение отправлено");
+        });
+        
+    }
+</script>
+<?php if($showResponce):?>
+
+
+
+    <?php if(!empty($vacancies)):?>
+    <div id="div_responce">
+       <select id="select_response">
+        <?php foreach($vacancies as $vacancy):?>
+           <option value="<?php echo $vacancy->id;?>"><?php echo $vacancy->name;?></option>
+        <?php endforeach;?>
+       </select>
+        <input onClick="response()" type="button" class="btn btn-success" value="Пригласить">
+    </div>
+    <?php else:?>
+        У вас нет вакансий что бы пригласить соискателя
+    <?php endif; ?>
+<?php else:?>
+        Вы уже пригласили соискателя
+<?php endif; ?>
 

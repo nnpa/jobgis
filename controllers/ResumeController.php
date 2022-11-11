@@ -5,7 +5,6 @@ namespace app\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
@@ -16,6 +15,9 @@ use app\models\ResumeExp;
 use app\models\ResumePortfolio;
 use app\models\ResumeEdu;
 use app\models\ResumeAddedu;
+use app\models\Vacancy;
+use app\models\Response;
+
 class ResumeController extends AppController
 {
     public $enableCsrfValidation = false;
@@ -237,12 +239,27 @@ class ResumeController extends AppController
        $resumeExp = ResumeExp::find()->where(["resume_id" => $id])->all();
        $resumePortfolio = ResumePortfolio::find()->where(["resume_id" => $id])->all();
        $resumeAddEdu = ResumeAddedu::find()->where(["resume_id" => $id])->all();
+       
+       $vacancies = Vacancy::find()->where(["user_id" => $user->id])->all();
+       
+       $ids = [];
+       foreach($vacancies as $vacancy){
+           $ids[] = $vacancy->id;
+       }
+       
+       
+       $responce = Response::find()->where(["resume_id"=>$resume->id,"vacancy_id" => $ids])->all();
+       
+       $showResponce = empty($responce);
+       
        return $this->render("show",[
+           "showResponce" => $showResponce,
            "resume" => $resume,
            "resumeExp" =>$resumeExp,
            "resumePortfolio" => $resumePortfolio,
            "resumeEdu" => $resumeEdu,
-           "resumeAddEdu" => $resumeAddEdu
+           "resumeAddEdu" => $resumeAddEdu,
+           "vacancies" => $vacancies
        ]);
    }
    

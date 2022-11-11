@@ -172,4 +172,26 @@ class ResponseController extends AppController{
 
         return $this->redirect($_SERVER['HTTP_REFERER']);
     }
+    
+    public function actionResume($id,$vacancy,$userId){
+        $user = Users::find()->where(["id" => $userId])->one();
+        
+        $response = new Response();
+        $response->resume_id = $id;
+        $response->vacancy_id = $vacancy;
+        $response->result = 1;
+        $response->create_date = time();
+        $response->save(false);
+        
+         $message = "Ваше резюме по вакансии {$response->vacancy->name} не заинтересовало работодателя"; 
+            Yii::$app->mailer->compose()
+        ->setFrom('robot@jobgis.ru')
+        ->setTo($response->resume->user->email)
+        ->setSubject('Резюме не заинтересовало работодателя')
+        ->setTextBody($message)
+        ->setHtmlBody("<html>" . $message . "</html>")
+        ->send();
+         
+        return "";
+    }
 }
