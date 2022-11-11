@@ -22,6 +22,9 @@
                  <b>Дата</b>
             </td>
             <td>
+                Добавил
+            </td>
+            <td>
                <b>Удалить</b>
             </td>
             <td>
@@ -43,6 +46,9 @@
             </td>
             <td>
                  Добавлена <?php echo date("d.m.Y",$vacancy->create_time);?>
+            </td>
+            <td>
+                <?php echo $vacancy->user->name;?>
             </td>
             <td>
                 <a href="/vacancy/delete?id=<?php echo $vacancy->id;?>">Удалить</a>
