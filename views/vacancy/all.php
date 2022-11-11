@@ -24,6 +24,9 @@
             <td>
                <b>Удалить</b>
             </td>
+            <td>
+               <b>Редактировать</b>
+            </td>
         </tr>
     
     <?php foreach($vacancies as $vacancy):?>
