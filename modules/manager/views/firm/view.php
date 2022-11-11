@@ -39,3 +39,4 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
 Телефон: <?php echo $model->getPhone();?>
+<a href="/manager/firm/verify?id=<?php echo $model->id;?>">Верифицировать</a>

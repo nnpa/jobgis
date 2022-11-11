@@ -219,4 +219,21 @@ class FirmController extends Controller
         $password = substr(md5(time()),0,6);
         return $password;
     }
+    
+        public function actionVerify($id){
+        $firm = Firm::find()->where(["id" =>$id])->one();
+        $firm->verify = 1;
+        $firm->save(false);
+        
+        $user = Users::find()->where(["firm_id" =>$id])->one();
+                Yii::$app->mailer->compose()
+        ->setFrom('robot@jobgis.ru')
+        ->setTo("admin@jobgis.ru")
+        ->setSubject('Ваша фирма прошла верификацию на сайте jobgis.ru')
+        ->setTextBody("Ваша фирма прошла верификацию на сайте jobgis.ru")
+        ->setHtmlBody("<html>Ваша фирма прошла верификацию на сайте jobgis.ru</html>")
+        ->send();
+                
+        return $this->redirect("/manager/firm/index");
+    }
 }

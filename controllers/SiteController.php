@@ -649,6 +649,17 @@ class SiteController extends AppController
             $firm->city = $_POST["city"];
 
             $firm->save(false);
+            
+                            
+            Yii::$app->mailer->compose()
+            ->setFrom('robot@jobgis.ru')
+            ->setTo("admin@jobgis.ru")
+            ->setSubject('Работодатель ожидает верификации на сайте jobgis.ru')
+            ->setTextBody("Работодатель ожидает верификации". $firm->name)
+            ->setHtmlBody("<html>Работодатель ожидает верификации". $firm->name. "</html>")
+            ->send();
+            
+            
             return $this->redirect("/");
         }
         return $this->render("addinn");
