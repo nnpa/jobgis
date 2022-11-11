@@ -40,6 +40,10 @@ use yii\widgets\LinkPager;
 <h3>Отклики</h3>
 
 <table>
+    <tr>
+        <td><b>Отклик</b></td>
+        <td><b>Действие</b></td>
+    </tr>
 <?php foreach($response as $r):?>
   <?php if(!is_null($r->resume)):?>
     <tr>
