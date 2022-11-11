@@ -1,3 +1,9 @@
+<style>
+    td {
+        border:1px solid black;
+        padding:5px;
+    }
+</style>
 <h5>Сотрудники</h5>
 <table>
     <tr>
