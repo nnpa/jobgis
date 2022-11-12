@@ -40,7 +40,7 @@ AppAsset::register($this);
     
     <meta property="og:title" content="Jobgis.ru"/>
 <meta property="og:description" content="Сервис для поиска резюме и вакансий"/>
- <meta property="og:image" content="https://jobgis.ru/img/logo.jpg"/>
+ <meta property="og:image" content="https://jobgis.ru/img/logo3.jpg"/>
 <meta property="og:type" content="profile"/>
 <meta property="og:url" content= "https://jobgis.ru" />
 
