@@ -42,6 +42,8 @@ AppAsset::register($this);
 <body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
 
+<meta property="og:image" content="https://jobgis.ru/img/logo.jpg"/>
+
 <header>
     <?php
     
