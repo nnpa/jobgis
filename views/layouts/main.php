@@ -37,7 +37,13 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <meta property="og:image" content="https://jobgis.ru/img/logo.jpg"/>
+    
+    <meta property="og:title" content="Jobgis.ru"/>
+<meta property="og:description" content="Сервис для поиска резюме и вакансий"/>
+ <meta property="og:image" content="https://jobgis.ru/img/logo.jpg"/>
+<meta property="og:type" content="profile"/>
+<meta property="og:url" content= "https://jobgis.ru" />
+
 
     <?php $this->head() ?>
 </head>
