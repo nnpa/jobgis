@@ -30,7 +30,7 @@ class AppController extends Controller{
                 }
             }
             
-            var_dump($action->actionMethod);exit;
+            var_dump($action);exit;
             if($user->firm_id != 0){
                 if($user->firm->inn == 0 OR $user->firm->category == "" OR $user->firm->city == ""){
                     if(!in_array($action->actionMethod, $actions)){
