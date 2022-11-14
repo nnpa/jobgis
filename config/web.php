@@ -80,6 +80,9 @@ $config = [
         'db' => $db,
         
         'urlManager' => [
+            'normalizer' => [
+                'class' => 'yii\web\UrlNormalizer',
+            ],
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
