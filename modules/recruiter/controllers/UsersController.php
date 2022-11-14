@@ -257,6 +257,7 @@ class UsersController extends Controller
                 $user->surname = $_POST["surname"];
                 $user->patronymic = $_POST["patronymic"];
                 $user->phone = $_POST["phone"];
+                $user->city = $_POST["city"];
 
                 $user->save(false);
                 return $this->redirect("/recruiter/users/info");
