@@ -83,7 +83,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '/<crm:(.*)>$' => 'site/hr',
+                '<crm>$' => 'site/hr',
 
             ],
         ],
