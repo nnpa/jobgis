@@ -90,6 +90,10 @@ AppAsset::register($this);
 
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
+        <a href="https://t.me/jobgis/"><img src="/img/t.png" ></a>
+        <a target="_blank" href="https://vk.com/jobgis"><img src="/img/vk.png" ></a>
+        <a target="_blank" href="https://dzen.ru/jobgis/"><img width="30px" height="30px" src="/img/d.jpg" ></a>
+        <a target="_blank" href="https://yarus.ru/user/jobgis"><img width="30px" height="30px" src="/img/ya.jpeg" ></a>
 
     </div>
 </footer>
