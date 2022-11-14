@@ -29,7 +29,7 @@ class DefaultController extends Controller
         $user  = Users::find()->where(["id" => $user->id])->one();
         $errors = [];
         
-
+        
         
         return $this->render("addinfo",["errors" => $errors,"user" => $user]);
     }

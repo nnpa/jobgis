@@ -19,6 +19,6 @@ $(document).ready(function() {
     Фамилия* <input type="text" name="surname" value="<?php echo $user->surname;?>"><br>
     Отчество* <input type="text" name="patronymic" value="<?php echo $user->patronymic;?>"><br>
     Телефон* <input type="text" id="phone" name="phone" value="<?php echo $user->phone;?>"><br>
-    <input type="submit" value="Сохранить" class="btn btn-success">
+    <input type="submit" value="Сохранить" class="btn btn-success"><br>
     Поля помеченные * обязательны к заполнению
 </form>
