@@ -11,12 +11,11 @@ use app\models\Users;
  */
 class DefaultController extends Controller
 {
-    public function actions()
-{
-    return [
-        'error' => ['class' => 'yii\web\ErrorAction'],
-    ];
-}
+    public function actions(){
+        return [
+            'error' => ['class' => 'yii\web\ErrorAction'],
+        ];
+    }
     /**
      * Renders the index view for the module
      * @return string
@@ -37,25 +36,8 @@ class DefaultController extends Controller
         $user  = Users::find()->where(["id" => $user->id])->one();
         $errors = [];
         
-        if(isset($_POST) && !empty($_POST)){
-            if(strlen($_POST["phone"]) < 18){
-               $errors[] = "Не верный формат нормера";
-            }
-            
-            if(empty($errors)){
-                $user->name = $_POST["name"];
-                $user->surname = $_POST["surname"];
-                $user->patronymic = $_POST["patronymic"];
-                $user->phone = $_POST["phone"];
-
-                $user->save(false);
-                return $this->redirect("/recruiter/default/addinfo");
-            }
-
-        }
+        
         
         return $this->render("addinfo",["errors" => $errors,"user" => $user]);
     }
-    
-    
 }
