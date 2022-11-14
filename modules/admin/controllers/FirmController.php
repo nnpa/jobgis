@@ -122,7 +122,7 @@ class FirmController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect("/admin/firm/index");
+        return $this->redirect($_SERVER['HTTP_REFERER']);
     }
 
     /**
