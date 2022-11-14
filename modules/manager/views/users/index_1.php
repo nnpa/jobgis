@@ -40,8 +40,10 @@ $this->params['breadcrumbs'][] = $this->title;
             //'email:email',
             //'password',
             //'recover_code',
-            'create_time:datetime',
-            //'auth_key',
+            [
+                'attribute' => 'create_time',
+                'format' => ['datetime', 'php:d.m.Y H:i:s']
+            ],            //'auth_key',
             //'access_token',
             //'patronymic',
             //'firm_id',

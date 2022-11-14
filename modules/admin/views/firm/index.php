@@ -50,8 +50,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Url::toRoute([$action, 'id' => $model["id"]]);
                  }
             ],
-            'create_time:datetime',
-
+            [
+                'attribute' => 'create_time',
+                'format' => ['datetime', 'php:d.m.Y H:i:s']
+            ],
         ],
     ]); ?>
 </div>
