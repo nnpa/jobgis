@@ -211,7 +211,7 @@ function selectCountry(val) {
                    <?php if((bool)$row["costto"]):?>
                         до <?php echo $row["costto"];?>
                    <?php endif;?> <br>   
-                    <?php echo mb_substr(strip_tags($row["description"]),0,500,"UTF-8");?><br>
+                    <?php echo mb_substr(strip_tags($row["description"]),0,500,"UTF-8")."...";?><br>
                 </div>
 
             <?php endforeach;?>
