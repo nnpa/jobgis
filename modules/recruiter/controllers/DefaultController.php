@@ -11,6 +11,12 @@ use app\models\Users;
  */
 class DefaultController extends Controller
 {
+    public function actions()
+{
+    return [
+        'error' => ['class' => 'yii\web\ErrorAction'],
+    ];
+}
     /**
      * Renders the index view for the module
      * @return string
