@@ -63,7 +63,7 @@ AppAsset::register($this);
 
             ['label' => 'Фирмы', 'url' => ['/recruiter/firm/index']],
             ['label' => 'Пригласить', 'url' => ['/recruiter/firm/add']],
-            ['label' => 'Настройки', 'url' => ['/site/addinfo']],
+            ['label' => 'Настройки', 'url' => ['/recruiter/default/addinfo']],
 
             ['label' => 'Выход', 'url' => ['/recruiter/default/logout']],
         ];
