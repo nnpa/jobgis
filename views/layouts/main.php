@@ -210,7 +210,7 @@ AppAsset::register($this);
 <!-- Put this div tag to the place, where the Community messages block will be -->
 <div id="vk_community_messages"></div>
 <script type="text/javascript">
-  VK.Widgets.CommunityMessages("vk_community_messages", 203009362, {tooltipButtonText: "Есть вопрос?", expanded: 2});
+  VK.Widgets.CommunityMessages("vk_community_messages", 203009362, {tooltipButtonText: "Есть вопрос?", expanded:0});
 </script>
 
 </footer>
