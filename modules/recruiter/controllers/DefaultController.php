@@ -24,13 +24,4 @@ class DefaultController extends Controller
         return $this->goHome();
     }   
     
-    public function actionAddinfo(){
-        $user = Yii::$app->user->identity;
-        $user  = Users::find()->where(["id" => $user->id])->one();
-        $errors = [];
-        
-        
-        
-        return $this->render("addinfo",["errors" => $errors,"user" => $user]);
-    }
 }

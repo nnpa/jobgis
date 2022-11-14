@@ -6,7 +6,7 @@ use yii\web\Controller;
 use app\models\Users;
 
 class AppController extends Controller{
-
+    
     public function beforeAction($action){
         if(!Yii::$app->user->isGuest){
             $user = Yii::$app->user->identity;
