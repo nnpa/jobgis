@@ -58,7 +58,7 @@ function selectCountry(val) {
 
 <div style="float:left;width:30%">&nbsp;</div>
 <div style="float:left;width:30%;min-width: 350px;border:1px solid black;padding: 10px;border-radius: 5px;">
-        <center> <h5>Регистрация Рекрутера</h5></center>
+        <center> <h5>CRM для HR и рекрутинга</h5></center>
 
     <form method="POST">
         
