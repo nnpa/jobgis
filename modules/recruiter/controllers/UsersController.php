@@ -259,7 +259,7 @@ class UsersController extends Controller
                 $user->phone = $_POST["phone"];
 
                 $user->save(false);
-                return $this->redirect("/recruiter/default/addinfo");
+                return $this->redirect("/recruiter/users/info");
             }
 
         }
