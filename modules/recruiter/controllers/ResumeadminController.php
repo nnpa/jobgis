@@ -83,7 +83,6 @@ class ResumeadminController extends Controller
            $sqlCount .= " AND specsub IN (" .$names. ") AND city IN (".$cities.")";
         }
         
-        echo $sql;
         if(isset($_GET["name"]) && !empty($_GET['name'])){
             $name = $_GET["name"];
             $sql .= " AND `vacancy` = '". mysqli_real_escape_string($conn,$name)."'";
