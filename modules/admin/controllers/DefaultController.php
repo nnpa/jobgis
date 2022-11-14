@@ -191,8 +191,6 @@ class DefaultController extends Controller
 
         }
 
-        $manager = AuthAssignment::find()->where(["user_id" => $id,"item_name" =>"manager"])->one();
-
         return $this->render("deletemanager",["manager"=>$manager]);
     }
     
