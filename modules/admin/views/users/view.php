@@ -14,6 +14,19 @@ $this->params['breadcrumbs'][] = $this->title;
 <p>
     Если удалить пользователя то удалятся резюме и вакансии, но останется фирма
 </p>
+<?php if($model->type== 2 OR $model->type == 1):?>
+<a href="/admin/users/addmanager?id=<?php echo $model->id;?>">Сделать менеджером</a><br>
+<a href="/admin/users/addrecruiter?id=<?php echo $model->id;?>">Сделать рекрутером</a>
+<?php endif;?>
+<?php if($model->type== 3):?>
+<a href="/admin/default/managerdelete?id=<?php echo $model->id;?>">Уволить менеджера</a>
+<?php endif;?>
+
+<?php if($model->type== 4):?>
+<a href="/admin/default/recruiter?id=<?php echo $model->id;?>">Уволить рекрутера</a>
+
+<a href="/admin/default/recruiterdelete?id=<?php echo $model->id;?>">Уволить рекрутера</a>
+<?php endif;?>
 <div class="users-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -50,5 +63,3 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
-<a href="/admin/users/addmanager?id=<?php echo $model->id;?>">Сделать менеджером</a><br>
-<a href="/admin/users/addrecruiter?id=<?php echo $model->id;?>">Сделать рекрутером</a>
