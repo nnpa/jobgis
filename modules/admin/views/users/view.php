@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php endif;?>
 
 <?php if($model->type== 4):?>
-<a href="/admin/default/recruiter?id=<?php echo $model->id;?>">Уволить рекрутера</a>
+<a href="/admin/default/recruiter?id=<?php echo $model->id;?>">Просмотр</a><br>
 
 <a href="/admin/default/recruiterdelete?id=<?php echo $model->id;?>">Уволить рекрутера</a>
 <?php endif;?>
