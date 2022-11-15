@@ -60,7 +60,8 @@ AppAsset::register($this);
             ['label' => 'Пользователи', 'url' => ['#'], 'items' => [
                 ['label' => 'Работодатель', 'url' => ['/admin/users/em']],
                 ['label' => 'Соискатель', 'url' => ['/admin/users/can']],
-                ['label' => 'Менеджеры', 'url' => ['/admin/default/manager']],
+                ['label' => 'Менеджеры', 'url' => ['/admin/users/man']],
+                ['label' => 'Рекрутеры', 'url' => ['/admin/users/rec']],
 
             ]],
   

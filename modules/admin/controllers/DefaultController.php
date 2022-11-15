@@ -226,7 +226,7 @@ public function actionAdd(){
                 $user->create_time = time();
                 $user->patronymic = "";
                 $user->firm_id = 29;
-                $user->type = 2;
+                $user->type = 3;
                 
                 $user->save(false);
                 

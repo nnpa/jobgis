@@ -65,6 +65,32 @@ class UsersController extends Controller
         ]);
     }
     
+    public function actionMan()
+    {
+        $searchModel = new UsersSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams,false,3);
+        $dataProvider->sort->defaultOrder = [
+                'id' => SORT_DESC,
+        ];
+        return $this->render('index_1', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    
+        public function actionCan()
+    {
+        $searchModel = new UsersSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams,false,3);
+        $dataProvider->sort->defaultOrder = [
+                'id' => SORT_DESC,
+        ];
+        return $this->render('index_1', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    
     /**
      * Displays a single Users model.
      * @param int $id ID

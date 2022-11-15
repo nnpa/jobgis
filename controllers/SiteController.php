@@ -271,7 +271,7 @@ class SiteController extends AppController
                 $user->password = $this->getPassword();
                 $user->create_time = time();
                 $user->patronymic = "";
-                $user->type = 2;
+                $user->type = 4;
 
                 
                 $user->save(false);
