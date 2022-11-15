@@ -21,6 +21,7 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <head>
+      <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="windows-1251"></script>
 <script
   src="https://code.jquery.com/jquery-3.6.1.js"
