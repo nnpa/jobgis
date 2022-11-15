@@ -77,17 +77,11 @@ class UsersSearch extends Users
             ->andFilterWhere(['like', 'access_token', $this->access_token])
             ->andFilterWhere(['like', 'patronymic', $this->patronymic]);
         
-        if($empl){
             $query->andFilterWhere([
-                "type" => 2
+                "type" => $empl
 
             ]);
 
-        }else{
-            $query->andFilterWhere([
-                "type" => 1
-            ]);
-        }
         
         if($firm_ids != false){
             $query->andFilterWhere(['firm_id' => $firm_ids]);
