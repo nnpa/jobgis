@@ -78,10 +78,10 @@ class UsersController extends Controller
         ]);
     }
     
-        public function actionCan()
+        public function actionRec()
     {
         $searchModel = new UsersSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams,false,3);
+        $dataProvider = $searchModel->search($this->request->queryParams,false,4);
         $dataProvider->sort->defaultOrder = [
                 'id' => SORT_DESC,
         ];
