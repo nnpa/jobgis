@@ -66,6 +66,10 @@ class ResumeController extends AppController
    public function actionNew(){
        $user = Yii::$app->user->identity;
 
+       if($user->type == 2){
+           exit;
+       }
+       
        $resume = new Resume();
        $resume->photo = "";
        $resume->surname = $user->surname;
