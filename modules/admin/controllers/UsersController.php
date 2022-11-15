@@ -42,7 +42,7 @@ class UsersController extends Controller
     public function actionEm()
     {
         $searchModel = new UsersSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams,false,true);
+        $dataProvider = $searchModel->search($this->request->queryParams,false,2);
         $dataProvider->sort->defaultOrder = [
                 'id' => SORT_DESC,
         ];
@@ -55,7 +55,7 @@ class UsersController extends Controller
         public function actionCan()
     {
         $searchModel = new UsersSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams,false,false);
+        $dataProvider = $searchModel->search($this->request->queryParams,false,1);
         $dataProvider->sort->defaultOrder = [
                 'id' => SORT_DESC,
         ];
@@ -184,10 +184,14 @@ class UsersController extends Controller
             
           if($role != "manager"){
             $role = Yii::$app->authManager->getRole('manager');
-        
+            
             Yii::$app->authManager->assign($role,$id);
           }
-
+          
+          $user = Users::find()->where(["id"=>$id])->one();
+          $user->type = 3;
+          $user->save(false);
+          
           $this->redirect("/admin/users/index");
     }
     
@@ -210,6 +214,10 @@ class UsersController extends Controller
             Yii::$app->authManager->assign($role,$id);
           }
 
+          $user = Users::find()->where(["id"=>$id])->one();
+          $user->type = 4;
+          $user->save(false);
+          
           $this->redirect("/admin/users/index");
     }
 }
