@@ -67,7 +67,7 @@ class ResumeController extends AppController
        $user = Yii::$app->user->identity;
 
        if($user->type == 2){
-           exit;
+          $this->redirect("/");
        }
        
        $resume = new Resume();
