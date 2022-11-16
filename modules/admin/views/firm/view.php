@@ -69,11 +69,13 @@ use app\models\Users;
 $recruiters = Users::find()->where(["type" => 4])->all();
 ?>
 
+<h3>Назначить рекрутера</h3>
+
 <form method="POST" action="/admin/firm/setrec?id=<?php echo $model->id?>">
         <select name="manager">
 
 <?php foreach($recruiters as $manager):?>
-        <option value="<?php echo $manager->id?>"><?php echo $manager->name . " " . $manager->surname;?></option>
+        <option value="<?php echo $manager->id?>"><?php echo "id" . $manager->id ." " . $manager->name . " " . $manager->surname;?></option>
 <?php endforeach; ?>
             </select>
 
