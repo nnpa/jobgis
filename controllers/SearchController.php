@@ -204,12 +204,7 @@ class SearchController extends AppController
         
         $conn = mysqli_connect("localhost","root","g02091988","jobgis");
         
-        if(!Yii::$app->user->isGuest){
-            $user = Yii::$app->user->identity;
-            $city = $user->city;
-        }else{
-            $city = "";
-        }
+
         $sql = "SELECT * FROM `resume` WHERE 1=1  AND `vacancy` != 'Заполните должность' AND `verify` = 1";
         $url = "http://jobgis.ru/search/resume?test=1";
         $sqlCount = "SELECT COUNT(*) FROM `resume` WHERE 1=1 != 'Заполните должность' AND `verify` = 1";
@@ -229,9 +224,7 @@ class SearchController extends AppController
             $sqlCount .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
             $url .= "&city=" . $city; 
         }else {
-                $sql .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
-            $sqlCount .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
-            $url .= "&city=" . $city;
+            $city= "";
         }
         
         if(isset($_GET["relocation"]) && !empty($_GET["relocation"])){

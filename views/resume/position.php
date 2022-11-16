@@ -111,7 +111,6 @@ function addSpec(spec,obj){
     var sub_spec = $(obj).val();
     $("#spec").val(spec);
     $("#specsub").val(sub_spec);
-    $("#spectext").html(sub_spec);
 
 }
 </script>
@@ -119,7 +118,7 @@ function addSpec(spec,obj){
 <b>Желаемая должность</b><br>
 <input type="text" name="vacancy" value="<?php echo $resume->vacancy;?>"><br>
 Специализация: 
-<input type="hidden" id="spec" name="spec" value="<?php echo $resume->spec;?>">
+<input type="text" class="popup-open" id="spec" name="spec" value="<?php echo $resume->spec;?>">
 <input type="hidden" id="specsub" name="specsub" value="<?php echo $resume->specsub;?>">
 
 <span id="spectext"><?php echo $resume->specsub;?></span><br>
