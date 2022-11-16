@@ -122,7 +122,6 @@ function addSpec(spec,obj){
 <input type="hidden" id="specsub" name="specsub" value="<?php echo $resume->specsub;?>">
 
 <span id="spectext"><?php echo $resume->specsub;?></span><br>
-<a href="#" class="popup-open" id="speca">Укажите специализацию</a><br>
 
 <b>Зарплата</b><br>
 <input type="text" name="cost" value="<?php echo $resume->cost;?>">
