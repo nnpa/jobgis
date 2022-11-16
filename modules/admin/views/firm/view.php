@@ -48,6 +48,7 @@ use app\models\AuthAssignment;
 
 $managers = AuthAssignment::find()->where(["item_name" => "manager"])->all();
 ?>
+
 <h3>Назначить менеджера</h3>
 <form method="POST" action="/admin/firm/setmanager?id=<?php echo $model->id?>">
         <select name="manager">
@@ -61,5 +62,25 @@ $managers = AuthAssignment::find()->where(["item_name" => "manager"])->all();
 
     <input type="submit" value="Назначить" class="btn btn-success">
 </form>
+
+<?php 
+use app\models\Users;
+
+$recruiters = Users::find()->where(["type" => 4])->all();
+?>
+
+<form method="POST" action="/admin/firm/setrec?id=<?php echo $model->id?>">
+        <select name="manager">
+
+<?php foreach($recruiters as $manager):?>
+        <?php if(is_object($manager->user)):?>
+        <option value="<?php echo $manager->user_id?>"><?php echo $manager->user->name . " " . $manager->user->surname;?></option>
+        <?php endif;?>
+<?php endforeach; ?>
+            </select>
+
+    <input type="submit" value="Назначить" class="btn btn-success">
+</form>
+
 <a href="/admin/partner/setpartner?id=<?php echo $model->id;?>">Сделать партнером<a/><br>
     <a href="/admin/firm/verify?id=<?php echo $model->id;?>">Верифицировать</a>

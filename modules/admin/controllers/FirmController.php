@@ -161,6 +161,26 @@ class FirmController extends Controller
         }
     }
     
+    public function actionSetrec($id){
+        if(isset($_POST["manager"]) && !empty($_POST["manager"])){
+           $firm = Firm::find()->where(["id" => $id])->one();
+           $firm->manage_id = $_POST["manager"];
+           $firm->save(false);
+           
+           $user = Users::find()->where(["id" => $id])->one();
+           
+                Yii::$app->mailer->compose()
+                ->setFrom('robot@jobgis.ru')
+                ->setTo($user->email)
+                ->setSubject('jobgis.ru за вами закреплена фирма ' .$firm->name)
+                ->setTextBody('jobgis.ru за вами закреплена фирма ' .$firm->name)
+                ->setHtmlBody("<html>".'jobgis.ru за вами закреплена фирма ' .$firm->name ."</html>")
+                ->send();
+           
+           return $this->redirect("/admin/firm/index");
+        }
+    }
+    
     public function actionAdd(){
         
         $errors = [];
