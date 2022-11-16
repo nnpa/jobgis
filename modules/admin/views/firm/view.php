@@ -73,7 +73,7 @@ $recruiters = Users::find()->where(["type" => 4])->all();
         <select name="manager">
 
 <?php foreach($recruiters as $manager):?>
-        <option value="<?php echo $manager->user_id?>"><?php echo $manager->user->name . " " . $manager->user->surname;?></option>
+        <option value="<?php echo $manager->id?>"><?php echo $manager->name . " " . $manager->surname;?></option>
 <?php endforeach; ?>
             </select>
 
