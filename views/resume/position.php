@@ -122,7 +122,7 @@ function addSpec(spec,obj){
 <input type="text" class="popup-open" id="specsub" name="specsub" value="<?php echo $resume->specsub;?>">
 
 
-<b>Зарплата</b><br>
+<br><b>Зарплата</b><br>
 <input type="text" name="cost" value="<?php echo $resume->cost;?>">
 <?php
     $cashTypeArr = [
