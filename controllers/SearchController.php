@@ -70,12 +70,7 @@ class SearchController extends AppController
         
         $conn = mysqli_connect("localhost","root","g02091988","jobgis");
         
-        if(!Yii::$app->user->isGuest){
-            $user = Yii::$app->user->identity;
-            $city = $user->city;
-        }else{
-            $city = "";
-        }
+
         
         
         
@@ -102,10 +97,7 @@ class SearchController extends AppController
             $sqlCount .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
             $url .= "&city=" . $city; 
         }else {
-            $city = $city;
-            $sql .= " AND vacancy.`city` = '". mysqli_real_escape_string($conn,$city)."'";
-            $sqlCount .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
-            $url .= "&city=" . $city;
+            $city = "";
         }
         
         if(isset($_GET["cost"]) && !empty($_GET['cost'])){
