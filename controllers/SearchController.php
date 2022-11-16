@@ -195,7 +195,8 @@ class SearchController extends AppController
             "result" => $result,
             'page' => $page,
             'pages' => $pages,
-            "url" => $url
+            "url" => $url,
+            "workschedule" => $workschedule
         ]);
     }
     

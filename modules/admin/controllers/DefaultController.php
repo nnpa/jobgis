@@ -150,7 +150,8 @@ class DefaultController extends Controller
             "result" => $result,
             'page' => $page,
             'pages' => $pages,
-            "url" => $url
+            "url" => $url,
+            "workschedule" =>$workschedule
         ]);
     }
     
