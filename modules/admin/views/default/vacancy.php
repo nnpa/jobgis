@@ -188,7 +188,13 @@ function selectCountry(val) {
             <input type="radio" name="employment" <?php echo ($employment == "Частичная занятость")?'checked':''?>  value="Частичная занятость"> Частичная занятость<br>
             <input type="radio" name="employment" <?php echo ($employment == "Стажировка")?'checked':''?> value="Стажировка"> Стажировка<br>
             <input type="radio" name="employment" <?php echo ($employment == "Проектная работа или разовое задание")?'checked':''?> value="Проектная работа или разовое задание"> Проектная работа или разовое задание<br>
-
+            <b> График работы</b><br>
+            <input type="radio" name="workschedule" <?php echo ("Полный день" == $workschedule)?'checked':''?> value="Полный день"> Полный день<br>
+            <input type="radio" name="workschedule" <?php echo ("Сменный график" == $workschedule)?'checked':''?> value="Сменный график"> Сменный график<br>
+            <input type="radio" name="workschedule" <?php echo ("Гибкий график" == $workschedule)?'checked':''?> value="Гибкий график"> Гибкий график<br>
+            <input type="radio" name="workschedule" <?php echo ("Удаленная работа" == $workschedule)?'checked':''?> value="Волонтерство"> Удаленная работа<br>
+            <input type="radio" name="workschedule" <?php echo ("Вахтовый метод" == $workschedule)?'checked':''?> value="Вахтовый метод"> Вахтовый метод<br>
+            <br>
 
         </div>
         <div style="float:left;width:70%">

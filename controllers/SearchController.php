@@ -152,6 +152,18 @@ class SearchController extends AppController
             $employment = "Полная занятость";
         }
         
+        if(isset($_GET["workschedule"]) && !empty($_GET['workschedule'])){
+            $workschedule = $_GET["workschedule"];
+            
+            $sql .= " AND `workschedule` = '". mysqli_real_escape_string($conn,$workschedule)."'";
+            $sqlCount .=  " AND `workschedule` = '". mysqli_real_escape_string($conn,$workschedule)."'";
+            
+            $url .= "&workschedule=" . $workschedule; 
+
+        }else {
+            $workschedule = "Полный день";
+        }
+        
         $sql .=  " ORDER BY `rsort` DESC, create_time DESC";
         
         if($page == 1){

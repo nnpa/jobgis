@@ -127,6 +127,8 @@ class VacancyController extends AppController
             $vacancy->contactmane  = $_POST["contactmane"];
             $vacancy->email  = $_POST["email"];
             $vacancy->phone  = $_POST["phone"];
+            $vacancy->workschedule  = $_POST["workschedule"];
+
             $vacancy->create_time  = time();
             $vacancy->save(false);
             return $this->render("message",["message" => "Вы успешно отредактировали вакансию"]);
@@ -164,6 +166,9 @@ class VacancyController extends AppController
             $vacancy->email  = $_POST["email"];
             $vacancy->phone  = $_POST["phone"];
             $vacancy->create_time  = time();
+            $vacancy->workschedule  = $_POST["workschedule"];
+
+            
             $vacancy->save(false);
             return $this->render("message",["message" => "Вы успешно отредактировали вакансию"]);
        }
