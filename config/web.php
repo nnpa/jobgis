@@ -87,7 +87,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'crm' => 'site/hr',
-
+                'privacy' => 'site/personal'
             ],
         ],
         

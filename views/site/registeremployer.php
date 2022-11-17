@@ -91,7 +91,7 @@ function selectCountry(val) {
             <div class="col-12">
                 <center>
                     <input class="btn btn-success" type="submit" value="Зарегистрироваться"><br>
-                    Нажимая «Зарегистрироваться», вы принимаете  пользовательское соглашение и <a target="_blank" href="/site/personal/">политику конфиденциальности</a> и использование файлов cookie.
+                    Нажимая «Зарегистрироваться», вы принимаете  пользовательское соглашение и <a target="_blank" href="/privacy/">политику конфиденциальности</a> и использование файлов cookie.
 
                 </center>
             </div>
