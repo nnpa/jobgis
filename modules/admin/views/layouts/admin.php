@@ -71,6 +71,7 @@ AppAsset::register($this);
                 ['label' => 'Новости', 'url' => ['/admin/news/index']],
                 ['label' => 'Тех поддержка', 'url' => ['/admin/support/index']],
                 ['label' => 'Rss', 'url' => ['/admin/default/rss']],
+                ['label' => 'Подписки', 'url' => ['/admin/default/notify']],
 
             ]],
 
@@ -78,7 +79,6 @@ AppAsset::register($this);
             ['label' => 'Резюме', 'url' => ['/admin/resumeadmin/index']],
             ['label' => 'Онлайн', 'url' => ['/admin/users/on']],
             ['label' => 'Партнеры', 'url' => ['/admin/partner/index']],
-            ['label' => 'Подписки', 'url' => ['/admin/default/notify']],
 
             ['label' => 'Выход', 'url' => ['/admin/default/logout']],
         ];
