@@ -334,22 +334,15 @@ class SearchController extends AppController
         $sql  = "SELECT * from `firm` where 1=1 AND `firm`.id != 29 AND verify = 1 ";
         $sqlCount = "SELECT COUNT(*) FROM `firm` WHERE 1=1 AND `firm`.id != 29 AND verify = 1";
 
-        if(!Yii::$app->user->isGuest){
-            $user = Yii::$app->user->identity;
-            $city = $user->city;
-        }else{
-            
-            $city = $this->getCity();
-            if($city == ""){
-                $city = "Москва";
-            }
-        }
+
         
         if(isset($_GET["city"]) && !empty($_GET["city"])){
             $city = $_GET["city"];
             $sql .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
             $sqlCount .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
             $url .= "&city=" . $city; 
+        }else {
+            $city= "";
         }
         
         $category = "";
