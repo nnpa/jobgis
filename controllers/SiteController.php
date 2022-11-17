@@ -972,4 +972,7 @@ class SiteController extends AppController
        return $text;
     }
     
+    public function actionPersonal(){
+        return $this->render("personal");
+    }
 }
