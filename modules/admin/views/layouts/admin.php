@@ -65,15 +65,19 @@ AppAsset::register($this);
 
             ]],
   
+            ['label' => 'Инструменты', 'url' => ['#'], 'items' => [
+                ['label' => 'Пригласить', 'url' => ['/admin/firm/add']],
+                ['label' => 'Навыки', 'url' => ['/admin/skills/index']],
+                ['label' => 'Новости', 'url' => ['/admin/news/index']],
+                ['label' => 'Тех поддержка', 'url' => ['/admin/support/index']],
+                ['label' => 'Rss', 'url' => ['/admin/default/rss']],
+
+            ]],
 
             ['label' => 'Фирмы', 'url' => ['/admin/firm/index']],
-            ['label' => 'Пригласить', 'url' => ['/admin/firm/add']],
-            ['label' => 'Навыки', 'url' => ['/admin/skills/index']],
             ['label' => 'Резюме', 'url' => ['/admin/resumeadmin/index']],
             ['label' => 'Онлайн', 'url' => ['/admin/users/on']],
             ['label' => 'Партнеры', 'url' => ['/admin/partner/index']],
-            ['label' => 'Тех поддержка', 'url' => ['/admin/support/index']],
-            ['label' => 'Новости', 'url' => ['/admin/news/index']],
             ['label' => 'Подписки', 'url' => ['/admin/default/notify']],
 
             ['label' => 'Выход', 'url' => ['/admin/default/logout']],

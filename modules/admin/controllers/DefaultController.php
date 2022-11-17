@@ -304,4 +304,8 @@ public function actionAdd(){
     public function actionNotify(){
         return $this->render("notify");
     }
+    
+    public function actionRss(){
+        return $this->render("rss");
+    }
 }
