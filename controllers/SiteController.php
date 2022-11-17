@@ -975,4 +975,7 @@ class SiteController extends AppController
     public function actionPersonal(){
         return $this->render("personal");
     }
+    public function actionCookie(){
+        return $this->render("cookie");
+    }
 }
