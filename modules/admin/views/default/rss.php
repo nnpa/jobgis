@@ -55,4 +55,4 @@ function selectCountry(val) {
     </div>
     <div id="suggesstion-box"></div><br>
     <span id="rss"></span>
-    <a target="_blank" href="https://jpbgis.ru/site/rss">https://jobgis.ru/site/rss</a>
+    <a target="_blank" href="https://jobgis.ru/site/rss">https://jobgis.ru/site/rss</a>
