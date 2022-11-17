@@ -54,5 +54,5 @@ function selectCountry(val) {
         <input  id="search-box"  id="cityInput" type="text"  name="city">
     </div>
     <div id="suggesstion-box"></div><br>
-    <span id="rss"></span>
+    <span id="rss"></span><br>
     <a target="_blank" href="https://jobgis.ru/site/rss">https://jobgis.ru/site/rss</a>
