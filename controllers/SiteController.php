@@ -833,6 +833,78 @@ class SiteController extends AppController
        return $newImageLayer;
     }
     
+    public function actionRsscity($city){
+       $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->andWhere(["city"=>$city])->orderBy(["create_time" => SORT_DESC])->limit(20)->all();
+       $items = "";
+
+        $response = Yii::$app->response;
+        $response->format = Response::FORMAT_RAW;
+    $response->getHeaders()->set('Content-Type', 'application/xml; charset=utf-8');
+
+       foreach($vacancys as $vacancy){
+           $items .= "<item>";
+           $items .= "<title>{$vacancy->name}</title>";
+           $items .= "<link>https://jobgis.ru/vacancy/show?id={$vacancy->id}</link>";
+           $items .= "<description>";
+            $items .= "$vacancy->name ";
+
+           if((bool)$vacancy->costfrom):
+                 $items .= " от {$vacancy->costfrom}";
+           endif;
+           
+           if((bool)$vacancy->costto):
+                $items .= " до  {$vacancy->costto}";
+            endif;
+            
+            $items .= " " . $vacancy->user->firm->name;
+            $items .= " " . $vacancy->city;
+
+            $items .= " Требуемый опыт работы: " . $vacancy->employment;
+            $items .= " " . $vacancy->user->firm->name;
+            $items .= " " . str_replace("&nbsp;","",strip_tags($vacancy->description));
+
+           $items .= "</description>";
+           $items .= "<pubDate>" . date('r', $vacancy->create_time). "</pubDate>";
+           $items .= "<guid>https://jobgis.ru/vacancy/show?id={$vacancy->id}</guid>";
+           
+           $items .= "</item>";
+
+       }
+       
+       /*
+        $news = News::find()->orderBy(["create_time" => SORT_DESC])->limit(10)->all();
+        foreach($news as $new){
+           $items .= "<item>";
+           $items .= "<title>{$new->title}</title>";
+           $items .= "<link>https://jobgis.ru/news/view?id={$new->id}</link>";
+           $items .= "<description>";
+           $items .= " " . str_replace("&nbsp;","",strip_tags($new->description));
+
+           $items .= "</description>";
+           $items .= "<pubDate>" . date('r', $new->create_time). "</pubDate>";
+           $items .= "<guid>https://jobgis.ru/news/view?id={$new->id}</guid>";
+           
+           $items .= "</item>";
+        }
+        * 
+        */
+        
+        
+       
+       $text = '<?xml version="1.0"  encoding="UTF-8" ?> 
+                <rss xmlns:g="http://base.google.com/ns/1.0" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+                    <channel>
+                    <atom:link href="https://jobgis.ru/site/rss" rel="self" type="application/rss+xml" />
+
+                       <title>Jobgis</title> 
+                       <link>https://jobgis.ru/</link> 
+                       <description>Сервис для работодателей и соискателей</description> 
+                        ' .$items. '
+                    </channel>
+                </rss>';
+       return $text;
+    }
+    
     public function actionRss(){
        $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->limit(20)->all();
        $items = "";
@@ -885,6 +957,8 @@ class SiteController extends AppController
            
            $items .= "</item>";
         }
+        
+        
        
        $text = '<?xml version="1.0"  encoding="UTF-8" ?> 
                 <rss xmlns:g="http://base.google.com/ns/1.0" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
