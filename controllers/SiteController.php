@@ -846,7 +846,7 @@ class SiteController extends AppController
            $items .= "<title>{$vacancy->name}</title>";
            $items .= "<link>https://jobgis.ru/vacancy/show?id={$vacancy->id}</link>";
            $items .= "<description>";
-            $items .= "$vacancy->name ";
+            $items .= " " . $vacancy->city;
 
            if((bool)$vacancy->costfrom):
                  $items .= " от {$vacancy->costfrom}";
@@ -857,7 +857,6 @@ class SiteController extends AppController
             endif;
             
             $items .= " " . $vacancy->user->firm->name;
-            $items .= " " . $vacancy->city;
 
             $items .= " Требуемый опыт работы: " . $vacancy->employment;
             $items .= " " . $vacancy->user->firm->name;
