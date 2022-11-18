@@ -129,6 +129,13 @@ class SiteController extends AppController
 
     
     public function actionRegisteremployer(){
+        $this->view->title = "Jobgis.ru регистрация";
+        $this->view->registerMetaTag(
+            ['name' => 'keywords', 'content' => 'работа, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск']
+        );
+        $this->view->registerMetaTag(
+            ['name' => 'description', 'content' => 'jobgis.ru — сервис, который помогает найти работу и подобрать персонал ! Создавайте резюме и откликайтесь на вакансии. Набирайте сотрудников и публикуйте вакансии.']
+        );
         $company = "";
         $email = "";
         
@@ -227,6 +234,13 @@ class SiteController extends AppController
     }
     
     public function actionHr(){
+        $this->view->title = "Jobgis.ru регистрация";
+        $this->view->registerMetaTag(
+            ['name' => 'keywords', 'content' => 'работа, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск']
+        );
+        $this->view->registerMetaTag(
+            ['name' => 'description', 'content' => 'jobgis.ru — сервис, который помогает найти работу и подобрать персонал ! Создавайте резюме и откликайтесь на вакансии. Набирайте сотрудников и публикуйте вакансии.']
+        );
         $company = "";
         $email = "";
         
@@ -369,6 +383,15 @@ class SiteController extends AppController
     }
     
     public function actionRegistercandidate(){
+        $this->view->title = "Jobgis.ru регистрация";
+        $this->view->registerMetaTag(
+            ['name' => 'keywords', 'content' => 'работа, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск']
+        );
+        $this->view->registerMetaTag(
+            ['name' => 'description', 'content' => 'jobgis.ru — сервис, который помогает найти работу и подобрать персонал ! Создавайте резюме и откликайтесь на вакансии. Набирайте сотрудников и публикуйте вакансии.']
+        );
+        
+        
         $errors =  [];
         $email = "";
         if(
