@@ -175,7 +175,7 @@ class SearchController extends AppController
         $count = $command->queryAll();
         $count = (int)$count[0]["COUNT(*)"];
         
-        $pages = $count/$perPage;
+        $pages = ceil($count/$perPage);
         
         return $this->render("vacancy",[
             "city" => $city,
@@ -300,7 +300,7 @@ class SearchController extends AppController
         $count = $command->queryAll();
         $count = (int)$count[0]["COUNT(*)"];
         
-        $pages = $count/$perPage;
+        $pages = ceil($count/$perPage);
         
         return $this->render("resume",[
             "name" => $name,
@@ -371,7 +371,6 @@ class SearchController extends AppController
         $count = (int)$count[0]["COUNT(*)"];
         
         $pages = ceil($count/$perPage);
-        echo $pages;
         
         return $this->render("company",[
             "city" => $city,
