@@ -124,7 +124,7 @@ class DefaultController extends Controller
         if($page == 1){
             $limit = " limit 0,".$perPage;
         }else{
-            $limit = " limit " . ($page * $perPage). ",". $perPage;
+            $limit = " limit " . (($page -1 )* $perPage). ",". $perPage;
         }
         
         $sql .= $limit ;
@@ -138,7 +138,7 @@ class DefaultController extends Controller
         $count = $command->queryAll();
         $count = (int)$count[0]["COUNT(*)"];
         
-        $pages = $count/$perPage;
+        $pages = ceil($count/$perPage);
         
         return $this->render("vacancy",[
             "city" => $city,

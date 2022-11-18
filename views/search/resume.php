@@ -214,7 +214,7 @@ function selectCountry(val) {
         <nav aria-label="...">
         <ul class="pagination">
 
-        <?php for($i=1;$i < $pages;$i++):?>
+        <?php for($i=1;$i <= $pages;$i++):?>
             <li class="page-item <?php echo ($i == $page)?'active':'';?>">
 
             <a class="page-link"  href="<?php echo $url."&page=".$i;?>"><?php echo $i;?></a> 
