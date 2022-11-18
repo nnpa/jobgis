@@ -18,7 +18,7 @@
             <a href="/resume/edit?id=<?php echo $resume->id;?>"><?php echo $resume->vacancy;?></a>
         </td>
         <td>   
-            <a target="_blank" href="/resume/show?id=<?php echo $resume->id;?>">Ссылка</a>
+            <a target="_blank" href="/resume/show?id=<?php echo $resume->id;?>">Посмотреть</a>
         </td>
     </tr>
 
