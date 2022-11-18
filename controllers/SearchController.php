@@ -356,11 +356,10 @@ class SearchController extends AppController
         if($page == 1){
             $limit = " limit 0,".$perPage;
         }else{
-            $limit = " limit " . ($page * $perPage). ",". $perPage;
+            $limit = " limit " . ($page - 1 * $perPage). ",". $perPage;
         }
         
         $sql .= $limit ;
-        echo $sql;
         $connection = Yii::$app->getDb();
         
         $command = $connection->createCommand($sql);
