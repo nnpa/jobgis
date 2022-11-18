@@ -319,6 +319,14 @@ class SearchController extends AppController
     }
     
     public function actionCompany(){
+        $this->view->title = "Jobgis.ru каталог компаний";
+        $this->view->registerMetaTag(
+            ['name' => 'keywords', 'content' => 'работа, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск']
+        );
+        $this->view->registerMetaTag(
+            ['name' => 'description', 'content' => 'jobgis.ru — сервис, который помогает найти работу и подобрать персонал ! Создавайте резюме и откликайтесь на вакансии. Набирайте сотрудников и публикуйте вакансии.']
+        );
+        
         if(isset($_GET["page"]) && !empty($_GET["page"])){
             $page = $_GET["page"];
         }else {
