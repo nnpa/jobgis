@@ -290,7 +290,7 @@ class SearchController extends AppController
         }
         
         $sql .= $limit ;
-        
+        echo $sql;
         $connection = Yii::$app->getDb();
         
         $command = $connection->createCommand($sql);
