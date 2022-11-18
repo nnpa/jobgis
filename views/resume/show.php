@@ -249,7 +249,7 @@ if($resume->exp != 0){
 
 
 
-    <?php if(!empty($vacancies)):?>
+<?php if(!empty($vacancies)):?>
     <div id="div_responce">
        <select id="select_response">
         <?php foreach($vacancies as $vacancy):?>
