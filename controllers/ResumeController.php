@@ -254,9 +254,10 @@ class ResumeController extends AppController
        
        $responce = Response::find()->where(["resume_id"=>$resume->id,"vacancy_id" => $ids])->all();
        
-       $showResponce = empty($responce) && $user->id != $resume->user_id;
-       
+       $showResponce = empty($responce);
+       $self = $user->id != $resume->user_id;
        return $this->render("show",[
+           "self" => $self,
            "showResponce" => $showResponce,
            "resume" => $resume,
            "resumeExp" =>$resumeExp,

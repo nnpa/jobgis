@@ -245,23 +245,26 @@ if($resume->exp != 0){
         
     }
 </script>
-<?php if($showResponce):?>
+
+<?php if(!$self):?>
+    <?php if($showResponce):?>
 
 
 
-<?php if(!empty($vacancies)):?>
-    <div id="div_responce">
-       <select id="select_response">
-        <?php foreach($vacancies as $vacancy):?>
-           <option value="<?php echo $vacancy->id;?>"><?php echo $vacancy->name;?></option>
-        <?php endforeach;?>
-       </select>
-        <input onClick="response()" type="button" class="btn btn-success" value="Пригласить">
-    </div>
+        <?php if(!empty($vacancies)):?>
+            <div id="div_responce">
+               <select id="select_response">
+                <?php foreach($vacancies as $vacancy):?>
+                   <option value="<?php echo $vacancy->id;?>"><?php echo $vacancy->name;?></option>
+                <?php endforeach;?>
+               </select>
+                <input onClick="response()" type="button" class="btn btn-success" value="Пригласить">
+            </div>
+        <?php else:?>
+            У вас нет вакансий что бы пригласить соискателя
+        <?php endif; ?>
     <?php else:?>
-        У вас нет вакансий что бы пригласить соискателя
+            Вы уже пригласили соискателя
     <?php endif; ?>
-<?php else:?>
-        Вы уже пригласили соискателя
 <?php endif; ?>
 
