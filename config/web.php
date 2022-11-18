@@ -88,8 +88,8 @@ $config = [
             'rules' => [
                 'crm' => 'site/hr',
                 'privacy' => 'site/personal',
-                'cookie' => 'site/cookie'
-
+                'cookie' => 'site/cookie',
+                'terms' => 'site/terms'
             ],
         ],
         

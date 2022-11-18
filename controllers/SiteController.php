@@ -978,4 +978,8 @@ class SiteController extends AppController
     public function actionCookie(){
         return $this->render("cookie");
     }
+    
+    public function actionTerms(){
+        return $this->render("terms");
+    }
 }
