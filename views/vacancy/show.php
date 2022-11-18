@@ -55,7 +55,7 @@ function changeSort(obj,id){
             <?php echo $vacancy->user->company;?><br>
         <?php endif;?>
             
-        Город: <?php echo $vacancy->city;?><br>
+        Город: <?php echo $vacancy->city;?><br><br>
 
         <span class="vacancy_compensation">
             <?php if((bool)$vacancy->costfrom):?>
@@ -73,7 +73,7 @@ function changeSort(obj,id){
         
         Требуемый опыт работы: <?php echo $vacancy->exp;?><br>
         
-        <?php echo $vacancy->employment;?><br>
+        Занятость: <?php echo $vacancy->employment;?><br>
         
         График работы: <?php echo $vacancy->workschedule;?><br>
         
