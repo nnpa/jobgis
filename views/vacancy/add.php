@@ -248,10 +248,8 @@ function deleteSkill(obj){
 <b>Название вакансии</b><br>
 <input type="name" name="name" style="width:40%" value="<?php echo $vacancy->name;?>">
 <input type="hidden" id="spec" name="spec" value="<?php echo $vacancy->spec;?>"><br>
-<input type="hidden" id="specsub" name="specsub" value="<?php echo $vacancy->specsub;?>"><br>
+<input type="text" class="popup-open" id="specsub" name="specsub" value="<?php echo $vacancy->specsub;?>"><br>
 
-<span id="spectext"><?php echo $vacancy->specsub;?></span><br>
-<a href="#" class="popup-open" id="speca">Укажите специализацию</a><br><br>
 
 <b>Город</b><br>
     <div class="frmSearch">
