@@ -84,7 +84,7 @@ class SearchController extends AppController
         if(isset($_GET["name"]) && !empty($_GET['name'])){
             $name = $_GET["name"];
             $sql .= " AND vacancy.`name` LIKE '". mysqli_real_escape_string($conn,$name)."%'";
-            $sqlCount .= " AND `name` = '". mysqli_real_escape_string($conn,$name)."'";
+            $sqlCount .= " AND `name` LIKE '". mysqli_real_escape_string($conn,$name)."%'";
             $url .= "&name=" . $name; 
         }else {
             $name = "";
@@ -211,8 +211,8 @@ class SearchController extends AppController
         
         if(isset($_GET["name"]) && !empty($_GET['name'])){
             $name = $_GET["name"];
-            $sql .= " AND `vacancy` = '". mysqli_real_escape_string($conn,$name)."'";
-            $sqlCount .= " AND `vacancy` = '". mysqli_real_escape_string($conn,$name)."'";
+            $sql .= " AND `vacancy` LIKE '". mysqli_real_escape_string($conn,$name)."%'";
+            $sqlCount .= " AND `vacancy` LIKE '". mysqli_real_escape_string($conn,$name)."%'";
             $url .= "&name=" . $name; 
         }else {
             $name = "";
