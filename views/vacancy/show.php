@@ -50,6 +50,13 @@ function changeSort(obj,id){
     </div>
     <div style="float:left;padding-left: 50px">
         <h3><?php echo $vacancy->name;?></h3>
+        
+        <?php if(is_object($vacancy->user)):?>
+            <?php echo $vacancy->user->company;?><br>
+        <?php endif;?>
+            
+        Город: <?php echo $vacancy->city;?><br>
+
         <span class="vacancy_compensation">
             <?php if((bool)$vacancy->costfrom):?>
                 от <?php echo $vacancy->costfrom;?> 
@@ -63,13 +70,12 @@ function changeSort(obj,id){
             <?php echo $vacancy->cash;?> <?php echo $vacancy->cashtype;?> <br>
          <?php endif;?>
         </span>
+        
         Требуемый опыт работы: <?php echo $vacancy->exp;?><br>
+        
         <?php echo $vacancy->employment;?><br>
-        <?php if(is_object($vacancy->user)):?>
-            <?php echo $vacancy->user->company;?><br>
-        <?php endif;?>
+        
         График работы: <?php echo $vacancy->workschedule;?><br>
-        Город: <?php echo $vacancy->city;?><br>
         
         <div>
             <?php echo $vacancy->description;?><br>
