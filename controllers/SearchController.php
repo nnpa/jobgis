@@ -371,7 +371,7 @@ class SearchController extends AppController
         $count = (int)$count[0]["COUNT(*)"];
         
         $pages = $count/$perPage;
-       
+        echo $pages;
         
         return $this->render("company",[
             "city" => $city,
