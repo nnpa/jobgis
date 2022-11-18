@@ -145,7 +145,8 @@ class VacancyController extends AppController
        $vacancy->cashtype = "До вычета налогов";
        $vacancy->exp = "Нет опыта";
        $vacancy->employment = "Полная занятость";
-       
+       $vacancy->workschedule  = "Полный день";
+
        
        if(isset($_POST) && !empty($_POST)){
             $vacancy->user_id = $user->id;
