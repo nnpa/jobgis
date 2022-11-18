@@ -68,8 +68,9 @@ function changeSort(obj,id){
         <?php if(is_object($vacancy->user)):?>
             <?php echo $vacancy->user->company;?><br>
         <?php endif;?>
+        График работы: <?php echo $vacancy->workschedule;?><br>
         <?php echo $vacancy->city;?><br>
-
+        
         <div>
             <?php echo $vacancy->description;?><br>
 
