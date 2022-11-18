@@ -64,6 +64,14 @@ class NewsController extends AppController
     }
     
     public function actionAll(){
+        $this->view->title = "Jobgis.ru новости";
+        $this->view->registerMetaTag(
+            ['name' => 'keywords', 'content' => 'работа, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск']
+        );
+        $this->view->registerMetaTag(
+            ['name' => 'description', 'content' => 'jobgis.ru — сервис, который помогает найти работу и подобрать персонал ! Создавайте резюме и откликайтесь на вакансии. Набирайте сотрудников и публикуйте вакансии.']
+        );
+        
         $query = News::find()->orderBy(["id" => SORT_DESC]);
         $pages = new Pagination(['totalCount' => $query->count(),'pageSize' => 10]);
         $news = $query->offset($pages->offset)
@@ -77,6 +85,8 @@ class NewsController extends AppController
         if(is_null($new)){
             exit;
         }
+        $this->view->title = "Jobgis.ru".$new->title;
+
         
         $this->view->registerMetaTag(
             ['name' => 'keywords', 'content' => $new->keywords]

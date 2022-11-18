@@ -59,6 +59,13 @@ class SearchController extends AppController
     }
     
     public function actionVacancy(){
+        $this->view->title = "Jobgis.ru вакансии";
+        $this->view->registerMetaTag(
+            ['name' => 'keywords', 'content' => 'работа, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск']
+        );
+        $this->view->registerMetaTag(
+            ['name' => 'description', 'content' => 'jobgis.ru — сервис, который помогает найти работу и подобрать персонал ! Создавайте резюме и откликайтесь на вакансии. Набирайте сотрудников и публикуйте вакансии.']
+        );
         
         if(isset($_GET["page"]) && !empty($_GET["page"])){
             $page = $_GET["page"];
@@ -193,6 +200,13 @@ class SearchController extends AppController
     }
     
     public function actionResume(){
+        $this->view->title = "Jobgis.ru резюме";
+        $this->view->registerMetaTag(
+            ['name' => 'keywords', 'content' => 'работа, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск']
+        );
+        $this->view->registerMetaTag(
+            ['name' => 'description', 'content' => 'jobgis.ru — сервис, который помогает найти работу и подобрать персонал ! Создавайте резюме и откликайтесь на вакансии. Набирайте сотрудников и публикуйте вакансии.']
+        );
         
         if(isset($_GET["page"]) && !empty($_GET["page"])){
             $page = $_GET["page"];
