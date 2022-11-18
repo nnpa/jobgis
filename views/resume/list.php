@@ -24,4 +24,4 @@
 
     <br>
 <?php endforeach; ?>
-<table>
+</table>
