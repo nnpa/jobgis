@@ -41,7 +41,7 @@ use yii\widgets\LinkPager;
 
 <table>
     <tr>
-        <td><b>Ваканисия</b></td>
+        <td><b>Вакансия</b></td>
         <td><b>Резюме</b></td>
 
         <td><b>Действие</b></td>
