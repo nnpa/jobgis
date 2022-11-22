@@ -56,6 +56,10 @@
             <div>&nbsp;</div>
 <hr>
     <h5>Последние вакансии<h5>
+<form action="/search/vacancy">
+    <input type="text" name="name" style="width:40%">
+    <input type="submit" class="btn btn-success" value="Искать">
+</form>
     <?php foreach($vacancys as $vacancy):?>
     <div style="padding-top:10px;width:50%;float:left">
         <a target="_blank" href="/vacancy/show?id=<?php echo $vacancy->id?>"><?php echo $vacancy->name;?></a><br>
