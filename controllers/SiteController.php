@@ -99,7 +99,13 @@ class SiteController extends AppController
      */
     public function actionLogin()
     {
- 
+         $this->view->title = "Jobgis.ru вход";
+        $this->view->registerMetaTag(
+            ['name' => 'keywords', 'content' => 'работа, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск']
+        );
+        $this->view->registerMetaTag(
+            ['name' => 'description', 'content' => 'jobgis.ru — сервис, который помогает найти работу и подобрать персонал ! Создавайте резюме и откликайтесь на вакансии. Набирайте сотрудников и публикуйте вакансии.']
+        );
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
@@ -334,6 +340,13 @@ class SiteController extends AppController
     }
     
     public function actionReset(){
+        $this->view->title = "Jobgis.ru сброс пароля";
+        $this->view->registerMetaTag(
+            ['name' => 'keywords', 'content' => 'работа, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск']
+        );
+        $this->view->registerMetaTag(
+            ['name' => 'description', 'content' => 'jobgis.ru — сервис, который помогает найти работу и подобрать персонал ! Создавайте резюме и откликайтесь на вакансии. Набирайте сотрудников и публикуйте вакансии.']
+        );
         $errors = [];
         if(isset($_POST["email"])){
             if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
