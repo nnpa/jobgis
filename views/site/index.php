@@ -100,7 +100,7 @@
 
 <h5>Новости</h5>
     <?php foreach($news as $new):?>
-        <div style="padding-top:10px;width:50%;float:left">
+        <div style="padding-top:10px;width:50%;float:left;padding-left:10px;">
             <a href="/news/view?id=<?php echo $new->id;?>" target="_blank"><?php echo $new->title;?></a>
         </div>
     <?php endforeach;?><br><br>
