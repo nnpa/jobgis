@@ -497,7 +497,7 @@ class SearchController extends AppController
             $top = " год";
 
         }
-        $sql = "select city,name,surname, id, (select COUNT(*) from firm where manage_id = Users.id AND firm.create_time > $time) as cnt from Users where type = 4  order by cnt limit 100;";
+        $sql = "select city,name,surname, id, (select COUNT(*) from firm where manage_id = Users.id AND firm.create_time > $time) as cnt from Users where type = 4 AND recruiter_info is not null order by cnt limit 100;";
         
         $connection = Yii::$app->getDb();
 
