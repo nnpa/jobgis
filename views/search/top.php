@@ -9,7 +9,6 @@
 <table>
     <tr>
         <td><b>Рекрутер</b></td>
-        <td><b>Город</b></td>
         <td><b>Пригласил</b></td>
 
     </tr>
@@ -17,7 +16,6 @@
     <tr>
         <td><a href="/site/recruiterview?id=<?php echo $row["id"];?>"><?php echo $row["name"]. " " . $row["surname"]?></a></td>
         <td><?php echo $row["city"];?></td>
-        <td><?php echo $row["cnt"];?></td>
 
     </tr>
 <?php endforeach; ?>
