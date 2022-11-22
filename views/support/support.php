@@ -1,3 +1,12 @@
+<script>
+   $(document).ready(function() {
+ 
+	$('textarea').jqte();
+	
+	// settings of status
+
+   });
+</script>
 <h3>Напишите обращение в тех поддержку</h3>
 
 <?php foreach($messages as $message):?>
