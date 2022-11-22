@@ -13,10 +13,12 @@
 
     </tr>
 <?php foreach($result as $row):?>
-    <tr>
-        <td><a href="/site/recruiterview?id=<?php echo $row["id"];?>"><?php echo $row["name"]. " " . $row["surname"]?></a></td>
-        <td><?php echo $row["city"];?></td>
+    <?php if($row["cnt"] > 0):?>
+        <tr>
+            <td><a href="/site/recruiterview?id=<?php echo $row["id"];?>"><?php echo $row["name"]. " " . $row["surname"]?></a></td>
+            <td><?php echo $row["city"];?></td>
 
-    </tr>
+        </tr>
+    <?php endif;?>
 <?php endforeach; ?>
 </table>
