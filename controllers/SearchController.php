@@ -354,8 +354,8 @@ class SearchController extends AppController
         
         
         $url = "/search/reacruiter?a=test";
-        $sql  = "SELECT * from `Users` where 1=1 AND surname != '' AND recruiter_info IS NOT NULL AND type = 4 ";
-        $sqlCount = "SELECT COUNT(*) FROM `Users` WHERE 1=1 AND surname != '' AND recruiter_info IS NOT NULL AND type = 4";
+        $sql  = "SELECT * from `Users` where 1=1 AND surname != '' AND recruiter_info IS NOT NULL AND recruiter_info <> ''  AND type = 4 ";
+        $sqlCount = "SELECT COUNT(*) FROM `Users` WHERE 1=1 AND surname != '' AND recruiter_info IS NOT NULL AND recruiter_info <> '' AND type = 4";
 
 
         
