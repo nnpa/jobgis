@@ -591,7 +591,7 @@ class SiteController extends AppController
     public function actionWorkers(){
         $user = Yii::$app->user->identity;
         $workers = Users::find()->where(["firm_id" => $user->firm_id])->all();
-        return $this->render("workers",["workers" => $workers]);
+        return $this->render("workers",["workers" => $workers,"user"=>$user]);
     }
     
     public function actionAddworker(){
@@ -629,6 +629,7 @@ class SiteController extends AppController
                 $user->patronymic = "";
                 $user->firm_id = $firm_id;
                 $user->type = 2;
+                $user->is_admin = 0;
 
                 
                 $user->save(false);
@@ -651,6 +652,28 @@ class SiteController extends AppController
             }
         }
         return $this->render('addworker',['errors' => $errors]);
+    }
+    
+    public function actionDeleteworker($id){
+        $user = Users::find()->where(["id" =>$id])->one();
+        if(is_null($user)){
+            exit;
+        }
+        
+        if(isset($_POST) && !empty($_POST)){
+            $id = $_POST["worker"];
+            
+            $vacancies = Vacancy::find()->where(["user_id" => $user->id])->all();
+            foreach($vacancies as $vacancy){
+                $vacancy->user_id = $id;
+                $vacancy->save(false);
+                $user->delete();
+                return $this->redirect("/site/workers");
+            }
+        }
+        $workers = Users::find()->where(["firm_id" => $user->firm_id])->all();
+        return $this->render("deleteworker",["user"=>$user,"workers" => $workers]);
+        
     }
     
     public function actionAddinfo(){
@@ -1017,5 +1040,16 @@ class SiteController extends AppController
     
     public function actionTerms(){
         return $this->render("terms");
+    }
+    
+    public function actionRecruiterview($id){
+        $user = Users::find()->where(["id" => $id])->one();
+        
+        if(is_null($user)){
+            exit;
+        }
+        
+        
+        return $this->render("recruiter",["user" => $user]);
     }
 }

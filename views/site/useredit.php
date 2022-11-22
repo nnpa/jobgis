@@ -67,7 +67,7 @@ function selectCountry(val) {
     <input type="submit" value="Сохранить" class="btn btn-success">
 </form>
 
-<?php if($firm->id != 0):?>
+<?php if($firm->id != 0 AND $user->is_admin == 1):?>
 <h5>Информация о компании</h5>
 
 <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>

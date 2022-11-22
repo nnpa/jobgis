@@ -268,5 +268,14 @@ class UsersController extends Controller
         return $this->render("addinfo",["errors" => $errors,"user" => $user]);
     }
     
-
+    public function actionCatalog(){
+        $user = Yii::$app->user->identity;
+        
+        if(isset($_POST) && !empty($_POST)){
+           $user->recruiter_info = $_POST['info'];
+           $user->save(false);
+        }
+        return $this->render("catalog",["user"=>$user]);
+    }
+    
 }

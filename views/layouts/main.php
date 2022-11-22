@@ -168,6 +168,8 @@ AppAsset::register($this);
         <a target="_blank" href="https://yarus.ru/user/jobgis"><img width="30px" height="30px" src="/img/ya.jpeg" ></a>
 
         <a href="/search/company">Каталог компаний</a>
+        <a href="/search/recruiter">Каталог рекрутеров</a>
+
         <?php if(Yii::$app->user->isGuest):?>
             Техподдержка: +79174626690
         <?php else:?>

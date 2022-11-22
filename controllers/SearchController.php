@@ -332,6 +332,69 @@ class SearchController extends AppController
         ]);
     }
     
+    
+    public function actionRecruiter(){
+        $this->view->title = "Jobgis.ru каталог компаний";
+        $this->view->registerMetaTag(
+            ['name' => 'keywords', 'content' => 'работа, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск']
+        );
+        $this->view->registerMetaTag(
+            ['name' => 'description', 'content' => 'jobgis.ru — сервис, который помогает найти работу и подобрать персонал ! Создавайте резюме и откликайтесь на вакансии. Набирайте сотрудников и публикуйте вакансии.']
+        );
+        
+        if(isset($_GET["page"]) && !empty($_GET["page"])){
+            $page = $_GET["page"];
+        }else {
+            $page = 1;
+        }
+        
+        $perPage = 20;
+        
+        $conn = mysqli_connect("localhost","root","g02091988","jobgis");
+        
+        
+        $url = "/search/reacruiter?a=test";
+        $sql  = "SELECT * from `Users` where 1=1 AND surname != '' AND recruiter_info IS NOT NULL AND type = 4 ";
+        $sqlCount = "SELECT COUNT(*) FROM `Users` WHERE 1=1 AND surname != '' AND recruiter_info IS NOT NULL AND type = 4";
+
+
+        
+        if(isset($_GET["city"]) && !empty($_GET["city"])){
+            $city = $_GET["city"];
+            $sql .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
+            $sqlCount .= " AND `city` = '". mysqli_real_escape_string($conn,$city)."'";
+            $url .= "&city=" . $city; 
+        }else {
+            $city= "";
+        }
+        
+        if($page == 1){
+            $limit = " limit 0,".$perPage;
+        }else{
+            $limit = " limit " . (($page - 1) * $perPage). ",". $perPage;
+        }
+        
+        $sql .= $limit ;
+        $connection = Yii::$app->getDb();
+        echo $sql;
+        $command = $connection->createCommand($sql);
+        $result = $command->queryAll();
+        
+        $command = $connection->createCommand($sqlCount);
+        $count = $command->queryAll();
+        $count = (int)$count[0]["COUNT(*)"];
+        
+        $pages = ceil($count/$perPage);
+        
+        return $this->render("recruiter",[
+            "city" => $city,
+            "result" => $result,
+            'page' => $page,
+            'pages' => $pages,
+            "url" => $url
+        ]);
+    }
+    
     public function actionCompany(){
         $this->view->title = "Jobgis.ru каталог компаний";
         $this->view->registerMetaTag(
@@ -417,5 +480,29 @@ class SearchController extends AppController
             $city = $netCity->name_ru;
         }
         return $city;
+    }
+    
+    public function actionTop($top){
+        if($top=='week'){
+            $time = time() - (60 * 60 *24 *7 );
+            $top = " неделю";
+        }
+        if($top=='month'){
+            $time = time() - (60 * 60 *24 *30 );
+            $top = " месяц";
+
+        }
+        if($top=='year'){
+            $time = time() - (60 * 60 *24 *365 );
+            $top = " год";
+
+        }
+        $sql = "select city,name,surname, id, (select COUNT(*) from firm where manage_id = Users.id AND firm.create_time > $time) as cnt from Users where type = 4  order by cnt limit 100;";
+        
+        $connection = Yii::$app->getDb();
+
+        $command = $connection->createCommand($sql);
+        $result = $command->queryAll();
+        return $this->render('top',["result" => $result,"top"=>$top]);
     }
 }
