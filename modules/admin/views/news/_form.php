@@ -7,8 +7,16 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\News */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-<script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
+<script>
+   $(document).ready(function() {
+ 
+	$('textarea').jqte();
+	
+	// settings of status
+
+   });
+</script>
 <div class="news-form">
 
     <?php $form = ActiveForm::begin(); ?>

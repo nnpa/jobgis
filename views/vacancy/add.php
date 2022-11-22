@@ -1,4 +1,19 @@
+<style>
+    jqte_toolbar{
+        padding: 10px;
+        margin:10px;
+        heigh:20px;
+    }
+</style>
+<script>
+   $(document).ready(function() {
+ 
+	$('.jqte-test').jqte();
+	
+	// settings of status
 
+   });
+</script>
 <style>
 .popup-fade {
 	display: none;
@@ -179,9 +194,6 @@ function showHideAddress(type){
 }
 </script>
 
-<script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
-
 
 
 
@@ -283,26 +295,27 @@ function deleteSkill(obj){
 <input type="radio" name="exp" <?php echo ("От 1 года до 3 лет" == $vacancy->exp)?'checked':''?> value="От 1 года до 3 лет"> От 1 года до 3 лет<br>
 <input type="radio" name="exp" <?php echo ("От 3 до 6 лет" == $vacancy->exp)?'checked':''?> value="От 3 до 6 лет"> От 3 до 6 лет<br>
 <input type="radio" name="exp" <?php echo ("Более 6 лет" == $vacancy->exp)?'checked':''?> value="Более 6 лет"> Более 6 лет<br><br>
-<b>Расскажите про вакансию</b>
-<textarea name="description" style="width:500px;height:100px">
-<?php if($vacancy->description == ""):?>
-<b>Обязанности: </b><br>
--<br>
--<br>
--<br>
-<b>Требования:</b><br>
--<br>
--<br>
--<br>
-<b>Условия:</b><br>
--<br>
--<br>
--<br>
-<?php else:?>
-<?php echo $vacancy->description;?>
-<?php endif;?>
-</textarea>
- 
+<b>Расскажите про вакансию</b><br>
+
+<textarea class="jqte-test"  name="description" >
+        <?php if($vacancy->description == ""):?>
+        <b>Обязанности: </b><br>
+        -<br>
+        -<br>
+        -<br>
+        <b>Требования:</b><br>
+        -<br>
+        -<br>
+        -<br>
+        <b>Условия:</b><br>
+        -<br>
+        -<br>
+        -<br>
+        <?php else:?>
+        <?php echo $vacancy->description;?>
+        <?php endif;?>
+        </textarea>
+
 <input type="hidden" name="skills" id="skills-input" value="<?php echo $vacancy->skills;?>">
 <div>  &nbsp;</div>
 

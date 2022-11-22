@@ -44,7 +44,8 @@ AppAsset::register($this);
  <meta property="og:image" content="https://jobgis.ru/img/logo3.jpg"/>
 <meta property="og:type" content="profile"/>
 <meta property="og:url" content= "https://jobgis.ru" />
-
+<link type="text/css" rel="stylesheet" href="/css/jquery-te-1.4.0.css">
+<script type="text/javascript" src="/js/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 
     <?php $this->head() ?>
 </head>

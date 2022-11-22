@@ -1,3 +1,12 @@
+<script>
+   $(document).ready(function() {
+ 
+	$('.jqte-test').jqte();
+	
+	// settings of status
+
+   });
+</script>
 <style>
 
 #country-list {
@@ -70,9 +79,6 @@ function selectCountry(val) {
 <?php if($firm->id != 0 AND $user->is_admin == 1):?>
 <h5>Информация о компании</h5>
 
-<script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
-
 
 <form method="POST"  enctype="multipart/form-data">
     <b>Наименование</b> <br><?php echo $firm->name?><br>
@@ -88,7 +94,7 @@ function selectCountry(val) {
     <b>Сайт</b><br>
     <input type="text" name="site" value="<?php echo $firm->site;?>" style="width: 200px"><br>
     <b>О компании</b><br>
-    <textarea name="about"  style="width:400px;height: 150px"><?php echo $firm->about;?></textarea><br>
+    <textarea class="jqte-test" name="about"  style="width:400px;height: 150px"><?php echo $firm->about;?></textarea><br>
     <input type="submit" class="btn btn-success" value="Сохранить">
 </form>
 <?php endif;?>
