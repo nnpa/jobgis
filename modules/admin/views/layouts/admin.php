@@ -37,6 +37,9 @@ AppAsset::register($this);
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <link type="text/css" rel="stylesheet" href="/css/jquery-te-1.4.0.css">
+<script type="text/javascript" src="/js/jquery-te-1.4.0.min.js" charset="utf-8"></script>
+
 </head>
 <body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>

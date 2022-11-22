@@ -36,6 +36,9 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <link type="text/css" rel="stylesheet" href="/css/jquery-te-1.4.0.css">
+<script type="text/javascript" src="/js/jquery-te-1.4.0.min.js" charset="utf-8"></script>
+
     <?php $this->head() ?>
 </head>
 <body class="d-flex flex-column h-100">
