@@ -9,7 +9,7 @@
 <table>
     <tr>
         <td><b>Рекрутер</b></td>
-        <td><b>Пригласил</b></td>
+        <td><b>Город</b></td>
 
     </tr>
 <?php foreach($result as $row):?>
