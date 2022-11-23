@@ -41,7 +41,7 @@ class DefaultController extends Controller
                 . " INNER JOIN Users ON vacancy.user_id = Users.id"
                 . " INNER JOIN firm ON Users.firm_id = firm.id"
                 . " WHERE 1=1 AND vacancy.name != 'Заполните должность'";
-        $url = "/admin/dafault/index?test=1";
+        $url = "https://jobgis.ru/admin/default/index?test=1";
         $sqlCount = "SELECT COUNT(*) FROM `vacancy` WHERE 1=1 AND name != 'Заполните должность'";
         
         if(isset($_GET["name"]) && !empty($_GET['name'])){
