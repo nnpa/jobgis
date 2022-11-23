@@ -16,7 +16,8 @@
                 <a class="btn btn-success" href="/company/recruiter?id=<?php echo $recruiter->id?>">Нанять рекрутера</a>
                 
             <?php else:?>
-                Рекрутер нанят
+                Рекрутер нанят  <a class="btn btn-success" href="/company/recruiterdelete?id=<?php echo $recruiter->id?>">Уволить рекрутера</a>
+
             <?php endif;?>
         <?php endif;?>
     <?php endif;?>

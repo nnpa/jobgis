@@ -131,4 +131,20 @@ class CompanyController extends AppController
         
         return $this->redirect($_SERVER['HTTP_REFERER']);
     }
+    
+     public function actionRecruiterdelete($id){
+        $recruiter  = Users::find()->where(["id" =>$id])->one();
+        
+        
+        
+        $user = Yii::$app->user->identity;
+        
+        $firm = Firm::find()->where(["id" => $user->firm_id])->one();
+        $firm->manage_id = 0;
+        $firm->save(false);
+        
+        return $this->redirect($_SERVER['HTTP_REFERER']);
+    }
+    
+    
 }
