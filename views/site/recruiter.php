@@ -13,7 +13,7 @@
 
         <?php if($user->firm_id != 0):?>
             <?php if($user->firm->manage_id != $recruiter->id):?>
-                <a href="/company/recruiter?id=<?php echo $recruiter->id?>">Нанять рекрутера</a>
+                <a class="btn btn-success" href="/company/recruiter?id=<?php echo $recruiter->id?>">Нанять рекрутера</a>
                 
             <?php else:?>
                 Рекрутер нанят
