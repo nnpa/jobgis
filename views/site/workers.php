@@ -16,7 +16,12 @@
 <?php foreach($workers as $worker):?>
    
     <tr>
-        <td><?php echo $worker->name . " " . $worker->surname;?></b></td>
+        <td><?php echo $worker->name . " " . $worker->surname;?>
+        <?php if($worker->is_admin):?>
+            Администратор
+        <?php endif;?>
+        </b>
+        </td>
         <td><?php echo $worker->email;?></td>
         <td>
             <?php if($user->id != $worker->id AND $user->is_admin):?>
