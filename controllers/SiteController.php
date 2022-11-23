@@ -672,16 +672,20 @@ class SiteController extends AppController
         
         if(isset($_POST) && !empty($_POST)){
             $id = $_POST["worker"];
+            $manager = Users::find()->where(["id" => $id])->one();
             
             $vacancies = Vacancy::find()->where(["user_id" => $user->id])->all();
             foreach($vacancies as $vacancy){
                 $vacancy->user_id = $id;
+                $vacancy->contactmane = $manager->name . " " . $manager->surname;
+                $vacancy->phone = $manager->phone;
+
                 $vacancy->save(false);
             }
             $user->delete();
             return $this->redirect("/site/workers");
-
         }
+        
         $workers = Users::find()->where(["firm_id" => $user->firm_id])->all();
         return $this->render("deleteworker",["user"=>$user,"workers" => $workers]);
         
