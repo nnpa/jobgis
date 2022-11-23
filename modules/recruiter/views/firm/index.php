@@ -16,9 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1>Фирмы</h1>
 
-    <p>
-        <?= Html::a('Создать фирму', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 

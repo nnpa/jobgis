@@ -42,7 +42,7 @@ use yii\widgets\LinkPager;
 <table>
     <tr>
         <td><b>Вакансия</b></td>
-        <td><b>ФИО</b></td>
+        <td><b>Соискатель</b></td>
 
         <td><b>Действие</b></td>
     </tr>
