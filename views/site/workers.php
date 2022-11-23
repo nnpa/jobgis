@@ -38,7 +38,31 @@
     
 <?php endforeach; ?>
     </table>
+
+<?php if(!is_null($recruiter)):?>
+Ваш менеджер/рукрутер
+<table>
+    <tr>
+        <td>ФИО</td>
+        <td>Телефон</td>
+        <td>Уволить</td>
+    </tr>
+    <tr>
+        <td><?php echo $recruiter->surname." " .$recruiter->name . " " . $recruiter->patronymic?></td>
+        <td><?php $recruiter->phone;?> </td>
+        <td>
+            <?php if($recruiter->type == 4):?>
+            <a  href="/company/recruiterdelete?id=<?php echo $recruiter->id?>">Уволить рекрутера</a>
+            <?php endif;?>
+        </td>
+    </tr>
+</table>
+<?php endif;?>
+
+
 <?php if($user->is_admin):?>
     
    <a href="/site/addworker" class="btn btn-success">Пригласить сотрудника</a>
 <?php endif;?>
+
+   

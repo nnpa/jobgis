@@ -598,7 +598,10 @@ class SiteController extends AppController
     public function actionWorkers(){
         $user = Yii::$app->user->identity;
         $workers = Users::find()->where(["firm_id" => $user->firm_id])->all();
-        return $this->render("workers",["workers" => $workers,"user"=>$user]);
+        
+        $recruiter = Users::find()->where(["id" => $user->firm->manage_id])->one();
+        
+        return $this->render("workers",["workers" => $workers,"user"=>$user,"recruiter" => $recruiter]);
     }
     
     public function actionAddworker(){
