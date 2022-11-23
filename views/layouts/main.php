@@ -56,7 +56,19 @@ AppAsset::register($this);
 <header>
     <?php
     
-    $actions = ["show","addinfo","addinn","verify","company","city","vacancy","changesort","rsscity"];
+    $actions = [
+        "show",
+        "addinfo",
+        "addinn",
+        "verify",
+        "company",
+        "city",
+        "vacancy",
+        "changesort",
+        "rsscity",
+        "refuse",
+        "accept"
+        ];
     $role = "guest";
     $roleArr = \Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
     if(!empty($roleArr)){

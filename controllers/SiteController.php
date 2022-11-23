@@ -1057,6 +1057,6 @@ class SiteController extends AppController
         }
         
         
-        return $this->render("recruiter",["user" => $user]);
+        return $this->render("recruiter",["recruiter" => $user]);
     }
 }

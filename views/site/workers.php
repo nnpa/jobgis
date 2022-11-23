@@ -9,6 +9,8 @@
     <tr>
         <td><b>Имя</b></td>
         <td><b>Email</b></td>
+        <td><b>Права</b></td>
+
         <td><b>Уволить</b></td>
 
     </tr>
@@ -17,12 +19,15 @@
    
     <tr>
         <td><?php echo $worker->name . " " . $worker->surname;?>
-        <?php if($worker->is_admin):?>
-            Администратор
-        <?php endif;?>
+
         </b>
         </td>
         <td><?php echo $worker->email;?></td>
+        <td>
+            <?php if($worker->is_admin):?>
+                Администратор
+            <?php endif;?>
+        </td>
         <td>
             <?php if($user->id != $worker->id AND $user->is_admin):?>
                 <a href="/site/deleteworker?id=<?php echo $worker->id;?>">Уволить</a>

@@ -5,11 +5,14 @@ namespace app\modules\recruiter\controllers;
 use app\models\Firm;
 use app\models\FirmSearch;
 use app\models\Users;
+use app\models\Vacancy;
+use app\models\Response;
 
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use Yii;
+use yii\data\Pagination;
 
 /**
  * FirmController implements the CRUD actions for Firm model.
@@ -210,5 +213,63 @@ class FirmController extends Controller
     public function getPassword(){
         $password = substr(md5(time()),0,6);
         return $password;
+    }
+    
+    public function actionVacancy(){
+        $user = Yii::$app->user->identity;
+        
+        $firms = Firm::find()->where(["manage_id" => $user->id])->all();
+        
+        $firmIds = [];
+        
+        foreach($firms as $firm){
+            $firmIds[] = $firm->id;
+        }
+        
+        $userIds = [];
+        
+        $users = Users::find()->where(["firm_id" => $firmIds])->all();
+        
+        foreach($users as $user){
+            $userIds[] = $user->id;
+        }
+        
+        $vacancies = Vacancy::find()->where(["user_id" =>$userIds])->all();
+        
+        return $this->render("vacancy",["vacancies" => $vacancies]);
+    }
+    
+    public function actionResponse(){
+        $user = Yii::$app->user->identity;
+        
+        $firms = Firm::find()->where(["manage_id" => $user->id])->all();
+        
+        $firmIds = [];
+        
+        foreach($firms as $firm){
+            $firmIds[] = $firm->id;
+        }
+        
+        $userIds = [];
+        
+        $users = Users::find()->where(["firm_id" => $firmIds])->all();
+        
+        foreach($users as $user){
+            $userIds[] = $user->id;
+        }
+        
+        $vacancy = Vacancy::find()->where(["user_id" =>$userIds ])->all();
+        $ids = [];
+        foreach($vacancy as $v){
+            $ids[] = $v->id;
+        }
+        
+        
+        $query = Response::find()->where(["vacancy_id" => $ids])->orderBy(["id" => SORT_DESC]);
+        $pages = new Pagination(['totalCount' => $query->count(),'pageSize' => 5]);
+        $response = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+        return $this->render("employer",["response" => $response,'pages'=>$pages]);
     }
 }

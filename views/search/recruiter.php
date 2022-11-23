@@ -61,7 +61,9 @@ function selectCountry(val) {
                     <hr>       
 <div>
     <?php foreach($result as $row):?>
-    <a target="_blank" href="/site/recruiterview?id=<?php echo $row["id"];?>" ><?php echo $row["name"];?> <?php echo $row["surname"];?></a><br>
+    <a target="_blank" href="/site/recruiterview?id=<?php echo $row["id"];?>" ><?php echo $row["name"];?> <?php echo $row["surname"];?></a>
+
+    <br>
     <?php    endforeach;?>
 </div>
 <div>

@@ -109,4 +109,14 @@ class CompanyController extends AppController
             "re" => $re
         ]);
     }
+    
+    public function actionRecruiter($id){
+        $user = Yii::$app->user->identity;
+        
+        $firm = Firm::find()->where(["id" => $user->firm_id])->one();
+        $firm->manage_id = $id;
+        $firm->save(false);
+        
+        return $this->redirect($_SERVER['HTTP_REFERER']);
+    }
 }
