@@ -204,7 +204,7 @@ class FirmController extends Controller
                 return $this->render("message",["message"=>"На  email выслан пароль"]);
             }
         }
-        return $this->render("add");
+        return $this->render("add",["id" => $id]);
     }
     
     public function getPassword(){

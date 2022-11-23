@@ -396,6 +396,13 @@ class SiteController extends AppController
     }
     
     public function actionRegistercandidate(){
+        
+        if(isset($_GET["ref"]) && !empty($_GET["ref"])){
+            $ref= $_GET["ref"];
+        }else{
+            $ref = 0;
+        }
+        
         $this->view->title = "Jobgis.ru регистрация";
         $this->view->registerMetaTag(
             ['name' => 'keywords', 'content' => 'работа, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск']
@@ -437,7 +444,7 @@ class SiteController extends AppController
                 $user->create_time = time();
                 $user->patronymic = "";
                 $user->type = 1;
-
+                $user->ref = $ref;
                 
                 if(isset($_POST["subscribe"])){
                     $user->subscribe = 1;

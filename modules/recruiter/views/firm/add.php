@@ -5,3 +5,6 @@
     <input type="submit" class="btn btn-success" value="Отправить приглашение">
     
 </form>
+
+<h5>Реферальная ссылка для регистрации кандидата</h5>
+<?php echo "https://jobgis.ru/site/registercandidate?ref={$id}";?>
