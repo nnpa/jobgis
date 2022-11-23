@@ -42,7 +42,7 @@ use yii\widgets\LinkPager;
 <table>
     <tr>
         <td><b>Вакансия</b></td>
-        <td><b>Резюме</b></td>
+        <td><b>Соискатель</b></td>
 
         <td><b>Действие</b></td>
     </tr>
@@ -53,7 +53,7 @@ use yii\widgets\LinkPager;
             <a href="/vacancy/show?id=<?php echo $r->vacancy->id;?>" target="_blank"><?php echo $r->vacancy->name;?></a> 
         </td>
         <td>
-            <a target="_blank" href="/resume/show?id=<?php echo $r->resume->id;?>"><?php echo $r->resume->vacancy;?></a>
+            <a target="_blank" href="/resume/show?id=<?php echo $r->resume->id;?>"><?php echo $r->resume->user->surname;?> <?php echo $r->resume->user->name;?> <?php echo $r->resume->user->patronymic;?></a>
         </td>
         <td>
             <?php if($r->result == 0):?>
