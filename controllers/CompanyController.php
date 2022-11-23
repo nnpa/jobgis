@@ -111,11 +111,23 @@ class CompanyController extends AppController
     }
     
     public function actionRecruiter($id){
+        $recruiter  = Users::find()->where(["id" =>$id])->one();
+        
+        
+        
         $user = Yii::$app->user->identity;
         
         $firm = Firm::find()->where(["id" => $user->firm_id])->one();
         $firm->manage_id = $id;
         $firm->save(false);
+        
+        Yii::$app->mailer->compose()
+       ->setFrom('robot@jobgis.ru')
+       ->setTo($recruiter->email)
+       ->setSubject('Заявка Рекрутеру jobgis.ru')
+       ->setTextBody("Добрый день {$user->name} {$firm->name} желает воспользоваться вашими услугами и просит принять вакансии в работу.")
+       ->setHtmlBody("<html>Добрый день {$user->name} <a href='https://jobgis.ru/company/view?id=" . $firm->id . "'>{$firm->name} </a>желает воспользоваться вашими услугами и просит принять вакансии в работу.</html>")
+       ->send();
         
         return $this->redirect($_SERVER['HTTP_REFERER']);
     }
