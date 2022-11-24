@@ -146,6 +146,9 @@ class Resume extends \yii\db\ActiveRecord
         if (date('md', $birthday_timestamp) > date('md')) {
             $age--;
         }
+        if($age > 100){
+            return "";
+        }
         return $this->getSklo($age);
     }
     
