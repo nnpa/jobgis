@@ -57,8 +57,8 @@ use yii\widgets\LinkPager;
         </td>
         <td>
             <?php if($r->result == 0):?>
-            <a href="/response/accept?id=<?php echo $r->id;?>">пригласить</a>
-            <a href="/response/refuse?id=<?php echo $r->id;?>">отказать</a>
+            <a class="btn btn-success" href="/response/accept?id=<?php echo $r->id;?>">пригласить</a>
+            <a class="btn btn-success" href="/response/refuse?id=<?php echo $r->id;?>">отказать</a>
 
             <?php elseif($r->result == 1):?>
                 Приглашен
