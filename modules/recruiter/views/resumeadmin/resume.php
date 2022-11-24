@@ -161,6 +161,10 @@ function selectCountry(val) {
 	$("#suggesstion-box").hide();
 }
 </script>
+
+<?php use app\models\Resume;
+  $resume = new Resume();
+?>
 Для того что бы получить доступ к резюме свяжитесь с администратором +79174626690
 <h5>Поиск резюме</h5>
 <form method="GET">
@@ -204,7 +208,7 @@ function selectCountry(val) {
         </div>
         <div style="width:70%;float:left">
             <?php foreach($result as $row):?>
-                <a target="_blank" href="/recruiter/resumeadmin/view?id=<?php echo $row["id"];?>"><?php echo $row["vacancy"];?></a>
+                <a target="_blank" href="/recruiter/resumeadmin/view?id=<?php echo $row["id"];?>"><?php echo $row["vacancy"];?></a><?php echo $row["city"];?> <?php echo $resume->age($row["birth_date"]);?>
                 <br>
                 
                 <?php echo $row["cost"];?> <?php echo $row["cash_type"];?> <br>
