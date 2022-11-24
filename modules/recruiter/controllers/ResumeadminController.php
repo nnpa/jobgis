@@ -78,7 +78,7 @@ class ResumeadminController extends Controller
         $url = "/admin/resumeadmin/index?test=1";
         $sqlCount = "SELECT COUNT(*) FROM `resume` WHERE 1=1 != 'Заполните должность' AND `verify` = 1";
         
-        if(!is_null($rectruiters)){
+        if(count($names)>1){
            $sql .= " AND specsub IN (" .$names. ") AND city IN (".$cities.")";
            $sqlCount .= " AND specsub IN (" .$names. ") AND city IN (".$cities.")";
         }
