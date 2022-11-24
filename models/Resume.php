@@ -129,4 +129,49 @@ class Resume extends \yii\db\ActiveRecord
        }
         return parent::beforeDelete();
     }
+    
+    public function age(){
+        if($this->birth_date == ""){
+            return "";
+            
+        }
+        $arr = explode(".",$this->birth_date);
+        if(count($arr) <3){
+            return "";
+        }
+        $newDate = $arr[2]."-".$arr[1]."-".$arr[0];
+        
+        $birthday_timestamp = strtotime($newDate);
+        $age = date('Y') - date('Y', $birthday_timestamp);
+        if (date('md', $birthday_timestamp) > date('md')) {
+            $age--;
+        }
+        return $this->getSklo($age);
+    }
+    
+    function getSklo($number)
+
+{
+
+  $one =' год';
+
+  $two =' года';
+
+  $three =' лет';
+
+  $first = substr( $number , -1);
+
+  $two = substr( $number , -2);
+
+  if($first =='1' and $two !='11') { return $number.$one;}
+
+  elseif($first =='2' and $two !='12') { return $number.$two;}
+
+  elseif($first =='3' and $two !='13') { return $number.$two;}
+
+  elseif($first =='4' and $two !='14') { return $number.$two;}
+
+  else{ return $number. $three; }
+
+}
 }
