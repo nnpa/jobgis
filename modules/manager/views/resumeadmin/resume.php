@@ -206,7 +206,7 @@ function selectCountry(val) {
         </div>
         <div style="width:70%;float:left">
             <?php foreach($result as $row):?>
-                <a target="_blank" href="/manager/resumeadmin/view?id=<?php echo $row["id"];?>"><?php echo $row["vacancy"];?></a> <?php echo $row["city"];?> <?php echo $resume->age($row["birth_date"]);?><br>
+                <a target="_blank" href="/manager/resumeadmin/view?id=<?php echo $row["id"];?>"><?php echo $row["vacancy"];?></a> <?php echo $row["city"];?> <?php echo $resume->age($row["birth_date"]);?>
                 <br>
                 
                 <?php echo $row["cost"];?> <?php echo $row["cash_type"];?> <br>
