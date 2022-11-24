@@ -232,10 +232,13 @@ class ResumeController extends AppController
             if($r->name == "manager"){
                 $role = "manager";
             }
+            if($r->name == "recruiter"){
+                $role = "recruiter";
+            }
         }
         $user = Yii::$app->user->identity;
 
-       if($role != "employer" AND $role != "manager" AND $role != "admin"  AND $resume->user_id != $user->id){
+       if($role != "recruiter" AND $role != "employer" AND $role != "manager" AND $role != "admin"  AND $resume->user_id != $user->id){
            exit;
        }
        
