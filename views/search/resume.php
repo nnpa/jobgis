@@ -161,7 +161,9 @@ function selectCountry(val) {
 	$("#suggesstion-box").hide();
 }
 </script>
-
+<?php use app\models\Resume;
+  $resume = new Resume();
+?>
 <h5>Поиск резюме</h5>
 <form method="GET">
     <input style="width:40%" type="name" value="<?php echo $name;?>" >
@@ -204,7 +206,7 @@ function selectCountry(val) {
         </div>
         <div style="width:70%;float:left">
             <?php foreach($result as $row):?>
-                <a target="_blank" href="/resume/show?id=<?php echo $row["id"];?>"><?php echo $row["vacancy"];?></a><br>
+                <a target="_blank" href="/resume/show?id=<?php echo $row["id"];?>"><?php echo $row["vacancy"];?> <?php echo $row["city"];?> <?php echo $resume->age($row["birth_date"]);?></a><br>
                 <?php echo $row["cost"];?> <?php echo $row["cash_type"];?> <br>
             <?php endforeach;?>
         </div>
