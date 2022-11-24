@@ -149,7 +149,9 @@ class Resume extends \yii\db\ActiveRecord
         if($age > 100){
             return "";
         }
-        return $this->getSklo($age);
+        //return $this->getSklo($age);
+        return $age;
+
     }
     
     function getSklo($number)
