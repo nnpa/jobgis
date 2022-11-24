@@ -67,7 +67,9 @@ AppAsset::register($this);
         "changesort",
         "rsscity",
         "refuse",
-        "accept"
+        "accept",
+        "view"
+
         ];
     $role = "guest";
     $roleArr = \Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
