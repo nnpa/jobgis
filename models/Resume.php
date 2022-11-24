@@ -150,7 +150,7 @@ class Resume extends \yii\db\ActiveRecord
             return "";
         }
         //return $this->getSklo($age);
-        return $age, ' ', $this->declension($age, array('год', 'года', 'лет'));
+        return $age. ' '. $this->declension($age, array('год', 'года', 'лет'));
 
     }
     
