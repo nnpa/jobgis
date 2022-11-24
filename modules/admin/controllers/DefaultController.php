@@ -254,7 +254,7 @@ public function actionAdd(){
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody(" Проект JOBGIS предлагает вам вступить в команду менеджеров! по всем вопросам работы сервиса вы можете обратиться к нам по телефону: +79174626690" . $user->email . "  Ваш пароль: " . $user->password)
-                ->setHtmlBody("<html>Проект JOBGIS предлагает вам вступить в команду менеджеров! <br> по всем вопросам работы сервиса вы можете обратиться к нам по телефону: +79174626690 Ваш email: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
+                ->setHtmlBody("<html>Проект JOBGIS предлагает вам вступить в команду менеджеров! <br> по всем вопросам работы сервиса вы можете обратиться к нам по телефону: +79174626690 Ваш логин: " . $user->email . " <br> Ваш пароль: " . $user->password . "<br> <a href='http://".Yii::$app->params['url'] ."/site/login'>Войти</a></html>")
                 ->send();
                 
                 return $this->render("message",["message"=>"На  email выслан пароль"]);

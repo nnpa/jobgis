@@ -1,3 +1,8 @@
+<?php foreach($errors as $error):?>
+    <div class="alert alert-danger" role="alert">
+        <?php echo $error;?>
+    </div>
+<?php endforeach;?>
 <h3>Пригласить работодателя</h3>
 <form method="POST">
     Email <input type="text" name="email"><br>
