@@ -8,7 +8,7 @@
 
 <table>
     <tr>
-        <td>Ваканисия</td>
+        <td>Вакансия</td>
         <td>Фирма</td>
     </tr>
     <?php foreach($vacancies as $vacancy):?>
