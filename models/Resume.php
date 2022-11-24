@@ -130,12 +130,12 @@ class Resume extends \yii\db\ActiveRecord
         return parent::beforeDelete();
     }
     
-    public function age(){
-        if($this->birth_date == ""){
+    public function age($birth_date){
+        if($birth_date == ""){
             return "";
             
         }
-        $arr = explode(".",$this->birth_date);
+        $arr = explode(".",$birth_date);
         if(count($arr) <3){
             return "";
         }
