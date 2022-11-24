@@ -201,7 +201,7 @@ class ResumeadminController extends Controller
     public function actionView($id)
     {
     $resume = Resume::find()->where(["id" => $id])->one();
-
+        var_dump($resume);
        $resumeEdu = ResumeEdu::find()->where(["resume_id" => $id])->all();
        $resumeExp = ResumeExp::find()->where(["resume_id" => $id])->all();
        $resumePortfolio = ResumePortfolio::find()->where(["resume_id" => $id])->all();
