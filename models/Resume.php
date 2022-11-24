@@ -150,33 +150,22 @@ class Resume extends \yii\db\ActiveRecord
             return "";
         }
         //return $this->getSklo($age);
-        return $age;
+        return $age, ' ', $this->declension($age, array('год', 'года', 'лет'));
 
     }
     
-    function getSklo($number)
-
+function declension($number, array $data)
 {
+    $rest = array($number % 10, $number % 100);
 
-  $one =' год';
+    if($rest[1] > 10 && $rest[1] < 20) {
+    return $data[2];
+    } elseif ($rest[0] > 1 && $rest[0] < 5) {
+    return $data[1];
+    } else if ($rest[0] == 1) {
+    return $data[0];
+    }
 
-  $two =' года';
-
-  $three =' лет';
-
-  $first = substr( $number , -1);
-
-  $two = substr( $number , -2);
-
-  if($first =='1' and $two !='11') { return $number.$one;}
-
-  elseif($first =='2' and $two !='12') { return $number.$two;}
-
-  elseif($first =='3' and $two !='13') { return $number.$two;}
-
-  elseif($first =='4' and $two !='14') { return $number.$two;}
-
-  else{ return $number. $three; }
-
+    return $data[2];
 }
 }
