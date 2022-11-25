@@ -208,10 +208,77 @@ function selectCountry(val) {
         </div>
         <div style="width:70%;float:left">
             <?php foreach($result as $row):?>
-                <a target="_blank" href="/recruiter/resumeadmin/view?id=<?php echo $row["id"];?>"><?php echo $row["vacancy"];?></a><?php echo $row["city"];?> <?php echo $resume->age($row["birth_date"]);?>
-                <br>
-                
+                <a target="_blank" href="/recruiter/resumeadmin/view?id=<?php echo $row["id"];?>"><?php echo $row["vacancy"];?></a> <?php echo $resume->age($row["birth_date"]);?> <?php echo $row["city"];?><br>
                 <?php echo $row["cost"];?> <?php echo $row["cash_type"];?> <br>
+                Занятость: 
+                <?php 
+
+                if($row["employment_full"]){
+                    echo "Полная занятость ";
+                }
+
+                if($row["employment_partial"] ){
+                    echo "Частичная занятость ";
+                }
+
+                if($row["employment_project"]){
+                    echo "Проектная работа ";
+                }
+
+                if($row["employment_volunteering"] ){
+                    echo "Волонтерство ";
+                }
+
+                if($row["employment_internship"] ){
+                    echo "Стажировка ";
+                }
+                ?>
+                <br>
+                График работы:
+
+                <?php
+                if($row["schedule_full"]){
+                  echo " Полный день ";
+                }
+                if($row["schedule_removable"]){
+                  echo " Сменный график ";
+                }
+
+                if($row["schedule_flexible"] ){
+                  echo " Гибкий график ";
+                }
+
+                if($row["schedule_tomote"] ){
+                  echo "  Удаленная работа ";
+                }
+
+                if($row["schedule_tour"] ){
+                  echo " Вахтовый метод ";
+                }
+                ?>
+                <br>
+                <?php 
+if($row["exp"] != 0){
+    $years = floor($row["exp"] / 12);
+    $months = $row["exp"] - ($years * 12);
+    if($years > 0){
+        $years = $years . " лет ";
+    }else{
+        $years = "";
+    }    
+    
+    if($months > 0 ){
+        $months = $months . " месяцев";
+    } else{
+        $months = "";
+    }
+}else {
+    $years ="";
+    $months = "";
+}
+
+?>
+Опыт работы <?php echo $years;?> <?php echo $months;?><br>
             <?php endforeach;?>
         </div>
     </div>
