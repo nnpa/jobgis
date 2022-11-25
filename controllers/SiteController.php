@@ -1102,8 +1102,7 @@ class SiteController extends AppController
             
             
             $text .=      '<offer id="v'.$vacancy->id.'">';
-            $text .=      '<name>'.$vacancy->name.'</name>';
-            $text .=      '<name>'.$vacancy->name.'</name>';
+            $text .=      '<name>'.$vacancy->name . " " . $vacancy->city.'</name>';
             $text .=      '<vendor>'.$vacancy->user->firm->name.'</vendor>';
             $text .=      '<url>https://jobgis.ru/vacancy/show?id=' . $vacancy->id .'</url>';
             $text .=      '<price from="true">'.$vacancy->costfrom.'</price>';
