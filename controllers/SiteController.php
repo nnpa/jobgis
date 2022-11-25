@@ -1067,4 +1067,60 @@ class SiteController extends AppController
         
         return $this->render("recruiter",["recruiter" => $user]);
     }
+    
+    public function actionYa(){
+                $response = Yii::$app->response;
+        $response->format = Response::FORMAT_RAW;
+    $response->getHeaders()->set('Content-Type', 'application/xml; charset=utf-8');
+
+        
+        $text = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>';
+        $text .= '<yml_catalog date="'.$today = date("Y.m.d H:m").'">';
+        $text .= '<shop>';
+        $text .= '<name>Jobgis сервис для поиска резюме и вакансий</name>';
+        $text .= '<company>Jobgis</company>';
+        $text .= '<url>jobgis.ru</url>';
+        $text .= '<email>admin@jobgis.ru</email>';
+        $text .= '<currencies>
+                    <currency id="RUR" rate="1" />
+                  </currencies>';
+        $text .= '<categories>
+                    <category id="1">Вакансия</category>
+                  </categories>';
+        $text .= '<sets>
+                    <set id="s1">
+                        <name>Вакансии сайта jobgis</name>
+                        <url>https://jobgis.ru/search/vacancy</url>
+                    </set>
+                  <sets>';
+
+        
+        $text .= '<offers>';
+        
+        $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->limit(20)->all();
+        foreach($vacancys as $vacancy){
+            
+            
+            $text .=      '<offer id="v'.$vacancy->id.'">';
+            $text .=      '<name>'.$vacancy->name.'</name>';
+            $text .=      '<name>'.$vacancy->name.'</name>';
+            $text .=      '<vendor>'.$vacancy->user->firm->name.'</vendor>';
+            $text .=      '<url>https://jobgis.ru/news/view?id=' . $new->id .'</url>';
+            $text .=      '<price from="true">'.$vacancy->costfrom.'</price>';
+            $text .=      '<currencyId>RUR</currencyId>';
+            $text .=      '<categoryId>1</categoryId>';
+            $text .=      '<set-ids>s1</set-ids>';
+            $text .=      '<picture>https://jobgis.ru/img/logo2.jpg</picture>';
+            $text .=      '</offer>';
+
+            
+        }
+        
+        
+        $text .= '</offers>';
+        $text .= '</shop>';
+        $text .= '</yml_catalog>';
+
+        return $text;
+    }
 }
