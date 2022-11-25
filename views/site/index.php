@@ -77,10 +77,77 @@
     <h5>Последние резюме</h5>
     <?php foreach($resumes as $resume):?>
             <div style="padding-top:10px;width:50%;float:left">
-                <a target="_blank" href="/resume/show?id=<?php echo $resume->id?>"><?php echo $resume->vacancy;?></a> <?php echo $resume->city;?> <?php echo $resume->age($resume->birth_date);?> <br>
-                <?php echo $resume->cost?> <?php echo $resume->cash_type?>  <br>
-                <span style="color:#959799"><?php echo $resume->user->city?></span>
+                <a target="_blank" href="/resume/show?id=<?php echo $resume->id?>"><?php echo $resume->vacancy;?></a>  <?php echo $resume->age($resume->birth_date);?> <?php echo $resume->city;?> <br>
+                Желаемая з/п: <?php echo $resume->cost?> <?php echo $resume->cash_type?>  <br>
+                Занятость: 
+                <?php 
 
+                if($resume->employment_full){
+                    echo "Полная занятость ";
+                }
+
+                if($resume->employment_partial){
+                    echo "Частичная занятость ";
+                }
+
+                if($resume->employment_project){
+                    echo "Проектная работа ";
+                }
+
+                if($resume->employment_volunteering){
+                    echo "Волонтерство ";
+                }
+
+                if($resume->employment_internship){
+                    echo "Стажировка ";
+                }
+                ?>
+                <br>
+                График работы:
+
+                <?php
+                if($resume->schedule_full){
+                  echo " Полный день ";
+                }
+                if($resume->schedule_removable){
+                  echo " Сменный график ";
+                }
+
+                if($resume->schedule_flexible){
+                  echo " Гибкий график ";
+                }
+
+                if($resume->schedule_tomote){
+                  echo "  Удаленная работа ";
+                }
+
+                if($resume->schedule_tour){
+                  echo " Вахтовый метод ";
+                }
+                ?>
+                <br>
+                <?php 
+if($resume->exp != 0){
+    $years = floor($resume->exp / 12);
+    $months = $resume->exp - ($years * 12);
+    if($years > 0){
+        $years = $years . " лет ";
+    }else{
+        $years = "";
+    }    
+    
+    if($months > 0 ){
+        $months = $months . " месяцев";
+    } else{
+        $months = "";
+    }
+}else {
+    $years ="";
+    $months = "";
+}
+
+?>
+Опыт работы <?php echo $years;?> <?php echo $months;?>
             </div>
    
     <?php endforeach; ?>
