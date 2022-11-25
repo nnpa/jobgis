@@ -1092,7 +1092,7 @@ class SiteController extends AppController
                         <name>Вакансии сайта jobgis</name>
                         <url>https://jobgis.ru/search/vacancy</url>
                     </set>
-                  <sets>';
+                  </sets>';
 
         
         $text .= '<offers>';
