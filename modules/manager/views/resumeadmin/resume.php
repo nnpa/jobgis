@@ -276,7 +276,7 @@ if($row["exp"] != 0){
 }
 
 ?>
-Опыт работы <?php echo $years;?> <?php echo $months;?><br>
+Опыт работы <?php echo $years;?> <?php echo $months;?><br><br>
             <?php endforeach;?>
         </div>
     </div>
