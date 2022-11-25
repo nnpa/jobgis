@@ -78,7 +78,7 @@
     <?php foreach($resumes as $resume):?>
             <div style="padding-top:10px;width:50%;float:left">
                 <a target="_blank" href="/resume/show?id=<?php echo $resume->id?>"><?php echo $resume->vacancy;?></a>  <?php echo $resume->age($resume->birth_date);?> <?php echo $resume->city;?> <br>
-                Желаемая з/п: <?php echo number_format($resume->cost, 2, '', ' ');?> <?php echo $resume->cash_type?>  <br>
+                Желаемая з/п: <?php echo number_format($resume->cost, 0, '', ' ');?> <?php echo $resume->cash_type?>  <br>
                 Занятость: 
                 <?php 
 
