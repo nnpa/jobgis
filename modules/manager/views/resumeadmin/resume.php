@@ -206,7 +206,7 @@ function selectCountry(val) {
         </div>
         <div style="width:70%;float:left">
             <?php foreach($result as $row):?>
-             <a target="_blank" href="/resume/show?id=<?php echo $row["id"];?>"><?php echo $row["vacancy"];?> </a>, <?php echo $resume->age($row["birth_date"]);?>, <?php echo $row["city"];?><br>
+             <a target="_blank" href="/manager/resumeadmin/view?id=<?php echo $row["id"];?>"><?php echo $row["vacancy"];?> </a>, <?php echo $resume->age($row["birth_date"]);?>, <?php echo $row["city"];?><br>
                 <?php echo number_format($row["cost"], 0, '', ' ');?> <?php echo $row["cash_type"];?> <br>
                 Занятость: 
                 <?php 
