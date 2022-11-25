@@ -1097,7 +1097,7 @@ class SiteController extends AppController
         
         $text .= '<offers>';
         
-        $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->limit(20)->all();
+        $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->all();
         foreach($vacancys as $vacancy){
             
             
