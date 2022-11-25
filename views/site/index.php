@@ -77,7 +77,7 @@
     <h5>Последние резюме</h5>
     <?php foreach($resumes as $resume):?>
             <div style="padding-top:10px;width:50%;float:left">
-                <a target="_blank" href="/resume/show?id=<?php echo $resume->id?>"><?php echo $resume->vacancy;?></a>  <?php echo $resume->age($resume->birth_date);?> <?php echo $resume->city;?> <br>
+                <a target="_blank" href="/resume/show?id=<?php echo $resume->id?>"><?php echo $resume->vacancy;?></a>,  <?php echo $resume->age($resume->birth_date);?>, <?php echo $resume->city;?> <br>
                 Желаемая з/п: <?php echo number_format($resume->cost, 0, '', ' ');?> <?php echo $resume->cash_type?>  <br>
                 Занятость: 
                 <?php 
@@ -147,7 +147,7 @@ if($resume->exp != 0){
 }
 
 ?>
-Опыт работы <?php echo $years;?> <?php echo $months;?>
+Опыт работы: <?php echo $years;?> <?php echo $months;?>
             </div>
    
     <?php endforeach; ?>
