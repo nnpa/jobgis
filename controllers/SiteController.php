@@ -1109,6 +1109,7 @@ class SiteController extends AppController
             $text .=      '<currencyId>RUR</currencyId>';
             $text .=      '<categoryId>1</categoryId>';
             $text .=      '<set-ids>s1</set-ids>';
+            $text .=      '<param name="Конверсия">1.23</param>';
             $text .=      '<picture>https://jobgis.ru/img/logo2.jpg</picture>';
             $text .=      '</offer>';
 
