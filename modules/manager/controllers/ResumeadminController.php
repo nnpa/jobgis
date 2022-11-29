@@ -127,7 +127,7 @@ class ResumeadminController extends Controller
             $spec = "";
         }
         
-        $sql .=  " ORDER BY `verify` ASC ";
+        $sql .=  " ORDER BY `update_time` DESC";
         
         if($page == 1){
             $limit = " limit 0,".$perPage;
