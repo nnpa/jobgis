@@ -415,8 +415,8 @@ class SearchController extends AppController
         
         
         $url = "/search/company?a=test";
-        $sql  = "SELECT * from `firm` where 1=1 AND `firm`.id != 29 AND verify = 1 ";
-        $sqlCount = "SELECT COUNT(*) FROM `firm` WHERE 1=1 AND `firm`.id != 29 AND verify = 1";
+        $sql  = "SELECT * from `firm` where 1=1 AND `firm`.id != 29 AND `firm`.id != 100 AND verify = 1 ";
+        $sqlCount = "SELECT COUNT(*) FROM `firm` WHERE 1=1 AND `firm`.id != 29 AND `firm`.id != 100 AND verify = 1";
 
 
         
