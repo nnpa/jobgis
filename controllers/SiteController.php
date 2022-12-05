@@ -1099,8 +1099,9 @@ class SiteController extends AppController
         
         $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->all();
         foreach($vacancys as $vacancy){
-            
-            
+            if($vacancy->costfrom < 1000){
+                $vacancy->costfrom = 1000;
+            }
             $text .=      '<offer id="v'.$vacancy->id.'">';
             $text .=      '<name>'.$vacancy->name . " " . $vacancy->city.'</name>';
             $text .=      '<vendor>'.$vacancy->user->firm->name.'</vendor>';
