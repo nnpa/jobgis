@@ -1126,6 +1126,7 @@ class SiteController extends AppController
     }
     
     public function actionError(){
+        echo "asd";exit;
         $exception = Yii::$app->errorHandler->exception;
         if ($exception !== null) {
             if ($exception->statusCode == 404)
