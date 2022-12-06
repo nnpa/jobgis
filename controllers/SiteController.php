@@ -1122,5 +1122,13 @@ class SiteController extends AppController
         return $text;
     }
     
-
+    public function actionError(){
+        $exception = Yii::$app->errorHandler->exception;
+        if ($exception !== null) {
+            if ($exception->statusCode == 404)
+                return $this->render('error404', ['exception' => $exception]);
+            else
+                return $this->render('error', ['exception' => $exception]);
+        }
+    }
 }
