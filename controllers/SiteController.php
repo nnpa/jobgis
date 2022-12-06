@@ -51,9 +51,6 @@ class SiteController extends AppController
     public function actions()
     {
         return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
@@ -1125,14 +1122,5 @@ class SiteController extends AppController
         return $text;
     }
     
-    public function actionError(){
-        echo "asd";exit;
-        $exception = Yii::$app->errorHandler->exception;
-        if ($exception !== null) {
-            if ($exception->statusCode == 404)
-                return $this->render('error404', ['exception' => $exception]);
-            else
-                return $this->render('error', ['exception' => $exception]);
-        }
-    }
+
 }
