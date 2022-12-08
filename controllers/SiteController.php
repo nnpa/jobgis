@@ -209,7 +209,7 @@ class SiteController extends AppController
                 Yii::$app->authManager->assign($role,$id);
                 
                  Yii::$app->mailer->compose()
-                ->setFrom('robot@jobgis.ru')
+                ->setFrom('robot@jobgismail.ru')
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Поздравляем вы удачно зарегистрировались на сайте jobgis.ru. Ваш логин: " . $user->email . "  Ваш пароль: " . $user->password)
@@ -300,7 +300,7 @@ class SiteController extends AppController
                 Yii::$app->authManager->assign($role,$id);
                 
                  Yii::$app->mailer->compose()
-                ->setFrom('robot@jobgis.ru')
+                ->setFrom('robot@jobgismail.ru')
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Поздравляем вы удачно зарегистрировались на сайте jobgis.ru. Ваш логин: " . $user->email . "  Ваш пароль: " . $user->password)
@@ -328,7 +328,7 @@ class SiteController extends AppController
     
     public function adminNotify($type,$text){
         Yii::$app->mailer->compose()
-        ->setFrom('robot@jobgis.ru')
+        ->setFrom('robot@jobgismail.ru')
         ->setTo("admin@jobgis.ru")
         ->setSubject('Новая регистрация на сайте jobgis.ru ' . $type)
         ->setTextBody("Новая регистрация на сайте jobgis.ru")
@@ -361,7 +361,7 @@ class SiteController extends AppController
                 $user->save(false);
                 
                 Yii::$app->mailer->compose()
-                ->setFrom('robot@jobgis.ru')
+                ->setFrom('robot@jobgismail.ru')
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Поздравляем вы удачно зарегистрировались на сайте jobgis.ru. Ваш логин: " . $user->email . "  Ваш пароль: " . $user->password)
@@ -458,7 +458,7 @@ class SiteController extends AppController
                 Yii::$app->authManager->assign($role,$id);
                 
                 Yii::$app->mailer->compose()
-                ->setFrom('robot@jobgis.ru')
+                ->setFrom('robot@jobgismail.ru')
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Поздравляем вы удачно зарегистрировались на сайте jobgis.ru. Ваш логин: " . $user->email . "  Ваш пароль: " . $user->password)
@@ -583,7 +583,7 @@ class SiteController extends AppController
         
         
         Yii::$app->mailer->compose()
-        ->setFrom('robot@jobgis.ru')
+        ->setFrom('robot@jobgismail.ru')
         ->setTo('test-l3zp2c7r3@srv1.mail-tester.com')
         ->setSubject('Регистрация на сайте jobgis.ru')
         ->setTextBody('Поздравляем вы удачно зарегистрировались на сайте jobgis.ru')
@@ -648,7 +648,7 @@ class SiteController extends AppController
                 Yii::$app->authManager->assign($role,$id);
                 
                  Yii::$app->mailer->compose()
-                ->setFrom('robot@jobgis.ru')
+                ->setFrom('robot@jobgismail.ru')
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Поздравляем вы удачно зарегистрировались на сайте jobgis.ru. Ваш логин: " . $user->email . "  Ваш пароль: " . $user->password)
@@ -726,7 +726,7 @@ class SiteController extends AppController
             
                             
             Yii::$app->mailer->compose()
-            ->setFrom('robot@jobgis.ru')
+            ->setFrom('robot@jobgismail.ru')
             ->setTo("admin@jobgis.ru")
             ->setSubject('Работодатель ожидает верификации на сайте jobgis.ru')
             ->setTextBody("Работодатель ожидает верификации". $firm->name)

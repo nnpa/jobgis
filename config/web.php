@@ -25,7 +25,10 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
-       'mailer' => [
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+        ],
+        /*       'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => false,
             'transport' => [
@@ -37,6 +40,8 @@ $config = [
                 'encryption' => 'tls',
             ],
         ],
+         * 
+         */
 
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
