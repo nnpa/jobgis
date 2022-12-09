@@ -152,6 +152,8 @@ class VacancyController extends AppController
             $vacancy->specsub  = $_POST["specsub"];
             $vacancy->city  = $_POST["city"];
             $vacancy->costfrom  = (int) $_POST["costfrom"];
+            
+            
             $vacancy->costto  = (int) $_POST["costto"];
             $vacancy->cash  = $_POST["cash"];
             $vacancy->cashtype  = $_POST["cashtype"];

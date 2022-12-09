@@ -1066,9 +1066,9 @@ class SiteController extends AppController
     }
     
     public function actionYa(){
-                $response = Yii::$app->response;
+        $response = Yii::$app->response;
         $response->format = Response::FORMAT_RAW;
-    $response->getHeaders()->set('Content-Type', 'application/xml; charset=utf-8');
+        $response->getHeaders()->set('Content-Type', 'application/xml; charset=utf-8');
 
         
         $text = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>';
@@ -1096,22 +1096,22 @@ class SiteController extends AppController
         
         $vacancys = Vacancy::find()->where('name != :name', ['name'=>"Заполните вакансию"])->orderBy(["create_time" => SORT_DESC])->all();
         foreach($vacancys as $vacancy){
-            if($vacancy->costfrom < 1000){
-                $vacancy->costfrom = 1000;
-            }
-            $text .=      '<offer id="v'.$vacancy->id.'">';
-            $text .=      '<name>'.$vacancy->name . " " . $vacancy->city.'</name>';
-            $text .=      '<vendor>'.$vacancy->user->firm->name.'</vendor>';
-            $text .=      '<url>https://jobgis.ru/vacancy/show?id=' . $vacancy->id .'</url>';
-            $text .=      '<price from="true">'.$vacancy->costfrom.'</price>';
-            $text .=      '<currencyId>RUR</currencyId>';
-            $text .=      '<categoryId>1</categoryId>';
-            $text .=      '<set-ids>s1</set-ids>';
-            $text .=      '<param name="Конверсия">1.23</param>';
-            $text .=      '<picture>https://jobgis.ru/img/logo2.jpg</picture>';
-            $text .=      '</offer>';
-
             
+            if($vacancy->costfrom > 1000 && $vacancy->cash == "руб."){
+
+                $text .=      '<offer id="v'.$vacancy->id.'">';
+                $text .=      '<name>'.$vacancy->name . " " . $vacancy->city.'</name>';
+                $text .=      '<vendor>'.$vacancy->user->firm->name.'</vendor>';
+                $text .=      '<url>https://jobgis.ru/vacancy/show?id=' . $vacancy->id .'</url>';
+                $text .=      '<price from="true">'.$vacancy->costfrom.'</price>';
+                $text .=      '<currencyId>RUR</currencyId>';
+                $text .=      '<categoryId>1</categoryId>';
+                $text .=      '<set-ids>s1</set-ids>';
+                $text .=      '<param name="Конверсия">1.23</param>';
+                $text .=      '<picture>https://jobgis.ru/img/logo2.jpg</picture>';
+                $text .=      '</offer>';
+
+            }
         }
         
         
