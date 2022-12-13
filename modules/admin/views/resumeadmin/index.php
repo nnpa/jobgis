@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'city',
             //'relocation',
             //'business_trips',
-            //'vacancy',
+            'vacancy',
             //'spec',
             //'specsub',
             //'cost',
