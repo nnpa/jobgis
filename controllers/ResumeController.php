@@ -447,81 +447,84 @@ class ResumeController extends AppController
     
     public function actionEditposition($id){
        $user = Yii::$app->user->identity;
-
+       $errors = [];
        $resume = Resume::find()->where(["user_id" => $user->id, "id" => $id])->one();
        if(is_null($resume)){
          exit;
        }
        
        if(isset($_POST) && !empty($_POST) ){
+           if($_POST["vacancy"] == "Заполните должность"){
+              $errors[] = "Вы не заполнили должность"; 
+           }
+           if(empty($errors)){
+                 $resume->vacancy = $_POST["vacancy"];
+                 $resume->spec = $_POST["spec"];
+                 $resume->specsub = $_POST["specsub"];
+                 $resume->cash_type = $_POST["cash_type"];
+                 $resume->cost = (int)$_POST["cost"];
+                 if(isset($_POST["employment_full"])){
+                     $resume->employment_full = 1;
+                 } else{
+                      $resume->employment_full = 0;
+                 }
+                 if(isset($_POST["employment_partial"])){
+                     $resume->employment_partial = 1;
+                 }else{
+                     $resume->employment_partial = 0;
+                 }
 
-           $resume->vacancy = $_POST["vacancy"];
-            $resume->spec = $_POST["spec"];
-            $resume->specsub = $_POST["specsub"];
-            $resume->cash_type = $_POST["cash_type"];
-            $resume->cost = (int)$_POST["cost"];
-            if(isset($_POST["employment_full"])){
-                $resume->employment_full = 1;
-            } else{
-                 $resume->employment_full = 0;
-            }
-            if(isset($_POST["employment_partial"])){
-                $resume->employment_partial = 1;
-            }else{
-                $resume->employment_partial = 0;
-            }
-            
-            if(isset($_POST["employment_project"])){
-                $resume->employment_project = 1;
-            } else{
-                $resume->employment_project = 0;
-            }
-            if(isset($_POST["employment_volunteering"])){
-                $resume->employment_volunteering = 1;
-            } else{
-                $resume->employment_volunteering = 0;
-            }
-            if(isset($_POST["employment_internship"])){
-                $resume->employment_internship = 1;
-            }else{
-                $resume->employment_internship = 0;
+                 if(isset($_POST["employment_project"])){
+                     $resume->employment_project = 1;
+                 } else{
+                     $resume->employment_project = 0;
+                 }
+                 if(isset($_POST["employment_volunteering"])){
+                     $resume->employment_volunteering = 1;
+                 } else{
+                     $resume->employment_volunteering = 0;
+                 }
+                 if(isset($_POST["employment_internship"])){
+                     $resume->employment_internship = 1;
+                 }else{
+                     $resume->employment_internship = 0;
 
-            }
-            
-            
-            
-            if(isset($_POST["schedule_full"])){
-                $resume->schedule_full = 1;
-            }else{
-                $resume->schedule_full = 0;
-            }
-            
-            if(isset($_POST["schedule_removable"])){
-                $resume->schedule_removable = 1;
-            }else{
-                $resume->schedule_removable = 0;
-            }
-            if(isset($_POST["schedule_flexible"])){
-                $resume->schedule_flexible = 1;
-            }else{
-                $resume->schedule_flexible = 0;
+                 }
 
-            }
-            if(isset($_POST["schedule_tomote"])){
-                $resume->schedule_tomote = 1;
-            }else{
-                $resume->schedule_tomote = 0;
-            }
-            if(isset($_POST["schedule_tour"])){
-                $resume->schedule_tour = 1;
-            }else{
-                $resume->schedule_tour = 0;
-            }
-            $resume->save(false);
-            return $this->redirect("/resume/edit?id=".$resume->id);
-            
+
+
+                 if(isset($_POST["schedule_full"])){
+                     $resume->schedule_full = 1;
+                 }else{
+                     $resume->schedule_full = 0;
+                 }
+
+                 if(isset($_POST["schedule_removable"])){
+                     $resume->schedule_removable = 1;
+                 }else{
+                     $resume->schedule_removable = 0;
+                 }
+                 if(isset($_POST["schedule_flexible"])){
+                     $resume->schedule_flexible = 1;
+                 }else{
+                     $resume->schedule_flexible = 0;
+
+                 }
+                 if(isset($_POST["schedule_tomote"])){
+                     $resume->schedule_tomote = 1;
+                 }else{
+                     $resume->schedule_tomote = 0;
+                 }
+                 if(isset($_POST["schedule_tour"])){
+                     $resume->schedule_tour = 1;
+                 }else{
+                     $resume->schedule_tour = 0;
+                 }
+                 $resume->save(false);
+                 return $this->redirect("/resume/edit?id=".$resume->id);
+           }
        }
-       return $this->render("position",["resume"=>$resume]);
+       return $this->render("position",["resume"=>$resume,"errors" => $errors]);
     }
     
     public function actionEditexp($id){

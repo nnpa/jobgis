@@ -16,7 +16,7 @@
 ?>
 <br>
 <small><a href="/resume/editpersonal?id=<?php echo $resume->id?>">редактировать</a></small>
-<h5><?php echo $resume->vacancy;?></h5>
+<h5 style="color:<?php echo ($resume->vacancy == "Заполните должность")?'red':'';?>"><?php echo $resume->vacancy;?></h5>
 <?php echo $resume->cost;?> <?php echo $resume->cash_type;?><br>
 Специализация: <?php echo $resume->specsub;?> <br>
 Занятость: 
