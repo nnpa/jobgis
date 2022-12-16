@@ -25,10 +25,30 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
-        
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+                // send all mails to a file by default. You have to set
+                // 'useFileTransport' to false and configure a transport
+                // for the mailer to send real emails.
+           'useFileTransport' => false,
+                'htmlLayout'=>false,
+                'textLayout'=>false,
+
+                'transport' => [
+                        'class' => 'Swift_SmtpTransport',
+                        'host' => 'smtp.yandex.ru',
+                        'username' => 'jobgis.ru@yandex.ru',
+                        'password' => 'g02091988G',
+                        'port' => '465',
+                        'encryption' => 'ssl',
+                ],
+        ],
+        /*
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
         ],
+         * 
+         */
          
         /**
         'mailer' => [
