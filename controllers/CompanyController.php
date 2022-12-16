@@ -119,7 +119,8 @@ class CompanyController extends AppController
         $firm->save(false);
         
         Yii::$app->mailer->compose()
-       ->setFrom('robot@jobgis.ru')
+       ->setFrom('robot@jobgismail.ru')
+
        ->setTo($recruiter->email)
        ->setSubject('Заявка Рекрутеру jobgis.ru')
        ->setTextBody("Добрый день {$user->name} {$firm->name} желает воспользоваться вашими услугами и просит принять вакансии в работу.")
