@@ -153,7 +153,8 @@ class FirmController extends Controller
     }
     
     public function actionAdd(){
-        
+        $manager = Yii::$app->user->identity;
+
         $errors = [];
         if(isset($_POST["email"]) && !empty($_POST["email"])){
             $email = $_POST['email'];
@@ -171,7 +172,7 @@ class FirmController extends Controller
                 $firm = new Firm();
                 $firm->name =  $_POST["company"];
                 $firm->verify = 0 ;
-                $firm->manage_id = 0 ;
+                $firm->manage_id = $manager->id ;
                 $firm->inn = 0;
                 $firm->city = "";
                 $firm->save(false);
