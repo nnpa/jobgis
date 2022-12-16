@@ -197,7 +197,7 @@ class FirmController extends Controller
                 Yii::$app->authManager->assign($role,$id);
                 
                  Yii::$app->mailer->compose()
-                ->setFrom('robot@jobgismail.ru')
+                ->setFrom('robot@jobgis.ru')
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Добрый день! Проект JOBGIS предлагает вам совершенно бесплатно воспользоваться нашим сервисом поиска соискателей и размещать свои вакансии. по всем вопросам работы сервиса вы можете обратиться к нам по телефону: +79174626690 Ваш логин: " . $user->email . "  Ваш пароль: " . $user->password)
@@ -254,7 +254,7 @@ class FirmController extends Controller
                 Yii::$app->authManager->assign($role,$id);
                 
                  Yii::$app->mailer->compose()
-                ->setFrom('robot@jobgismail.ru')
+                ->setFrom('robot@jobgis.ru')
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Добрый день! Проект JOBGIS предлагает вам совершенно бесплатно воспользоваться нашим сервисом поиска соискателей и размещать свои вакансии. по всем вопросам работы сервиса вы можете обратиться к нам по телефону: +79174626690 Ваш логин: " . $user->email . "  Ваш пароль: " . $user->password)
