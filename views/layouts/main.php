@@ -68,7 +68,8 @@ AppAsset::register($this);
         "rsscity",
         "refuse",
         "accept",
-        "view"
+        "view",
+        "recruiter"
 
         ];
     $role = "guest";

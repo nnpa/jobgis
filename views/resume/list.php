@@ -15,7 +15,7 @@
 <?php foreach($resumes as $resume):?>
     <tr>
         <td>    
-            <a href="/resume/edit?id=<?php echo $resume->id;?>"><?php echo $resume->vacancy;?></a>
+            <a style="color:<?php echo ($resume->vacancy == "Заполните должность")?'red':'';?>" href="/resume/edit?id=<?php echo $resume->id;?>"><?php echo $resume->vacancy;?></a>
         </td>
         <td>   
             <a target="_blank" href="/resume/show?id=<?php echo $resume->id;?>">Посмотреть</a>
