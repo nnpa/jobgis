@@ -115,7 +115,6 @@ class ResponseController extends AppController{
         
         Yii::$app->mailer->compose()
         ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
         ->setTo($response->vacancy->email)
         ->setSubject('На вашу вакансию на сайте jobgis.ru откликнулись')
         ->setTextBody("На вашу вакансию {$response->vacancy->name} откликнулись")
@@ -141,7 +140,6 @@ jobgis.ru@yandex.ru
         
         Yii::$app->mailer->compose()
         ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
         ->setTo($response->resume->user->email)
         ->setSubject('Резюме заинтересовало работодателя')
         ->setTextBody($message)
@@ -163,7 +161,6 @@ jobgis.ru@yandex.ru
          $message = "Ваше резюме по вакансии {$response->vacancy->name} не заинтересовало работодателя"; 
             Yii::$app->mailer->compose()
         ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
         ->setTo($response->resume->user->email)
         ->setSubject('Резюме не заинтересовало работодателя')
         ->setTextBody($message)
@@ -186,7 +183,6 @@ jobgis.ru@yandex.ru
          $message = "Ваше резюме по вакансии {$response->vacancy->name} не заинтересовало работодателя"; 
             Yii::$app->mailer->compose()
         ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
         ->setTo($response->resume->user->email)
         ->setSubject('Резюме не заинтересовало работодателя')
         ->setTextBody($message)

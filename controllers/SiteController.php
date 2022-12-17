@@ -210,7 +210,6 @@ class SiteController extends AppController
                 
                  Yii::$app->mailer->compose()
                 ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Поздравляем вы удачно зарегистрировались на сайте jobgis.ru. Ваш логин: " . $user->email . "  Ваш пароль: " . $user->password)
@@ -302,7 +301,6 @@ jobgis.ru@yandex.ru
                 
                  Yii::$app->mailer->compose()
                 ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Поздравляем вы удачно зарегистрировались на сайте jobgis.ru. Ваш логин: " . $user->email . "  Ваш пароль: " . $user->password)
@@ -331,7 +329,6 @@ jobgis.ru@yandex.ru
     public function adminNotify($type,$text){
         Yii::$app->mailer->compose()
         ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
         ->setTo("admin@jobgis.ru")
         ->setSubject('Новая регистрация на сайте jobgis.ru ' . $type)
         ->setTextBody("Новая регистрация на сайте jobgis.ru")
@@ -365,7 +362,6 @@ jobgis.ru@yandex.ru
                 
                 Yii::$app->mailer->compose()
                 ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Поздравляем вы удачно зарегистрировались на сайте jobgis.ru. Ваш логин: " . $user->email . "  Ваш пароль: " . $user->password)
@@ -463,7 +459,6 @@ jobgis.ru@yandex.ru
                 
                 Yii::$app->mailer->compose()
                 ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Поздравляем вы удачно зарегистрировались на сайте jobgis.ru. Ваш логин: " . $user->email . "  Ваш пароль: " . $user->password)
@@ -655,7 +650,6 @@ jobgis.ru@yandex.ru
                 
                  Yii::$app->mailer->compose()
                 ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Поздравляем вы удачно зарегистрировались на сайте jobgis.ru. Ваш логин: " . $user->email . "  Ваш пароль: " . $user->password)
@@ -734,7 +728,6 @@ jobgis.ru@yandex.ru
                             
             Yii::$app->mailer->compose()
             ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
             ->setTo("admin@jobgis.ru")
             ->setSubject('Работодатель ожидает верификации на сайте jobgis.ru')
             ->setTextBody("Работодатель ожидает верификации". $firm->name)

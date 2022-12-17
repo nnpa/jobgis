@@ -251,7 +251,6 @@ public function actionAdd(){
                 
                  Yii::$app->mailer->compose()
                 ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody(" Проект JOBGIS предлагает вам вступить в команду менеджеров! по всем вопросам работы сервиса вы можете обратиться к нам по телефону: +79174626690" . $user->email . "  Ваш пароль: " . $user->password)

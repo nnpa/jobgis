@@ -151,7 +151,6 @@ class FirmController extends Controller
            
                 Yii::$app->mailer->compose()
                 ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
                 ->setTo($user->email)
                 ->setSubject('jobgis.ru за вами закреплена фирма ' .$firm->name)
                 ->setTextBody('jobgis.ru за вами закреплена фирма ' .$firm->name)
@@ -171,7 +170,6 @@ jobgis.ru@yandex.ru
            $user = Users::find()->where(["id" => $_POST["manager"]])->one();
                 Yii::$app->mailer->compose()
                 ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
                 ->setTo($user->email)
                 ->setSubject('jobgis.ru за вами закреплена фирма ' .$firm->name)
                 ->setTextBody('jobgis.ru за вами закреплена фирма ' .$firm->name)
@@ -233,7 +231,6 @@ jobgis.ru@yandex.ru
                 
                  Yii::$app->mailer->compose()
                 ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
                 ->setTo($user->email)
                 ->setSubject('Регистрация на сайте jobgis.ru')
                 ->setTextBody("Добрый день! Проект JOBGIS предлагает вам совершенно бесплатно воспользоваться нашим сервисом поиска соискателей и размещать свои вакансии. по всем вопросам работы сервиса вы можете обратиться к нам по телефону: +79174626690 Ваш логин: " . $user->email . "  Ваш пароль: " . $user->password)
@@ -259,7 +256,6 @@ jobgis.ru@yandex.ru
         $user = Users::find()->where(["firm_id" =>$id])->one();
                 Yii::$app->mailer->compose()
         ->setFrom('jobgis.ru@yandex.ru')
-jobgis.ru@yandex.ru
         ->setTo($user->email)
         ->setSubject('Ваша фирма прошла верификацию на сайте jobgis.ru')
         ->setTextBody("Ваша фирма прошла верификацию на сайте jobgis.ru")
