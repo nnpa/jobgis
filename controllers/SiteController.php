@@ -772,6 +772,17 @@ class SiteController extends AppController
         if(isset($_POST["about"])&& !empty($_POST["about"])){
 
             $firm->site = $_POST['site'];
+            
+            if($firm->site != ''){
+               $pos1=  stripos($firm->site, 'http://');
+               $pos2=  stripos($firm->site, 'https://');
+               
+               if($pos1 == false AND $pos2 == false){
+                   $firm->site = "http://" . $firm->site;
+               }
+
+            }
+            
             $firm->about = $_POST['about'];
             $firm->save(false);
         }
