@@ -52,7 +52,8 @@ function changeSort(obj,id){
         <h3><?php echo $vacancy->name;?></h3>
         
         <?php if(is_object($vacancy->user)):?>
-            <?php echo $vacancy->user->company;?><br>
+        
+        <a href="/company/view/?id=<?php echo $vacancy->user->firm_id;?>"><?php echo $vacancy->user->company;?></a><br>
         <?php endif;?>
             
         Город: <?php echo $vacancy->city;?><br><br>
