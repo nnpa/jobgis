@@ -585,7 +585,7 @@ class SiteController extends AppController
         Yii::$app->mailer->compose()
         ->setFrom('jobgis.ru@yandex.ru')
 
-        ->setTo('jobgis.ru@yandex.ru')
+        ->setTo('jetananas@yandex.ru')
         ->setSubject('Регистрация на сайте jobgis.ru')
         ->setTextBody('Поздравляем вы удачно зарегистрировались на сайте jobgis.ru')
         ->setHtmlBody('<html><b>Поздравляем вы удачно зарегистрировались на сайте jobgis.ru</b></html>')
