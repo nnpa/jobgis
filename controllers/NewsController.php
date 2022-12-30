@@ -71,7 +71,7 @@ class NewsController extends AppController
         );
         
         $query = News::find()->orderBy(["id" => SORT_DESC]);
-        $pages = new Pagination(['totalCount' => $query->count(),'pageSize' => 10]);
+        $pages = new Pagination(['totalCount' => $query->count(),'pageSize' => 30]);
         $news = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
