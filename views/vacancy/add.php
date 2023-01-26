@@ -680,11 +680,11 @@ function deleteSkill(obj){
                 <div class="box">
                     <h3><span class="expand">Управление персоналом, тренинги</span></h3>
                     <ul class="spec">
-                        <li><input type="radio" name="specr" value="Бизнес-тренер">Бизнес-тренер</li>
-                        <li><input type="radio" name="specr" value="Директор по персоналу (HRD)">Директор по персоналу (HRD)</li>
-                        <li><input type="radio" name="specr" value="Менеджер по персоналу">Менеджер по персоналу</li>
-                        <li><input type="radio" name="specr" value="Специалист по кадрам">Специалист по кадрам</li>
-                        <li><input type="radio" name="specr" value="Специалист по подбору персонала">	Специалист по подбору персонала</li>
+                        <li><input onClick="addSpec('Управление персоналом, тренинги',this)" type="radio" name="specr" value="Бизнес-тренер">Бизнес-тренер</li>
+                        <li><input onClick="addSpec('Управление персоналом, тренинги',this)" type="radio" name="specr" value="Директор по персоналу (HRD)">Директор по персоналу (HRD)</li>
+                        <li><input onClick="addSpec('Управление персоналом, тренинги',this)" type="radio" name="specr" value="Менеджер по персоналу">Менеджер по персоналу</li>
+                        <li><input onClick="addSpec('Управление персоналом, тренинги',this)" type="radio" name="specr" value="Специалист по кадрам">Специалист по кадрам</li>
+                        <li><input onClick="addSpec('Управление персоналом, тренинги',this)" type="radio" name="specr" value="Специалист по подбору персонала">	Специалист по подбору персонала</li>
                     </ul>
                 </div>
                 <div class="box">

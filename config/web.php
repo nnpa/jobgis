@@ -38,7 +38,7 @@ $config = [
                         'class' => 'Swift_SmtpTransport',
                         'host' => 'smtp.yandex.ru',
                         'username' => 'jobgis.ru@yandex.ru',
-                        'password' => 'g02091988G',
+                        'password' => 'g02091988G777',
                         'port' => '465',
                         'encryption' => 'ssl',
                 ],
